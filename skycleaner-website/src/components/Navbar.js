@@ -10,7 +10,7 @@ function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
 
-    const handleClick = () => setClick(!click);  // reverse the false and true every time we click
+    const handleClick = () => setClick(!click);  // reverse the false and true every time we click and then we can change states
     const closeMobileMenu = () => setClick(false)  // handles closing menu
 
     //this condition is for mobile devices
@@ -30,6 +30,7 @@ function Navbar() {
         <>
         <nav className="navbar">
             <div className="navbar-container">
+                {/*  Main title */}
                 <Link to="/" className="navbar-logo"> 
                 SkyCleaner
                 </Link>
@@ -40,6 +41,7 @@ function Navbar() {
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
+                        {/*will direct to page*/}
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                             בית
                         </Link>
@@ -55,7 +57,8 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
-                {button && <Button buttonStyle='btn--outline'>לחיצה</Button>} {/*if this true then do it */}
+                {/*if this true then do it */}
+                {/* {button && <Button buttonStyle='btn--outline'>לחיצה</Button>} */}
             </div>
 
         </nav>
