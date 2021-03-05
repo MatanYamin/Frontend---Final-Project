@@ -1,10 +1,19 @@
-import React from 'react';
+// Matan Yamin - Frontend: Final Project.
 // will be the navbar component
+
+import React, {useState} from 'react'
+
+
 function Navbar() {
     return (
-        <div>
+        <>
+        <nav className="navbar">
+            <div className="navbar-container">
+                
+            </div>
 
-        </div>
+        </nav>
+        </>
     )
 }
 export default Navbar
