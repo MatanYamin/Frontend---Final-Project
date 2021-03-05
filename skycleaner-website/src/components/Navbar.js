@@ -1,8 +1,9 @@
 // Matan Yamin - Frontend: Final Project.
 // will be the navbar component
-
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+
+
 function Navbar() {
     const [click, setClick] = useState(false);
 
@@ -12,13 +13,13 @@ function Navbar() {
         <>
         <nav className="navbar">
             <div className="navbar-container">
-                <Link to="/" className="Navbar-logo"> 
-                Check Matansa <i className="fab fa-typo3" />
+                <Link to="/" className="navbar-logo"> 
+                Check Matan
                 </Link>
                 {/*  when pressing the icon*/}
                 <div className="menu-icon" onClick={handleClick}> 
                     {/*  move bewtween images ervery time we click*/}
-                    <i className={click ? 'fas fa-times' : 'fas fa-bars'} /> 
+                    <i className={click ? "fas fa-times" : "fas fa-bars"} />
                 </div>
             </div>
 
