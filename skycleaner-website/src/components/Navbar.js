@@ -14,16 +14,16 @@ function Navbar() {
     const closeMobileMenu = () => setClick(false)  // handles closing menu
 
     //this condition is for mobile devices
-    const showButton = () => {
-        if(window.innerWidth <= 960) {
-            setButton(false);
-        }
-        else{
-            setButton(true)
-        }
-    }
+    // const showButton = () => {
+    //     if(window.innerWidth <= 960) {
+    //         setButton(false);
+    //     }
+    //     else{
+    //         setButton(true)
+    //     }
+    // }
 
-    window.addEventListener('resize', showButton);
+    // window.addEventListener('resize', showButton);
 
     return (
         //Will be the upper part including hamburger menu
