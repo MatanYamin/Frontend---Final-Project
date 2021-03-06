@@ -2,7 +2,6 @@
 // will be the navbar component
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import { Button } from './Button';
 import './Navbar.css';
 
 
@@ -12,18 +11,6 @@ function Navbar() {
 
     const handleClick = () => setClick(!click);  // reverse the false and true every time we click and then we can change states
     const closeMobileMenu = () => setClick(false)  // handles closing menu
-
-    //this condition is for mobile devices
-    // const showButton = () => {
-    //     if(window.innerWidth <= 960) {
-    //         setButton(false);
-    //     }
-    //     else{
-    //         setButton(true)
-    //     }
-    // }
-
-    // window.addEventListener('resize', showButton);
 
     return (
         //Will be the upper part including hamburger menu
