@@ -21,6 +21,7 @@
     color: white;
     font-size: 100px;
     margin-top: -100px;
+    vertical-align:middle;
 }
 
 .middle-container > p {
@@ -28,4 +29,20 @@
     color: white;
     font-size: 32px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* for screens with width 768-960 px */
+@media screen and (max-width:  960px) {
+    .middle-container > h1{
+        font-size: 70px;
+        margin-top: -150px;
+    }
+}
+
+/* for moblie phones with screen max 768 px */
+@media screen and (max-width:  768px) {
+    .middle-container > h1{
+        font-size: 50px;
+        margin-top: -100px;
+    }
 }
