@@ -19,7 +19,7 @@ function Navbar() {
             <div className="navbar-container">
                 {/*  Main title */}
                 <Link to="/" className="navbar-logo"> 
-                SkyCleaner
+                SkyCleaner ‏ ‏ ‏<img className="small-logo" src="https://i.ibb.co/zVZ65kL/favicon.png" />
                 </Link>
                 {/*  when pressing the icon*/}
                 <div className="menu-icon" onClick={handleClick}> 
@@ -41,6 +41,21 @@ function Navbar() {
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                             דוגמה
+                        </Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                            עוד דבר
+                        </Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                            עוד דבר 2
+                        </Link>
+                    </li>
+                    <li className='nav-item'>
+                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                            עוד דבר 3
                         </Link>
                     </li>
                 </ul>
