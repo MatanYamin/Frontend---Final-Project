@@ -13,33 +13,33 @@ function ServicesCards() {
                         <SingleService 
                         imgurl="https://i.ibb.co/VChPMLY/eco-car-wash.jpg" 
                         name="ניקוי רכב"
-                        text="תיאור דברים שאפשר לכתוב כאן כמו מילים מילים ועוד מילים אנחנו מתמחים בניקיון הרבה דברים"
+                        text="תיאור דברים שאפשר לכתוב כאן אנחנו מתמחים בניקיון הרבה דברים"
                         path="/something"
                         />
                         {/* <ul></ul> */}
                         <SingleService 
-                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
-                        name="ניקוי רכב"
-                        text="תיאור שרות"
+                        imgurl="https://i.ibb.co/bvFRLRg/sofa.jpg" 
+                        name="ניקוי רהיטים"
+                        text="אנו מנקים את כל סוגי הרהיטים"
                         path="/something"
                         />
                     </ul>
                         <ul className="cards__items">
                         <SingleService 
-                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
-                        name="ניקוי רכב"
-                        text="תיאור שרות"
+                        imgurl="https://i.ibb.co/VJw3B5b/carpet.jpg" 
+                        name="ניקוי שטיחים"
+                        text="אנחנו מנקים את כל סוגי השטיחים"
+                        path="/something"
+                        />
+                        <SingleService 
+                        imgurl="https://i.ibb.co/PGVYcd6/chair.jpg" 
+                        name="ניקוי כיסאות"
+                        text="אנחנו מנקים את כל הכיסאות"
                         path="/something"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
-                        name="ניקוי רכב"
-                        text="תיאור שרות"
-                        path="/something"
-                        />
-                        <SingleService 
-                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
-                        name="ניקוי רכב"
+                        name="ניקוי כללי"
                         text="תיאור שרות"
                         path="/something"
                         />
