@@ -11,10 +11,10 @@ function App() {
     <div className="App">
       <Router>
       <Navbar />
-      <Switch>
+      {/* <Switch> */}
         <Home />
         {/* <Route path='/' exact component={Home} /> */}
-      </Switch>
+      {/* </Switch> */}
       </Router>
     </div>
   );
