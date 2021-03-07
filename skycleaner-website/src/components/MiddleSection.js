@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import { Button } from "./Button";
 import "../App.css";
 
-
 function MiddleSection() {
     return(
         <div className="middle-container">
@@ -17,7 +16,6 @@ function MiddleSection() {
                 <Button className="btns" buttonStyle='btn--primary' buttonSize="btn--large">!לצפייה בהגרלה</Button>
                 {/* <br></br><br></br> */}
             </div>
-
         </div>
     )
 }
