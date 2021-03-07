@@ -12,7 +12,9 @@ import Clean5 from "./components/pages/Clean5"
 import Admin from "./components/pages/Admin"
 import Contact from "./components/pages/Contact"
 
-
+//App will execute the program
+//I built a few components that help us route in the website
+//The name Clean1 - Clean5 will alter in the future
 function App() {
   return (
     <>

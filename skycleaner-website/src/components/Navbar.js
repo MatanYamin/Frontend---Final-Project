@@ -6,7 +6,7 @@ import './Navbar.css';
 
 
 function Navbar() {
-    const [click, setClick] = useState(false);
+    const [click, setClick] = useState(false);  //when we useing useState we will make "click" false for getting out from menu
     const [button, setButton] = useState(true);
 
     const handleClick = () => setClick(!click);  // reverse the false and true every time we click and then we can change states
@@ -17,18 +17,18 @@ function Navbar() {
         <>
         <nav className="navbar">
             <div className="navbar-container">
-                {/*  Main title */}
+                {/*  Main title, links to home page */}
                 <Link to="/" className="navbar-logo"> 
                 SkyCleaner
                 </Link>
-                {/*  when pressing the icon*/}
+                {/*  when pressing the icon it will alter*/}
                 <div className="menu-icon" onClick={handleClick}> 
                     {/*  move bewtween images ervery time we click*/}
                     <i className={click ? "fas fa-times" : "fas fa-bars"} />
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className='nav-item'>
-                        {/*will direct to page*/}
+                        {/*will direct to home page for now*/}
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                             בית
                         </Link>
@@ -67,4 +67,5 @@ function Navbar() {
         </>
     )
 }
+
 export default Navbar
