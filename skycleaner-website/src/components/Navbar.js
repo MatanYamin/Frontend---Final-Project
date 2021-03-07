@@ -19,7 +19,7 @@ function Navbar() {
             <div className="navbar-container">
                 {/*  Main title */}
                 <Link to="/" className="navbar-logo"> 
-                SkyCleaner ‏ ‏ ‏<img className="small-logo" src="https://i.ibb.co/zVZ65kL/favicon.png" />
+                SkyCleaner
                 </Link>
                 {/*  when pressing the icon*/}
                 <div className="menu-icon" onClick={handleClick}> 

@@ -1,14 +1,19 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import './ServicesCards.css' 
 
-function SingleService() {
+function SingleService(props) {
     return(
         <>
-        <li className="single-service">
-            <Link className="service-link">
-                <figure className="figure-class">
-                    <img src="/" alt="???" className="service-img" />
+        <li className="cards__item">
+            <Link className="cards__item__link" to={props.path}>
+                <h1>{props.name}</h1>
+                <figure className="cards__item__pic-wrap">
+                    <img src={props.imgurl} className="cards__item__img" />
                 </figure>
+                <div className="cards__item__info">
+                    <h5 className="cards__item__text">{props.text}</h5>
+                </div>
             </Link>
         </li>
         </>
