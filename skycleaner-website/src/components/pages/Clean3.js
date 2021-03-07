@@ -4,7 +4,7 @@ import "../../App.css"
 
 export default function Clean3() {
     return(
-        <h1 className="clean3"> We are in clean3! </h1>
+        <h1 className="clean3"> הזמינו ניקוי שטיחים בטופס הבא..</h1>
     );
 }
 

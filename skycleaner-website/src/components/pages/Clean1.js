@@ -5,7 +5,7 @@ import "../../App.css"
 export default function Clean1() {
     return(
         <div className="clean1">
-        <h1> We are in clean1! </h1>
+        <h1> הזמינו ניקוי לרכב בטופס הבא.. </h1>
         </div>
     );
 }

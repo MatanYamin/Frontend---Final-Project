@@ -35,7 +35,7 @@ function Navbar() {
                     </li>
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            שירותים
+                            שרותים
                         </Link>
                     </li>
                     <li className='nav-item'>
@@ -45,17 +45,17 @@ function Navbar() {
                     </li>
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            עוד דבר
+                            עוד דוגמה
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            עוד דבר 2
+                        <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
+                            צרו קשר
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            עוד דבר 3
+                        <Link to='/admin' className='nav-links' onClick={closeMobileMenu}>
+                            עמוד ניהול
                         </Link>
                     </li>
                 </ul>
