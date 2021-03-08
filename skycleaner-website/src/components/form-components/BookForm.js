@@ -23,18 +23,18 @@ export class BookForm extends Component() {
         comments: ''
     }
 
-    // Proceed to next step
+    // increases the step integer and that way we can know where we at
     nextStep = () => {
-        const {step} = this.state.step
-        this.state({
+        const {step} = this.state;
+        this.setState({
             step: step + 1
         });
     }
 
-    // Go back to previous step
+    // decreases the step integer and that way we can know where we at
     prevStep = () => {
-        const {step} = this.state.step
-        this.state({
+        const {step} = this.state;
+        this.setState({
             step: step - 1
         });
     }
@@ -42,26 +42,33 @@ export class BookForm extends Component() {
     render() {
         const {step} = this.state
         const {service, addons,firstName, lastName, email, address, city, phone, comments} = this.state;
-        //I will pass the values to the relevant Component
+        //The values that will be entered to the form
         const values = {service, addons,firstName, lastName, email, address, city, phone, comments};
         // switchcase for every step- from the steps in state
         switch(step){
+            //First step and initial step
             case 1:
                 return(
-                    <PickService />
+                    <PickService
+                    nextStep={this.nextStep}
+                    />
                 )
+            //Second step
             case 2:
                 return(
                     <PickDate />
                 )
+            //Third step
             case 3:
                 return(
                     <PersonalDetails />
                 )
+            //Fourth step
             case 4:
                 return(
                     <Confirm />
                 )
+            //Fifth step (only will show that the submit worked)
             case 5:
                 return(
                     <Success />
