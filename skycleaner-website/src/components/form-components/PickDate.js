@@ -1,9 +1,9 @@
 import React from "react"
 
-function PickDate() {
+function PickDate(props) {
     return(
         <div>
-
+            <h1>working</h1>
         </div>
     )
 }

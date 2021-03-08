@@ -28,7 +28,7 @@ export class BookForm extends Component {
 
     // increases the step integer and that way we can know where we at
     nextStep = () => {
-        const {step} = this.state.step;
+        const {step} = this.state;
         this.setState({
             step: step + 1
         });
@@ -59,8 +59,9 @@ export class BookForm extends Component {
         switch(step){
             //First step and initial step
             case 1:
-                return(
+                return (
                     <>
+                    {console.log(step)}
                     <PickService
                     nextStep={this.nextStep}  //increase step by 1
                     handleChange={this.handleChange}  //passing my function inorder to be able insert value to the input name
@@ -70,18 +71,23 @@ export class BookForm extends Component {
                 )
             //Second step
             case 2:
-                return(
+                return (
                     <>
+                    {console.log(step)}
+
                     <h1>מתי תרצו שנגיע?</h1>
-                    <PickDate
-                    nextStep={this.nextStep} />
+                    {/* <PickDate
+                    nextStep={this.nextStep}
+                    handleChange={this.handleChange}
+                    /> */}
                     </>
                 )
                 
             //Third step
             case 3:
                 return(
-                    <PersonalDetails />
+                    <h1>Work for now?</h1>
+                    // <PersonalDetails />
                 )
             //Fourth step
             case 4:
