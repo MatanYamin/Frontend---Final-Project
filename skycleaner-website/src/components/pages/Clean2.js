@@ -1,10 +1,13 @@
 import React from 'react';
 import "../../App.css"
+import BookForm from "../form-components/BookForm"
 
 
 export default function Clean2() {
     return(
-        <h1 className="clean2"> הזמינו ניקוי לרהיטים בטופס הבא.. </h1>
+        <div className="clean2">
+            <BookForm />
+        </div>
     );
 }
 

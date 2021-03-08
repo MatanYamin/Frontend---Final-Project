@@ -6,26 +6,29 @@ import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form
 
 
-//Main Form Component for the steps
 
 
-export class BookForm extends Component() {
-    state = {
-        step: 1,
-        service: '',
-        addons: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        address: '',
-        city: '',
-        comments: ''
+//Main Form Component for the steps. Will hold all the steps. maybe in the future I will add more steps
+export class BookForm extends Component {
+    constructor(){
+        super()
+        this.state = {
+            step: 1,
+            service: '',
+            addons: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            address: '',
+            city: '',
+            comments: ''
+        }
     }
 
     // increases the step integer and that way we can know where we at
     nextStep = () => {
-        const {step} = this.state;
+        const {step} = this.state.step;
         this.setState({
             step: step + 1
         });
@@ -39,6 +42,14 @@ export class BookForm extends Component() {
         });
     }
 
+    //handleChange will insert the value that the user inserted to the same input
+    //'input' is the field that the user insert his value
+    handleChange = input => event => {
+        this.setState({
+            [input]: event.target.value
+        });
+    }
+
     render() {
         const {step} = this.state
         const {service, addons,firstName, lastName, email, address, city, phone, comments} = this.state;
@@ -49,15 +60,24 @@ export class BookForm extends Component() {
             //First step and initial step
             case 1:
                 return(
+                    <>
                     <PickService
-                    nextStep={this.nextStep}
+                    nextStep={this.nextStep}  //increase step by 1
+                    handleChange={this.handleChange}  //passing my function inorder to be able insert value to the input name
+                    values={values}
                     />
+                    </>
                 )
             //Second step
             case 2:
                 return(
-                    <PickDate />
+                    <>
+                    <h1>מתי תרצו שנגיע?</h1>
+                    <PickDate
+                    nextStep={this.nextStep} />
+                    </>
                 )
+                
             //Third step
             case 3:
                 return(
