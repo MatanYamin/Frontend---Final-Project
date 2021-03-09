@@ -1,3 +1,4 @@
+//By Matan Yamin
 import React from "react"
 import { Component } from "react"
 import TextField from "../../../node_modules/@material-ui/core/TextField"
@@ -7,8 +8,8 @@ import Button from "../../../node_modules/@material-ui/core/Button"
 
 export class PickService extends Component {
     //continue is only when we click the "continue" button. than we can move to the next step
-    continue = e => {
-        e.preventDefault();
+    continue = event => {
+        event.preventDefault();
         this.props.nextStep(); //will increase step by 1
     }
     render() {
@@ -17,19 +18,19 @@ export class PickService extends Component {
     return (
         <div>
             <h1>{page}</h1>
-            <br/>
+            <br/><br/>
             <h5>בחר שרות</h5>
             <br/>
             <TextField 
-            placeholder="תשובה"
+            placeholder="הקלידו את תשובתכם"
             onChange={this.props.handleChange('service')}
             defaultValue={values.service}
             />
             <br/><br/>
-            <h5>בחר תוספים</h5>
+            <h5>בחרו תוספים</h5>
             <br/>
             <TextField
-            placeholder="תשובה"
+            placeholder="הקלידו את תשובתכם"
             onChange={this.props.handleChange('addons')}
             defaultValue={values.addons}
             />

@@ -27,6 +27,7 @@ export class BookForm extends Component {
     }
 
     // increases the step integer and that way we can know where we at
+    //with switch case we will check at which step
     nextStep = () => {
         const {step} = this.state;
         this.setState({
@@ -35,6 +36,7 @@ export class BookForm extends Component {
     }
 
     // decreases the step integer and that way we can know where we at
+    //with switch case we will check at which step
     prevStep = () => {
         const {step} = this.state;
         this.setState({
