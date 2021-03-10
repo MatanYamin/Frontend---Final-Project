@@ -13,7 +13,8 @@ const AdminLoginPage = (props) => {
             <div className="loginContainer">
                 <label>שם משתמש</label>
                 <input type="text"
-                 autoFocus required
+                 autoFocus
+                 required
                  value={email}
                  onChange={(e) => setEmail(e.target.value)}
                  />

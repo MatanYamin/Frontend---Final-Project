@@ -13,7 +13,6 @@ const AdminLogin = () => {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [hasAccount, setHasAccount] = useState(false);
 
     const clearInput = () => {
         //when using cleaInput - setEmail and password will be empty
@@ -63,7 +62,6 @@ const AdminLogin = () => {
             }
         })
     }
-
     //handle singUp will handle the singup part. 
     const handleSingup = () => {
         clearErrors()
@@ -86,10 +84,9 @@ const AdminLogin = () => {
         authListener();
     }, [])
 
-
     return(
         <div>
-        {user? (
+        {user? (  //if user is True -> means we are logged in. else-> go to admin login page
             <Admin 
         handleLogout={handleLogout}
         handleSingup={handleSingup}
@@ -100,7 +97,7 @@ const AdminLogin = () => {
         handleLogin={handleLogin}
         emailError={emailError}
         passwordError={passwordError}
-        />) : (
+        />) : ( //else
         <AdminLoginPage
         email={email}
         setEmail={setEmail}
@@ -108,13 +105,10 @@ const AdminLogin = () => {
         setPassword={setPassword}
         handleLogin={handleLogin}
         handleSingup={handleSingup}
-        // hasAccount={hasAccount}
-        // setHasAccount={setHasAccount}
         emailError={emailError}
         passwordError={passwordError}
         />
         )}
-        
          </div>
     );
 }
