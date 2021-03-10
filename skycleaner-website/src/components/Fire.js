@@ -1,4 +1,6 @@
- import firebase from "firebase"
+//firebase component that allows adming to login
+//code from firebase auth
+import firebase from "firebase"
 
  
  var firebaseConfig = {
