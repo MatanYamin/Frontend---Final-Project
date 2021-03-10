@@ -1,0 +1,11 @@
+
+.form > h6{
+    color:red
+}
+
+.form-container{
+    align-items:center;
+        justify-content:center;
+    /* flex-direction: row; */
+    /* display: flex; */
+}

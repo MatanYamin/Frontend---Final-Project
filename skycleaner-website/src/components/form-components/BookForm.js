@@ -7,7 +7,6 @@ import Success from "./Success"  // Step 5 completed form
 
 
 
-
 //Main Form Component for the steps. Will hold all the steps. maybe in the future I will add more steps
 export class BookForm extends Component {
     constructor(){
@@ -63,7 +62,6 @@ export class BookForm extends Component {
             case 1:
                 return (
                     <>
-                    {console.log(step)}
                     <PickService
                     nextStep={this.nextStep}  //increase step by 1
                     handleChange={this.handleChange}  //passing my function inorder to be able insert value to the input name
@@ -75,26 +73,33 @@ export class BookForm extends Component {
             case 2:
                 return (
                     <>
-                    {console.log(step)}
-
-                    <h1>מתי תרצו שנגיע?</h1>
-                    {/* <PickDate
+                    <PickDate
                     nextStep={this.nextStep}
+                    prevStep={this.prevStep}
                     handleChange={this.handleChange}
-                    /> */}
+                    values={values}
+                    />
                     </>
                 )
                 
             //Third step
             case 3:
                 return(
-                    <h1>Work for now?</h1>
-                    // <PersonalDetails />
+                    <PersonalDetails
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                    />
                 )
             //Fourth step
             case 4:
                 return(
-                    <Confirm />
+                    <Confirm
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    values={values}
+                    />
                 )
             //Fifth step (only will show that the submit worked)
             case 5:
