@@ -31,7 +31,7 @@ function App() {
         <Route path='/clean5' component={Clean5} />
         <Route path='/Contact' component={Contact} />
         <Route path='/AdminLogin' component={AdminLogin} />
-        <Route path='/Admin' component={Admin} />
+        {/* <Route path='/Admin' component={Admin} /> */}
       </Switch>
       </Router>
     </>
