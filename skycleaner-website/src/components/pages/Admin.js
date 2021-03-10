@@ -1,12 +1,12 @@
 import React from 'react';
 import AddAdmin from "../AddAdmin"
-
+//Admin panel will hold all components that are able by the admin
 
 class Admin extends React.Component {
     
     constructor(props) {
         super(props);
-        //"showing state" will help us show or hide a component
+        //"showing state" will help us show or hide a component "add admin" after clicking the button
         this.state = {
           showing: false,
         };
@@ -20,6 +20,7 @@ class Admin extends React.Component {
          {/* This button is handling adding admin component */}
          <button onClick={this.props.handleLogout}>התנתק</button>
          <div>
+        {/* Adding new manager */}
         <button onClick={() => this.setState({ showing: !showing })}>להוספת מנהל</button>
         {this.state.showing ?
            <AddAdmin
@@ -33,11 +34,8 @@ class Admin extends React.Component {
            null
         }
       </div>
-
          </div>
     );
 }
-
 }
-
 export default Admin
