@@ -10,6 +10,7 @@ import Clean3 from "./components/pages/Clean3"
 import Clean4 from "./components/pages/Clean4"
 import Clean5 from "./components/pages/Clean5"
 import Admin from "./components/pages/Admin"
+import AdminLogin from "./components/pages/AdminLogin"
 import Contact from "./components/pages/Contact"
 
 //App will execute the program
@@ -29,6 +30,7 @@ function App() {
         <Route path='/clean4' component={Clean4} />
         <Route path='/clean5' component={Clean5} />
         <Route path='/Contact' component={Contact} />
+        <Route path='/AdminLogin' component={AdminLogin} />
         <Route path='/Admin' component={Admin} />
       </Switch>
       </Router>

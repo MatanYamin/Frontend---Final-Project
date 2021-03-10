@@ -54,7 +54,7 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/admin' className='nav-links' onClick={closeMobileMenu}>
+                        <Link to='/adminLogin' className='nav-links' onClick={closeMobileMenu}>
                             עמוד ניהול
                         </Link>
                     </li>
