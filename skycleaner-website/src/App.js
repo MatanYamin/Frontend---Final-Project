@@ -13,7 +13,7 @@ import Admin from "./components/pages/Admin"
 import AdminLogin from "./components/pages/AdminLogin"
 import Contact from "./components/pages/Contact"
 
-//App will execute the program
+//App will execute the program. Adding routes for pages in th e website
 //I built a few components that help us route in the website
 //The name Clean1 - Clean5 will alter in the future
 function App() {

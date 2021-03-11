@@ -4,7 +4,7 @@ import PickDate from "./PickDate"  // Step 2
 import PersonalDetails from "./PersonalDetails"  // Step 3
 import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form
-
+//Will need to add adming page
 
 
 //Main Form Component for the steps. Will hold all the steps. maybe in the future I will add more steps
