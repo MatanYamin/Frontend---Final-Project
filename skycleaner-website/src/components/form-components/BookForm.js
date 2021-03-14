@@ -15,6 +15,7 @@ export class BookForm extends Component {
             step: 1,
             service: '',
             addons: '',
+            date: 'asd',
             firstName: '',
             lastName: '',
             email: '',
@@ -53,9 +54,9 @@ export class BookForm extends Component {
 
     render() {
         const {step} = this.state
-        const {service, addons,firstName, lastName, email, address, city, phone, comments} = this.state;
+        const {service, addons, date, firstName, lastName, email, address, city, phone, comments} = this.state;
         //The values that will be entered to the form
-        const values = {service, addons,firstName, lastName, email, address, city, phone, comments};
+        const values = {service, addons, date, firstName, lastName, email, address, city, phone, comments};
         // switchcase for every step- from the steps in state
         switch(step){
             //First step and initial step

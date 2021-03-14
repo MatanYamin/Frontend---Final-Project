@@ -19,7 +19,7 @@ export class Confirm extends Component {
         this.props.prevStep(); //will increase step by 1
     }
     render() {
-    const {values: {service, addons,firstName, lastName, email, address, city, phone, comments}} = this.props;
+    const {values: {service, addons, date, firstName, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
     return (
         <div>
@@ -29,10 +29,12 @@ export class Confirm extends Component {
             {/* <List> */}
                 <h7>שם:</h7><br/>
                 <h6>{firstName} {lastName}</h6>
+                {/* <h1>{date}</h1> */}
+                {console.log(date)}
                 {/* <br/> */}
                 כתובת:
                 <br/>
-                <h6>{address}, {city}</h6>
+                <h6>{address} {city}</h6>
                 {/* <br/> */}
                 מייל:
                 <br/>
