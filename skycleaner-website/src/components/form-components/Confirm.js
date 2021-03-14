@@ -29,7 +29,7 @@ export class Confirm extends Component {
             {/* <List> */}
                 <h7>שם:</h7><br/>
                 <h6>{firstName} {lastName}</h6>
-                {/* <h1>{date}</h1> */}
+                <h1>{date}</h1>
                 {console.log(date)}
                 {/* <br/> */}
                 כתובת:

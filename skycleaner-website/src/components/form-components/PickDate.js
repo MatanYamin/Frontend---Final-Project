@@ -14,7 +14,7 @@ export class PickDate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          selectedDate: null
+          selectedDate: null,
         };
       }
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
@@ -29,8 +29,10 @@ export class PickDate extends Component {
 
     putValue = (date) => {
         this.setState({selectedDate: date});
+        // date.onChange=this.props.handleChange('date')
+        // this.state.selectedDate = JSON.stringify(this.state.selectedDate);
+        // this.props.handleChange('date')
         // values.date = this.state.selectedDate;
-        // this.selectedDate = this.props.handleChange('date')
     }
 
     render() {
@@ -49,8 +51,10 @@ export class PickDate extends Component {
             // this.props.handleChange('date')} //will handle changes in dates and insert to new value
             // onChange={this.handleChange('date')}
             dateFormat="dd/MM/yy"
+            
             // minDate={new Date()}
             />
+            {typeof(JSON.stringify(this.state.selectedDate))}
             <br/><br/>
             {/* {console.log(values.date)} */}
             <h5>בחרו שעה</h5>

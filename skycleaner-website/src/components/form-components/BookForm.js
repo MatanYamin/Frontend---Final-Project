@@ -15,7 +15,7 @@ export class BookForm extends Component {
             step: 1,
             service: '',
             addons: '',
-            date: 'asd',
+            date: '',
             firstName: '',
             lastName: '',
             email: '',
