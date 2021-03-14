@@ -12,7 +12,8 @@ class Admin extends React.Component {
         };
       }
       render() {
-        const { showing } = this.state;
+        //will update if there is a click
+        const {showing} = this.state;
     return(
         <div>
         <h1> ברוכים הבאים למסך הניהול
@@ -20,7 +21,7 @@ class Admin extends React.Component {
          {/* This button is handling adding admin component */}
          <button onClick={this.props.handleLogout}>התנתק</button>
          <div>
-        {/* Adding new manager */}
+        {/* Adding new manager component after click */}
         <button onClick={() => this.setState({ showing: !showing })}>להוספת מנהל</button>
         {this.state.showing ?
            <AddAdmin
@@ -33,6 +34,9 @@ class Admin extends React.Component {
             :
            null
         }
+        <button>שינוי שרות</button>
+        <button>עדכון זמינות</button>
+        <button>אישור על סיום תור</button>
       </div>
          </div>
     );
