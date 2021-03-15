@@ -9,7 +9,7 @@ function MiddleSection() {
     return(
         <div className="middle-container">
                 <h1>ברוכים הבאים</h1>
-                <p>כאן תוכלו להזמין שרותים</p>
+                <p>כאן תוכלו לצפות  להזמין שרותים</p>
             <div className="middle-btns">
                 {/* the buttons will direct to the services and to lottery video */}
                 <Button className="btns" buttonStyle='btn--outline' buttonSize="btn--large">חפשו שירות‏!‏</Button>

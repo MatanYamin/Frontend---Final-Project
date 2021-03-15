@@ -48,7 +48,7 @@ export class PersonalDetails extends Component {
             <TextField
             placeholder="הקלידו את תשובתכם"
             onChange={this.props.handleChange('phone')}
-            defaultValue={values.email}
+            defaultValue={values.phone}
             />
             <h5>עיר</h5>
             <TextField

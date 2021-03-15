@@ -12,6 +12,7 @@ import Clean5 from "./components/pages/Clean5"
 import Admin from "./components/pages/Admin"
 import AdminLogin from "./components/pages/AdminLogin"
 import Contact from "./components/pages/Contact"
+import About from "./components/pages/About"
 
 //App will execute the program. Adding routes for pages in th e website
 //I built a few components that help us route in the website
@@ -30,6 +31,7 @@ function App() {
         <Route path='/clean4' component={Clean4} />
         <Route path='/clean5' component={Clean5} />
         <Route path='/Contact' component={Contact} />
+        <Route path='/About' component={About} />
         <Route path='/AdminLogin' component={AdminLogin} />
         {/* <Route path='/Admin' component={Admin} /> */}
       </Switch>

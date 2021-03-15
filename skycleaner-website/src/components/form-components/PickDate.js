@@ -5,7 +5,9 @@ import TextField from "../../../node_modules/@material-ui/core/TextField"
 import UiButton from "../../../node_modules/@material-ui/core/Button"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-import Calendar from "./Calendar"
+// import Calendar from "./Calendar"
+// import Calendar from 'react-input-calendar'
+// import Calendara from "../../../node_modules/react-input-calendar/dist/"
 
 
 
@@ -45,25 +47,31 @@ export class PickDate extends Component {
             {/* <h1>{page}</h1> */}
             {/* <h1>בחר יום</h1> */}
             <h5>בחרו תאריך</h5>
+            <br/>
+            {/* <Calendar 
+            format='DD/MM/YYYY' 
+            date='4-12-2014'
+            /> */}
             <DatePicker //represents the calendar picker
             selected={this.state.selectedDate} //will be the date selected
-            onChange={this.putValue}
+            onChange={this.putValue} 
+            // onSelect={this.props.handleChange('date')}
             // this.props.handleChange('date')} //will handle changes in dates and insert to new value
             // onChange={this.handleChange('date')}
             dateFormat="dd/MM/yy"
             
             // minDate={new Date()}
             />
-            {typeof(JSON.stringify(this.state.selectedDate))}
+            {/* {typeof(JSON.stringify(this.state.selectedDate))} */}
             <br/><br/>
             {/* {console.log(values.date)} */}
             <h5>בחרו שעה</h5>
             <br/>
-            <TextField
+            {/* <TextField
             placeholder={this.state.selectedDate}
             // onChange={this.props.handleChange('lastName')}
             defaultValue={this.state.selectedDate}
-            />
+            /> */}
             <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <UiButton
