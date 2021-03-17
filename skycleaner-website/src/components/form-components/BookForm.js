@@ -82,7 +82,6 @@ export class BookForm extends Component {
                     />
                     </>
                 )
-                
             //Third step
             case 3:
                 return(

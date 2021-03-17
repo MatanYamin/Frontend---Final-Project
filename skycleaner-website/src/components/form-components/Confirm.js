@@ -10,10 +10,30 @@ import "./Form.css"
 
 export class Confirm extends Component {
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
-    continue = event => {
-        event.preventDefault();
-        this.props.nextStep(); //will increase step by 1
+    // continue = event => {
+    //     event.preventDefault();
+    //     this.props.nextStep(); //will increase step by 1
+    // }
+    async postData(){
+        try{
+            let results = await fetch("https://webhook.site/9930f6a8-05dc-4d60-8184-0e3277c5c8e8", {
+                method: "post",
+                mode: "no-cors",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    key1: this.props.firstName
+                })
+            });
+            console.log("Results:" + results);
+        }
+        catch(e) {
+            console.log(e)
+        }
     }
+
     backward = event => {
         event.preventDefault();
         this.props.prevStep(); //will increase step by 1
@@ -59,7 +79,7 @@ export class Confirm extends Component {
             <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <UiButton
-            onClick={this.continue}>אישור
+            onClick={() => this.postData()}>אישור
             </UiButton>
             {/* back button - calls "backward" that decrease step state by 1 */}
             <UiButton
