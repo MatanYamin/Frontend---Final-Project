@@ -4,6 +4,7 @@ import PickDate from "./PickDate"  // Step 2
 import PersonalDetails from "./PersonalDetails"  // Step 3
 import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form
+import axios from "../../../node_modules/axios"
 //Will need to add adming page
 
 
@@ -52,6 +53,18 @@ export class BookForm extends Component {
         });
     }
 
+    // submitHandler = e => {
+    //     e.preventDefault()
+    //     console.log(this.state)
+    //     axios.post("http://127.0.0.1:5000/", this.state)
+    //         .then(respoone => {
+    //             console.log("work" ,respoone)
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })
+    // }
+
     render() {
         const {step} = this.state
         const {service, addons, date, firstName, lastName, email, address, city, phone, comments} = this.state;
@@ -95,6 +108,20 @@ export class BookForm extends Component {
             //Fourth step
             case 4:
                 return(
+                    // <div>
+                    //     CONFIRM PAGE
+                    //     {this.state.firstName}
+                    //     <button 
+                    //     onClick={axios.post("http://127.0.0.1:5000/", this.state)
+                    //     .then(respoone => {
+                    //         console.log("work" ,respoone)
+                    //     })
+                    //     .catch(error => {
+                    //         console.log(error)
+                    //     })}
+                    //     type="submit">SEND</button>
+                    // </div>
+
                     <Confirm
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}

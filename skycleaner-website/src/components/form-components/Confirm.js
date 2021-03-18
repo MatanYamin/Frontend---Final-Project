@@ -9,14 +9,21 @@ import "./Form.css"
 
 
 export class Confirm extends Component {
+    
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     // continue = event => {
     //     event.preventDefault();
     //     this.props.nextStep(); //will increase step by 1
     // }
+    constructor(props) {
+        super(props);
+        this.state = {
+          firstName: this.props.firstName
+        };
+    }
     async postData(){
         try{
-            let results = await fetch("https://webhook.site/9930f6a8-05dc-4d60-8184-0e3277c5c8e8", {
+            let results = await fetch("http://127.0.0.1:5000/", {
                 method: "post",
                 mode: "no-cors",
                 headers: {
@@ -24,10 +31,10 @@ export class Confirm extends Component {
                     "Content-type": "application/json",
                 },
                 body: JSON.stringify({
-                    key1: this.props.firstName
+                    key1: "matan"
                 })
             });
-            console.log("Results:" + results);
+            console.log("first:" + this.props.firstName);
         }
         catch(e) {
             console.log(e)
@@ -49,8 +56,9 @@ export class Confirm extends Component {
             {/* <List> */}
                 <h7>שם:</h7><br/>
                 <h6>{firstName} {lastName}</h6>
+                {/* {console.log(firstName)} */}
                 <h1>{date}</h1>
-                {console.log(date)}
+                {/* {console.log(date)} */}
                 {/* <br/> */}
                 כתובת:
                 <br/>
@@ -79,7 +87,29 @@ export class Confirm extends Component {
             <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <UiButton
-            onClick={() => this.postData()}>אישור
+            onClick={() => 
+                {
+                   
+                    try{
+                        fetch("http://127.0.0.1:5000/", {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                              },
+                            body: JSON.stringify({
+                                // key1: "matan"
+                                fullName: firstName + ' ' + lastName,
+                                email: email,
+                                phone: phone,
+                                fullAddress: address + ', ' + city
+                            })
+                        });
+                    }
+                    catch(e) {
+                        console.log(e)}}}>
+            אישור
             </UiButton>
             {/* back button - calls "backward" that decrease step state by 1 */}
             <UiButton
