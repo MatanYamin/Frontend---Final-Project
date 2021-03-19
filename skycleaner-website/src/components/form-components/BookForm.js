@@ -5,6 +5,7 @@ import PersonalDetails from "./PersonalDetails"  // Step 3
 import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form
 import axios from "../../../node_modules/axios"
+import PickDateAndConfirm from "./PickDateAndConfirm"
 //Will need to add adming page
 
 
@@ -23,7 +24,8 @@ export class BookForm extends Component {
             phone: '',
             address: '',
             city: '',
-            comments: ''
+            comments: '',
+            hour: ''
         }
     }
 
@@ -53,23 +55,11 @@ export class BookForm extends Component {
         });
     }
 
-    // submitHandler = e => {
-    //     e.preventDefault()
-    //     console.log(this.state)
-    //     axios.post("http://127.0.0.1:5000/", this.state)
-    //         .then(respoone => {
-    //             console.log("work" ,respoone)
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
-
     render() {
         const {step} = this.state
-        const {service, addons, date, firstName, lastName, email, address, city, phone, comments} = this.state;
+        const {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments} = this.state;
         //The values that will be entered to the form
-        const values = {service, addons, date, firstName, lastName, email, address, city, phone, comments};
+        const values = {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments};
         // switchcase for every step- from the steps in state
         switch(step){
             //First step and initial step
@@ -83,20 +73,7 @@ export class BookForm extends Component {
                     />
                     </>
                 )
-            //Second step
             case 2:
-                return (
-                    <>
-                    <PickDate
-                    nextStep={this.nextStep}
-                    prevStep={this.prevStep}
-                    handleChange={this.handleChange}
-                    values={values}
-                    />
-                    </>
-                )
-            //Third step
-            case 3:
                 return(
                     <PersonalDetails
                     nextStep={this.nextStep}
@@ -106,33 +83,29 @@ export class BookForm extends Component {
                     />
                 )
             //Fourth step
-            case 4:
+            case 3:
                 return(
-                    // <div>
-                    //     CONFIRM PAGE
-                    //     {this.state.firstName}
-                    //     <button 
-                    //     onClick={axios.post("http://127.0.0.1:5000/", this.state)
-                    //     .then(respoone => {
-                    //         console.log("work" ,respoone)
-                    //     })
-                    //     .catch(error => {
-                    //         console.log(error)
-                    //     })}
-                    //     type="submit">SEND</button>
-                    // </div>
-
                     <Confirm
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
+                    handleChange={this.handleChange}
                     values={values}
                     />
                 )
             //Fifth step (only will show that the submit worked)
-            case 5:
+            case 4:
                 return(
-                    <Success />
+                    <PickDateAndConfirm 
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
+                        handleChange={this.handleChange}
+                        values={values}
+                    />
                 )
+            case 5:
+            return(
+                <Success />
+            )
         }
 }
 }

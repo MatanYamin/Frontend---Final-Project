@@ -36,12 +36,11 @@ export class PickService extends Component {
             />
             <br/>
             <UiButton
-            onClick={this.continue}>המשך
+            onClick={this.continue}><h1>המשך</h1>
             </UiButton>
         </div>
     );
         }
             }
     
-
 export default PickService

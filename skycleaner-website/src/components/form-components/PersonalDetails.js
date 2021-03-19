@@ -23,59 +23,63 @@ export class PersonalDetails extends Component {
         <div>
             {/* <h1>{page}</h1> */}
             <h1>פרטים אישיים</h1>
-            <h5>שם פרטי</h5>
+            {/* <h5>שם פרטי</h5> */}
+            {/* שם פרטי */}
             <TextField 
             placeholder="שם פרטי"
             onChange={this.props.handleChange('firstName')}
             defaultValue={values.firstName}
             />
-            
-            <h5>שם משפחה</h5>
+            {/* <h5>שם משפחה</h5> */}
+            {/* שם משפחה */}
             <TextField
             placeholder="שם משפחה"
             onChange={this.props.handleChange('lastName')}
             defaultValue={values.lastName}
             />
-            
-            <h5>מייל</h5>
+            <br/>
+            {/* <h5>מייל</h5> */}
+            {/* מייל */}
             <TextField
-            placeholder="הקלידו את תשובתכם"
+            placeholder="מייל"
             onChange={this.props.handleChange('email')}
             defaultValue={values.email}
             />
-            
-            <h5>טלפון</h5>
+            {/* <h5>טלפון</h5> */}
+            {/* טלפון */}
             <TextField
-            placeholder="הקלידו את תשובתכם"
+            placeholder="מספר טלפון"
             onChange={this.props.handleChange('phone')}
             defaultValue={values.phone}
             />
-            <h5>עיר</h5>
+            <br/>
+            {/* <h5>עיר</h5> */}
             <TextField
-            placeholder="הקלידו את תשובתכם"
+            placeholder="עיר"
             onChange={this.props.handleChange('city')}
             defaultValue={values.city}
             />
-            <h5>כתובת</h5>
+            {/* <h5>כתובת</h5> */}
             <TextField
-            placeholder="הקלידו את תשובתכם"
+            placeholder="רחוב"
             onChange={this.props.handleChange('address')}
             defaultValue={values.address}
             />
-            <h5>הערות</h5>
+            {/* <h5>הערות</h5> */}
+            <br/>
             <TextField
-            placeholder="הקלידו את תשובתכם"
+            placeholder="הערות"
             onChange={this.props.handleChange('comments')}
             defaultValue={values.comments}
             />
             <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <UiButton
-            onClick={this.continue}>המשך
+            onClick={this.continue}><h1>המשך</h1>
             </UiButton>
             {/* back button - calls "backward" that decrease step state by 1 */}
             <UiButton
-            onClick={this.backward}>חזור
+            onClick={this.backward}><h1>חזור</h1>
             </UiButton>
             {/* </div> */}
                 </div>
