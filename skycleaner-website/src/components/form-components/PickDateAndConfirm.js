@@ -6,6 +6,7 @@ import "./Form.css"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./DropDown.css"
+import moment from "moment"
 
 
 export class PickDateAndConfirm extends Component {
@@ -13,9 +14,19 @@ export class PickDateAndConfirm extends Component {
         super(props);
         this.state = {
         //   firstName: this.props.firstName
-          selectedDate: null
+          selectedDate: null,
+          minTime: this.calculateMinTime(new Date())
         };
     }
+    calculateMinTime = date => {
+        let isToday = moment(date).isSame(moment(), 'day');
+        if (isToday) {
+            let nowAddOneHour = moment(new Date()).add({hours: 1}).toDate();
+            return nowAddOneHour;
+        }
+        return moment().startOf('day').toDate(); 
+    }
+
     setSelectedDate = date => {
         this.setState({
             selectedDate: date
@@ -26,6 +37,15 @@ export class PickDateAndConfirm extends Component {
         event.preventDefault();
         this.props.prevStep(); //will increase step by 1
     }
+
+    filterPassedTime = time => {
+        const currentDate = new Date();
+        const selectedDate = new Date(time);
+        console.log(selectedDate)
+        console.log(new Date(time))
+        return currentDate.getTime() < selectedDate.getTime();
+      }
+
     render() {
     const {values: {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
@@ -35,11 +55,19 @@ export class PickDateAndConfirm extends Component {
             <h1>אנא בחר מתי תרצו שנגיע</h1>
             <div className="date">
             <DatePicker 
+            placeholderText="בחרו תאריך"
             selected={this.state.selectedDate}
             onChange={(date)=> this.setSelectedDate(date)}
-            dateFormat="dd/MM/yy"
-            minDate={new Date()}
-            filterDate={day => day.getDay() != 5 && day.getDay() != 6}
+            dateFormat="dd-MM-yyyy"
+            // minDate={new Date()}
+            // showTimeSelect
+            // timeIntervals={180}
+            // showTimeSelectOnly
+            // filterTime="12:00"
+            // timeFormat="HH:mm"
+            // minTime="11:00"
+            // maxTime="17:00"
+            filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
             </div>
             <br/>
@@ -47,6 +75,7 @@ export class PickDateAndConfirm extends Component {
             <div className="date">
             <select className="dropbtn"
             onChange={this.props.handleChange('hour')}>
+                <option value="09:00">בחרו שעה</option>
                 <option value="09:00">09:00</option>
                 <option value="10:00">10:00</option>
                 <option value="11:00">11:00</option>
@@ -87,7 +116,8 @@ export class PickDateAndConfirm extends Component {
                     }
                     catch(e) {
                         console.log(e)}
-                    this.props.nextStep();}}>
+                    // this.props.nextStep();
+                    }}>
             <h1>קבע תור!</h1>
             </UiButton>
             {/* back button - calls "backward" that decrease step state by 1 */}

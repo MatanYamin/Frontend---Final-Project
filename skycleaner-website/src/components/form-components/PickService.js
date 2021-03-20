@@ -16,8 +16,8 @@ export class PickService extends Component {
     const page = window.location.pathname.substring(1); //page name
     return (
         <div>
+            <h1>בחרתם ב {page}</h1>
             <h1>מה מנקים?</h1>
-            
             <br/>
             <h5>בחר שרות</h5>
             <br/>

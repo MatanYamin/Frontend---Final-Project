@@ -44,6 +44,7 @@ export class PersonalDetails extends Component {
             placeholder="מייל"
             onChange={this.props.handleChange('email')}
             defaultValue={values.email}
+            required={true}
             />
             {/* <h5>טלפון</h5> */}
             {/* טלפון */}
