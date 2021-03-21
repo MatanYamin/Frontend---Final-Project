@@ -3,10 +3,11 @@ import "../../App.css"
 import BookForm from "../form-components/BookForm"
 
 
-export default function Clean5() {
+export default function General() {
+    const page = window.location.pathname.substring(1);
     return(
         <div className="clean1">
-            <BookForm />
+            <BookForm page={page} />
         </div>
     );
 }

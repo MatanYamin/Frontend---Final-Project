@@ -14,14 +14,14 @@ function ServicesCards() {
                         imgurl="https://i.ibb.co/VChPMLY/eco-car-wash.jpg" 
                         name="ניקוי רכב"
                         text="תיאור דברים שאפשר לכתוב כאן אנחנו מתמחים בניקיון הרבה דברים"
-                        path="/Clean1"
+                        path="/Cars"
                         />
                         {/* <ul></ul> */}
                         <SingleService 
                         imgurl="https://i.ibb.co/bvFRLRg/sofa.jpg" 
                         name="ניקוי רהיטים"
                         text="אנו מנקים את כל סוגי הרהיטים"
-                        path="/Clean2"
+                        path="/Furniture"
                         />
                     </ul>
                         <ul className="cards__items">
@@ -29,19 +29,19 @@ function ServicesCards() {
                         imgurl="https://i.ibb.co/VJw3B5b/carpet.jpg" 
                         name="ניקוי שטיחים"
                         text="אנחנו מנקים את כל סוגי השטיחים"
-                        path="/Clean3"
+                        path="/Rugs"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/PGVYcd6/chair.jpg" 
                         name="ניקוי כיסאות"
                         text="אנחנו מנקים את כל הכיסאות"
-                        path="/Clean4"
+                        path="/Chairs"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
                         name="ניקוי כללי"
                         text="תיאור שרות"
-                        path="/Clean5"
+                        path="/General"
                         />
                         </ul>
                 </div>

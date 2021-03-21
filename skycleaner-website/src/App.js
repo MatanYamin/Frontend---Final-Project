@@ -4,11 +4,11 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 //BrowserRouter is used for doing client side routing
 import './App.css';
 import Home from "./components/pages/Home"
-import Clean1 from "./components/pages/Clean1"
-import Clean2 from "./components/pages/Clean2"
-import Clean3 from "./components/pages/Clean3"
-import Clean4 from "./components/pages/Clean4"
-import Clean5 from "./components/pages/Clean5"
+import Cars from "./components/pages/Cars"
+import Furniture from "./components/pages/Furniture"
+import Rugs from "./components/pages/Rugs"
+import Chairs from "./components/pages/Chairs"
+import General from "./components/pages/General"
 import Admin from "./components/pages/Admin"
 import AdminLogin from "./components/pages/AdminLogin"
 import Contact from "./components/pages/Contact"
@@ -25,11 +25,11 @@ function App() {
       <Switch>
         {/* <Home /> */}
         <Route path='/' exact component={Home} /> 
-        <Route path='/Clean1' component={Clean1} />
-        <Route path='/clean2' component={Clean2} />
-        <Route path='/clean3' component={Clean3} />
-        <Route path='/clean4' component={Clean4} />
-        <Route path='/clean5' component={Clean5} />
+        <Route path='/Cars' component={Cars} />
+        <Route path='/Furniture' component={Furniture} />
+        <Route path='/Rugs' component={Rugs} />
+        <Route path='/Chairs' component={Chairs} />
+        <Route path='/General' component={General} />
         <Route path='/Contact' component={Contact} />
         <Route path='/About' component={About} />
         <Route path='/AdminLogin' component={AdminLogin} />

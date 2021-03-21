@@ -3,10 +3,11 @@ import "../../App.css"
 import BookForm from "../form-components/BookForm"
 
 
-export default function Clean4() {
+export default function Chairs() {
+    const page = window.location.pathname.substring(1);
     return(
         <div className="clean4">
-            <BookForm />
+            <BookForm page={page} />
         </div>
     );
 }

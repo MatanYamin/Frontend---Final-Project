@@ -59,14 +59,6 @@ export class PickDateAndConfirm extends Component {
             selected={this.state.selectedDate}
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
-            // minDate={new Date()}
-            // showTimeSelect
-            // timeIntervals={180}
-            // showTimeSelectOnly
-            // filterTime="12:00"
-            // timeFormat="HH:mm"
-            // minTime="11:00"
-            // maxTime="17:00"
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
             </div>
@@ -91,7 +83,6 @@ export class PickDateAndConfirm extends Component {
             <UiButton
             onClick={() => 
                 {
-                   
                     try{
                         fetch("http://127.0.0.1:5000/booking", {
                             method: "POST",

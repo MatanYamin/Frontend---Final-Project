@@ -14,6 +14,7 @@ export class BookForm extends Component {
     constructor(){
         super()
         this.state = {
+            title: "",
             step: 1,
             service: '',
             addons: '',
@@ -55,7 +56,19 @@ export class BookForm extends Component {
         });
     }
 
+
+    onCreatePost = () => {
+        
+        const postData = {
+            title: this.props.page
+        };
+        axios.post("http://127.0.0.1:5000/services", postData)
+        .then(response => console.log(response));
+    }
+
+
     render() {
+        this.onCreatePost()
         const {step} = this.state
         const {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments} = this.state;
         //The values that will be entered to the form
