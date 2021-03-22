@@ -92,7 +92,6 @@ export class PickDateAndConfirm extends Component {
                                 'Content-Type': 'application/json'
                               },
                             body: JSON.stringify({
-                                // key1: "matan"
                                 fullName: firstName + ' ' + lastName,
                                 email: email,
                                 phone: phone,
