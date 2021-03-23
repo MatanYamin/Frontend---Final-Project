@@ -27,18 +27,7 @@ const AdminLoginPage = (props) => {
                 />
                  <p className="errorMsg">{passwordError}</p>
                  <div className="btnContainer">
-                     <button onClick={handleLogin}>התחבר</button>
-                     {/* {hasAccount ? (
-                         <>
-                        <p>הוסף מנהל חדש</p>
-                        </>
-                     )
-                     : (
-                         <>
-                        <button onClick={handleSingup}>הרשמה</button>
-                        <p></p>
-                        </>
-                     )} */}
+                     <button className="button-form" onClick={handleLogin}>התחבר</button>
                  </div>
             </div>
         </section>

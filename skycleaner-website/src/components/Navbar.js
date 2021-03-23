@@ -33,12 +33,13 @@ function Navbar() {
             <div className="navbar-container">
                 {/*  Main title, links to home page */}
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> 
-                SkyCleaner
+                סקיי-קלינר
+                {/* <img src="https://i.ibb.co/Fbs8KWk/Picture3.jpg" class='icon-img' /> */}
                 </Link>
                 {/*  when pressing the icon it will alter*/}
                 <div className="menu-icon" onClick={handleClick}> 
                     {/*  move bewtween images ervery time we click*/}
-                    <i className={click ? "fas fa-times" : "fas fa-bars"} />
+                    <i className={click ? "fas fa-times" : "fas fa-bars"} /> 
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                    

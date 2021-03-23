@@ -1,7 +1,6 @@
 .middle-container{
     background: url("https://blackgold.sa/wp-content/uploads/2018/02/2560x1440-blue-abstract-noise-free-website-background-image.jpg") center center/cover
     no-repeat;
-
     justify-content: center;
     height: 100vh;
     width: 100%;
@@ -11,6 +10,7 @@
     align-items: center;
     /* box-shadow: inset 0 0 0 1000px rgb(0, 0, 2); */
     object-fit: contain;
+    text-align: -webkit-center;
 }
 
 .about{

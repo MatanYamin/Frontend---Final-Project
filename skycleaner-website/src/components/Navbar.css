@@ -9,10 +9,6 @@
     top: 0;
     z-index: 999;
   }
-  
-  .small-logo{
-    width: 6%;
-  }
 
   .navbar-container {
     display: flex;
@@ -28,20 +24,20 @@
     margin-left: 20px;
     cursor: pointer;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: flex;
     align-items: center;
   }
   
   .nav-menu {
     display: grid;
-    grid-template-columns: repeat(6, auto);
+    grid-template-columns: repeat(5, auto);
     grid-gap: 10px;
     list-style: none;
     text-align: center;
     width: 60vw;
     justify-content: end;
-    margin-right: 5rem;
+    /* margin-right: 15rem; */
   }
   
   .nav-item {
@@ -86,7 +82,7 @@
       height: 90vh;
       position: absolute;
       top: 80px;
-      left: -100%;
+      left: 100%;
       opacity: 1;
       transition: all 0.5s ease;
     }
@@ -114,7 +110,7 @@
   
     .navbar-logo {
       position: absolute;
-      top: 0;
+      top: -10px;
       left: 0;
       transform: translate(25%, 50%);
     }

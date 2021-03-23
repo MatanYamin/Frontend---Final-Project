@@ -21,68 +21,56 @@ export class PersonalDetails extends Component {
     const page = window.location.pathname.substring(1); //page name
     return (
         <div>
-            {/* <h1>{page}</h1> */}
             <h1>פרטים אישיים</h1>
-            {/* <h5>שם פרטי</h5> */}
-            {/* שם פרטי */}
+            <label>שם פרטי: <t></t></label>
             <TextField 
-            placeholder="שם פרטי"
             onChange={this.props.handleChange('firstName')}
             defaultValue={values.firstName}
             />
-            {/* <h5>שם משפחה</h5> */}
-            {/* שם משפחה */}
+            <br/>
+            <label>שם משפחה: <t></t></label>
             <TextField
-            placeholder="שם משפחה"
             onChange={this.props.handleChange('lastName')}
             defaultValue={values.lastName}
             />
             <br/>
-            {/* <h5>מייל</h5> */}
-            {/* מייל */}
+            <label>דוא"ל: <t></t></label>
             <TextField
-            placeholder="מייל"
+            type="email"
             onChange={this.props.handleChange('email')}
             defaultValue={values.email}
             required={true}
             />
-            {/* <h5>טלפון</h5> */}
-            {/* טלפון */}
+            <br/>
+            <label>טלפון: <t></t>  <t></t></label>
             <TextField
-            placeholder="מספר טלפון"
-            required
+            type="tel"
             onChange={this.props.handleChange('phone')}
             defaultValue={values.phone}
             />
             <br/>
-            {/* <h5>עיר</h5> */}
+            <label>עיר: <t></t></label>
             <TextField
-            placeholder="עיר"
             onChange={this.props.handleChange('city')}
             defaultValue={values.city}
             />
-            {/* <h5>כתובת</h5> */}
+            <br/>
+            <label>רחוב: <t></t></label>
             <TextField
-            placeholder="רחוב"
             onChange={this.props.handleChange('address')}
             defaultValue={values.address}
             />
-            {/* <h5>הערות</h5> */}
             <br/>
+            <label>הערות: <t></t></label>
             <TextField
-            placeholder="הערות"
             onChange={this.props.handleChange('comments')}
             defaultValue={values.comments}
             />
-            <br/>
+            <br/> <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
-            <UiButton
-            onClick={this.continue}><h1>המשך</h1>
-            </UiButton>
-            {/* back button - calls "backward" that decrease step state by 1 */}
-            <UiButton
-            onClick={this.backward}><h1>חזור</h1>
-            </UiButton>
+            <button onClick={this.continue} className="step-btn">למעבר על הפרטים</button>
+            <button onClick={this.backward} className="step-btn">חזור</button>
+           
             {/* </div> */}
                 </div>
     );

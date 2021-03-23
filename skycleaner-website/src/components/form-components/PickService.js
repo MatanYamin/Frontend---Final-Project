@@ -6,6 +6,7 @@ import UiButton from "../../../node_modules/@material-ui/core/Button"
 import axios from "axios"
 import "./DropDown.css"
 import Addon from "./Addon"
+import "./Form.css"
 
 
 
@@ -58,7 +59,7 @@ export class PickService extends Component {
             <h1>מה מנקים?</h1>
             <br/>
             <select 
-            class="dropbtn"
+            class="form-drp-btn"
             onChange={this.props.handleChange("service")}
             onInput={(e) => {this.setPrice(e)}}
             >
@@ -68,7 +69,7 @@ export class PickService extends Component {
             </select>
             <br/><br/>
             <br/>
-            <button onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
+            <button className="form-drp-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
             {this.state.showing ?
             <Addon 
             addons={this.props.addons}
@@ -81,10 +82,11 @@ export class PickService extends Component {
             this.state.price_title +
             this.state.first_price //here the price will go
             }
-            <br/>
-            <UiButton            
+            <br/><br/>
+            <button className="step-btn" onClick={this.continue}>להזנת פרטים אישיים</button>
+            {/* <UiButton            
             onClick={this.continue}><h1>המשך</h1>
-            </UiButton>
+            </UiButton> */}
         </div>
     );
         }

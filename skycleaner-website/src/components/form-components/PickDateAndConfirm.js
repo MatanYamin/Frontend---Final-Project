@@ -51,11 +51,12 @@ export class PickDateAndConfirm extends Component {
     const page = window.location.pathname.substring(1); //page name
     return (
         <div>
-            <div className="pickDate">
-            <h1>אנא בחר מתי תרצו שנגיע</h1>
+            
             <div className="date">
+            <h3>בחרו יום</h3>
+            {/* <i className="calendar-alt" /> */}
             <DatePicker 
-            placeholderText="בחרו תאריך"
+            placeholderText="לחצו לבחירת תאריך"
             selected={this.state.selectedDate}
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
@@ -64,8 +65,8 @@ export class PickDateAndConfirm extends Component {
             />
             </div>
             <br/>
-            <h2>בחר שעה שנוחה לך</h2>
             <div className="date">
+           <h3>בחרו שעה</h3> 
             <select className="dropbtn"
             onChange={this.props.handleChange('hour')}>
                 <option value="09:00">בחרו שעה</option>
@@ -78,10 +79,10 @@ export class PickDateAndConfirm extends Component {
                 <option value="15:00">15:00</option>
                 </select>
                 </div>
-            </div>
+            
             <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
-            <UiButton
+            <button className="step-btn"
             onClick={() => 
                 {
                     try{
@@ -109,12 +110,12 @@ export class PickDateAndConfirm extends Component {
                         console.log(e)}
                     // this.props.nextStep();
                     }}>
-            <h1>קבע תור!</h1>
-            </UiButton>
+            קבע תור!
+            </button>
             {/* back button - calls "backward" that decrease step state by 1 */}
-            <UiButton
-            onClick={this.backward}><h1>בצע שינויים</h1>
-                </UiButton>
+            <button className="step-btn"
+            onClick={this.backward}>בצע שינויים
+                </button>
         </div>
     );
     }

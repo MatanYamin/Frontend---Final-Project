@@ -47,14 +47,7 @@ export class Confirm extends Component {
     return (
         <div>
             {/* <li> */}
-            <br/><br/>
             <h1>אישור פרטי התור</h1>
-            מחיר:
-            <br/>
-            {price} <br/>
-            
-            {/* <List> */}
-                {/* <h4>שם:</h4> */}
                 שם:
                 <h4>{firstName} {lastName}</h4>
                 {/* <t></t> */}
@@ -73,14 +66,14 @@ export class Confirm extends Component {
                 {comments}
             <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
-            <UiButton
+            <button className="step-btn"
             onClick={this.continue}>
-            <h1>המשך</h1>
-            </UiButton>
+           לקביעת זמן הגעה
+            </button>
             {/* back button - calls "backward" that decrease step state by 1 */}
-            <UiButton
-            onClick={this.backward}><h1>חזור</h1>
-                </UiButton>
+            <button className="step-btn"
+            onClick={this.backward}>חזור
+                </button>
         </div>
     );
         }
