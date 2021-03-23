@@ -24,10 +24,15 @@
     /* align-items: center; */
 }
 
+
+.btn-cont{
+    /* position:relative; */
+}
+
 .step-btn{
     display:inline-block;
     padding:0.3em 1.2em;
-    margin:0 0.3em 0.3em 0;
+    margin:0 0.6em 0.0em 0;
     border-radius:2em;
     box-sizing: border-box;
     text-decoration:none;
@@ -39,7 +44,16 @@
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    /* right: 1; */
+    /* left: 1; */
 }
+.step-btn:last-child{
+   /* position: absolute; */
+   /* line-break: auto; */
+}
+
 .step-btn:hover{
     background-color:#32afb5;
 }

@@ -69,7 +69,6 @@ export class BookForm extends Component {
 
 
     render() {
-        
         const {step} = this.state
         const {service, addons, date, hour, price, firstName, lastName, email, address, city, phone, comments} = this.state;
         //The values that will be entered to the form
@@ -80,7 +79,6 @@ export class BookForm extends Component {
             case 1:
                 return (
                     <>
-                    {/* {this.onCreatePost()} */}
                     <PickService
                     nextStep={this.nextStep}  //increase step by 1
                     handleChange={this.handleChange}  //passing my function inorder to be able insert value to the input name

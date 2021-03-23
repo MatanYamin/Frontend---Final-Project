@@ -110,8 +110,9 @@ export class PickDateAndConfirm extends Component {
                         console.log(e)}
                     // this.props.nextStep();
                     }}>
-            קבע תור!
+            הזמינו את התור!
             </button>
+            {/* <t></t> */}
             {/* back button - calls "backward" that decrease step state by 1 */}
             <button className="step-btn"
             onClick={this.backward}>בצע שינויים

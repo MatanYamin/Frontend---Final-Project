@@ -70,11 +70,13 @@ export class Confirm extends Component {
             onClick={this.continue}>
            לקביעת זמן הגעה
             </button>
+            <div className="btn-cont">
             {/* back button - calls "backward" that decrease step state by 1 */}
             <button className="step-btn"
             onClick={this.backward}>חזור
                 </button>
-        </div>
+                </div>
+            </div>
     );
         }
             }
