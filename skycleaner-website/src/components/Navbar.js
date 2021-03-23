@@ -1,6 +1,5 @@
 // Matan Yamin - Frontend: Final Project.
-// will be the navbar component
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 
@@ -12,13 +11,28 @@ function Navbar() {
     const handleClick = () => setClick(!click);  // reverse the false and true every time we click and then we can change states
     const closeMobileMenu = () => setClick(false)  // handles closing menu
 
+    const showButton = () => {
+        if(window.innerWidth <= 960) {
+            setButton(false);
+        }
+        else {
+            setButton(true);
+        }
+    }
+
+    useEffect(() => {
+        showButton();
+    }, []);
+
+    window.addEventListener('resize', showButton);
+
     return (
         //Will be the upper part including hamburger menu
         <>
         <nav className="navbar">
             <div className="navbar-container">
                 {/*  Main title, links to home page */}
-                <Link to="/" className="navbar-logo"> 
+                <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> 
                 SkyCleaner
                 </Link>
                 {/*  when pressing the icon it will alter*/}
@@ -27,12 +41,7 @@ function Navbar() {
                     <i className={click ? "fas fa-times" : "fas fa-bars"} />
                 </div>
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    <li className='nav-item'>
-                        {/*will direct to home page for now*/}
-                        <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            בית
-                        </Link>
-                    </li>
+                   
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                             שרותים
@@ -40,7 +49,7 @@ function Navbar() {
                     </li>
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            דוגמה
+                            שרות SOS
                         </Link>
                     </li>
                     <li className='nav-item'>
