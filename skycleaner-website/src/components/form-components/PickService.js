@@ -5,6 +5,8 @@ import TextField from "../../../node_modules/@material-ui/core/TextField"
 import UiButton from "../../../node_modules/@material-ui/core/Button"
 import axios from "axios"
 import "./DropDown.css"
+import Addon from "./Addon"
+
 
 
 export class PickService extends Component {
@@ -14,9 +16,14 @@ export class PickService extends Component {
         this.state = {
             service_array: [],
             addon_array: [],
-            matan: ""
+            showing: false,
+            matan: "",
+            selectValue: '',
+            first_price: '',
+            price_title: "המחיר: "
         }
     }
+
     componentDidMount() {
         const postData = {
             title: this.props.page
@@ -27,8 +34,15 @@ export class PickService extends Component {
         }));
     }
 
-    
-
+    setPrice = (e) => {
+        const priceData = {
+            prices: e.target.value
+        };
+        axios.post("http://127.0.0.1:5000/prices", priceData)
+        .then(response => this.setState({
+            first_price: response.data
+        }));
+    }
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
         event.preventDefault();
@@ -37,47 +51,42 @@ export class PickService extends Component {
     render() {
         const {values} = this.props; //values is all the props we passed to the component
         const page = window.location.pathname.substring(1); //page name
+        const {showing} = this.state;
     return (
         <div>
             <h1>בחרתם ב {page}</h1>
             <h1>מה מנקים?</h1>
             <br/>
-            {/* <br/> */}
             <select 
             class="dropbtn"
-            onChange={this.props.handleChange('service')}
+            onChange={this.props.handleChange("service")}
+            onInput={(e) => {this.setPrice(e)}}
             >
             <option value="nothing">בחרו שרות</option>
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
             </select>
             <br/><br/>
-            {values.service}
-            <button
-            onClick={() => {axios.post("http://127.0.0.1:5000/addon", JSON.stringify(values.service))
-            .then(response => this.setState({
-                addon_array: response.data
-            }));}}
-            >
-                אישור
-            {console.log(this.props.service)}
-            </button>
-            {this.state.addon_array}
-            <h5>בחרו תוספים</h5>
-
             <br/>
-            {/* <TextField
-            placeholder="הקלידו את תשובתכם"
-            onChange={this.props.handleChange('addons')}
-            defaultValue={values.addons}
-            /> */}
+            <button onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
+            {this.state.showing ?
+            <Addon 
+            addons={this.props.addons}
+            service={values.service}
+            handleChange={this.props.handleChange}
+            firstPrice={this.state.first_price}
+            price={this.props.price}
+            />
+            :
+            this.state.price_title +
+            this.state.first_price //here the price will go
+            }
             <br/>
-            <UiButton
+            <UiButton            
             onClick={this.continue}><h1>המשך</h1>
             </UiButton>
         </div>
     );
         }
             }
-    
 export default PickService

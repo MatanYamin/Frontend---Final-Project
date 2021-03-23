@@ -59,6 +59,7 @@ export class PickDateAndConfirm extends Component {
             selected={this.state.selectedDate}
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
+            minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
             </div>

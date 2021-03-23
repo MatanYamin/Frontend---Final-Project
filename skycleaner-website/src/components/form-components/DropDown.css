@@ -48,3 +48,8 @@
     color: red;
     background-color: red;
   }
+
+  .date{
+    /* align-items: center; */
+    margin-right: 120px;
+  }

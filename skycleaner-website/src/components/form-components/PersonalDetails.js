@@ -50,6 +50,7 @@ export class PersonalDetails extends Component {
             {/* טלפון */}
             <TextField
             placeholder="מספר טלפון"
+            required
             onChange={this.props.handleChange('phone')}
             defaultValue={values.phone}
             />

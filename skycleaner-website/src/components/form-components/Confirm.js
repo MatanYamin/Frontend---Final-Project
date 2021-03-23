@@ -38,13 +38,21 @@ export class Confirm extends Component {
         this.props.prevStep(); //will increase step by 1
     }
     render() {
-    const {values: {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
+    const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
+    if(firstName){
+        console.log("check")
+    };
+    console.log("maaaa");
     return (
         <div>
             {/* <li> */}
             <br/><br/>
             <h1>אישור פרטי התור</h1>
+            מחיר:
+            <br/>
+            {price} <br/>
+            
             {/* <List> */}
                 {/* <h4>שם:</h4> */}
                 שם:
