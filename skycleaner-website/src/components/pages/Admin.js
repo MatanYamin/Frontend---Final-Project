@@ -19,10 +19,10 @@ class Admin extends React.Component {
         <h1> ברוכים הבאים למסך הניהול
          </h1>
          {/* This button is handling adding admin component */}
-         <button onClick={this.props.handleLogout}>התנתק</button>
+         <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
          <div>
         {/* Adding new manager component after click */}
-        <button onClick={() => this.setState({ showing: !showing })}>הוספת מנהל</button>
+        <button className="button-form" onClick={() => this.setState({ showing: !showing })}>הוספת מנהל</button>
         {this.state.showing ?
            <AddAdmin
            email={this.props.email}
@@ -35,11 +35,11 @@ class Admin extends React.Component {
            null
         }
         {/* Will add component for each activity */}
-        <button>מחיקת מנהל</button>  
-        <button>שינוי שרות</button>
-        <button>עדכון זמינות</button>
-        <button>אישור על סיום תור</button>
-        <button>הצגת תורים עתידיים</button>
+        <button className="button-form">מחיקת מנהל</button>  
+        <button className="button-form">שינוי שרות</button>
+        <button className="button-form">עדכון זמינות</button>
+        <button className="button-form">אישור על סיום תור</button>
+        <button className="button-form">הצגת תורים עתידיים</button>
       </div>
          </div>
     );
