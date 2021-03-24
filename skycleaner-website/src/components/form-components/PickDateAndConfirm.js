@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./DropDown.css"
 import moment from "moment"
+import he from "date-fns/locale/he"; // the locale you want
 
 
 export class PickDateAndConfirm extends Component {
@@ -50,12 +51,13 @@ export class PickDateAndConfirm extends Component {
     const {values: {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
     return (
+        <>
         <div>
-            
-            <div className="date">
             <h3>בחרו יום</h3>
             {/* <i className="calendar-alt" /> */}
             <DatePicker 
+            locale={he}
+            autoFocus
             placeholderText="לחצו לבחירת תאריך"
             selected={this.state.selectedDate}
             onChange={(date)=> this.setSelectedDate(date)}
@@ -63,9 +65,7 @@ export class PickDateAndConfirm extends Component {
             minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
-            </div>
             <br/>
-            <div className="date">
            <h3>בחרו שעה</h3> 
             <select className="dropbtn"
             onChange={this.props.handleChange('hour')}>
@@ -78,10 +78,12 @@ export class PickDateAndConfirm extends Component {
                 <option value="14:00">14:00</option>
                 <option value="15:00">15:00</option>
                 </select>
-                </div>
-            
-            <br/>
+            </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
+            <div className="step-btn-container">
+            <button className="step-btn"
+            onClick={this.backward}>בצע שינויים
+                </button>
             <button className="step-btn"
             onClick={() => 
                 {
@@ -114,10 +116,10 @@ export class PickDateAndConfirm extends Component {
             </button>
             {/* <t></t> */}
             {/* back button - calls "backward" that decrease step state by 1 */}
-            <button className="step-btn"
-            onClick={this.backward}>בצע שינויים
-                </button>
-        </div>
+            
+            </div>
+            {/* </div> */}
+            </>
     );
     }
 }

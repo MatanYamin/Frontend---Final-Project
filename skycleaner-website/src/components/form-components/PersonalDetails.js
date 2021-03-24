@@ -68,10 +68,10 @@ export class PersonalDetails extends Component {
             />
             <br/> <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
-            <button onClick={this.continue} className="step-btn">למעבר על הפרטים</button>
+            <div className="step-btn-container">
+            <button onClick={this.continue} className="step-btn">לווידוא פרטים</button>
             <button onClick={this.backward} className="step-btn">חזור</button>
-           
-            {/* </div> */}
+            </div>
                 </div>
     );
         }

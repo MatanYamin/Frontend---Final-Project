@@ -66,16 +66,16 @@ export class Confirm extends Component {
                 {comments}
             <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
+            <div className="step-btn-container">
             <button className="step-btn"
             onClick={this.continue}>
            לקביעת זמן הגעה
             </button>
-            <div className="btn-cont">
             {/* back button - calls "backward" that decrease step state by 1 */}
             <button className="step-btn"
             onClick={this.backward}>חזור
                 </button>
-                </div>
+            </div>
             </div>
     );
         }

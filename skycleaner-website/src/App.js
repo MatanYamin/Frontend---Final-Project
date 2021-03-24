@@ -10,7 +10,7 @@ import Rugs from "./components/pages/Rugs"
 import Chairs from "./components/pages/Chairs"
 import General from "./components/pages/General"
 import Admin from "./components/pages/Admin"
-import AdminLogin from "./components/pages/AdminLogin"
+import AdminLogin from "./components/AdminLogin"
 import Contact from "./components/pages/Contact"
 import About from "./components/pages/About"
 

@@ -40,6 +40,7 @@ class Admin extends React.Component {
         <button className="button-form">עדכון זמינות</button>
         <button className="button-form">אישור על סיום תור</button>
         <button className="button-form">הצגת תורים עתידיים</button>
+        <button className="button-form">הוסף עיר לרשימה</button>
       </div>
          </div>
     );

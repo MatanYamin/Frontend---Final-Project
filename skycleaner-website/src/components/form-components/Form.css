@@ -24,9 +24,23 @@
     /* align-items: center; */
 }
 
+.last-step-btns{
+    /* position: absolute;
+    bottom: 0;
+    align-items: center; */
+    /* right: 0; */
+    /* left: auto; */
+    /* border: 5px solid #FFFF00; */
+/* text-align: center; */
+bottom: 1;
+}
 
-.btn-cont{
+.step-btn-container{
     /* position:relative; */
+    position: absolute;
+    bottom: 0;
+    right: 5;
+    left: 5;
 }
 
 .step-btn{
@@ -44,10 +58,6 @@
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    /* right: 1; */
-    /* left: 1; */
 }
 .step-btn:last-child{
    /* position: absolute; */
@@ -56,4 +66,38 @@
 
 .step-btn:hover{
     background-color:#32afb5;
+}
+
+.react-datepicker{
+    /* background-color: #32afb5; */
+    font-size: 15px;
+    width: 100%;
+    border-radius: 5%;
+}
+
+.react-datepicker__header {
+    background-color: rgb(28, 27, 27)
+}
+
+.react-datepicker__day-names{
+    background-color: rgb(28, 27, 27);
+}
+
+.react-datepicker__day-name{
+    color: white;
+}
+
+.react-datepicker__current-month{
+    color: whitesmoke;
+}
+
+.react-datepicker__day{
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+    /* background-color: red; */
+}
+
+.react-datepicker__day--disabled{
+    color: lightgray;
 }

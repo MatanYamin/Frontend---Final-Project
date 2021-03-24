@@ -1,9 +1,9 @@
 import React from 'react';
-import "../../App.css"
+import "../App.css"
 import { useEffect, useState } from "react";
-import fire from '../../components/Fire';
-import AdminLoginPage from "./AdminLoginPage"
-import Admin from "./Admin"
+import fire from './Fire';
+import AdminLoginPage from "./pages/AdminLoginPage"
+import Admin from "./pages/Admin"
 //Admin login page
 
 

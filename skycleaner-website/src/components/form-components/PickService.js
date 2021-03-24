@@ -83,10 +83,9 @@ export class PickService extends Component {
             this.state.first_price //here the price will go
             }
             <br/><br/>
+            <div className="step-btn-container">
             <button className="step-btn" onClick={this.continue}>להזנת פרטים אישיים</button>
-            {/* <UiButton            
-            onClick={this.continue}><h1>המשך</h1>
-            </UiButton> */}
+            </div>
         </div>
     );
         }
