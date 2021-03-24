@@ -22,19 +22,19 @@ export class PersonalDetails extends Component {
     return (
         <div>
             <h1>פרטים אישיים</h1>
-            <label>שם פרטי: <t></t></label>
+            <label>*שם פרטי: <t></t></label>
             <TextField 
             onChange={this.props.handleChange('firstName')}
             defaultValue={values.firstName}
             />
             <br/>
-            <label>שם משפחה: <t></t></label>
+            <label>*שם משפחה: <t></t></label>
             <TextField
             onChange={this.props.handleChange('lastName')}
             defaultValue={values.lastName}
             />
             <br/>
-            <label>דוא"ל: <t></t></label>
+            <label>*דוא"ל: <t></t></label>
             <TextField
             type="email"
             onChange={this.props.handleChange('email')}
@@ -42,20 +42,20 @@ export class PersonalDetails extends Component {
             required={true}
             />
             <br/>
-            <label>טלפון: <t></t>  <t></t></label>
+            <label>*טלפון: <t></t>  <t></t></label>
             <TextField
             type="tel"
             onChange={this.props.handleChange('phone')}
             defaultValue={values.phone}
             />
             <br/>
-            <label>עיר: <t></t></label>
+            <label>*עיר: <t></t></label>
             <TextField
             onChange={this.props.handleChange('city')}
             defaultValue={values.city}
             />
             <br/>
-            <label>רחוב: <t></t></label>
+            <label>*רחוב: <t></t></label>
             <TextField
             onChange={this.props.handleChange('address')}
             defaultValue={values.address}
@@ -69,6 +69,7 @@ export class PersonalDetails extends Component {
             <br/> <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div className="step-btn-container">
+                <h6>שדות שמסומנים ב * הינם חובה</h6> <br/>
             <button onClick={this.continue} className="step-btn">לווידוא פרטים</button>
             <button onClick={this.backward} className="step-btn">חזור</button>
             </div>

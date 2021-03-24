@@ -7,6 +7,8 @@ import axios from "axios"
 import "./DropDown.css"
 import Addon from "./Addon"
 import "./Form.css"
+// import { Link } from "@material-ui/core"
+import {Link} from 'react-router-dom'
 
 
 
@@ -70,6 +72,7 @@ export class PickService extends Component {
             <br/><br/>
             <br/>
             <button className="form-drp-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
+            <br/>
             {this.state.showing ?
             <Addon 
             addons={this.props.addons}
@@ -86,7 +89,7 @@ export class PickService extends Component {
             <div className="step-btn-container">
             <button className="step-btn" onClick={this.continue}>להזנת פרטים אישיים</button>
             </div>
-        </div>
+            </div>
     );
         }
             }

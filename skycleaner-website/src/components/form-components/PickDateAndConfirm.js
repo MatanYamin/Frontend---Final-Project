@@ -65,7 +65,7 @@ export class PickDateAndConfirm extends Component {
             minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
-            <br/>
+            <br/><br/><br/>
            <h3>בחרו שעה</h3> 
             <select className="dropbtn"
             onChange={this.props.handleChange('hour')}>
@@ -80,6 +80,7 @@ export class PickDateAndConfirm extends Component {
                 </select>
             </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
+            <div>
             <div className="step-btn-container">
             <button className="step-btn"
             onClick={this.backward}>בצע שינויים
@@ -114,6 +115,7 @@ export class PickDateAndConfirm extends Component {
                     }}>
             הזמינו את התור!
             </button>
+            </div>
             {/* <t></t> */}
             {/* back button - calls "backward" that decrease step state by 1 */}
             

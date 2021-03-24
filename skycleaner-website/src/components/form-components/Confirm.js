@@ -40,14 +40,35 @@ export class Confirm extends Component {
     render() {
     const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
-    if(firstName){
-        console.log("check")
-    };
-    console.log("maaaa");
+    const requierd_fields = [firstName, lastName, email, address, city, phone]
+    const missing_fields = ["שם פרטי", "שם משפחה", "מייל", "רחוב", "עיר", "טלפון"]
+    let show_err_array = []
+    let req_flag = false
+    requierd_fields.forEach((value, index)  =>{
+    if(value==""){
+        show_err_array.push(missing_fields[index])
+        req_flag = true
+        }
+    });
+    if(req_flag){
+        return(
+            <div>
+             <br/>   <br/>
+            השדות הבאים חסרים: <br/>
+            {show_err_array.map(val => {
+                return(<p><b>{val}</b> <br/> </p> ) 
+            })}
+            <div className="step-btn-container">
+            <button className="step-btn"
+            onClick={this.backward}>לביצוע שינויים
+                </button>
+                </div>
+            </div>
+        );
+    }
     return (
         <div>
-            {/* <li> */}
-            <h1>אישור פרטי התור</h1>
+            <h2>אישור פרטי התור</h2>
                 שם:
                 <h4>{firstName} {lastName}</h4>
                 {/* <t></t> */}
@@ -58,14 +79,12 @@ export class Confirm extends Component {
                 <h4>{email}</h4>
                 מספר טלפון:
                 <h4>{phone}</h4>
-                סוג שירות:
-                <h4>{service}</h4>
-                תוספים:
-                <h5>{addons}</h5>
+                השרות:
+                <h4>{service}  {addons}</h4>
                 הערות:
                 {comments}
-            <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
+            <div>
             <div className="step-btn-container">
             <button className="step-btn"
             onClick={this.continue}>
@@ -75,6 +94,7 @@ export class Confirm extends Component {
             <button className="step-btn"
             onClick={this.backward}>חזור
                 </button>
+                </div>
             </div>
             </div>
     );

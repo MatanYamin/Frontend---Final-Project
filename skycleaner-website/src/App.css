@@ -20,15 +20,12 @@
   }
 
   .form-stpes{
-    display: flex;
+    text-align: center;
     align-items: center;
-    justify-content: center;
-    font-size: 25px;
+    font-size: 23px;
     height: 90vh;
     background-color: whitesmoke;
-    /* background-position: center; */
   }
-  
   .clean1,
   .clean2,
   .clean3,
