@@ -71,7 +71,7 @@ export class Confirm extends Component {
         <div>
             <h2>אישור פרטי התור</h2>
                 שם:
-                {price} מחירררררר
+                {price} :מחירר
                 <h4>{firstName} {lastName}</h4>
                 כתובת:
                 <h4>{address}, {city}</h4>

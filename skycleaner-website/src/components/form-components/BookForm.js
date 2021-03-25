@@ -18,7 +18,7 @@ export class BookForm extends Component {
             title: "",
             step: 1,
             service: 'abc',
-            price: "nothing",
+            price: '',
             addons: '',
             date: '',
             firstName: '',
@@ -58,6 +58,12 @@ export class BookForm extends Component {
         });
     }
 
+    handleMatan = input => {
+        this.setState({
+            price: input
+        })
+    }
+
 
     onCreatePost = () => {
         
@@ -85,6 +91,7 @@ export class BookForm extends Component {
                     handleChange={this.handleChange}  //passing my function inorder to be able insert value to the input name
                     values={values}
                     page={this.props.page}
+                    handleMatan={this.handleMatan}
                     />
                     </>
                 )

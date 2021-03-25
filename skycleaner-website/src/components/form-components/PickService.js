@@ -10,10 +10,7 @@ import "./Form.css"
 // import { Link } from "@material-ui/core"
 import {Link} from 'react-router-dom'
 
-
-
 export class PickService extends Component {
-
     constructor(props){
         super(props)
         this.state = {
@@ -46,8 +43,20 @@ export class PickService extends Component {
         .then(response => this.setState(
             {
             first_price: response.data
+            
+            
         }));
     }
+
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.first_price !== this.state.first_price) {
+            console.log('pokemons state has changed.')
+            console.log(prevState.first_price)
+            console.log(this.state.first_price)
+            this.props.handleMatan(this.state.first_price)
+          }
+    }
+
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
         event.preventDefault();
@@ -59,6 +68,7 @@ export class PickService extends Component {
         const {showing} = this.state;
     return (
         <div>
+            
             <h1>בחרתם ב {page}</h1>
             <h1>מה מנקים?</h1>
             <br/>
@@ -88,8 +98,10 @@ export class PickService extends Component {
             :
             this.state.price_title +
             this.state.first_price //here the price will go
+            
             }
             <br/><br/>
+            
             <div className="step-btn-container">
             <button className="step-btn" onClick={this.continue}>להזנת פרטים אישיים</button>
             </div>
