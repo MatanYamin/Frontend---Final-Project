@@ -2,6 +2,7 @@ import "../../App.css"
 import MiddleSection from "../MiddleSection"
 import React from "react"
 import ServicesCards from "../ServicesCards"
+import Footer from "../Footer"
 
 
 //Home will hold the main components
@@ -13,6 +14,7 @@ function Home() {
         {/* ServicesCards holds all the services the buisness offers
         inside of it, will be every single service */}
         <ServicesCards />
+        <Footer />
         </>
     )
 }

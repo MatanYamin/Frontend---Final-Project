@@ -9,7 +9,6 @@ import Furniture from "./components/pages/Furniture"
 import Rugs from "./components/pages/Rugs"
 import Chairs from "./components/pages/Chairs"
 import General from "./components/pages/General"
-import Admin from "./components/pages/Admin"
 import AdminLogin from "./components/AdminLogin"
 import Contact from "./components/pages/Contact"
 import About from "./components/pages/About"
@@ -23,8 +22,8 @@ function App() {
       <Router>
       <Navbar />
       <Switch>
-        {/* <Home /> */}
-        <Route path='/' exact component={Home} /> 
+        {/* Home holds all the main components. "middle section, servicesCards and footer" */}
+        <Route path='/' exact component={Home} />
         <Route path='/Cars' component={Cars} />
         <Route path='/Furniture' component={Furniture} />
         <Route path='/Rugs' component={Rugs} />
@@ -33,7 +32,6 @@ function App() {
         <Route path='/Contact' component={Contact} />
         <Route path='/About' component={About} />
         <Route path='/AdminLogin' component={AdminLogin} />
-        {/* <Route path='/Admin' component={Admin} /> */}
       </Switch>
       </Router>
     </>

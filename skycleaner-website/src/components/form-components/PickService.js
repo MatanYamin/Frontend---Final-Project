@@ -20,7 +20,6 @@ export class PickService extends Component {
             service_array: [],
             addon_array: [],
             showing: false,
-            matan: "",
             selectValue: '',
             first_price: '',
             price_title: "המחיר: "
@@ -28,6 +27,7 @@ export class PickService extends Component {
     }
 
     componentDidMount() {
+        // With this Im getting all services from the category that came from the page title
         const postData = {
             title: this.props.page
         };
@@ -38,11 +38,13 @@ export class PickService extends Component {
     }
 
     setPrice = (e) => {
+        // Will get the price from the API and update the state
         const priceData = {
             prices: e.target.value
         };
         axios.post("http://127.0.0.1:5000/prices", priceData)
-        .then(response => this.setState({
+        .then(response => this.setState(
+            {
             first_price: response.data
         }));
     }
@@ -65,6 +67,7 @@ export class PickService extends Component {
             onChange={this.props.handleChange("service")}
             onInput={(e) => {this.setPrice(e)}}
             >
+            {/*Showing all services with "map" inside select */}
             <option value="nothing">בחרו שרות</option>
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
@@ -74,6 +77,7 @@ export class PickService extends Component {
             <button className="form-drp-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
             <br/>
             {this.state.showing ?
+            // Addon is a compontnet that holds all Addons services and prices
             <Addon 
             addons={this.props.addons}
             service={values.service}

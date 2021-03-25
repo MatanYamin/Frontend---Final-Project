@@ -44,6 +44,7 @@ export class Confirm extends Component {
     const missing_fields = ["שם פרטי", "שם משפחה", "מייל", "רחוב", "עיר", "טלפון"]
     let show_err_array = []
     let req_flag = false
+    // This part is to validate that all fields are enterd
     requierd_fields.forEach((value, index)  =>{
     if(value==""){
         show_err_array.push(missing_fields[index])
@@ -70,9 +71,8 @@ export class Confirm extends Component {
         <div>
             <h2>אישור פרטי התור</h2>
                 שם:
+                {price} מחירררררר
                 <h4>{firstName} {lastName}</h4>
-                {/* <t></t> */}
-                {/* <h4>כתובת:</h4> */}
                 כתובת:
                 <h4>{address}, {city}</h4>
                 מייל:

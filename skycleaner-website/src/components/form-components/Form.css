@@ -6,36 +6,35 @@
 .form-container{
     align-items:center;
     justify-content:center;
-    /* flex-direction: row; */
-    /* display: flex; */
 }
-
 
 .form-drp-btn{
     background: #32afb5;
     border: none;
     outline: none;
-    /* width: 70%; */
     padding: 15px 0;
     color: #fff;
     font-size: 25px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     cursor: pointer;
-    /* align-items: center; */
+}
+
+.form-stpes{
+    text-align: center;
+    align-items: center;
+    font-size: 23px;
+    height: 90vh;
+    background-color: whitesmoke;
+  }
+
+.credit-MY{
+    color:  white;
+    text-decoration: none;
 }
 
 .last-step-btns{
-    /* position: absolute;
-    bottom: 0;
-    align-items: center; */
-    /* right: 0; */
-    /* left: auto; */
-    /* border: 5px solid #FFFF00; */
-/* text-align: center; */
-bottom: 1;
+    bottom: 1;
 }
-
-
 
 .step-btn-container{
     width: 100%;

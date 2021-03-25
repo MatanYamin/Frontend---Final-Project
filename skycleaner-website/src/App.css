@@ -7,11 +7,7 @@
 
   }
 
-  .home,
-  .clean1,
-  .clean2,
-  .clean3,
-  .clean4{
+  .home{
     display: flex;
     height: 90vh;
     align-items: center;
@@ -19,26 +15,8 @@
     font-size: 3rem;
   }
 
-  .form-stpes{
-    text-align: center;
-    align-items: center;
-    font-size: 23px;
-    height: 90vh;
-    background-color: whitesmoke;
-  }
-  .clean1,
-  .clean2,
-  .clean3,
-  .clean4 {
-    /* background-image: url('/images/img-2.jpg'); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: black;
-    font-size: 20px;
-    background-color: whitesmoke;
-  }
-  
+  */
+
   .contact, .admin{
     padding-top: 10%;
     font-size: 100px;

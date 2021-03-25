@@ -3,7 +3,7 @@ import AddAdmin from "../AddAdmin"
 //Admin panel will hold all components that are able by the admin
 
 class Admin extends React.Component {
-    
+    // Admin main page. will hold all functions to use for the admin
     constructor(props) {
         super(props);
         //"showing state" will help us show or hide a component "add admin" after clicking the button
@@ -23,6 +23,7 @@ class Admin extends React.Component {
          <div>
         {/* Adding new manager component after click */}
         <button className="button-form" onClick={() => this.setState({ showing: !showing })}>הוספת מנהל</button>
+        {/* Using "showing" for clicking a button */}
         {this.state.showing ?
            <AddAdmin
            email={this.props.email}
@@ -46,4 +47,5 @@ class Admin extends React.Component {
     );
 }
 }
+
 export default Admin

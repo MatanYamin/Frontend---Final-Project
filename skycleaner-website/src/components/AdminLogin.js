@@ -66,7 +66,7 @@ const AdminLogin = () => {
     const handleSingup = () => {
         clearErrors()
         fire.auth()
-        .createUserWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(email, password)  //"email" and "password" will get here from "AddAdmin" component
         .catch(err => {
             switch(err.code){
                 case "auth/email-already-in-use":

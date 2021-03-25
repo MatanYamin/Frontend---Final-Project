@@ -14,18 +14,8 @@ export class PickDateAndConfirm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        //   firstName: this.props.firstName
           selectedDate: null,
-          minTime: this.calculateMinTime(new Date())
         };
-    }
-    calculateMinTime = date => {
-        let isToday = moment(date).isSame(moment(), 'day');
-        if (isToday) {
-            let nowAddOneHour = moment(new Date()).add({hours: 1}).toDate();
-            return nowAddOneHour;
-        }
-        return moment().startOf('day').toDate(); 
     }
 
     setSelectedDate = date => {
@@ -39,14 +29,6 @@ export class PickDateAndConfirm extends Component {
         this.props.prevStep(); //will increase step by 1
     }
 
-    filterPassedTime = time => {
-        const currentDate = new Date();
-        const selectedDate = new Date(time);
-        console.log(selectedDate)
-        console.log(new Date(time))
-        return currentDate.getTime() < selectedDate.getTime();
-      }
-
     render() {
     const {values: {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
@@ -54,7 +36,6 @@ export class PickDateAndConfirm extends Component {
         <>
         <div>
             <h3>בחרו יום</h3>
-            {/* <i className="calendar-alt" /> */}
             <DatePicker 
             locale={he}
             autoFocus
@@ -86,6 +67,7 @@ export class PickDateAndConfirm extends Component {
             onClick={this.backward}>בצע שינויים
                 </button>
             <button className="step-btn"
+            // onClick will send a post request with all the values to the API
             onClick={() => 
                 {
                     try{
@@ -116,11 +98,7 @@ export class PickDateAndConfirm extends Component {
             הזמינו את התור!
             </button>
             </div>
-            {/* <t></t> */}
-            {/* back button - calls "backward" that decrease step state by 1 */}
-            
             </div>
-            {/* </div> */}
             </>
     );
     }

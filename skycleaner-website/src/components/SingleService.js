@@ -6,8 +6,8 @@ import axios from "axios"
 
 
 function SingleService(props) {
-   
-
+// This is a single service component (card)
+// We will get title, description, path and image to use for each one
     return(
         <>
         <li className="cards__item">

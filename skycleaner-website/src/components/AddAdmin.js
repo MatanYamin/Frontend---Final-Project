@@ -4,6 +4,7 @@ import React from 'react';
 
 
 export default function AddAdmin(props) {
+    // When admin is added, the Email and password will add to the Firebase with "setEmail" and "setPassword"
     return(
         <div>
          <section className="login">

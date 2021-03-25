@@ -6,6 +6,7 @@ import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form
 import axios from "../../../node_modules/axios"
 import PickDateAndConfirm from "./PickDateAndConfirm"
+import Footer from "../Footer"
 //Will need to add adming page
 
 
@@ -120,6 +121,7 @@ export class BookForm extends Component {
             return(
                 <Success />
             )
+            
         }
 }
 }

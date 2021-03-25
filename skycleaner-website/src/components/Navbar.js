@@ -69,8 +69,6 @@ function Navbar() {
                         </Link>
                     </li>
                 </ul>
-                {/*if this true then do it */}
-                {/* {button && <Button buttonStyle='btn--outline'>לחיצה</Button>} */}
             </div>
 
         </nav>

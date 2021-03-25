@@ -4,6 +4,7 @@ import '.././MiddleSection.css';
 
 
 export default function About() {
+    // the about page.
     return(
         <div className="about">
             <img class="img-about" src="https://i.ibb.co/NFSwNfM/favicon.png"></img>
