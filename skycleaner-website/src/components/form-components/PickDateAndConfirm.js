@@ -31,7 +31,7 @@ export class PickDateAndConfirm extends Component {
     }
 
     render() {
-    const {values: {service, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
+    const {values: {service, addons, date, hour, firstName, price, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
     return (
         <>
@@ -89,7 +89,8 @@ export class PickDateAndConfirm extends Component {
                                 addons: addons,
                                 comments: comments,
                                 date: this.state.selectedDate,
-                                hour: hour
+                                hour: hour,
+                                price: price
                             })
                         });
                     }

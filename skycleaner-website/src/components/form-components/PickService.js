@@ -52,7 +52,7 @@ export class PickService extends Component {
         axios.post("http://127.0.0.1:5000/prices", priceData)
         .then(response => this.setState(
             {
-            first_price: "מחיר " + response.data + " ₪"
+            first_price: " :מחיר " + response.data + " ₪"
         }));
     }
 
