@@ -6,43 +6,46 @@ import "./Form.css"
 
 
 export class PersonalDetails extends Component {
-    constructor(){
-        super();
-        this.state = {value: '',
+    constructor(props){
+        super(props);
+        this.state = {value: "",
                     dig: ""};
         this.onlyDigit = this.onlyDigit.bind(this)
      }
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
         event.preventDefault();
-        // this.props.handlePhone(this.state.value)
         this.props.nextStep(); //will increase step by 1
     }
+
     backward = event => {
         event.preventDefault();
         this.props.clearStates("");
         this.props.prevStep(); //will increase step by 1
     }
-
+  
     onlyDigit(e){
         const re = /^[0-9\b]+$/;
-        if (e.target.value === '' || re.test(e.target.value)) {
-           this.setState({value: e.target.value})
+        // this.check("matan")
+        if (re.test(e.target.value)) {
+           this.setState({value: e.target.value});
         }
         else{
             this.setState({dig: "ניתן להקליד רק ספרות"})
         }
      }
 
-
     render() {
     const {values} = this.props; //values is all the props we passed to the component
     const page = window.location.pathname.substring(1); //page name
+    
+    // console.log(values.phone)
     if(values.price==""){
         return(
             <>
             <br/><br/><br/><br/><br/><br/><br/>
-            לא נבחר שרות!
+            <b>  לא נבחר שרות</b>
+          
             <div className="step-btn-container">
             <button onClick={this.backward} className="step-btn">חזור</button>
             </div>
@@ -73,12 +76,13 @@ export class PersonalDetails extends Component {
             />
             <h6><a className="red-text">*</a>טלפון</h6>
             <TextField
-            type="digits"
+            // type="digits"
             placeholder={this.state.dig}
-            onChange={this.onlyDigit}
-            onInput={this.props.handleChange("phone")}
-            value={this.state.value}
-            defaultValue={this.state.value}
+            // onChange={this.onlyDigit}
+            // onInput={this.onlyDigit}
+            onChange={this.props.handleChange("phone")}
+            // value={this.state.value}
+            defaultValue={values.phone}
 
             />
             <h6><a className="red-text">*</a>עיר:</h6>

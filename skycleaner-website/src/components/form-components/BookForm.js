@@ -66,6 +66,12 @@ export class BookForm extends Component {
         })
     }
 
+    handlePhone = input => {
+        this.setState({
+            phone: input
+        })
+    }
+
     clearStates = input => {
         this.setState({
             price: input,
@@ -112,6 +118,7 @@ export class BookForm extends Component {
                     handleChange={this.handleChange}
                     clearStates={this.clearStates}
                     values={values}
+                    handlePhone={this.handlePhone}
                     />
                 )
             //Fourth step
@@ -122,6 +129,7 @@ export class BookForm extends Component {
                     prevStep={this.prevStep}
                     handleChange={this.handleChange}
                     values={values}
+                    handlePhone={this.handlePhone}
                     />
                 )
             //Fifth step (only will show that the submit worked)

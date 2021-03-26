@@ -23,7 +23,8 @@ export class Confirm extends Component {
         super(props);
         this.state = {
         //   firstName: this.props.firstName
-          selectedDate: null
+          selectedDate: null,
+          num: ""
         };
     }
 
@@ -35,6 +36,7 @@ export class Confirm extends Component {
 
     backward = event => {
         event.preventDefault();
+        // this.props.handlePhone(this.props.phone)
         this.props.prevStep(); //will increase step by 1
     }
     render() {
@@ -42,6 +44,10 @@ export class Confirm extends Component {
     const page = window.location.pathname.substring(1); //page name
     const requierd_fields = [firstName, lastName, email, address, city, phone]
     const missing_fields = ["שם פרטי", "שם משפחה", "מייל", "רחוב", "עיר", "טלפון"]
+    let mail_flag = false
+    if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email) === false){
+        mail_flag = true;
+    }
     let show_err_array = []
     let req_flag = false
     // This part is to validate that all fields are enterd
@@ -51,6 +57,19 @@ export class Confirm extends Component {
         req_flag = true
         }
     });
+    if(mail_flag){
+        return(
+            <>
+            <br/><br/><br/><br/>
+            <b>כתובת מייל לא חוקית!</b>
+            <div className="step-btn-container">
+            <button className="step-btn"
+            onClick={this.backward}>לביצוע שינויים
+                </button>
+                </div>
+            </>
+        )
+    }
     if(req_flag){
         return(
             <div>
@@ -78,10 +97,11 @@ export class Confirm extends Component {
                 <h4>{email}</h4>
                 מספר טלפון:
                 <h4>{phone}</h4>
+                
                 השרות:
                 <h4>{service}  {addons}</h4>
                 <a className="red-text"><h2>{price}</h2></a>
-                הערות:
+                 הערות:   
                 {comments}
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div>

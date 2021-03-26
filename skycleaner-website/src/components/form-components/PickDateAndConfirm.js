@@ -19,6 +19,7 @@ export class PickDateAndConfirm extends Component {
     }
 
     setSelectedDate = date => {
+        
         this.setState({
             selectedDate: date
         });
@@ -36,6 +37,7 @@ export class PickDateAndConfirm extends Component {
         <>
         <div>
             <h3>בחרו יום</h3>
+            {this.props.date}
             <DatePicker 
             locale={he}
             autoFocus

@@ -39,8 +39,8 @@ export class PickService extends Component {
         if (prevState.first_price !== this.state.first_price) {
             this.props.handlePrice(this.state.first_price);
             this.state.showing= false;
-            console.log(prevProps.service);
-            console.log(this.props.service)
+            // console.log(prevProps.service);
+            // console.log(this.props.service)
           }
     }
 
@@ -103,7 +103,6 @@ export class PickService extends Component {
             handlePrice={this.props.handlePrice}
             showing={this.state.showing}
             handleShow={this.handleShow}
-            // firstPrice={values.price}
             />
             :
             <b>{this.state.first_price}</b> //here the price will go
