@@ -19,7 +19,8 @@ export class PickService extends Component {
             showing: false,
             selectValue: '',
             first_price: '',
-            price_title: "המחיר: "
+            price_title: "המחיר: ",
+            ser: ""
         }
     }
 
@@ -34,6 +35,15 @@ export class PickService extends Component {
         }));
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.first_price !== this.state.first_price) {
+            this.props.handlePrice(this.state.first_price);
+            this.state.showing= false;
+            console.log(prevProps.service);
+            console.log(this.props.service)
+          }
+    }
+
     setPrice = (e) => {
         // Will get the price from the API and update the state
         const priceData = {
@@ -42,19 +52,14 @@ export class PickService extends Component {
         axios.post("http://127.0.0.1:5000/prices", priceData)
         .then(response => this.setState(
             {
-            first_price: response.data
-            
-            
+            first_price: "מחיר " + response.data + " ₪"
         }));
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if (prevState.first_price !== this.state.first_price) {
-            console.log('pokemons state has changed.')
-            console.log(prevState.first_price)
-            console.log(this.state.first_price)
-            this.props.handleMatan(this.state.first_price)
-          }
+    handleShow = input => {
+        this.setState({
+            showing: false,
+        })
     }
 
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
@@ -82,9 +87,10 @@ export class PickService extends Component {
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
             </select>
-            <br/><br/>
+            <br/>
             <br/>
             <button className="form-drp-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
+            <br/>
             <br/>
             {this.state.showing ?
             // Addon is a compontnet that holds all Addons services and prices
@@ -94,11 +100,13 @@ export class PickService extends Component {
             handleChange={this.props.handleChange}
             firstPrice={this.state.first_price}
             price={this.props.price}
+            handlePrice={this.props.handlePrice}
+            showing={this.state.showing}
+            handleShow={this.handleShow}
+            // firstPrice={values.price}
             />
             :
-            this.state.price_title +
-            this.state.first_price //here the price will go
-            
+            <b>{this.state.first_price}</b> //here the price will go
             }
             <br/><br/>
             

@@ -38,7 +38,7 @@
 
 .step-btn-container{
     width: 100%;
-    bottom: 0;
+    bottom: 0.0em;
     position: absolute;
 }
 
@@ -99,6 +99,14 @@
 
 .react-datepicker__day--disabled{
     color: lightgray;
+}
+
+.red-text{
+    color: red;
+}
+
+.personal-wrapper{
+    display: inline-grid;
 }
 
 @media screen and (max-width: 960px) {

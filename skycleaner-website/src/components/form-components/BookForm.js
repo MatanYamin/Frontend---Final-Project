@@ -17,7 +17,7 @@ export class BookForm extends Component {
         this.state = {
             title: "",
             step: 1,
-            service: 'abc',
+            service: '',
             price: '',
             addons: '',
             date: '',
@@ -41,6 +41,8 @@ export class BookForm extends Component {
         });
     }
 
+    
+
     // decreases the step integer and that way we can know where we at
     //with switch case we will check at which step
     prevStep = () => {
@@ -57,16 +59,22 @@ export class BookForm extends Component {
             [input]: event.target.value
         });
     }
-
-    handleMatan = input => {
+    // Will update the price value
+    handlePrice = input => {
         this.setState({
             price: input
         })
     }
 
+    clearStates = input => {
+        this.setState({
+            price: input,
+            service: input,
+            addons: input,
+        })
+    }
 
     onCreatePost = () => {
-        
         const postData = {
             title: this.props.page
         };
@@ -91,7 +99,8 @@ export class BookForm extends Component {
                     handleChange={this.handleChange}  //passing my function inorder to be able insert value to the input name
                     values={values}
                     page={this.props.page}
-                    handleMatan={this.handleMatan}
+                    handlePrice={this.handlePrice}
+                    clearStates={this.clearStates}
                     />
                     </>
                 )
@@ -101,6 +110,7 @@ export class BookForm extends Component {
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange={this.handleChange}
+                    clearStates={this.clearStates}
                     values={values}
                     />
                 )

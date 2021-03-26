@@ -27,21 +27,36 @@ export class Addon extends Component {
         }));
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.second_price !== this.state.second_price) {
+            this.props.handlePrice(this.state.second_price)
+          }
+        if(prevProps.addons !== this.props.addons){
+            console.log("mattaaannn")
+        }
+    }
+
     addonPrice = (e) => {
         const priceData = {
             addon: e.target.value
         };
         axios.post("http://127.0.0.1:5000/prices/addon", priceData)
         .then(response => this.setState({
-            second_price: response.data
+            second_price: "מחיר " + response.data + " ₪   "
         }));
+    }
+
+    handleClick = () => {
+        this.props.handlePrice(this.props.firstPrice);
+        this.props.handleShow();
     }
 
     render(){
         const {values} = this.props; //values is all the props we passed to the component
         return(
             <div>
-            <br/>
+                {console.log(this.props.price)}
+                {console.log(this.props.firstPrice)}
             <select 
             class="dropbtn"
             onChange={this.props.handleChange('addons')}
@@ -51,10 +66,9 @@ export class Addon extends Component {
             {this.state.addon_array.map(addon => (
             <option value={addon}>{addon}</option>))}
             </select>
-            <br/>
-            מחיר:
-            <br/>
-            {this.state.second_price}
+            <br/><br/>
+            <b>{this.state.second_price}</b>
+            <button className={"cancelAddon"} onClick={this.handleClick}> לביטול תוספים</button>
             </div>
         );
     }
