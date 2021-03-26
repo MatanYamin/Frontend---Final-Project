@@ -9,7 +9,8 @@ export default function AddAdmin(props) {
         <div>
          <section className="login">
             <div className="loginContainer">
-                <h1>הוסף מנהל חדש</h1>
+                <h1>
+                <label>הוסף מנהל חדש</label></h1>
                 <label>שם משתמש</label>
                 <input type="text"
                  autoFocus required
@@ -23,7 +24,7 @@ export default function AddAdmin(props) {
                  onChange={(e) => props.setPassword(e.target.value)}
                 />
                  <div className="btnContainer">
-                     <button onClick={props.handleSingup}>הרשמה</button>
+                     <button className="step-btn" onClick={props.handleSingup}>הוספת מנהל</button>
                  </div>
             </div>
         </section>

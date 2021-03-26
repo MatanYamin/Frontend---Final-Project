@@ -1,6 +1,9 @@
 import React from 'react';
 import AddAdmin from "../AddAdmin"
+import UpdateService from "../UpdateService"
+import UpdateAddon from "../UpdateAddon"
 //Admin panel will hold all components that are able by the admin
+
 
 class Admin extends React.Component {
     // Admin main page. will hold all functions to use for the admin
@@ -8,12 +11,16 @@ class Admin extends React.Component {
         super(props);
         //"showing state" will help us show or hide a component "add admin" after clicking the button
         this.state = {
-          showing: false,
+          showDelete: false,
+          showUpdateService: false,
+          showUpdateAddon: false,
         };
       }
       render() {
         //will update if there is a click
-        const {showing} = this.state;
+        const {showDelete} = this.state;
+        const {showUpdateService} = this.state
+        const {showUpdateAddon} = this.state
     return(
         <div>
         <h1> ברוכים הבאים למסך הניהול
@@ -22,9 +29,9 @@ class Admin extends React.Component {
          <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
          <div>
         {/* Adding new manager component after click */}
-        <button className="button-form" onClick={() => this.setState({ showing: !showing })}>הוספת מנהל</button>
+        <button className="button-form" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל</button>
         {/* Using "showing" for clicking a button */}
-        {this.state.showing ?
+        {this.state.showDelete ?
            <AddAdmin
            email={this.props.email}
            setEmail={this.props.setEmail}
@@ -35,9 +42,22 @@ class Admin extends React.Component {
             :
            null
         }
-        {/* Will add component for each activity */}
-        <button className="button-form">מחיקת מנהל</button>  
-        <button className="button-form">שינוי שרות</button>
+        {/* moving to change service: delete or add new one */}
+        <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות</button>
+        {this.state.showUpdateService ?
+           <UpdateService
+           />
+            :
+           null
+        }
+        {/* moving to change addon: delete or add new one */}
+        <button className="button-form" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף</button>
+        {this.state.showUpdateAddon ?
+           <UpdateAddon
+           />
+            :
+           null
+        }
         <button className="button-form">עדכון זמינות</button>
         <button className="button-form">אישור על סיום תור</button>
         <button className="button-form">הצגת תורים עתידיים</button>

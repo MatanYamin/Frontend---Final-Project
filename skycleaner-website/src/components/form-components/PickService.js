@@ -1,14 +1,16 @@
 //By Matan Yamin
 import React from "react"
 import { Component } from "react"
-import TextField from "../../../node_modules/@material-ui/core/TextField"
-import UiButton from "../../../node_modules/@material-ui/core/Button"
 import axios from "axios"
 import "./DropDown.css"
 import Addon from "./Addon"
 import "./Form.css"
-// import { Link } from "@material-ui/core"
+// import "react-step-progress-bar/styles.css";
+import { ProgressBar, Step } from "../../../../skycleaner-website/node_modules/react-step-progress-bar"
 import {Link} from 'react-router-dom'
+import Prog from "../ProgressBar"
+import { Steps } from 'rsuite'
+
 
 export class PickService extends Component {
     constructor(props){
@@ -52,7 +54,7 @@ export class PickService extends Component {
         axios.post("http://127.0.0.1:5000/prices", priceData)
         .then(response => this.setState(
             {
-            first_price: " :מחיר " + response.data + " ₪"
+            first_price: " מחיר:  " + response.data + " ₪"
         }));
     }
 
@@ -71,8 +73,14 @@ export class PickService extends Component {
         const {values} = this.props; //values is all the props we passed to the component
         const page = window.location.pathname.substring(1); //page name
         const {showing} = this.state;
-    return (
-        <div>
+        // const testData = [
+        //     { bgcolor: "#6a1b9a", completed: 50 }
+            
+        //   ];
+        return (
+            <div>
+              {/* {testData.map((item, idx) => (
+        <Prog key={idx} bgcolor={item.bgcolor} completed={item.completed} />))} */}
             
             <h1>בחרתם ב {page}</h1>
             <h1>מה מנקים?</h1>
