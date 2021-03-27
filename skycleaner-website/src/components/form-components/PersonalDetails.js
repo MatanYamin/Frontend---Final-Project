@@ -102,7 +102,6 @@ export class PersonalDetails extends Component {
             onChange={this.props.handleChange("phone")}
             // value={this.state.value}
             defaultValue={values.phone}
-
             />
             <h6><a className="red-text">*</a>עיר:</h6>
             {/* <TextField
@@ -115,8 +114,8 @@ export class PersonalDetails extends Component {
             onChange={this.props.handleChange('city')}>
             <option
             value="">בחרו עיר</option>
-            {this.state.cities.map(service => (
-            <option value={service}>{service}</option>))}
+            {this.state.cities.map(city => (
+            <option value={city}>{city}</option>))}
             </select>
             <h6><a className="red-text">*</a>רחוב: </h6>
             <TextField
