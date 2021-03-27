@@ -69,10 +69,6 @@ export class PickService extends Component {
         const {values} = this.props; //values is all the props we passed to the component
         const page = window.location.pathname.substring(1); //page name
         const {showing} = this.state;
-        // const testData = [
-        //     { bgcolor: "#6a1b9a", completed: 50 }
-            
-        //   ];
         return (
             <div>
               {/* {testData.map((item, idx) => (

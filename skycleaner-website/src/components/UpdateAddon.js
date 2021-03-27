@@ -47,7 +47,7 @@ export class UpdateAddon extends Component {
                 })
             })
         }
-}
+    }
 
     handleAddon = (input) => {
         this.setState({

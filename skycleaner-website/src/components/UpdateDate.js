@@ -20,7 +20,6 @@ export class UpdateDate extends Component {
     }
 
 render() {
-    
     return(
         <>
         <br/><br/>

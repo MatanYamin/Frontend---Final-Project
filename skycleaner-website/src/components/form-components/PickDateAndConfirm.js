@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./DropDown.css"
 import he from "date-fns/locale/he"; // the locale you want
+import axios from "axios"
 
 
 export class PickDateAndConfirm extends Component {
@@ -13,14 +14,35 @@ export class PickDateAndConfirm extends Component {
         super(props);
         this.state = {
           selectedDate: null,
-          disable_dates: []
+          disable_dates: [],
+          hours: [],
+          day: "no"
+        //   selected_hour: ""
         };
     }
+
     async read_disable_days(){
         // will get all dates from DB that admin choosed to disable
         let response = await fetch('http://127.0.0.1:5000/get/disabledate', { credentials: 'include' });
         let data = await response.json();
         return data
+    }
+
+    // async read_hours(){
+    //     // will get all hours from DB that are available
+    //     let response = await fetch('http://127.0.0.1:5000/get/hours', { credentials: 'include' });
+    //     let data = await response.json();
+    //     return data
+    // }
+
+    get_hours = (e) => {
+        const day = {
+            date: e
+        };
+        axios.post("http://127.0.0.1:5000/post/hours", day)
+        .then(response => this.setState({
+            hours: response.data
+        }));
     }
 
     componentDidMount() {
@@ -32,11 +54,22 @@ export class PickDateAndConfirm extends Component {
         })
     }
 
+    // componentDidUpdate(prevProps, prevState){
+    //     if (prevState.selectedDate !== this.state.selectedDate) {
+    //         this.read_hours().then((data) => {
+    //             this.setState({
+    //                 hours: data
+    //             })
+    //         })
+    //     }
+    // }
+
     setSelectedDate = date => {
         // will be the selected date from calendar
         this.setState({
             selectedDate: date
         });
+        this.get_hours(date)
     }
 
     backward = event => {
@@ -71,7 +104,13 @@ export class PickDateAndConfirm extends Component {
             />
             <br/><br/><br/>
            <h3>בחרו שעה</h3> 
-            <select className="dropbtn"
+           <label>בחר שרות להוסיף לו תוספת</label>
+                <select className="select-srp-down" onChange={this.props.handleChange('hour')}>
+                    <option value="nothing">בחר שרות</option>
+                    {this.state.hours.map(hour => (
+                    <option value={hour}>{hour}</option>))}
+                    </select>
+            {/* <select className="dropbtn"
             onChange={this.props.handleChange('hour')}>
                 <option value="09:00">בחרו שעה</option>
                 <option value="09:00">09:00</option>
@@ -81,7 +120,9 @@ export class PickDateAndConfirm extends Component {
                 <option value="13:00">13:00</option>
                 <option value="14:00">14:00</option>
                 <option value="15:00">15:00</option>
-                </select>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                </select> */}
             </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div>
