@@ -77,7 +77,7 @@ render() {
            <>
            <br/>
            <select 
-            class="city-drp-down"
+            class="del-city-drp-down"
             onChange={(e) => this.setState({ new_city: e.target.value })}>
             <option
             value="">בחרו עיר</option>

@@ -10,6 +10,8 @@ export class UpdateDate extends Component {
         super(props);
         this.state = {
           selectedDate: null,
+          showDisableDate: false,
+          showActivateDate: false
         };
     }
     setSelectedDate = date => {
@@ -20,22 +22,29 @@ export class UpdateDate extends Component {
     }
 
 render() {
+    const {showDisableDate} = this.state
+    const {showActivateDate} = this.state
     return(
         <>
-        <br/><br/>
+        <section className="login">
+        <div className="loginContainer">
+        <button className="step-btn" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>לחסום יום</button>
+        {this.state.showDisableDate ?
+            <>
+        <br/>
         <div class="admin-date-container">
             <div className="admin-date">
-        <DatePicker 
+            <DatePicker 
             locale={he}
-            autoFocus
-            placeholderText="בחר מתי לא תוכל לתת שרות"
+            // autoFocus
+            placeholderText="לחץ לבחירת יום לחסום"
             selected={this.state.selectedDate}
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
-            <div className="step-btn-container">
+            <div className="btnContainer">
             <button className="step-btn"
             // onClick will send a post request with all the values to the API
             onClick={() => 
@@ -54,6 +63,49 @@ render() {
                     }}>אישור</button>
                     </div>
                     </div></div>
+            </>
+            :
+            null}
+        <br/><br/>
+        <button className="step-btn" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>לאפשר יום</button>
+        {this.state.showActivateDate ?
+            <>
+        <br/>
+        <div class="admin-date-container">
+            <div className="admin-date">
+            <DatePicker 
+            locale={he}
+            placeholderText="בחר מתי תוכל לעבוד"
+            selected={this.state.selectedDate}
+            onChange={(date)=> this.setSelectedDate(date)}
+            dateFormat="dd-MM-yyyy"
+            minDate={new Date()}
+            filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
+            />
+            <div className="btnContainer">
+            <button className="step-btn"
+            // onClick will send a post request with all the values to the API
+            onClick={() => 
+                {
+                    try{
+                        fetch("http://127.0.0.1:5000/delete/activatedate", {
+                            method: "DELETE",
+                            body: JSON.stringify({
+                                date: this.state.selectedDate
+                            })
+                        });
+                    }
+                    catch(e) {
+                        console.log(e)}
+                    // this.props.nextStep();
+                    }}>אישור</button>
+                    </div>
+                    </div></div>
+            </>
+            :
+            null}
+                    </div>
+                    </section>
         </>
     )}
 }
