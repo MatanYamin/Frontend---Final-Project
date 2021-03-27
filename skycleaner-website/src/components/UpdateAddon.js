@@ -1,5 +1,6 @@
 import React from "react"
 import { Component } from "react"
+const url = "http://127.0.0.1:5000/"
 
 
 export class UpdateAddon extends Component {
@@ -18,14 +19,14 @@ export class UpdateAddon extends Component {
 
     async readServices() {
         // bring categories
-        let response = await fetch('http://127.0.0.1:5000/get/services', { credentials: 'include' });
+        let response = await fetch(url + 'get/services', { credentials: 'include' });
         let data = await response.json(); // for string
         return data
     }
 
     async readAddons() {
         // bring services
-        let response = await fetch('http://127.0.0.1:5000/get/addons', { credentials: 'include' });
+        let response = await fetch(url + 'get/addons', { credentials: 'include' });
         let data = await response.json(); // for string
         return data
     }
@@ -93,7 +94,7 @@ render() {
                      onClick={() => 
                         {
                             try{
-                                fetch("http://127.0.0.1:5000/put/addon", {
+                                fetch(url + "put/addon", {
                                     method: "PUT",
                                     body: JSON.stringify({
                                         service_name: this.state.service_name,
@@ -125,7 +126,7 @@ render() {
                     onClick={() => 
                         {
                             try{
-                                fetch("http://127.0.0.1:5000/delete/addon", {
+                                fetch(url + "delete/addon", {
                                     method: "DELETE",
                                     body: JSON.stringify({
                                         addon_name: this.state.addon_name,

@@ -3,6 +3,7 @@ import React from "react"
 import { Component } from "react"
 import TextField from "../../../node_modules/@material-ui/core/TextField"
 import "./Form.css"
+const url = "http://127.0.0.1:5000/"
 
 
 export class PersonalDetails extends Component {
@@ -18,7 +19,7 @@ export class PersonalDetails extends Component {
 
      async readCities() {
         // bring all cities allowed
-        let response = await fetch('http://127.0.0.1:5000/get/cities', { credentials: 'include' });
+        let response = await fetch(url + 'get/cities', { credentials: 'include' });
         let data = await response.json(); // for string
         return data
     }
@@ -74,6 +75,7 @@ export class PersonalDetails extends Component {
     return (
         <div>
             <h1>פרטים אישיים</h1>
+            <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
             {/* <a className="red-text">*</a> */}
             <h6><a className="red-text">*</a>שם פרטי: </h6>
@@ -93,14 +95,10 @@ export class PersonalDetails extends Component {
             defaultValue={values.email}
             required={true}
             />
-            <h6><a className="red-text">*</a>טלפון</h6>
+            <h6><a className="red-text">*</a>טלפון:</h6>
             <TextField
-            // type="digits"
             placeholder={this.state.dig}
-            // onChange={this.onlyDigit}
-            // onInput={this.onlyDigit}
             onChange={this.props.handleChange("phone")}
-            // value={this.state.value}
             defaultValue={values.phone}
             />
             <h6><a className="red-text">*</a>עיר:</h6>
@@ -113,6 +111,7 @@ export class PersonalDetails extends Component {
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
+            <h6><a className="red-text">העיר שלכם לא ברשימה? <a href="http://localhost:3000/contact">צרו איתנו קשר!</a> </a></h6>
             <h6><a className="red-text">*</a>רחוב: </h6>
             <TextField
             onChange={this.props.handleChange('address')}
@@ -127,7 +126,6 @@ export class PersonalDetails extends Component {
             <br/> <br/>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div className="step-btn-container">
-                <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
             <button onClick={this.continue} className="step-btn">לווידוא פרטים</button>
             <button onClick={this.backward} className="step-btn">חזור</button>
             </div>

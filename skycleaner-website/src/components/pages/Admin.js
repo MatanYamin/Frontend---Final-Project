@@ -38,6 +38,7 @@ class Admin extends React.Component {
         <button className="button-form" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל</button>
         {/* Using "showing" for clicking a button */}
         {this.state.showDelete ?
+        <>
            <AddAdmin
            email={this.props.email}
            setEmail={this.props.setEmail}
@@ -45,9 +46,10 @@ class Admin extends React.Component {
            setPassword={this.props.setPassword}
            handleSingup={this.props.handleSingup}
            />
+         </>
             :
-           null
-        }
+            null
+         }
         {/* moving to change service: delete or add new one */}
         <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות</button>
         {this.state.showUpdateService ?

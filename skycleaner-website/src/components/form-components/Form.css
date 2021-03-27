@@ -114,14 +114,12 @@
 }
 
 .city-drp-down{
-    background: #32afb5;
-    border: none;
+    background: whitesmoke;
     outline: none;
-    padding: 15px 0;
-    color: #fff;
-    letter-spacing: 2px;
+    color: black;
     cursor: pointer;
-    height: 45px;
+    text-align: center;
+    font-size: large;
 }
 
 

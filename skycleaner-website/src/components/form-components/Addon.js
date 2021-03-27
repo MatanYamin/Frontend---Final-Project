@@ -6,6 +6,7 @@ import UiButton from "../../../node_modules/@material-ui/core/Button"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import axios from "axios"
+const url = "http://127.0.0.1:5000/"
 
 
 export class Addon extends Component {
@@ -21,7 +22,7 @@ export class Addon extends Component {
         const postData = {
             add: this.props.service
         };
-        axios.post("http://127.0.0.1:5000/addon", postData)
+        axios.post(url + "addon", postData)
         .then(response => this.setState({
             addon_array: response.data
         }));
@@ -40,7 +41,7 @@ export class Addon extends Component {
         const priceData = {
             addon: e.target.value
         };
-        axios.post("http://127.0.0.1:5000/prices/addon", priceData)
+        axios.post(url + "prices/addon", priceData)
         .then(response => this.setState({
             second_price: "מחיר " + response.data + " ₪   "
         }));

@@ -1,6 +1,6 @@
 import React from "react"
 import { Component } from "react"
-
+const url = "http://127.0.0.1:5000/"
 
 export class UpdateService extends Component {
     constructor(props){
@@ -18,7 +18,7 @@ export class UpdateService extends Component {
 
     async readCategories() {
         // get all categories inorder to know to whick category we will add a service
-        let response = await fetch('http://127.0.0.1:5000/get/categories', { credentials: 'include' });
+        let response = await fetch(url + 'get/categories', { credentials: 'include' });
         let data = await response.json();
         console.log("data: ", data)
         return data
@@ -26,7 +26,7 @@ export class UpdateService extends Component {
 
     async readServices() {
         // bringing all service for deleting one
-        let response = await fetch('http://127.0.0.1:5000/get/services', { credentials: 'include' });
+        let response = await fetch(url + 'get/services', { credentials: 'include' });
         let data = await response.json();
         return data
     }
@@ -100,7 +100,7 @@ render() {
                 onClick={() => 
                    {
                        try{
-                           fetch("http://127.0.0.1:5000/post/service", {
+                           fetch(url + "post/service", {
                                method: "POST",
                                mode: "no-cors",
                                headers: {
@@ -118,7 +118,9 @@ render() {
                            console.log(e)}
                        }}
                 >אישור</button>
-            </div> </>
+            <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
+            </div>
+             </>
             :
            null
         }
@@ -138,7 +140,7 @@ render() {
                     onClick={() => 
                         {
                             try{
-                                fetch("http://127.0.0.1:5000/delete/service", {
+                                fetch(url + "delete/service", {
                                     method: "DELETE",
                                     body: JSON.stringify({
                                         service_name: this.state.service_name,
@@ -148,7 +150,9 @@ render() {
                             catch(e) {
                                 console.log(e)}
                             }}
-                    >אישור מחיקה (הדבר ימחק גם את כל התוספים של אותו שרות)</button>
+                    >אישור מחיקה<br/> (הדבר ימחק גם את כל התוספים של אותו שרות)</button>
+                    <br/>
+                    <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
            </>
             :
            null

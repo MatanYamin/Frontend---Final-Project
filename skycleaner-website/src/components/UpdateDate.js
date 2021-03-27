@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import he from "date-fns/locale/he"; // the locale you want
 import axios from "axios"
+const url = "http://127.0.0.1:5000/"
 
 
 export class UpdateDate extends Component {
@@ -48,7 +49,7 @@ export class UpdateDate extends Component {
         const day = {
             date: e
         };
-        axios.post("http://127.0.0.1:5000/post/hours", day)
+        axios.post(url + "post/hours", day)
         .then(response => this.setState({
             hours: response.data
         }));
@@ -83,7 +84,7 @@ render() {
             onClick={() => 
                 {
                     try{
-                        fetch("http://127.0.0.1:5000/put/disabledate", {
+                        fetch(url + "put/disabledate", {
                             method: "PUT",
                             body: JSON.stringify({
                                 date: this.state.selectedDate
@@ -93,6 +94,7 @@ render() {
                     catch(e) {
                         console.log(e)}
                     }}>אישור</button>
+                    <button className="step-btn" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>ביטול</button>
                     </div>
                     </div></div>
             </>
@@ -120,7 +122,7 @@ render() {
             onClick={() => 
                 {
                     try{
-                        fetch("http://127.0.0.1:5000/delete/activatedate", {
+                        fetch(url + "delete/activatedate", {
                             method: "DELETE",
                             body: JSON.stringify({
                                 date: this.state.selectedDate
@@ -130,6 +132,7 @@ render() {
                     catch(e) {
                         console.log(e)}
                     }}>אישור</button>
+                    <button className="step-btn" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>ביטול</button>
                     </div>
                     </div></div>
             </>
@@ -163,7 +166,7 @@ render() {
             onClick={() => 
                 {
                     try{
-                        fetch("http://127.0.0.1:5000/post/newhours", {
+                        fetch(url + "post/newhours", {
                             method: "POST",
                             mode: "no-cors",
                             headers: {
@@ -181,7 +184,7 @@ render() {
                     }}>
             אישור
             </button>
-            {console.log(this.state.selectedDate)} {console.log(this.state.hour)}
+            <button className="step-btn" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>ביטול</button>
                 </div>
                 </div>
                 </div>

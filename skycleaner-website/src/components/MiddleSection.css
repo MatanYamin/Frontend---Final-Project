@@ -55,6 +55,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.lottery{
+    text-decoration: none;
+}
+
 /* for screens with width 768-960 px */
 @media screen and (max-width:  960px) {
     .middle-container > h1{

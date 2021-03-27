@@ -5,7 +5,7 @@ import axios from "axios"
 import "./DropDown.css"
 import Addon from "./Addon"
 import "./Form.css"
-
+const url = "http://127.0.0.1:5000/"
 
 
 export class PickService extends Component {
@@ -27,7 +27,7 @@ export class PickService extends Component {
         const postData = {
             title: this.props.page
         };
-        axios.post("http://127.0.0.1:5000/services", postData)
+        axios.post(url + "services", postData)
         .then(response => this.setState({
             service_array: response.data
         }));
@@ -37,8 +37,6 @@ export class PickService extends Component {
         if (prevState.first_price !== this.state.first_price) {
             this.props.handlePrice(this.state.first_price);
             this.state.showing= false;
-            // console.log(prevProps.service);
-            // console.log(this.props.service)
           }
     }
 
@@ -47,7 +45,7 @@ export class PickService extends Component {
         const priceData = {
             prices: e.target.value
         };
-        axios.post("http://127.0.0.1:5000/prices", priceData)
+        axios.post(url + "prices", priceData)
         .then(response => this.setState(
             {
             first_price: " מחיר:  " + response.data + " ₪"
@@ -71,9 +69,6 @@ export class PickService extends Component {
         const {showing} = this.state;
         return (
             <div>
-              {/* {testData.map((item, idx) => (
-        <Prog key={idx} bgcolor={item.bgcolor} completed={item.completed} />))} */}
-            
             <h1>בחרתם ב {page}</h1>
             <h1>מה מנקים?</h1>
             <br/>

@@ -13,7 +13,8 @@ function MiddleSection() {
             <div className="middle-btns">
                 {/* the buttons will direct to the services and to lottery video */}
                 <Button className="btns" buttonStyle='btn--outline' buttonSize="btn--large">חפשו שירות‏!‏</Button>
-                <Button className="btns" buttonStyle='btn--primary' buttonSize="btn--large">צפו בהגרלות</Button>
+                <Button className="btns" buttonStyle='btn--primary' buttonSize="btn--large">
+                    <a href="https://www.youtube.com/watch?v=IPMN-LqzB7Y&t=8s&ab_channel=מתןימין" class="lottery">צפו בהגרלות</a></Button>
             </div>
         </div>
     )

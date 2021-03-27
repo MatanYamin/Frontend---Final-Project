@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import "./DropDown.css"
 import he from "date-fns/locale/he"; // the locale you want
 import axios from "axios"
+const url = "http://127.0.0.1:5000/"
 
 
 export class PickDateAndConfirm extends Component {
@@ -23,7 +24,7 @@ export class PickDateAndConfirm extends Component {
 
     async read_disable_days(){
         // will get all dates from DB that admin choosed to disable
-        let response = await fetch('http://127.0.0.1:5000/get/disabledate', { credentials: 'include' });
+        let response = await fetch(url + 'get/disabledate', { credentials: 'include' });
         let data = await response.json();
         return data
     }
@@ -32,7 +33,7 @@ export class PickDateAndConfirm extends Component {
         const day = {
             date: e
         };
-        axios.post("http://127.0.0.1:5000/post/hours", day)
+        axios.post(url + "post/hours", day)
         .then(response => this.setState({
             hours: response.data
         }));
@@ -104,7 +105,7 @@ export class PickDateAndConfirm extends Component {
             onClick={() => 
                 {
                     try{
-                        fetch("http://127.0.0.1:5000/booking", {
+                        fetch(url + "booking", {
                             method: "POST",
                             mode: "no-cors",
                             headers: {

@@ -1,5 +1,6 @@
 import React from "react"
 import { Component } from "react"
+const url = "http://127.0.0.1:5000/"
 
 
 export class UpdateCity extends Component {
@@ -9,15 +10,16 @@ export class UpdateCity extends Component {
             cities: [],
             new_city: "",
             showing: false,
-            deleting: false
+            deleting: false,
+            check: false,
+            txt: "matan"
         }
     }
 
     async readCities() {
         // bring all cities allowed
-        let response = await fetch('http://127.0.0.1:5000/get/cities', { credentials: 'include' });
+        let response = await fetch(url + 'get/cities', { credentials: 'include' });
         let data = await response.json(); // for string
-        console.log(data)
         return data
     }
 
@@ -40,8 +42,11 @@ render() {
     const page = window.location.pathname.substring(1); //page name
     const {showing} = this.state;
     const {deleting} = this.state;
+    const {check} = this.state;
     return(
         <>
+        {/* {console.log("בהתחלה")} */}
+        {/* {console.log(this.state.check)} */}
         <section className="login">
             <div className="loginContainer">
             <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>להוספת עיר</button>
@@ -56,17 +61,19 @@ render() {
                      onClick={() => 
                         {
                             try{
-                                fetch("http://127.0.0.1:5000/post/city", {
+                                fetch(url + "post/city", {
                                     method: "POST",
                                     body: JSON.stringify({
                                         city: this.state.new_city,
                                     })
                                 });
+
                             }
                             catch(e) {
                                 console.log(e)}
                             }}
                      >סיום</button>
+                     <button className="step-btn"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                  </div>
             </>
             :
@@ -81,20 +88,24 @@ render() {
             onChange={(e) => this.setState({ new_city: e.target.value })}>
             <option
             value="">בחרו עיר</option>
+            {/* {console.log("always print")} */}
+            {/* {console.log(this.state.check)} */}
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
                     <div className="btnContainer">
-                    <button className="del-btn"
+                    <button 
+                    // onInput={}
+                    className="del-btn"
                     onClick={() => 
                         {
                             try{
-                                fetch("http://127.0.0.1:5000/delete/city", {
+                                fetch(url + "delete/city", {
                                     method: "DELETE",
                                     body: JSON.stringify({
                                         city: this.state.new_city,
                                     })
-                                });
+                                })
                             }
                             
                             catch(e) {
@@ -102,6 +113,7 @@ render() {
                             }
                             }
                     >אישור מחיקה</button>
+                    <button className="step-btn"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     </div>
            </>
             :

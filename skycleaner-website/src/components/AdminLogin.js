@@ -37,10 +37,10 @@ const AdminLogin = () => {
                 case "auth/invalid-email":
                 case "auth/user-disabled":
                 case "auth/user-not-found":
-                    setEmailError(err.messsage);  //Error message for wring email/user name
+                    setEmailError("שם משתמש לא תקין");  //Error message for wring email/user name
                     break;
                 case "auth/wrong-password":
-                    setPasswordError(err.message); //Error for wrong password
+                    setPasswordError("סיסמה שגויה"); //Error for wrong password
                     break;
             }
         })

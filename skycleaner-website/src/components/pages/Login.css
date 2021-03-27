@@ -6,15 +6,16 @@
   }
   
   .button-form {
-    border: none;
+    /* border: none; */
     outline: none;
     width: 100%;
     padding: 15px 0;
     color: #fff;
     font-size: 20px;
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
     background: #603bbb;
     cursor: pointer;
+    border-color: grey;
   }
   
   .login {
@@ -23,6 +24,9 @@
     padding: 0 20px;
     background: #e9e9e9;
     display: flex;
+    /* transition: all 3.5s ease; */
+    /* z-index: 1; */
+    /* transition: all 400ms ease-in-out; */
   }
   
   .login .loginContainer {
