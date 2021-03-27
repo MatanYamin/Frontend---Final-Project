@@ -28,13 +28,6 @@ export class PickDateAndConfirm extends Component {
         return data
     }
 
-    // async read_hours(){
-    //     // will get all hours from DB that are available
-    //     let response = await fetch('http://127.0.0.1:5000/get/hours', { credentials: 'include' });
-    //     let data = await response.json();
-    //     return data
-    // }
-
     get_hours = (e) => {
         const day = {
             date: e
@@ -53,16 +46,6 @@ export class PickDateAndConfirm extends Component {
             })
         })
     }
-
-    // componentDidUpdate(prevProps, prevState){
-    //     if (prevState.selectedDate !== this.state.selectedDate) {
-    //         this.read_hours().then((data) => {
-    //             this.setState({
-    //                 hours: data
-    //             })
-    //         })
-    //     }
-    // }
 
     setSelectedDate = date => {
         // will be the selected date from calendar
@@ -89,6 +72,7 @@ export class PickDateAndConfirm extends Component {
     return (
         <>
         <div>
+            <br/>
             <h3>בחרו יום</h3>
             {this.props.date}
             <DatePicker 
@@ -102,27 +86,12 @@ export class PickDateAndConfirm extends Component {
             minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
-            <br/><br/><br/>
-           <h3>בחרו שעה</h3> 
-           <label>בחר שרות להוסיף לו תוספת</label>
-                <select className="select-srp-down" onChange={this.props.handleChange('hour')}>
-                    <option value="nothing">בחר שרות</option>
+            <br/><br/><br/><br/>
+                <select className="form-drp-btn" onChange={this.props.handleChange('hour')}>
+                    <option value="nothing">בחרו שעה</option>
                     {this.state.hours.map(hour => (
                     <option value={hour}>{hour}</option>))}
                     </select>
-            {/* <select className="dropbtn"
-            onChange={this.props.handleChange('hour')}>
-                <option value="09:00">בחרו שעה</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-                </select> */}
             </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div>

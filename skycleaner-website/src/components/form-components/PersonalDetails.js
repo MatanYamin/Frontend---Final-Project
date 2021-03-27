@@ -8,10 +8,29 @@ import "./Form.css"
 export class PersonalDetails extends Component {
     constructor(props){
         super(props);
-        this.state = {value: "",
-                    dig: ""};
+        this.state = {
+            value: "",
+            dig: "",
+            cities: []
+        };
         this.onlyDigit = this.onlyDigit.bind(this)
      }
+
+     async readCities() {
+        // bring all cities allowed
+        let response = await fetch('http://127.0.0.1:5000/get/cities', { credentials: 'include' });
+        let data = await response.json(); // for string
+        return data
+    }
+    
+    componentDidMount() {
+        this.readCities().then((data) => {
+            this.setState({
+                cities: data
+            })
+        })
+    }
+
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
         event.preventDefault();
@@ -86,10 +105,19 @@ export class PersonalDetails extends Component {
 
             />
             <h6><a className="red-text">*</a>עיר:</h6>
-            <TextField
+            {/* <TextField
             onChange={this.props.handleChange('city')}
             defaultValue={values.city}
-            />
+            /> */}
+            <select 
+            class="city-drp-down"
+            defaultValue={values.city}
+            onChange={this.props.handleChange('city')}>
+            <option
+            value="">בחרו עיר</option>
+            {this.state.cities.map(service => (
+            <option value={service}>{service}</option>))}
+            </select>
             <h6><a className="red-text">*</a>רחוב: </h6>
             <TextField
             onChange={this.props.handleChange('address')}

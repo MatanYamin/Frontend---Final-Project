@@ -32,6 +32,7 @@ export class Confirm extends Component {
     backward = event => {
         event.preventDefault();
         // this.props.handlePhone(this.props.phone)
+        this.props.handleCity("")
         this.props.prevStep(); //will increase step by 1
     }
     render() {

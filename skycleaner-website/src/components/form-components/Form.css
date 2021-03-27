@@ -113,6 +113,17 @@
    /* line-break: auto; */
 }
 
+.city-drp-down{
+    background: #32afb5;
+    border: none;
+    outline: none;
+    padding: 15px 0;
+    color: #fff;
+    letter-spacing: 2px;
+    cursor: pointer;
+    height: 45px;
+}
+
 .step-btn:hover{
     background-color:#32afb5;
 }

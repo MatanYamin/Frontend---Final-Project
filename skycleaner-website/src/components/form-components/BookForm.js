@@ -66,6 +66,12 @@ export class BookForm extends Component {
         })
     }
 
+    handleCity = input => {
+        this.setState({
+            city: input
+        })
+    }
+
     handlePhone = input => {
         this.setState({
             phone: input
@@ -130,6 +136,7 @@ export class BookForm extends Component {
                     handleChange={this.handleChange}
                     values={values}
                     handlePhone={this.handlePhone}
+                    handleCity={this.handleCity}
                     />
                 )
             //Fifth step (only will show that the submit worked)
