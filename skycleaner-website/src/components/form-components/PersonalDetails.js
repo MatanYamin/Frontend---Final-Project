@@ -104,10 +104,6 @@ export class PersonalDetails extends Component {
             defaultValue={values.phone}
             />
             <h6><a className="red-text">*</a>עיר:</h6>
-            {/* <TextField
-            onChange={this.props.handleChange('city')}
-            defaultValue={values.city}
-            /> */}
             <select 
             class="city-drp-down"
             defaultValue={values.city}
