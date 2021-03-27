@@ -5,11 +5,7 @@ import axios from "axios"
 import "./DropDown.css"
 import Addon from "./Addon"
 import "./Form.css"
-// import "react-step-progress-bar/styles.css";
-import { ProgressBar, Step } from "../../../../skycleaner-website/node_modules/react-step-progress-bar"
-import {Link} from 'react-router-dom'
-import Prog from "../ProgressBar"
-import { Steps } from 'rsuite'
+
 
 
 export class PickService extends Component {

@@ -54,7 +54,7 @@ function Footer(){
                            סקיי קלינר
                        </Link>
                     </div>
-                    <small className="website-rights"><br/> <i className="fas fa-code"></i> <a className="credit-MY" href="https://www.linkedin.com/in/matan-yamin-40283b199/"> Client & Server side: Build by Matan Yamin </a><i className="fas fa-code"></i></small>
+                    <small className="website-rights"><br/> <i className="fas fa-code"></i> <a className="credit-MY" href="https://www.linkedin.com/in/matan-yamin-40283b199/"> Client & Server side: Matan Yamin </a><i className="fas fa-code"></i></small>
                     <div className="social-icons">
                         <a className="social-icon-link facebook"
                         target="_blank"

@@ -1,6 +1,4 @@
 import React from 'react';
-//adding admin component
-//will add admin and add it to firebase database
 
 
 export default function AddAdmin(props) {

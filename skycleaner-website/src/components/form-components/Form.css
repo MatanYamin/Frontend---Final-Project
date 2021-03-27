@@ -48,6 +48,16 @@
 }
 
 
+.admin-date-container{
+    height: 400px;
+}
+
+.admin-date{
+    /* background-color: red; */
+    text-align: center;
+}
+
+
 .form-drp-btn{
     background: #32afb5;
     border: none;

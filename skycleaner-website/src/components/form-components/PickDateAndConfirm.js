@@ -1,12 +1,10 @@
 //By Matan Yamin
 import React from "react"
 import { Component } from "react"
-import UiButton from "../../../node_modules/@material-ui/core/Button"
 import "./Form.css"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import "./DropDown.css"
-import moment from "moment"
 import he from "date-fns/locale/he"; // the locale you want
 
 
@@ -15,11 +13,27 @@ export class PickDateAndConfirm extends Component {
         super(props);
         this.state = {
           selectedDate: null,
+          disable_dates: []
         };
+    }
+    async read_disable_days(){
+        // will get all dates from DB that admin choosed to disable
+        let response = await fetch('http://127.0.0.1:5000/get/disabledate', { credentials: 'include' });
+        let data = await response.json();
+        return data
+    }
+
+    componentDidMount() {
+        // when open this component, we will get all dates to be disabled
+        this.read_disable_days().then((data) => {
+            this.setState({
+                disable_dates: data
+            })
+        })
     }
 
     setSelectedDate = date => {
-        
+        // will be the selected date from calendar
         this.setState({
             selectedDate: date
         });
@@ -33,6 +47,12 @@ export class PickDateAndConfirm extends Component {
     render() {
     const {values: {service, addons, date, hour, firstName, price, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
+    const days = ['2021-04-08', '2021-04-07'];
+    const exclude_days_array = [];
+    // mapping disabled dates to an array
+    this.state.disable_dates.map(service => (
+        exclude_days_array.push(new Date(service))));
+    console.log( this.state.disable_dates)
     return (
         <>
         <div>
@@ -41,6 +61,7 @@ export class PickDateAndConfirm extends Component {
             <DatePicker 
             locale={he}
             autoFocus
+            excludeDates={exclude_days_array}
             placeholderText="לחצו לבחירת תאריך"
             selected={this.state.selectedDate}
             onChange={(date)=> this.setSelectedDate(date)}

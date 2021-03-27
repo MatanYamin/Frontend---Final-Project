@@ -2,6 +2,7 @@ import React from 'react';
 import AddAdmin from "../AddAdmin"
 import UpdateService from "../UpdateService"
 import UpdateAddon from "../UpdateAddon"
+import UpdateDate from "../UpdateDate"
 //Admin panel will hold all components that are able by the admin
 
 
@@ -14,6 +15,7 @@ class Admin extends React.Component {
           showDelete: false,
           showUpdateService: false,
           showUpdateAddon: false,
+          showDisableDate: false
         };
       }
       render() {
@@ -21,6 +23,7 @@ class Admin extends React.Component {
         const {showDelete} = this.state;
         const {showUpdateService} = this.state
         const {showUpdateAddon} = this.state
+        const {showDisableDate} = this.state
     return(
         <div>
         <h1> ברוכים הבאים למסך הניהול
@@ -58,7 +61,13 @@ class Admin extends React.Component {
             :
            null
         }
-        <button className="button-form">עדכון זמינות</button>
+        <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות</button>
+        {this.state.showDisableDate ?
+           <UpdateDate
+           />
+            :
+           null
+        }
         <button className="button-form">אישור על סיום תור</button>
         <button className="button-form">הצגת תורים עתידיים</button>
         <button className="button-form">הוסף עיר לרשימה</button>

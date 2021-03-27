@@ -1,7 +1,6 @@
 import React from "react"
-import axios from "axios"
 import { Component } from "react"
-import "./Select.css"
+
 
 export class UpdateAddon extends Component {
     constructor(props){
@@ -21,7 +20,6 @@ export class UpdateAddon extends Component {
         // bring categories
         let response = await fetch('http://127.0.0.1:5000/get/services', { credentials: 'include' });
         let data = await response.json(); // for string
-        console.log("data: ", data)
         return data
     }
 
@@ -29,7 +27,6 @@ export class UpdateAddon extends Component {
         // bring services
         let response = await fetch('http://127.0.0.1:5000/get/addons', { credentials: 'include' });
         let data = await response.json(); // for string
-        // console.log("data: ", data)
         return data
     }
     
@@ -49,7 +46,7 @@ export class UpdateAddon extends Component {
                     addons_array: data
                 })
             })
-    }
+        }
 }
 
     handleAddon = (input) => {
