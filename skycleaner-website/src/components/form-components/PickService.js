@@ -72,7 +72,8 @@ export class PickService extends Component {
             <h1>בחרתם ב {page}</h1>
             <h1>מה מנקים?</h1>
             <br/>
-            <select 
+            <select
+            defaultValue={this.props.service}
             class="form-drp-btn"
             onChange={this.props.handleChange("service")}
             onInput={(e) => {this.setPrice(e)}}

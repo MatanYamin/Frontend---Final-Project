@@ -177,6 +177,10 @@
     color: red;
 }
 
+.green-text{
+    color: green;
+}
+
 .personal-wrapper{
     display: inline-grid;
 }

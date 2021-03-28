@@ -12,7 +12,12 @@ export class PersonalDetails extends Component {
         this.state = {
             value: "",
             dig: "",
-            cities: []
+            cities: [],
+            mailValue: "",
+            firstNameValue: "",
+            lastNameValue: "",
+            wrongEmail: "",
+            goodEmail: "",
         };
         this.onlyDigit = this.onlyDigit.bind(this)
      }
@@ -30,6 +35,9 @@ export class PersonalDetails extends Component {
                 cities: data
             })
         })
+        // this.setState({
+        //     mailValue: this.props.email
+        // })
     }
 
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
@@ -49,17 +57,36 @@ export class PersonalDetails extends Component {
         // this.check("matan")
         if (re.test(e.target.value)) {
            this.setState({value: e.target.value});
+           this.props.handlePhone(this.state.value)
         }
         else{
+            alert("ניתן להקליד רק ספרות")
             this.setState({dig: "ניתן להקליד רק ספרות"})
+            this.setState({value: ""});
         }
      }
 
+    validFirst(e){
+        this.setState({firstNameValue: e.target.value});
+    }
+
+    validLast(e){
+        this.setState({lastNameValue: e.target.value});
+    }
+
+    validEmail(e){
+        this.setState({mailValue: e.target.value});
+        if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === false){
+            this.setState({wrongEmail: "כתובת לא תקינה"});
+            this.setState({goodEmail: ""});
+        }
+        else{
+            this.setState({wrongEmail: ""});
+            this.setState({goodEmail: "כתובת תקינה"});
+        }
+    }
     render() {
     const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
-    
-    // console.log(values.phone)
     if(values.price==""){
         return(
             <>
@@ -81,25 +108,34 @@ export class PersonalDetails extends Component {
             <h6><a className="red-text">*</a>שם פרטי: </h6>
             <TextField 
             onChange={this.props.handleChange('firstName')}
+            onInput={(e) => {this.validFirst(e)}}
             defaultValue={values.firstName}
             />
             <h6><a className="red-text">*</a>שם משפחה:</h6>
             <TextField
             onChange={this.props.handleChange('lastName')}
+            onInput={(e) => {this.validLast(e)}}
             defaultValue={values.lastName}
             />
             <h6><a className="red-text">*</a>דוא"ל: </h6>
             <TextField
             type="email"
             onChange={this.props.handleChange('email')}
+            onInput={(e) => {this.validEmail(e)}}
             defaultValue={values.email}
             required={true}
             />
+            <h6><a className="red-text">{this.state.wrongEmail}</a></h6>
+            <h6><a className="green-text">{this.state.goodEmail}</a></h6>
             <h6><a className="red-text">*</a>טלפון:</h6>
             <TextField
             placeholder={this.state.dig}
-            onChange={this.props.handleChange("phone")}
-            defaultValue={values.phone}
+            // onChange={this.props.handleChange("phone")}
+            onChange={(e) => {this.onlyDigit(e)}}
+            // defaultValue={values.phone}
+            defaultValue={this.state.value}
+            value={this.state.value}
+            required={true}
             />
             <h6><a className="red-text">*</a>עיר:</h6>
             <select 
@@ -134,5 +170,4 @@ export class PersonalDetails extends Component {
         }
             }
     
-
 export default PersonalDetails
