@@ -73,7 +73,7 @@ class Admin extends React.Component {
             :
            null
         }
-         <button className="button-form" onClick={() => this.setState({ showCity: !showCity })}>הוסף עיר לרשימה</button>
+         <button className="button-form" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים</button>
          {this.state.showCity ?
            <UpdateCity
            />

@@ -155,7 +155,7 @@ render() {
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
             <br/><br/><br/>
-                    <select className="form-drp-btn"
+                    <select className="select-srp-down"
                     onChange={(hour_time)=> this.setHour(hour_time)}>
                     <option value="nothing">בחרו שעה</option>
                     {this.state.hours.map(hour_map => (

@@ -107,6 +107,7 @@ render() {
                                 console.log(e)}
                             }}
                      >סיום</button>
+                     <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                  </div>
             </>
             :
@@ -139,6 +140,7 @@ render() {
                             }
                             }
                     >אישור מחיקה</button>
+                    <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     </div>
            </>
             :
