@@ -42,7 +42,6 @@ export class Confirm extends Component {
     const missing_fields = ["שם פרטי", "שם משפחה", "מייל", "רחוב", "עיר", "טלפון"]
     let mail_flag = false
     let phone_flag = /^\d+$/.test(phone);
-    console.log(phone_flag)
     if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email) === false){
         mail_flag = true;
     }

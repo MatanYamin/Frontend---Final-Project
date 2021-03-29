@@ -8,7 +8,6 @@ const AdminLoginPage = (props) => {
     const {email, setEmail, password, setPassword, handleLogin, handleSingup, hasAccount, setHasAccount, emailError, passwordError} = props;
     return(
         <>
-        {console.log(setEmail)}
         <section className="login">
             <div className="loginContainer">
                 <label>שם משתמש</label>

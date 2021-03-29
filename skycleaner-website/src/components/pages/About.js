@@ -1,11 +1,13 @@
 import React from 'react';
-import "../../App.css"
+import "../../App.css";
 import '.././MiddleSection.css';
+import Footer from "../Footer";
 
 
 export default function About() {
     // the about page.
     return(
+        <>
         <div className="about">
             <img class="img-about" src="https://i.ibb.co/NFSwNfM/favicon.png"></img>
     <h1>קצת על החברה</h1>
@@ -18,10 +20,9 @@ export default function About() {
      <br/>
      <h3>אנחנו נגיע אליכם לכל מקום ונעבוד עם כל מוצר שתרצו!</h3>
      <br/>
-     <h7 class="credit">האתר נבנה על ידי מתן ימין</h7>
-
-
         </div>
+        <Footer />
+        </>
     );
 }
 

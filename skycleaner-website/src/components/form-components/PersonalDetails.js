@@ -76,11 +76,15 @@ export class PersonalDetails extends Component {
 
     validEmail(e){
         this.setState({mailValue: e.target.value});
-        if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === false){
+        if(e.target.value === ""){
+            this.setState({goodEmail: ""});
+            this.setState({wrongEmail: ""});
+        }
+        if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === false && e.target.value !== ""){
             this.setState({wrongEmail: "כתובת לא תקינה"});
             this.setState({goodEmail: ""});
         }
-        else{
+        else if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === true && e.target.value !== ""){
             this.setState({wrongEmail: ""});
             this.setState({goodEmail: "כתובת תקינה"});
         }

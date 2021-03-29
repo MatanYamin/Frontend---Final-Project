@@ -32,9 +32,9 @@ export class Addon extends Component {
         if (prevState.second_price !== this.state.second_price) {
             this.props.handlePrice(this.state.second_price)
           }
-        if(prevProps.addons !== this.props.addons){
-            console.log("mattaaannn")
-        }
+        // if(prevProps.addons !== this.props.addons){
+        //     // console.log("mattaaannn")
+        // }
     }
 
     addonPrice = (e) => {
@@ -56,8 +56,6 @@ export class Addon extends Component {
         const {values} = this.props; //values is all the props we passed to the component
         return(
             <div>
-                {console.log(this.props.price)}
-                {console.log(this.props.firstPrice)}
             <select 
             class="dropbtn"
             onChange={this.props.handleChange('addons')}

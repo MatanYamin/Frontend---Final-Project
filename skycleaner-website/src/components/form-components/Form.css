@@ -53,10 +53,12 @@
 }
 
 .admin-date{
-    /* background-color: red; */
     text-align: center;
 }
 
+.white-text{
+    color: white;
+}
 
 .form-drp-btn{
     background: #32afb5;
@@ -66,6 +68,8 @@
     color: #fff;
     font-size: 25px;
     letter-spacing: 2px;
+    padding-left: 22px;
+    padding-right: 20px;
     cursor: pointer;
 }
 

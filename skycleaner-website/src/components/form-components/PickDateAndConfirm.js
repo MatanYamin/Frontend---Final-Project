@@ -69,7 +69,6 @@ export class PickDateAndConfirm extends Component {
     // mapping disabled dates to an array
     this.state.disable_dates.map(service => (
         exclude_days_array.push(new Date(service))));
-    console.log( this.state.disable_dates)
     return (
         <>
         <div>
@@ -128,7 +127,6 @@ export class PickDateAndConfirm extends Component {
                     }
                     catch(e) {
                         console.log(e)}
-                    // this.props.nextStep();
                     }}>
             הזמינו את התור!
             </button>

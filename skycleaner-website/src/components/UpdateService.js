@@ -20,7 +20,6 @@ export class UpdateService extends Component {
         // get all categories inorder to know to whick category we will add a service
         let response = await fetch(url + 'get/categories', { credentials: 'include' });
         let data = await response.json();
-        console.log("data: ", data)
         return data
     }
 
@@ -75,7 +74,6 @@ render() {
     return(
         <>
         <br/>
-        {console.log(this.state.categories_array)}
         <section className="login">
             <div className="loginContainer">
         <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>הוספת שרות</button>

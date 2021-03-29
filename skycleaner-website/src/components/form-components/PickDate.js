@@ -43,7 +43,6 @@ export class PickDate extends Component {
             {/* <h1>בחר יום</h1> */}
             <h5>בחרו תאריך</h5>
             <br/>
-            {/* {console.log(this.state.selectedDate)} */}
             {/* <select 
             onChange={this.props.handleChange("date")}>
                 <option>matan</option>
@@ -60,9 +59,7 @@ export class PickDate extends Component {
             dateFormat="dd/MM/yy"
             // minDate={new Date()}
             />
-            {/* {console.log(this.state.selectedDate)} */}
             <br/><br/>
-            {/* {console.log(this.props.date)} */}
             <h5>בחרו שעה</h5>
             <br/>
             <TextField

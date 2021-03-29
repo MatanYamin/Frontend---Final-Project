@@ -45,8 +45,6 @@ render() {
     const {check} = this.state;
     return(
         <>
-        {/* {console.log("בהתחלה")} */}
-        {/* {console.log(this.state.check)} */}
         <section className="login">
             <div className="loginContainer">
             <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>להוספת עיר</button>
@@ -88,8 +86,6 @@ render() {
             onChange={(e) => this.setState({ new_city: e.target.value })}>
             <option
             value="">בחרו עיר</option>
-            {/* {console.log("always print")} */}
-            {/* {console.log(this.state.check)} */}
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
