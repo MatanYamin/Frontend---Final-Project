@@ -60,6 +60,40 @@
     color: white;
 }
 
+.button-form {
+    outline: none;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 25px;
+    background: #603bbb;
+    cursor: pointer;
+    border-color: grey;
+    width: 90%;
+  }
+
+  .button-form2 {
+    outline: none;
+    /* width: 100%; */
+    padding: 15px 0;
+    color: #fff;
+    font-size: 25px;
+    background: #835edf;
+    cursor: pointer;
+    border-color: grey;
+    width: 90%;
+  }
+
+  .admin-main-container{
+      text-align: -webkit-center;
+  }
+
+  .button-form:hover, .button-form2:hover{
+    border-bottom: 5px solid #fff;
+    border-top: 5px solid #fff;
+    transition: all 0.6s ease-in-out;
+  }
+
+
 .form-drp-btn{
     background: #32afb5;
     border: none;
@@ -112,6 +146,12 @@
     transition: all 0.2s;
     cursor: pointer;
 }
+
+.step-btn:hover{
+    /* border-bottom: 5px solid #fff; */
+    transition: all 0.8s ease-out;
+}
+
 .step-btn:last-child{
    /* position: absolute; */
    /* line-break: auto; */
@@ -189,6 +229,7 @@
     display: inline-grid;
 }
 
+/* THIS IS NOW */
 @media screen and (max-width: 960px) {
     .step-btn-container{
         display: grid;

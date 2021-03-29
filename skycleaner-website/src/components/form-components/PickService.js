@@ -48,7 +48,7 @@ export class PickService extends Component {
         axios.post(url + "prices", priceData)
         .then(response => this.setState(
             {
-            first_price: " מחיר:  " + response.data + " ₪"
+            first_price: " מחיר:  " + response.data + "asd"
         }));
     }
 

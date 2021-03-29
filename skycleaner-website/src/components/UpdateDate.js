@@ -194,8 +194,10 @@ render() {
                             })
                         })
                         .then(this.setState({
-                            text3: "עודכן בהצלחה"
-                        }));;
+                            text3: "עודכן בהצלחה",
+                           
+                        }),
+                        this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1));;
                     }
                     catch(e) {
                         console.log(e)}

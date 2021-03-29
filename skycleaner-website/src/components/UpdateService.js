@@ -115,7 +115,8 @@ render() {
                            })
                            .then(this.setState({
                             updateServiceSuccess: "השרות נוסף בהצלחה"
-                        }));;
+                        }), 
+                        );;
                        }
                        catch(e) {
                            console.log(e)}
@@ -154,7 +155,10 @@ render() {
                                 })
                                 .then(this.setState({
                                     deleteSuccess: "השרות נמחק בהצלחה"
-                                }));;
+                                }),
+                                this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1)
+                                
+                                );;
                             }
                             catch(e) {
                                 console.log(e)}

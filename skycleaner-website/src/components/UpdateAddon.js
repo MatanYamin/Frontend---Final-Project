@@ -142,7 +142,9 @@ render() {
                                 })
                                 .then(this.setState({
                                     txt2: "התוסף נמחק בהצלחה"
-                                }));;
+                                }),
+                                this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1)
+                                );;
                             }
                             
                             catch(e) {

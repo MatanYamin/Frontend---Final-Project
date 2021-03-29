@@ -43,7 +43,7 @@ export class Addon extends Component {
         };
         axios.post(url + "prices/addon", priceData)
         .then(response => this.setState({
-            second_price: "מחיר " + response.data + " ₪   "
+            second_price: "מחיר " + response.data
         }));
     }
 

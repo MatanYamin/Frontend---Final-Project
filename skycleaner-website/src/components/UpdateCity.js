@@ -32,6 +32,17 @@ export class UpdateCity extends Component {
         })
     }
 
+    // componentDidUpdate(prevProps, prevState){
+    //     // after detecting changes in state, we will bring now all services from the API
+    //     if (prevState.txt2 !== this.state.txt2) {
+    //         this.readCities().then((data) => {
+    //             this.setState({
+    //                 cities: data
+    //             })
+    //         })
+    //         }
+    // }
+
     handleCity = (input) => {
     this.setState({
         new_city: input.target.value
@@ -46,6 +57,7 @@ render() {
     const {check} = this.state;
     return(
         <>
+        <div className="city">
         <section className="login">
             <div className="loginContainer">
             <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>להוספת עיר</button>
@@ -67,9 +79,9 @@ render() {
                                     })
                                 })
                                 .then(this.setState({
-                                    txt1: "העיר נוספה בהצלחה"
-                                }));;
-
+                                    txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה"
+                                }))
+                                ;;
                             }
                             catch(e) {
                                 console.log(e)}
@@ -109,10 +121,11 @@ render() {
                                     })
                                 })
                                 .then(this.setState({
-                                    txt2: "העיר נמחקה בהצלחה"
-                                }));
+                                    txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
+                                }),
+                                this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1)
+                                );
                             }
-                            
                             catch(e) {
                                 console.log(e)}
                             }
@@ -128,6 +141,7 @@ render() {
         }
             </div>
         </section>
+        </div>
         </>
     )}
 }
