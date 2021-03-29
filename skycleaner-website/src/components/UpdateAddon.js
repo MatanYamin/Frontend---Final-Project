@@ -13,7 +13,9 @@ export class UpdateAddon extends Component {
             addon_name: "",
             price: "",
             showing: false,
-            deleting: false
+            deleting: false,
+            txt1: "",
+            txt2: ""
         }
     }
 
@@ -101,13 +103,18 @@ render() {
                                         addon_name: this.state.addon_name,
                                         price: this.state.price
                                     })
-                                });
+                                })
+                                .then(this.setState({
+                                    txt1: "הפעולה בוצעה בהצלחה"
+                                }));;
                             }
                             catch(e) {
                                 console.log(e)}
                             }}
                      >סיום</button>
                      <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
+                     <br/>
+                     <label>{this.state.txt1}</label>
                  </div>
             </>
             :
@@ -132,7 +139,10 @@ render() {
                                     body: JSON.stringify({
                                         addon_name: this.state.addon_name,
                                     })
-                                });
+                                })
+                                .then(this.setState({
+                                    txt2: "התוסף נמחק בהצלחה"
+                                }));;
                             }
                             
                             catch(e) {
@@ -141,6 +151,8 @@ render() {
                             }
                     >אישור מחיקה</button>
                     <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <br/>
+                     <label>{this.state.txt2}</label>
                     </div>
            </>
             :

@@ -12,7 +12,8 @@ export class UpdateCity extends Component {
             showing: false,
             deleting: false,
             check: false,
-            txt: "matan"
+            txt1: "",
+            txt2: ""
         }
     }
 
@@ -64,7 +65,10 @@ render() {
                                     body: JSON.stringify({
                                         city: this.state.new_city,
                                     })
-                                });
+                                })
+                                .then(this.setState({
+                                    txt1: "העיר נוספה בהצלחה"
+                                }));;
 
                             }
                             catch(e) {
@@ -72,6 +76,8 @@ render() {
                             }}
                      >סיום</button>
                      <button className="step-btn"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
+                     <br/>
+                     <label>{this.state.txt1}</label>
                  </div>
             </>
             :
@@ -102,6 +108,9 @@ render() {
                                         city: this.state.new_city,
                                     })
                                 })
+                                .then(this.setState({
+                                    txt2: "העיר נמחקה בהצלחה"
+                                }));
                             }
                             
                             catch(e) {
@@ -110,6 +119,8 @@ render() {
                             }
                     >אישור מחיקה</button>
                     <button className="step-btn"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <br/>
+                    <label>{this.state.txt2}</label>
                     </div>
            </>
             :

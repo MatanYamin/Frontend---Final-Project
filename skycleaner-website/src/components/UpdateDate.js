@@ -16,7 +16,10 @@ export class UpdateDate extends Component {
           showActivateDate: false,
           showDisableHour: false,
           hours: [],
-          hour: ""
+          hour: "",
+          text1: "",
+          text2: "",
+          text3: ""
         };
     }
 
@@ -79,6 +82,8 @@ render() {
             minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
+            <br/>
+            <lable className="white-text">{this.state.text1}</lable>
             <div className="btnContainer">
             <button className="step-btn"
             onClick={() => 
@@ -89,7 +94,10 @@ render() {
                             body: JSON.stringify({
                                 date: this.state.selectedDate
                             })
-                        });
+                        })
+                        .then(this.setState({
+                            text1: "עודכן בהצלחה"
+                        }));;
                     }
                     catch(e) {
                         console.log(e)}
@@ -116,6 +124,8 @@ render() {
             minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
+            <br/>
+            <lable className="white-text">{this.state.text2}</lable>
             <div className="btnContainer">
             <button className="step-btn"
             // onClick will send a post request with all the values to the API
@@ -127,7 +137,10 @@ render() {
                             body: JSON.stringify({
                                 date: this.state.selectedDate
                             })
-                        });
+                        })
+                        .then(this.setState({
+                            text2: "עודכן בהצלחה"
+                        }));;
                     }
                     catch(e) {
                         console.log(e)}
@@ -154,6 +167,8 @@ render() {
             minDate={new Date()}
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
+            <br/>
+            <lable className="white-text">{this.state.text3}</lable>
             <br/><br/><br/>
                     <select className="select-srp-down"
                     onChange={(hour_time)=> this.setHour(hour_time)}>
@@ -177,7 +192,10 @@ render() {
                                 date: this.state.selectedDate,
                                 hour: this.state.hour
                             })
-                        });
+                        })
+                        .then(this.setState({
+                            text3: "עודכן בהצלחה"
+                        }));;
                     }
                     catch(e) {
                         console.log(e)}

@@ -12,7 +12,9 @@ export class UpdateService extends Component {
             service_name: "",
             price: "",
             showing: false,
-            deleting: false
+            deleting: false,
+            updateServiceSuccess: "",
+            deleteSuccess: ""
         }
     }
 
@@ -110,7 +112,10 @@ render() {
                                    service_name: this.state.service_name,
                                    price: this.state.price
                                })
-                           });
+                           })
+                           .then(this.setState({
+                            updateServiceSuccess: "השרות נוסף בהצלחה"
+                        }));;
                        }
                        catch(e) {
                            console.log(e)}
@@ -118,6 +123,9 @@ render() {
                 >אישור</button>
             <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
             </div>
+            <br/>
+            <label>{this.state.updateServiceSuccess}</label>
+
              </>
             :
            null
@@ -143,7 +151,10 @@ render() {
                                     body: JSON.stringify({
                                         service_name: this.state.service_name,
                                     })
-                                });
+                                })
+                                .then(this.setState({
+                                    deleteSuccess: "השרות נמחק בהצלחה"
+                                }));;
                             }
                             catch(e) {
                                 console.log(e)}
@@ -151,6 +162,9 @@ render() {
                     >אישור מחיקה<br/> (הדבר ימחק גם את כל התוספים של אותו שרות)</button>
                     <br/>
                     <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <br/>
+                    <label>{this.state.deleteSuccess}</label>
+
            </>
             :
            null
