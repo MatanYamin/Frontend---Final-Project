@@ -37,25 +37,15 @@ class Admin extends React.Component {
         <div class="admin-main-container">
         <h1> ברוכים הבאים למסך הניהול
          </h1>
-         {/* This button is handling adding admin component */}
-         <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
-         <div>
-        {/* Adding new manager component after click */}
-        <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל</button>
-        {/* Using "showing" for clicking a button */}
-        {this.state.showDelete ?
-        <>
-           <AddAdmin
-           email={this.props.email}
-           setEmail={this.props.setEmail}
-           password={this.props.password}
-           setPassword={this.props.setPassword}
-           handleSingup={this.props.handleSingup}
+         {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
+         <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים</button>
+        {this.state.showFuture ?
+           <Bookings
            />
-         </>
             :
-            null
-         }
+           null
+        }
+         <div>
         {/* moving to change service: delete or add new one */}
         <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות</button>
         {this.state.showUpdateService ?
@@ -72,6 +62,7 @@ class Admin extends React.Component {
             :
            null
         }
+        {/* Admin can block a day/hour or free a day inside UpdateDate */}
         <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות</button>
         {this.state.showDisableDate ?
            <UpdateDate
@@ -79,6 +70,7 @@ class Admin extends React.Component {
             :
            null
         }
+        {/* Admin can add city to the list or delete one */}
          <button className="button-form2" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים</button>
          {this.state.showCity ?
            <UpdateCity
@@ -86,6 +78,7 @@ class Admin extends React.Component {
             :
            null
         }
+        {/* Admin can change price for a certain product */}
         <button className="button-form" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר</button>
          {this.state.showPrice ?
            <UpdatePrice
@@ -93,13 +86,23 @@ class Admin extends React.Component {
             :
            null
         }
-        <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים</button>
-        {this.state.showFuture ?
-           <Bookings
+         {/* Adding new manager component after click */}
+         <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל</button>
+        {/* Using "showing" for clicking a button */}
+        {this.state.showDelete ?
+        <>
+           <AddAdmin
+           email={this.props.email}
+           setEmail={this.props.setEmail}
+           password={this.props.password}
+           setPassword={this.props.setPassword}
+           handleSingup={this.props.handleSingup}
            />
+         </>
             :
-           null
-        }
+            null
+         }
+        <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
         {/* <button className="button-form2">אישור על סיום תור</button> */}
       </div>
          </div>
