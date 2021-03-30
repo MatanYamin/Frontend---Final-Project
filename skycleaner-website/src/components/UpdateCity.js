@@ -33,17 +33,6 @@ export class UpdateCity extends Component {
         })
     }
 
-    // componentDidUpdate(prevProps, prevState){
-    //     // after detecting changes in state, we will bring now all services from the API
-    //     if (prevState.txt2 !== this.state.txt2) {
-    //         this.readCities().then((data) => {
-    //             this.setState({
-    //                 cities: data
-    //             })
-    //         })
-    //         }
-    // }
-
     handleCity = (input) => {
     this.setState({
         new_city: input.target.value
@@ -70,6 +59,7 @@ render() {
                  />
                  <div className="btnContainer">
                      <button className="step-btn"
+                    //  post request for adding city to list
                      onClick={() => 
                         {
                             try{
@@ -114,7 +104,7 @@ render() {
             </select>
                     <div className="btnContainer">
                     <button 
-                    // onInput={}
+                    // delete request for deleting city from list
                     className="del-btn"
                     onClick={() => 
                         {

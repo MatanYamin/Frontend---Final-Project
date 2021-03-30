@@ -122,6 +122,7 @@ render() {
                  />
                  <div className="btnContainer">
                      <button className="step-btn"
+                    //  put request for chaning pruce for service
                      onClick={() => 
                         {
                             try{
@@ -172,6 +173,7 @@ render() {
                     <button 
                     // onInput={}
                     className="step-btn"
+                    //  put request for chaning pruce for addon
                     onClick={() => 
                         {
                             try{

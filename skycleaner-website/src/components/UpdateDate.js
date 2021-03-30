@@ -86,6 +86,7 @@ render() {
             <lable className="white-text">{this.state.text1}</lable>
             <div className="btnContainer">
             <button className="step-btn"
+            // put request for making a day disable
             onClick={() => 
                 {
                     try{
@@ -130,7 +131,7 @@ render() {
             <lable className="white-text">{this.state.text2}</lable>
             <div className="btnContainer">
             <button className="step-btn"
-            // onClick will send a post request with all the values to the API
+            // delete request for deleting a day from the disabled days
             onClick={() => 
                 {
                     try{
@@ -182,6 +183,7 @@ render() {
                     </select>
                     <div className="btnContainer">
             <button className="step-btn"
+            // post request for blocking hout
             onClick={() => 
                 {
                     try{

@@ -93,6 +93,7 @@ render() {
                 />
                  <div className="btnContainer">
                      <button className="step-btn"
+                    //  put request for adding addong in DB
                      onClick={() => 
                         {
                             try{
@@ -133,6 +134,7 @@ render() {
                     </select>
                     <div className="btnContainer">
                     <button className="del-btn"
+                    // delete request for deleting addon from DB
                     onClick={() => 
                         {
                             try{

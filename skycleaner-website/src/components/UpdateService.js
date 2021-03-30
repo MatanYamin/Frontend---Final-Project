@@ -97,6 +97,7 @@ render() {
            />
             <div className="btnContainer">
                 <button className="step-btn"
+                // Post request for adding service
                 onClick={() => 
                    {
                        try{
@@ -144,6 +145,7 @@ render() {
                     <br/><br/>
                     <button
                     className="del-btn"
+                    // post request for deleteing service
                     onClick={() => 
                         {
                             try{
