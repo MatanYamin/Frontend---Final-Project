@@ -5,7 +5,7 @@ import UpdateAddon from "../UpdateAddon"
 import UpdateDate from "../UpdateDate"
 import UpdateCity from "../UpdateCity"
 import UpdatePrice from "../UpdatePrice"
-import Bookings from "../Bookings"
+import ShowBookings from "../ShowBookings"
 //Admin panel will hold all components that are able by the admin
 
 
@@ -40,7 +40,7 @@ class Admin extends React.Component {
          {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
          <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים</button>
         {this.state.showFuture ?
-           <Bookings
+           <ShowBookings
            />
             :
            null

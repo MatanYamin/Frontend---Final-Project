@@ -106,7 +106,9 @@ render() {
                                 })
                                 .then(this.setState({
                                     txt1: "הפעולה בוצעה בהצלחה"
-                                }));;
+                                }),
+                                alert(" התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ")
+                                );;
                             }
                             catch(e) {
                                 console.log(e)}
@@ -143,7 +145,9 @@ render() {
                                 .then(this.setState({
                                     txt2: "התוסף נמחק בהצלחה"
                                 }),
-                                this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1)
+                                this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1).then(
+                                    alert(" התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ")
+                                )
                                 );;
                             }
                             

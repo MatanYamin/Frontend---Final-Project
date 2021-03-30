@@ -115,7 +115,7 @@ render() {
                            })
                            .then(this.setState({
                             updateServiceSuccess: "השרות נוסף בהצלחה"
-                        }), 
+                        }), alert(this.state.service_name + " נוסף בהצלחה"), 
                         );;
                        }
                        catch(e) {
@@ -156,7 +156,9 @@ render() {
                                 .then(this.setState({
                                     deleteSuccess: "השרות נמחק בהצלחה"
                                 }),
-                                this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1)
+                                this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1).then(
+                                    alert(this.state.service_name + " נמחק בהצלחה")
+                                )
                                 
                                 );;
                             }

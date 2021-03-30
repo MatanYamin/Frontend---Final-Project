@@ -1,10 +1,10 @@
 import React from "react"
 import { Component } from "react"
-import "./Booking.css"
+import "./ShowBooking.css"
 const url = "http://127.0.0.1:5000/"
 
 
-export class Bookings extends Component {
+export class ShowBookings extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -117,7 +117,9 @@ render() {
                                 .then(this.setState({
                                     // txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
                                 }),
-                                this.state.customers.splice(this.state.customers.indexOf(rowData), 1)
+                                this.state.customers.splice(this.state.customers.indexOf(rowData), 1).then(
+                                    alert("נמחק בהצלחה")
+                                )
                                 );
                             }
                             catch(e) {
@@ -125,7 +127,31 @@ render() {
                             }
                             }
                     >מחיקה</button>
-                     <button className="confirm-booking">אישור תור</button>
+                     <button className="confirm-booking"
+                     onClick={() => 
+                        {
+                            try{
+                                fetch(url + "post/feedback", {
+                                    method: "POST",
+                                    body: JSON.stringify({
+                                        fullName: rowData[1],
+                                        email: rowData[2],
+                                        id: rowData[0]
+                                    })
+                                })
+                                .then(this.setState({
+                                    // txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
+                                }),
+                                );
+                                this.state.customers.splice(this.state.customers.indexOf(rowData), 1).then(
+                                    alert("פידבק נשלח אל הלקוח")
+                                )
+                            }
+                            catch(e) {
+                                console.log(e)}
+                            }
+                            }
+                     >אישור תור</button>
                      </th>
                  </tr>
 
@@ -140,4 +166,4 @@ render() {
     )}
 }
 
-export default Bookings
+export default ShowBookings

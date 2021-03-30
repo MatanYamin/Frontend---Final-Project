@@ -97,7 +97,9 @@ render() {
                         })
                         .then(this.setState({
                             text1: "עודכן בהצלחה"
-                        }));;
+                        }),
+                        alert("היום נחסם בהצלחה")
+                        );;
                     }
                     catch(e) {
                         console.log(e)}
@@ -140,7 +142,9 @@ render() {
                         })
                         .then(this.setState({
                             text2: "עודכן בהצלחה"
-                        }));;
+                        }),
+                        alert("היום התפנה בהצלחה")
+                        );;
                     }
                     catch(e) {
                         console.log(e)}
@@ -197,7 +201,10 @@ render() {
                             text3: "עודכן בהצלחה",
                            
                         }),
-                        this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1));;
+                        this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1).then(
+                            alert(this.state.hour + " נחסמה בהצלחה")
+                        ),
+                        );;
                     }
                     catch(e) {
                         console.log(e)}

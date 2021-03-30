@@ -133,8 +133,11 @@ render() {
                                     })
                                 })
                                 .then(this.setState({
-                                    first_service_price: "המחיר עודכן בהצלחה"
-                                }));
+                                    first_service_price: this.state.new_price + " ₪"
+                                }),
+                                alert("המחיר עודכן בהצלחה")
+                                )
+                                ;
 
                             }
                             catch(e) {
@@ -179,9 +182,13 @@ render() {
                                         price: this.state.new_price
                                     })
                                 })
-                                .then(this.setState({
-                                    first_addon_price: "המחיר עודכן בהצלחה" 
-                                }));
+                                .then(
+                                    this.setState({
+                                    first_addon_price: this.state.new_price + " ₪"
+                                }),
+                                alert("המחיר עודכן בהצלחה")
+                                
+                                );
 
                             }
                             catch(e) {

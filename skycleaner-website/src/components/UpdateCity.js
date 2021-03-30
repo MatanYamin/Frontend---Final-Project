@@ -13,7 +13,8 @@ export class UpdateCity extends Component {
             deleting: false,
             check: false,
             txt1: "",
-            txt2: ""
+            txt2: "",
+            isAdded: false
         }
     }
 
@@ -80,7 +81,11 @@ render() {
                                 })
                                 .then(this.setState({
                                     txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה"
-                                }))
+                                    
+                                }),
+                                alert(" העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה "),
+                                this.state.cities.concat(this.state.new_city)
+                                )
                                 ;;
                             }
                             catch(e) {
@@ -123,7 +128,10 @@ render() {
                                 .then(this.setState({
                                     txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
                                 }),
-                                this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1)
+                                this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1).then(
+                                    alert(" העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ")
+                                    
+                                )
                                 );
                             }
                             catch(e) {
