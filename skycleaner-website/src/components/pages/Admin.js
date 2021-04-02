@@ -6,6 +6,7 @@ import UpdateDate from "../UpdateDate"
 import UpdateCity from "../UpdateCity"
 import UpdatePrice from "../UpdatePrice"
 import ShowBookings from "../ShowBookings"
+import UpdateDescription from "../UpdateDescription"
 //Admin panel will hold all components that are able by the admin
 
 
@@ -21,7 +22,8 @@ class Admin extends React.Component {
           showDisableDate: false,
           showCity: false,
           showPrice: false,
-          showFuture: false
+          showFuture: false,
+          showDescription: false
         };
       }
       render() {
@@ -33,6 +35,7 @@ class Admin extends React.Component {
         const {showCity} = this.state
         const {showPrice} = this.state
         const {showFuture} = this.state
+        const {showDescription} = this.state
     return(
         <div class="admin-main-container">
         <h1> ברוכים הבאים למסך הניהול
@@ -86,8 +89,15 @@ class Admin extends React.Component {
             :
            null
         }
+        <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תאור לשרות</button>
+         {this.state.showDescription ?
+           <UpdateDescription
+           />
+            :
+           null
+        }
          {/* Adding new manager component after click */}
-         <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל</button>
+         <button className="button-form" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל</button>
         {/* Using "showing" for clicking a button */}
         {this.state.showDelete ?
         <>
@@ -102,7 +112,7 @@ class Admin extends React.Component {
             :
             null
          }
-        <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
+        <button className="button-form2" onClick={this.props.handleLogout}>התנתק</button>
         {/* <button className="button-form2">אישור על סיום תור</button> */}
       </div>
          </div>

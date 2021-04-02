@@ -48,8 +48,8 @@ render() {
     return(
         <>
         <div className="city">
-        <section className="login">
-            <div className="loginContainer">
+        <section className="adminComponent">
+            <div className="adminComponentContainer">
             <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>להוספת עיר</button>
             {this.state.showing ?
             <>

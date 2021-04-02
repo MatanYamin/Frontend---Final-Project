@@ -73,8 +73,8 @@ render() {
     return(
         <>
         <br/>
-        <section className="login">
-            <div className="loginContainer">
+        <section className="adminComponent">
+            <div className="adminComponentContainer">
             <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>להוספת תוסף</button>
             {this.state.showing ?
             <>

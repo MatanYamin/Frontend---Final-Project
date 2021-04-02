@@ -47,7 +47,6 @@ export class UpdatePrice extends Component {
 
     componentDidUpdate(prevProps, prevState){
         if (prevState.services_array !== this.state.services_array) {
-            
             this.readAddons().then((data) => {
                 this.setState({
                     addons_array: data
@@ -99,8 +98,8 @@ render() {
     const {deleting} = this.state;
     return(
         <>
-        <section className="login">
-            <div className="loginContainer">
+        <section className="adminComponent">
+            <div className="adminComponentContainer">
             <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>עדכן מחיר לשרות</button>
             {this.state.showing ?
             <>

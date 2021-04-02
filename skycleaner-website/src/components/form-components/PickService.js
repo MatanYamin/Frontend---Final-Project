@@ -5,6 +5,8 @@ import axios from "axios"
 import "./DropDown.css"
 import Addon from "./Addon"
 import "./Form.css"
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css';
 const url = "http://127.0.0.1:5000/"
 
 
@@ -15,10 +17,12 @@ export class PickService extends Component {
             service_array: [],
             addon_array: [],
             showing: false,
+            showDescription: false,
             selectValue: '',
             first_price: '',
             price_title: "המחיר: ",
-            ser: ""
+            ser: "",
+            service_description: ""
         }
     }
 
@@ -47,8 +51,11 @@ export class PickService extends Component {
         };
         axios.post(url + "prices", priceData)
         .then(response => this.setState(
+            // console.log(response.data),
             {
-            first_price: " מחיר:  " + response.data + "asd"
+            first_price: " מחיר:  " + response.data[0] + " ש''ח",
+            service_description: response.data[1],
+            showDescription: true
         }));
     }
 
@@ -67,14 +74,16 @@ export class PickService extends Component {
         const {values} = this.props; //values is all the props we passed to the component
         const page = window.location.pathname.substring(1); //page name
         const {showing} = this.state;
+        const {showDescription} = this.state;
         return (
             <div>
+                
             <h1>בחרתם ב {page}</h1>
             <h1>מה מנקים?</h1>
             <br/>
             <select
             defaultValue={this.props.service}
-            class="form-drp-btn"
+            class="service-btn"
             onChange={this.props.handleChange("service")}
             onInput={(e) => {this.setPrice(e)}}
             >
@@ -83,9 +92,16 @@ export class PickService extends Component {
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
             </select>
-            <br/>
-            <br/>
-            <button className="form-drp-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
+            {this.state.showDescription ?
+            <>
+            &nbsp;&nbsp;
+            <Popup trigger={<button className="details-btn">לחצו לקבל פרטים</button>} >
+                <div class="pop-up-content1">
+                    {this.state.service_description}
+                    </div>
+            </Popup>
+            <br/><br/>
+            <button className="addon-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
             <br/>
             <br/>
             {this.state.showing ?
@@ -103,6 +119,13 @@ export class PickService extends Component {
             :
             <b>{this.state.first_price}</b> //here the price will go
             }
+            </>
+            :
+            null //here the price will go
+            }
+            
+            <br/>
+            <br/>
             <br/><br/>
             
             <div className="step-btn-container">

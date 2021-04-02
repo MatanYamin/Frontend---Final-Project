@@ -64,8 +64,8 @@ render() {
     const {showDisableHour} = this.state;
     return(
         <>
-        <section className="login">
-        <div className="loginContainer">
+        <section className="adminComponent">
+        <div className="adminComponentContainer">
         <button className="step-btn" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>לחסום יום</button>
         {this.state.showDisableDate ?
             <>

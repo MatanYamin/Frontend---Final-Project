@@ -24,6 +24,7 @@
     "react-scripts": "4.0.3",
     "react-step-progress": "^1.0.3",
     "react-step-progress-bar": "^1.0.3",
+    "reactjs-popup": "^2.0.4",
     "rsuite": "^4.9.3",
     "web-vitals": "^1.1.0"
   },

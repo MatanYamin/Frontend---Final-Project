@@ -43,7 +43,7 @@ export class Addon extends Component {
         };
         axios.post(url + "prices/addon", priceData)
         .then(response => this.setState({
-            second_price: "מחיר " + response.data
+            second_price: "מחיר " + response.data + " ש''ח"
         }));
     }
 
@@ -57,7 +57,7 @@ export class Addon extends Component {
         return(
             <div>
             <select 
-            class="dropbtn"
+            class="addon-btn"
             onChange={this.props.handleChange('addons')}
             onInput={(e) => {this.addonPrice(e)}}
             >
@@ -66,8 +66,8 @@ export class Addon extends Component {
             <option value={addon}>{addon}</option>))}
             </select>
             <br/><br/>
-            <b>{this.state.second_price}</b>
-            <button className={"cancelAddon"} onClick={this.handleClick}> לביטול תוספים</button>
+            <b>{this.state.second_price}     </b>
+            <button className={"cancelAddon"} onClick={this.handleClick}> לביטול התוספים</button>
             </div>
         );
     }

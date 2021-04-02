@@ -1,5 +1,6 @@
 import React from "react"
 import "./Login.css"
+import "./AdminComponent.css"
 import Admin from "./Admin"
 
 

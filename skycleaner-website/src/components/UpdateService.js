@@ -14,7 +14,8 @@ export class UpdateService extends Component {
             showing: false,
             deleting: false,
             updateServiceSuccess: "",
-            deleteSuccess: ""
+            deleteSuccess: "",
+            description: ""
         }
     }
 
@@ -67,6 +68,12 @@ export class UpdateService extends Component {
             price: input.target.value
         })
     }
+    // Adding description for the service
+    handleDescription = (input) => {
+        this.setState({
+            description: input.target.value
+        })
+    }
 
 render() {
     const {values} = this.props; //values is all the props we passed to the component
@@ -76,8 +83,8 @@ render() {
     return(
         <>
         <br/>
-        <section className="login">
-            <div className="loginContainer">
+        <section className="adminComponent">
+            <div className="adminComponentContainer">
         <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>הוספת שרות</button>
         {/* Using "showing" for clicking a button */}
         {this.state.showing ? //for open an option to choose (add service)
@@ -91,6 +98,10 @@ render() {
            <label>הקלד שם שרות</label>
            <input autoComplete="off"
            onChange={(e) => {this.handleService(e)}}
+            />
+            <label>הוסף תיאור</label>
+           <input autoComplete="off"
+           onChange={(e) => {this.handleDescription(e)}}
             />
             <label>מחיר (בשקלים)</label>
             <input onChange={(e) => {this.handlePrice(e)}}
@@ -111,7 +122,8 @@ render() {
                                body: JSON.stringify({
                                    cat_name: this.state.cat_name,
                                    service_name: this.state.service_name,
-                                   price: this.state.price
+                                   price: this.state.price,
+                                   description: this.state.description
                                })
                            })
                            .then(this.setState({
