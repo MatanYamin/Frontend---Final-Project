@@ -42,7 +42,7 @@ class Admin extends React.Component {
         <h1> ברוכים הבאים למסך הניהול
          </h1>
          {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
-         <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים</button>
+         <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים <i class="fas fa-table"></i></button>
         {this.state.showFuture ?
            <ShowBookings
            />
@@ -51,7 +51,7 @@ class Admin extends React.Component {
         }
          <div>
         {/* moving to change service: delete or add new one */}
-        <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות</button>
+        <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות <i class="fas fa-concierge-bell"></i></button>
         {this.state.showUpdateService ?
            <UpdateService
            />
@@ -59,7 +59,7 @@ class Admin extends React.Component {
            null
         }
         {/* moving to change addon: delete or add new one */}
-        <button className="button-form2" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף</button>
+        <button className="button-form2" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף <i class="fas fa-cart-plus"></i></button>
         {this.state.showUpdateAddon ?
            <UpdateAddon
            />
@@ -67,7 +67,7 @@ class Admin extends React.Component {
            null
         }
         {/* Admin can block a day/hour or free a day inside UpdateDate */}
-        <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות</button>
+        <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות <i class="fas fa-calendar-alt"></i></button>
         {this.state.showDisableDate ?
            <UpdateDate
            />
@@ -75,7 +75,7 @@ class Admin extends React.Component {
            null
         }
         {/* Admin can add city to the list or delete one */}
-         <button className="button-form2" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים</button>
+         <button className="button-form2" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים <i class="fas fa-city"></i></button>
          {this.state.showCity ?
            <UpdateCity
            />
@@ -83,14 +83,14 @@ class Admin extends React.Component {
            null
         }
         {/* Admin can change price for a certain product */}
-        <button className="button-form" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר</button>
+        <button className="button-form" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר <i class="fas fa-shekel-sign"></i></button>
          {this.state.showPrice ?
            <UpdatePrice
            />
             :
            null
         }
-        <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תאור לשרות</button>
+        <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
          {this.state.showDescription ?
            <UpdateDescription
            />
@@ -98,7 +98,7 @@ class Admin extends React.Component {
            null
         }
          {/* Adding new manager component after click */}
-         <button className="button-form" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל</button>
+         <button className="button-form" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
         {/* Using "showing" for clicking a button */}
         {this.state.showDelete ?
         <>

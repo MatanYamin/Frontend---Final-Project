@@ -100,7 +100,7 @@ render() {
         <>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-            <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>עדכן מחיר לשרות</button>
+            <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>עדכן מחיר לשרות <i class="fas fa-shekel-sign"></i></button>
             {this.state.showing ?
             <>
                 <br/>
@@ -150,7 +150,7 @@ render() {
             :
             null}
             <br/><br/>
-            <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>עדכן מחיר לתוסף</button>
+            <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>עדכן מחיר לתוסף <i class="fas fa-shekel-sign"></i></button>
             {this.state.deleting ?
            <>
            <br/>

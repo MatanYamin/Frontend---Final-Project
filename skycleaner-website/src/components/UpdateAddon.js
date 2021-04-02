@@ -75,7 +75,7 @@ render() {
         <br/>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-            <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>להוספת תוסף</button>
+            <button className="admin-btn-add" onClick={() => this.setState({ showing: !showing })}>להוספת תוסף  <i class="fas fa-plus"></i></button>
             {this.state.showing ?
             <>
                 <label>בחר שרות להוסיף לו תוספת</label>
@@ -123,7 +123,7 @@ render() {
             :
             null}
             <br/><br/>
-            <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>למחיקת תוסף</button>
+            <button className="admin-btn-del" onClick={() => this.setState({ deleting: !deleting })}>למחיקת תוסף <i class="fas fa-trash"></i></button>
             {this.state.deleting ?
            <>
            <br/>

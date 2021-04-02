@@ -18,6 +18,9 @@ export class PersonalDetails extends Component {
             lastNameValue: "",
             wrongEmail: "",
             goodEmail: "",
+            goodPhone: "",
+            badPhone: "",
+            tempPhone: ""
         };
         this.onlyDigit = this.onlyDigit.bind(this)
      }
@@ -35,9 +38,6 @@ export class PersonalDetails extends Component {
                 cities: data
             })
         })
-        // this.setState({
-        //     mailValue: this.props.email
-        // })
     }
 
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
@@ -89,6 +89,24 @@ export class PersonalDetails extends Component {
             this.setState({goodEmail: "כתובת תקינה"});
         }
     }
+
+    validPhone(e){
+        this.setState({tempPhone: e.target.value});
+        if(e.target.value === ""){
+            this.setState({goodPhone: ""});
+            this.setState({badPhone: ""});
+        }
+        if(this.state.tempPhone.length < 6){
+            this.setState({badPhone: "מספר קצר מידי"});
+            this.setState({goodPhone: ""});
+        }
+        else{
+            this.setState({badPhone: ""});
+            this.setState({goodPhone: "מספר תקין"});
+        }
+    }
+    
+
     render() {
     const {values} = this.props; //values is all the props we passed to the component
     if(values.price==""){
@@ -133,6 +151,7 @@ export class PersonalDetails extends Component {
             <h6><a className="red-text">*</a>טלפון:</h6>
             <TextField
             placeholder={this.state.dig}
+            onInput={(e) => {this.validPhone(e)}}
             // onChange={this.props.handleChange("phone")}
             onChange={(e) => {this.onlyDigit(e)}}
             // defaultValue={values.phone}
@@ -140,6 +159,8 @@ export class PersonalDetails extends Component {
             value={this.state.value}
             required={true}
             />
+            <h6><a className="red-text">{this.state.badPhone}</a></h6>
+            <h6><a className="green-text">{this.state.goodPhone}</a></h6>
             <h6><a className="red-text">*</a>עיר:</h6>
             <select 
             class="city-drp-down"

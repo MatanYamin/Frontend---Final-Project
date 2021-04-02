@@ -85,7 +85,7 @@ render() {
         <br/>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-        <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>הוספת שרות</button>
+        <button className="admin-btn-add" onClick={() => this.setState({ showing: !showing })}>הוספת שרות <i class="fas fa-plus"></i></button>
         {/* Using "showing" for clicking a button */}
         {this.state.showing ? //for open an option to choose (add service)
         <>
@@ -145,7 +145,7 @@ render() {
            null
         }
         <br/><br/>
-        <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>מחיקת שרות</button>
+        <button className="admin-btn-del" onClick={() => this.setState({ deleting: !deleting })}>מחיקת שרות <i class="fas fa-trash"></i></button>
         <br/><br/>
         {this.state.deleting ? //for open an option to choose (delete service)
            <>

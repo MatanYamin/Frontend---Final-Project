@@ -118,7 +118,7 @@ render() {
                                 console.log(e)}
                             }
                             }
-                    >מחיקה</button>
+                    >מחיקה <i class="fas fa-trash-alt"></i></button>
                      <button className="confirm-booking"
                      onClick={() => 
                         {
@@ -143,7 +143,7 @@ render() {
                                 console.log(e)}
                             }
                             }
-                     >אישור תור</button>
+                     >אישור תור <i class="fas fa-check-circle"></i></button>
                      
                      </th>
                  </tr>

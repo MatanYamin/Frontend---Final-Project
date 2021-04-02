@@ -50,7 +50,7 @@ render() {
         <div className="city">
         <section className="adminComponent">
             <div className="adminComponentContainer">
-            <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>להוספת עיר</button>
+            <button className="admin-btn-add" onClick={() => this.setState({ showing: !showing })}>להוספת עיר <i class="fas fa-plus"></i></button>
             {this.state.showing ?
             <>
                 <label>הקלד שם עיר</label>
@@ -90,7 +90,7 @@ render() {
             :
             null}
             <br/><br/>
-            <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>למחיקת עיר</button>
+            <button className="admin-btn-del" onClick={() => this.setState({ deleting: !deleting })}>למחיקת עיר <i class="fas fa-trash"></i></button>
             {this.state.deleting ?
            <>
            <br/>

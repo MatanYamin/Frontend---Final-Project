@@ -67,7 +67,7 @@ export class Addon extends Component {
             </select>
             <br/><br/>
             <b>{this.state.second_price}     </b>
-            <button className={"cancelAddon"} onClick={this.handleClick}> לביטול התוספים</button>
+            <button className={"cancelAddon"} onClick={this.handleClick}> הסתר תוספים</button>
             </div>
         );
     }

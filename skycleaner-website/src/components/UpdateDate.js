@@ -66,7 +66,7 @@ render() {
         <>
         <section className="adminComponent">
         <div className="adminComponentContainer">
-        <button className="step-btn" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>לחסום יום</button>
+        <button className="admin-btn-del" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>לחסום יום <i class="fas fa-calendar-minus"></i></button>
         {this.state.showDisableDate ?
             <>
         <br/>
@@ -112,7 +112,7 @@ render() {
             :
             null}
         <br/><br/>
-        <button className="step-btn" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>לאפשר יום</button>
+        <button className="admin-btn-add" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>לאפשר יום <i class="fas fa-calendar-plus"></i></button>
         {this.state.showActivateDate ?
             <>
         <br/>
@@ -157,7 +157,7 @@ render() {
             :
             null}
             <br/><br/>
-            <button className="step-btn" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>חסום שעה</button>
+            <button className="admin-btn-del" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>חסום שעה <i class="far fa-clock"></i></button>
             {this.state.showDisableHour ?
             <>
             <br/><br/>
