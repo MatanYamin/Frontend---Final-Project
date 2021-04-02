@@ -20,9 +20,12 @@ export class PickService extends Component {
             showDescription: false,
             selectValue: '',
             first_price: '',
+            second_price: '',
             price_title: "המחיר: ",
             ser: "",
-            service_description: ""
+            service_description: "",
+            priceNow: "",
+            Shekel: ""
         }
     }
 
@@ -31,16 +34,23 @@ export class PickService extends Component {
         const postData = {
             title: this.props.page
         };
+        try{
         axios.post(url + "services", postData)
         .then(response => this.setState({
             service_array: response.data
-        }));
+        }));}
+        catch(e) {
+            console.log(e)}
     }
 
     componentDidUpdate(prevProps, prevState){
         if (prevState.first_price !== this.state.first_price) {
             this.props.handlePrice(this.state.first_price);
             this.state.showing= false;
+            this.setState({
+                priceNow: " המחיר ",
+                Shekel: "₪"
+            })
           }
     }
 
@@ -49,14 +59,18 @@ export class PickService extends Component {
         const priceData = {
             prices: e.target.value
         };
+        try{
         axios.post(url + "prices", priceData)
         .then(response => this.setState(
             // console.log(response.data),
             {
-            first_price: " מחיר:  " + response.data[0] + " ש''ח",
+            first_price: response.data[0],
             service_description: response.data[1],
             showDescription: true
-        }));
+        }));}
+        catch(e) {
+            console.log(e)}
+        
     }
 
     handleShow = input => {
@@ -116,12 +130,15 @@ export class PickService extends Component {
             showing={this.state.showing}
             handleShow={this.handleShow}
             />
-            :
-            <b>{this.state.first_price}</b> //here the price will go
+            :<>
+            {this.state.priceNow}
+            <b>{this.state.first_price} </b>
+            {this.state.Shekel}
+            </>
             }
             </>
             :
-            null //here the price will go
+            null
             }
             
             <br/>

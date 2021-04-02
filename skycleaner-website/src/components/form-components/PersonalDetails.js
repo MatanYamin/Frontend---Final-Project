@@ -46,12 +46,15 @@ export class PersonalDetails extends Component {
         this.props.nextStep(); //will increase step by 1
     }
 
+
+
     backward = event => {
         event.preventDefault();
         this.props.clearStates("");
         this.props.prevStep(); //will increase step by 1
     }
   
+    //validate that only numbers been entered
     onlyDigit(e){
         const re = /^[0-9\b]+$/;
         // this.check("matan")
@@ -65,15 +68,17 @@ export class PersonalDetails extends Component {
             this.setState({value: ""});
         }
      }
-
+//validate first name (if exists)
     validFirst(e){
         this.setState({firstNameValue: e.target.value});
     }
 
+    //validate last name (if exists)
     validLast(e){
         this.setState({lastNameValue: e.target.value});
     }
 
+    // validate the email address
     validEmail(e){
         this.setState({mailValue: e.target.value});
         if(e.target.value === ""){
@@ -90,6 +95,7 @@ export class PersonalDetails extends Component {
         }
     }
 
+    // cheacking the number length. needs to be atleast 7
     validPhone(e){
         this.setState({tempPhone: e.target.value});
         if(e.target.value === ""){
@@ -105,7 +111,6 @@ export class PersonalDetails extends Component {
             this.setState({goodPhone: "מספר תקין"});
         }
     }
-    
 
     render() {
     const {values} = this.props; //values is all the props we passed to the component
@@ -114,7 +119,6 @@ export class PersonalDetails extends Component {
             <>
             <br/><br/><br/><br/><br/><br/><br/>
             <b>  לא נבחר שרות</b>
-          
             <div className="step-btn-container">
             <button onClick={this.backward} className="step-btn">חזור</button>
             </div>

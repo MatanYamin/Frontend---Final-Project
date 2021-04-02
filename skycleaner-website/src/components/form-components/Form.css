@@ -423,4 +423,33 @@
         transition: all 0.2s;
         cursor: pointer;
     }
+
+    .pop-up-content1{
+        font-weight: bold;
+        position:fixed;
+        left:0;
+        right:0;
+        margin: auto;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 100px;
+        height: auto;
+        padding: 15px;  
+        background: #32afb5;
+        text-align: center;
+        box-sizing: content-box;
+        border: 4px dashed black;
+        color: white;
+        width: 70%;
+    }
+
+    .form-stpes{
+        text-align: center;
+        align-items: center;
+        font-size: 17px;
+        height: 90vh;
+        background-color: whitesmoke;
+      }
 }

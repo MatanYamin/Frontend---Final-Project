@@ -86,12 +86,16 @@ export class BookForm extends Component {
         })
     }
 
+    // will send the page name and that way we can get the services that matches the name of the page (category)
     onCreatePost = () => {
         const postData = {
             title: this.props.page
         };
+        try{
         axios.post(url + "services", postData)
-        .then(response => console.log(response));
+        .then(response => console.log(response));}
+        catch(e) {
+            console.log(e)}
     }
 
 

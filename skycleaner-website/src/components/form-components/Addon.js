@@ -15,36 +15,47 @@ export class Addon extends Component {
         super(props)
         this.state = {
             addon_array: [],
-            second_price: ''
+            second_price: '',
+            shekel: ""
         }
     }
     componentDidMount() {
         const postData = {
             add: this.props.service
         };
+        try{
         axios.post(url + "addon", postData)
         .then(response => this.setState({
             addon_array: response.data
-        }));
+        }));}
+        catch(e) {
+            console.log(e)}
     }
 
     componentDidUpdate(prevProps, prevState){
         if (prevState.second_price !== this.state.second_price) {
-            this.props.handlePrice(this.state.second_price)
+            // alert(this.state.second_price)
+            // alert(this.props.firstPrice)
+            var number = Number(this.state.second_price) + Number(this.props.firstPrice)
+            // alert(number)
+            this.props.handlePrice(number)
+            this.setState({
+                shekel: "₪"
+            })
           }
-        // if(prevProps.addons !== this.props.addons){
-        //     // console.log("mattaaannn")
-        // }
     }
 
     addonPrice = (e) => {
         const priceData = {
             addon: e.target.value
         };
+        try{
         axios.post(url + "prices/addon", priceData)
         .then(response => this.setState({
-            second_price: "מחיר " + response.data + " ש''ח"
-        }));
+            second_price: response.data
+        }));}
+        catch(e) {
+            console.log(e)}
     }
 
     handleClick = () => {
@@ -66,7 +77,8 @@ export class Addon extends Component {
             <option value={addon}>{addon}</option>))}
             </select>
             <br/><br/>
-            <b>{this.state.second_price}     </b>
+            <b>{this.props.firstPrice} ₪+{this.state.second_price} {this.state.shekel}</b>
+            <br/>
             <button className={"cancelAddon"} onClick={this.handleClick}> הסתר תוספים</button>
             </div>
         );

@@ -17,7 +17,6 @@ export class Confirm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        //   firstName: this.props.firstName
           selectedDate: null,
           num: ""
         };
@@ -41,7 +40,12 @@ export class Confirm extends Component {
     const requierd_fields = [firstName, lastName, email, address, city, phone]
     const missing_fields = ["שם פרטי", "שם משפחה", "מייל", "רחוב", "עיר", "טלפון"]
     let mail_flag = false
-    let phone_flag = /^\d+$/.test(phone);
+    let phone_error = false
+    if(!/^\d+$/.test(phone) || phone.toString().length < 7){
+        phone_error = true
+    };
+    // let phone_flag = (/^\d+$/.test(phone)) || (phone.toString().length < 7)
+    alert(phone_error)
     if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email) === false){
         mail_flag = true;
     }
@@ -50,6 +54,7 @@ export class Confirm extends Component {
     // This part is to validate that all fields are enterd
     requierd_fields.forEach((value, index)  =>{
     if(value==""){
+        // if a value is empty, means that nothing entered. so enter the name of field according to index
         show_err_array.push(missing_fields[index])
         req_flag = true
         }
@@ -67,11 +72,11 @@ export class Confirm extends Component {
             </>
         )
     }
-    if(!phone_flag){
+    if(phone_error){
         return(
             <>
             <br/><br/><br/><br/>
-            <b>ניתן להזין רק ספרות תחת "טלפון"</b>
+            יש בעיה תחת השדה "טלפון"
             <div className="step-btn-container">
             <button className="step-btn"
             onClick={this.backward}>לביצוע שינויים
@@ -98,6 +103,7 @@ export class Confirm extends Component {
     }
     return (
         <div>
+            <br/>
             <h2>אישור פרטי התור</h2>
                 שם:
                 <h4>{firstName} {lastName}</h4>
@@ -110,9 +116,10 @@ export class Confirm extends Component {
                 
                 השרות:
                 <h4>{service}  {addons}</h4>
-                <a className="red-text"><h2>{price}</h2></a>
-                 הערות:   
-                {comments}
+                המחיר:
+                <a className="red-text"><h3>{price} ₪</h3></a>
+                  הערות:    
+                <h4>{comments} </h4>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div>
             <div className="step-btn-container">
