@@ -246,10 +246,6 @@
     transition: all 0.8s ease-out;
 }
 
-.step-btn:last-child{
-   /* position: absolute; */
-   /* line-break: auto; */
-}
 
 .city-drp-down{
     background: whitesmoke;

@@ -66,7 +66,7 @@ getServicePrice = (e) => {
     const priceData = {
         prices: e.target.value
     };
-    axios.post(url + "prices", priceData)
+    axios.post(url + "admin/prices", priceData)
     .then(response => this.setState(
         {
         first_service_price: response.data + " ₪"

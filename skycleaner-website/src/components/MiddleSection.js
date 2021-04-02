@@ -9,7 +9,12 @@ function MiddleSection() {
     return(
         <div className="middle-container">
             <img class="first-img-logo" src="https://i.ibb.co/yh7CyXp/Sky-Cleaner.jpg" />
-            <a href="something" class="button1">צפו בהגרלות שלנו!</a>
+            <Popup trigger={<a class="button1">צפו בהגרלות שלנו!</a>} >
+                <div class="pop-up-content-home">
+                    מילים לפני <br/>
+                    <iframe width="560" height="415" src="https://www.youtube.com/embed/IPMN-LqzB7Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+            </Popup>
             <a href="/SOS" class="button1">צריכים שרות דחוף?</a>
         </div>
     )

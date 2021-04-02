@@ -14,6 +14,26 @@
     text-align: -webkit-center;
 }
 
+.pop-up-content-home{
+    font-weight: bold;
+    position:fixed;
+    left:0;
+    right:0;
+    margin: auto;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    /* width: 100px; */
+    height: auto;
+    padding: 15px;  
+    background: black;
+    text-align: center;
+    box-sizing: content-box;
+    /* border: 4px dashed black; */
+    color: white;
+    width: 50%;
+}
 
 
 
@@ -88,6 +108,9 @@
     }
 }
 
+
+
+
 a.button1{
     display:inline-block;
     padding:0.35em 1.2em;
@@ -101,6 +124,8 @@ a.button1{
     color:#FFFFFF;
     text-align:center;
     transition: all 0.2s;
+    font-size: 25px;
+    width: 21%;
     }
     
     a.button1:hover{
@@ -113,5 +138,23 @@ a.button1{
     a.button1{
         display:block;
         margin:0.4em auto;
+        width: 90%;
+    }
+
+    .pop-up-content-home{
+        font-weight: bold;
+        position:fixed;
+        left:0;
+        right:0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        height: auto;
+        background: black;
+        text-align: center;
+        box-sizing: content-box;
+        color: white;
+        width: 100%;
     }
 }

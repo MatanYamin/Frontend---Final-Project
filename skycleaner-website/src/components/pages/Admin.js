@@ -90,7 +90,7 @@ class Admin extends React.Component {
             :
            null
         }
-        <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
+        <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
          {this.state.showDescription ?
            <UpdateDescription
            />
