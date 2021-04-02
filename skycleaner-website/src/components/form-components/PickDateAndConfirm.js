@@ -17,8 +17,7 @@ export class PickDateAndConfirm extends Component {
           selectedDate: null,
           disable_dates: [],
           hours: [],
-          day: "no"
-        //   selected_hour: ""
+          temp_hour: false
         };
     }
 
@@ -64,7 +63,7 @@ export class PickDateAndConfirm extends Component {
     render() {
     const {values: {service, addons, date, hour, firstName, price, lastName, email, address, city, phone, comments}} = this.props;
     const page = window.location.pathname.substring(1); //page name
-    const days = ['2021-04-08', '2021-04-07'];
+    const {temp_hour} = this.state;
     const exclude_days_array = [];
     // mapping disabled dates to an array
     this.state.disable_dates.map(service => (
@@ -87,13 +86,19 @@ export class PickDateAndConfirm extends Component {
             filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
             />
             <br/><br/><br/><br/>
-                <select className="form-drp-btn" onChange={this.props.handleChange('hour')}>
-                    <option value="nothing">בחרו שעה</option>
+                <select className="service-btn"
+                onChange={this.props.handleChange('hour')}
+                onInput={() => this.setState({ temp_hour: !temp_hour })}
+                >
+                    <option 
+                    value="nothing">בחרו שעה</option>
                     {this.state.hours.map(hour => (
                     <option value={hour}>{hour}</option>))}
                     </select>
             </div>
-            {/* Continue button - calls "continue" that increase step state by 1 */}
+           
+            {this.state.temp_hour ? 
+            <>
             <div>
             <div className="step-btn-container">
             <button className="step-btn"
@@ -101,7 +106,8 @@ export class PickDateAndConfirm extends Component {
                 </button>
             <button className="step-btn"
             // onClick will send a post request with all the values to the API
-            onClick={() => 
+            onClick={
+                () => 
                 {
                     try{
                         fetch(url + "booking", {
@@ -123,7 +129,8 @@ export class PickDateAndConfirm extends Component {
                                 hour: hour,
                                 price: price
                             })
-                        });
+                        }).then(this.props.nextStep())
+                        ;
                     }
                     catch(e) {
                         console.log(e)}
@@ -132,6 +139,18 @@ export class PickDateAndConfirm extends Component {
             </button>
             </div>
             </div>
+            </>
+            :
+            <>
+            <br/>
+            לא נבחרה שעה
+            <div className="step-btn-container">
+            <button className="step-btn"
+            onClick={this.backward}>בצע שינויים
+                </button>
+                </div>
+                </>
+                }
             </>
     );
     }

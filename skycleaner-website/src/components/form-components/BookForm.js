@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import PickService from "./PickService" //Step 1
-import PickDate from "./PickDate"  // Step 2
 import PersonalDetails from "./PersonalDetails"  // Step 3
 import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form

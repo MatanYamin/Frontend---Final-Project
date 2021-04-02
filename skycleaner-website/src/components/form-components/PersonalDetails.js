@@ -108,7 +108,6 @@ export class PersonalDetails extends Component {
             <h1>פרטים אישיים</h1>
             <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
-            {/* <a className="red-text">*</a> */}
             <h6><a className="red-text">*</a>שם פרטי: </h6>
             <TextField 
             onChange={this.props.handleChange('firstName')}
