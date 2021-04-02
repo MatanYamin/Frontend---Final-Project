@@ -7,6 +7,7 @@ import UpdateCity from "../UpdateCity"
 import UpdatePrice from "../UpdatePrice"
 import ShowBookings from "../ShowBookings"
 import UpdateDescription from "../UpdateDescription"
+import ExportCSVpage from "../ExportCSVpage"
 //Admin panel will hold all components that are able by the admin
 
 
@@ -23,7 +24,7 @@ class Admin extends React.Component {
           showCity: false,
           showPrice: false,
           showFuture: false,
-          showDescription: false
+          showDescription: false,
         };
       }
       render() {

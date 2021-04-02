@@ -1,6 +1,7 @@
 import React from "react"
 import { Component } from "react"
 import "./ShowBooking.css"
+import ExportCSVpage from "./ExportCSVpage"
 const url = "http://127.0.0.1:5000/"
 
 
@@ -12,7 +13,7 @@ export class ShowBookings extends Component {
             new_city: "",
             showing: false,
             deleting: false,
-            check: false,
+            exportXl: false,
             txt1: "",
             txt2: ""
         }
@@ -33,29 +34,20 @@ export class ShowBookings extends Component {
         })
     }
 
-    // componentDidUpdate(prevProps, prevState){
-    //     // after detecting changes in state, we will bring now all services from the API
-    //     if (prevState.txt2 !== this.state.txt2) {
-    //         this.readCities().then((data) => {
-    //             this.setState({
-    //                 cities: data
-    //             })
-    //         })
-    //         }
-    // }
-
-
 render() {
     const {values} = this.props; //values is all the props we passed to the component
     const page = window.location.pathname.substring(1); //page name
     const {showing} = this.state;
     const {deleting} = this.state;
-    const {check} = this.state;
+    const {exportXl} = this.state;
+    const fileName = 'תורים'
     return(
         <>
         <div>
         <section className="customers-table">
             <div className="loginContainer">
+         <ExportCSVpage />
+         <br/>
             <table bordered>
                  <thead>
                  <tr>
@@ -70,12 +62,13 @@ render() {
                      <th>מחיר</th>
                      <th>הערות</th>
                      <th>ID</th>
-                     {/* <th>בטל תור</th> */}
-                     {/* <th>בוצע</th> */}
                 </tr>
                  </thead>
                  <tbody>
-{this.state.customers.map((rowData, index) => (
+{this.state.customers.map(
+    
+    (rowData, index) => (
+                
                  <tr>
                      <th scope="row">{index + 1}</th>
                      {/* שם מלא */}
@@ -100,7 +93,6 @@ render() {
                      <td>{rowData[0]}</td> 
                      <th>
                      <button 
-                    // onInput={}
                     className="del-booking"
                     onClick={() => 
                         {
@@ -152,11 +144,10 @@ render() {
                             }
                             }
                      >אישור תור</button>
+                     
                      </th>
                  </tr>
-
-))}
-
+                ))}
                 </tbody>
              </table>
             </div>
