@@ -83,7 +83,7 @@ export class PickDateAndConfirm extends Component {
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
-            filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
+            filterDate={day => day.getDay() != 6} // for weekends
             />
             <br/><br/><br/><br/>
                 <select className="service-btn"
@@ -127,7 +127,7 @@ export class PickDateAndConfirm extends Component {
                                 comments: comments,
                                 date: this.state.selectedDate,
                                 hour: hour,
-                                price: price
+                                price: String(price)
                             })
                         }).then(this.props.nextStep())
                         ;

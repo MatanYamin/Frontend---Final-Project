@@ -8,6 +8,7 @@ function ServicesCards() {
     // Each component will get image to display, text for descrription and path
     return(
         <div className="cards">
+            <h1>הזמנת ניקוי עד הבית</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
                     <ul className="cards__items">

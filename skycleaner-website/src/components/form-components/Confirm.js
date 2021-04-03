@@ -45,7 +45,6 @@ export class Confirm extends Component {
         phone_error = true
     };
     // let phone_flag = (/^\d+$/.test(phone)) || (phone.toString().length < 7)
-    alert(phone_error)
     if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email) === false){
         mail_flag = true;
     }

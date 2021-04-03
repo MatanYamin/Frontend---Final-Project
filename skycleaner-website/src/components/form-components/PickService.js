@@ -92,8 +92,8 @@ export class PickService extends Component {
         return (
             <div>
                 
-            <h1>בחרתם ב {page}</h1>
-            <h1>מה מנקים?</h1>
+            {/* <h1>בחרתם ב {page}</h1> */}
+            {/* <h1>מה מנקים?</h1> */}
             <br/>
             <select
             defaultValue={this.props.service}

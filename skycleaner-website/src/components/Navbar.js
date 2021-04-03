@@ -33,7 +33,7 @@ function Navbar() {
             <div className="navbar-container">
                 {/*  Main title, links to home page */}
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> 
-                סקיי-קלינר
+                Sky Cleaner
                 {/* <img src="https://i.ibb.co/Fbs8KWk/Picture3.jpg" class='icon-img' /> */}
                 </Link>
                 {/*  when pressing the icon it will alter*/}
@@ -45,7 +45,7 @@ function Navbar() {
                    
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                            שרותים
+                            דף הבית
                         </Link>
                     </li>
                     <li className='nav-item'>

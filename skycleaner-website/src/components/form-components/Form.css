@@ -138,7 +138,8 @@
     align-items: center;
     font-size: 23px;
     height: 90vh;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    background-color: #32afb5;
   }
 
 .credit-MY{
@@ -185,7 +186,8 @@
 .step-btn-container{
     width: 100%;
     bottom: 0.0em;
-    position: absolute;
+    /* position: absolute; */
+    position: fixed;
 }
 
 
