@@ -104,6 +104,7 @@ export class Confirm extends Component {
         <div>
             <br/>
             <h2>אישור פרטי התור</h2>
+            <div className="confirm-wrapper">
                 שם:
                 <h4>{firstName} {lastName}</h4>
                 כתובת:
@@ -119,6 +120,7 @@ export class Confirm extends Component {
                 <a className="red-text"><h3>{price} ₪</h3></a>
                   הערות:    
                 <h4>{comments} </h4>
+                </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div>
             <div className="step-btn-container">

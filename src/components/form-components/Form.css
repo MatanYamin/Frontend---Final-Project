@@ -137,7 +137,7 @@
     text-align: center;
     align-items: center;
     font-size: 23px;
-    height: 90vh;
+    height: 120vh;
     /* background-color: whitesmoke; */
     background-color: #32afb5;
   }
@@ -319,6 +319,17 @@
 
 .personal-wrapper{
     display: inline-grid;
+    background-color: lightyellow;
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
+.confirm-wrapper{
+    /* background-color: lightyellow; */
+    /* left: 50%; */
+    /* right: 0; */
+    /* left: 0; */
 }
 
 .service-btn{
