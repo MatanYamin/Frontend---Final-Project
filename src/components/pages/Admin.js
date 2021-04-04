@@ -39,7 +39,7 @@ class Admin extends React.Component {
         const {showDescription} = this.state
     return(
         <div class="admin-main-container">
-        <h1> ברוכים הבאים למסך הניהול
+        <h1> ברוים הבאים למסך הניהול
          </h1>
          {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
          <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים <i class="fas fa-table"></i></button>
