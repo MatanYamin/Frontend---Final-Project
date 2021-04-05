@@ -4,7 +4,7 @@
 }
 
 .select-srp-down{
-    background: #4f6437;
+    background: darkslategray;
     border: none;
     outline: none;
     padding: 15px 0;
@@ -12,6 +12,10 @@
     font-size: 25px;
     letter-spacing: 2px;
     cursor: pointer;
+}
+
+.pick-ser-select-btn{
+    text-align-last: center;
 }
 
 .form-container{
@@ -61,7 +65,7 @@
 }
 
 .details-btn{
-    background: #32afb5;
+    background: #406334;
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
@@ -137,9 +141,27 @@
     text-align: center;
     align-items: center;
     font-size: 23px;
-    height: 120vh;
-    /* background-color: whitesmoke; */
-    background-color: #32afb5;
+    /* height: 120vh; */
+    height: 87vh;
+    background-color: whitesmoke;
+    /* background-image: url("https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg");
+    background-repeat: no-repeat, repeat;
+    background-size: 480px 500px; */
+    /* https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg */
+    /* background-color: #32afb5; */
+  }
+
+  .bubble-man{
+    background-image: url("https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg");
+    background-repeat: no-repeat, repeat;
+    background-size: 480px 500px;
+  }
+
+  .text-on-bubble{
+      left: 11%;
+      width: 20%;
+      position: absolute;
+      margin-top: 65px;
   }
 
 .credit-MY{
@@ -167,8 +189,8 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    width: 100px;
-    height: auto;
+    width: 150px;
+    height: 50%;
     padding: 15px;  
     background: #32afb5;
     text-align: center;
@@ -176,6 +198,7 @@
     border: 4px dashed black;
     color: white;
     width: 20%;
+    font-size: 30px;
 }
 
 
@@ -242,6 +265,30 @@
     transition: all 0.2s;
     cursor: pointer;
 }
+
+.step-btn-admin{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.6em 0.0em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    font-size: 25px;
+    color:#FFFFFF;
+    background-color:darkslategray;
+    text-align:center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+
+.step-btn-admin:hover{
+    /* border-bottom: 5px solid #fff; */
+    transition: all 0.8s ease-out;
+}
+
 
 .step-btn:hover{
     /* border-bottom: 5px solid #fff; */
@@ -322,6 +369,17 @@
     color: green;
 }
 
+.pick-service-containet{
+    display: inline-grid;
+    background-color: lightyellow;
+    padding: 25px;
+    /* border-radius: 20px; */
+    height: 86vh;
+    margin-top: 5px;
+    width: 30%;
+}
+
+
 .personal-wrapper{
     display: inline-grid;
     background-color: lightyellow;
@@ -338,7 +396,7 @@
 }
 
 .service-btn{
-    background: #32afb5;
+    background: black;
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
@@ -378,7 +436,7 @@
  }
 
  .addon-btn{
-    background: #B53832;
+    background: #406334;
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
@@ -470,4 +528,21 @@
         height: 90vh;
         background-color: whitesmoke;
       }
+
+      .pick-service-containet{
+        display: inline-grid;
+        background-color: lightyellow;
+        padding: 25px;
+        width: 70%;
+        border-radius: 20px;
+        margin-top: 5px;
+    }
+
+    .bubble-man{
+        background-size: 0;
+      }
+
+      .text-on-bubble{
+        display: none;
+    }
 }

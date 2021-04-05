@@ -107,7 +107,7 @@ render() {
             <input onChange={(e) => {this.handlePrice(e)}}
            />
             <div className="btnContainer">
-                <button className="step-btn"
+                <button className="step-btn-admin"
                 // Post request for adding service
                 onClick={() => 
                    {
@@ -135,7 +135,7 @@ render() {
                            console.log(e)}
                        }}
                 >אישור</button>
-            <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
+            <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
             </div>
             <br/>
             <label>{this.state.updateServiceSuccess}</label>
@@ -181,7 +181,7 @@ render() {
                             }}
                     >אישור מחיקה<br/> (הדבר ימחק גם את כל התוספים של אותו שרות)</button>
                     <br/>
-                    <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     <br/>
                     <label>{this.state.deleteSuccess}</label>
 

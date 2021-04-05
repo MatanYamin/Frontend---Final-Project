@@ -25,7 +25,8 @@ export class PickService extends Component {
             ser: "",
             service_description: "",
             priceNow: "",
-            Shekel: ""
+            Shekel: "",
+            textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. בבקשו בחרו שרות"
         }
     }
 
@@ -66,7 +67,8 @@ export class PickService extends Component {
             {
             first_price: response.data[0],
             service_description: response.data[1],
-            showDescription: true
+            showDescription: true,
+            textOnBubble: response.data[1]
         }));}
         catch(e) {
             console.log(e)}
@@ -90,11 +92,16 @@ export class PickService extends Component {
         const {showing} = this.state;
         const {showDescription} = this.state;
         return (
-            <div>
-                
+            <>
+            <div className="bubble-man">
+            <div class="text-on-bubble">
+                {this.state.textOnBubble}
+            </div>
+             <div className="pick-service-containet">
             {/* <h1>בחרתם ב {page}</h1> */}
             {/* <h1>מה מנקים?</h1> */}
             <br/>
+            <div className="pick-ser-select-btn">
             <select
             defaultValue={this.props.service}
             class="service-btn"
@@ -102,10 +109,12 @@ export class PickService extends Component {
             onInput={(e) => {this.setPrice(e)}}
             >
             {/*Showing all services with "map" inside select */}
-            <option value="nothing">בחרו שרות</option>
+            <div className="background-img"></div>
+            <option value="nothing">בחרו שירות</option>
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
             </select>
+            </div>
             {this.state.showDescription ?
             <>
             &nbsp;&nbsp;
@@ -145,10 +154,12 @@ export class PickService extends Component {
             <br/>
             <br/><br/>
             
+            </div>
             <div className="step-btn-container">
             <button className="step-btn" onClick={this.continue}>להזנת פרטים אישיים</button>
-            </div>
-            </div>
+             </div>
+             </div>
+            </>
     );
         }
             }

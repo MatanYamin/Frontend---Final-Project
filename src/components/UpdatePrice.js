@@ -100,7 +100,7 @@ render() {
         <>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-            <button className="step-btn" onClick={() => this.setState({ showing: !showing })}>עדכן מחיר לשרות <i class="fas fa-shekel-sign"></i></button>
+            <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>עדכן מחיר לשרות <i class="fas fa-shekel-sign"></i></button>
             {this.state.showing ?
             <>
                 <br/>
@@ -120,7 +120,7 @@ render() {
                 onChange={(e) => {this.handleNewPrice(e)}}
                  />
                  <div className="btnContainer">
-                     <button className="step-btn"
+                     <button className="-admin"
                     //  put request for chaning pruce for service
                      onClick={() => 
                         {
@@ -150,7 +150,7 @@ render() {
             :
             null}
             <br/><br/>
-            <button className="step-btn" onClick={() => this.setState({ deleting: !deleting })}>עדכן מחיר לתוסף <i class="fas fa-shekel-sign"></i></button>
+            <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>עדכן מחיר לתוסף <i class="fas fa-shekel-sign"></i></button>
             {this.state.deleting ?
            <>
            <br/>
@@ -171,7 +171,7 @@ render() {
                     <div className="btnContainer">
                     <button 
                     // onInput={}
-                    className="step-btn"
+                    className="step-btn-admin"
                     //  put request for chaning pruce for addon
                     onClick={() => 
                         {
@@ -197,7 +197,7 @@ render() {
                             }
                             }
                     >אישור</button>
-                    <button className="step-btn"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <button className="-admin"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     </div>
            </>
             :

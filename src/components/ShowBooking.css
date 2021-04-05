@@ -20,7 +20,7 @@ table {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #b53832;
+    background-color: darkslategray;
     /* background: radial-gradient(
       ellipse at left bottom,
       rgba(22, 24, 47, 1) 0%,

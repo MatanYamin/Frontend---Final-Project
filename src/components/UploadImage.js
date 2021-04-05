@@ -73,7 +73,7 @@ render() {
           </div>
           <br/> <br/>
                     <button
-                    className="step-btn"
+                    className="step-btn-admin"
                     // post request for deleteing service
                     onClick={() => 
                     {

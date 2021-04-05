@@ -85,7 +85,7 @@ render() {
             <br/>
             <lable className="white-text">{this.state.text1}</lable>
             <div className="btnContainer">
-            <button className="step-btn"
+            <button className="step-btn-admin"
             // put request for making a day disable
             onClick={() => 
                 {
@@ -105,7 +105,7 @@ render() {
                     catch(e) {
                         console.log(e)}
                     }}>אישור</button>
-                    <button className="step-btn" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>ביטול</button>
+                    <button className="step-btn-admin" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>ביטול</button>
                     </div>
                     </div></div>
             </>
@@ -130,7 +130,7 @@ render() {
             <br/>
             <lable className="white-text">{this.state.text2}</lable>
             <div className="btnContainer">
-            <button className="step-btn"
+            <button className="step-btn-admin"
             // delete request for deleting a day from the disabled days
             onClick={() => 
                 {
@@ -150,7 +150,7 @@ render() {
                     catch(e) {
                         console.log(e)}
                     }}>אישור</button>
-                    <button className="step-btn" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>ביטול</button>
+                    <button className="step-btn-admin" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>ביטול</button>
                     </div>
                     </div></div>
             </>
@@ -182,7 +182,7 @@ render() {
                     <option value={hour_map}>{hour_map}</option>))}
                     </select>
                     <div className="btnContainer">
-            <button className="step-btn"
+            <button className="step-btn-admin"
             // post request for blocking hout
             onClick={() => 
                 {
@@ -213,7 +213,7 @@ render() {
                     }}>
             אישור
             </button>
-            <button className="step-btn" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>ביטול</button>
+            <button className="step-btn-admin" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>ביטול</button>
                 </div>
                 </div>
                 </div>

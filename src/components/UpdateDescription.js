@@ -60,7 +60,7 @@ render() {
                 onChange={(e) => {this.handleNewDescription(e)}}
                  />
                  <div className="btnContainer">
-                     <button className="step-btn"
+                     <button className="step-btn-admin"
                     //  put request for chaning description for service
                      onClick={() => 
                         {

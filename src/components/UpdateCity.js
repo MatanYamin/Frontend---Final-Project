@@ -58,7 +58,7 @@ render() {
                 onChange={(e) => {this.handleCity(e)}}
                  />
                  <div className="btnContainer">
-                     <button className="step-btn"
+                     <button className="step-btn-admin"
                     //  post request for adding city to list
                      onClick={() => 
                         {
@@ -82,7 +82,7 @@ render() {
                                 console.log(e)}
                             }}
                      >סיום</button>
-                     <button className="step-btn"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
+                     <button className="step-btn-admin"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                      <br/>
                      <label>{this.state.txt1}</label>
                  </div>
@@ -129,7 +129,7 @@ render() {
                             }
                             }
                     >אישור מחיקה</button>
-                    <button className="step-btn"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <button className="step-btn-admin"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     <br/>
                     <label>{this.state.txt2}</label>
                     </div>

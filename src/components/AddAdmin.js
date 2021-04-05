@@ -22,7 +22,7 @@ export default function AddAdmin(props) {
                  onChange={(e) => props.setPassword(e.target.value)}
                 />
                  <div className="btnContainer">
-                     <button className="step-btn" onClick={props.handleSingup}>הוספת מנהל</button>
+                     <button className="step-btn-admin" onClick={props.handleSingup}>הוספת מנהל</button>
                  </div>
             </div>
         </section>
