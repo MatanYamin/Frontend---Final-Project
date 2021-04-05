@@ -7,6 +7,7 @@ import UpdateCity from "../UpdateCity"
 import UpdatePrice from "../UpdatePrice"
 import ShowBookings from "../ShowBookings"
 import UpdateDescription from "../UpdateDescription"
+import UploadImage from "../UploadImage"
 import ExportCSVpage from "../ExportCSVpage"
 //Admin panel will hold all components that are able by the admin
 
@@ -25,6 +26,7 @@ class Admin extends React.Component {
           showPrice: false,
           showFuture: false,
           showDescription: false,
+          uploadImage: false
         };
       }
       render() {
@@ -37,6 +39,7 @@ class Admin extends React.Component {
         const {showPrice} = this.state
         const {showFuture} = this.state
         const {showDescription} = this.state
+        const {uploadImage} = this.state
     return(
         <div class="admin-main-container">
         <h1> ברוים הבאים למסך הניהול
@@ -93,6 +96,13 @@ class Admin extends React.Component {
         <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
          {this.state.showDescription ?
            <UpdateDescription
+           />
+            :
+           null
+        }
+        <button className="button-form2" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות </button>
+         {this.state.uploadImage ?
+           <UploadImage
            />
             :
            null
