@@ -3,6 +3,8 @@ import { Component } from "react"
 import axios from "../../node_modules/axios"
 import ReactS3 from "react-s3"
 const url = "http://127.0.0.1:5000/"
+// here we let the the admin add pictures to describe the service
+
 
 const config = {
     bucketName: 'skycleaner',
@@ -18,10 +20,11 @@ export class UploadImage extends Component {
             services: [],
             service_name: "",
             showing: false,
-            image: "",
+            image: null,
             uploadSuccess: "",
             file: null
         }
+        this.uploadToS3 = this.uploadToS3.bind(this);
     }
 
     async readServices() {
@@ -39,27 +42,32 @@ export class UploadImage extends Component {
         })
     }
 
-    // onImageChange = event => {
-    //     if (event.target.files && event.target.files[0]) {
-    //       let img = event.target.files[0];
-    //       this.setState({
-    //         image: URL.createObjectURL(img)
-    //       });
-    //     }
-    //   };
+    // sends the data to db
+    sendDataToApi = () => {
+        try{
+            fetch(url + "post/images", {
+                method: "POST",
+                body: JSON.stringify({
+                    image: this.state.image,
+                    service: this.state.service_name
+                })
+            })
+        }
+        catch(e) {
+            console.log(e)}
+    }
 
-      // working
-      // need to see how to send post request in the "then" to post/images with the img url and service name
       uploadToS3(e) {
         console.log(e.target.files)
         ReactS3.uploadFile(e.target.files[0], config)
-        .then(
-            (data) => {
-            console.log(data.location)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+        .then((response)=> {
+            this.setState({
+                image: response.location
+            })
+          },
+          // this send the image and the service to DB
+          this.sendDataToApi
+          )
     }
 
 
@@ -80,11 +88,15 @@ render() {
                     </select>
                     <br/><br/>
                     <div>
+            {/* After the img will upload succesfully, we will se the image */}
             <img className="img-show_form" src={this.state.image} />
             <h1>העלה תמונה</h1>
             <input type="file" onChange={this.uploadToS3} />
           </div>
                     <br/>
+                    <div className="btnContainer">
+                    <button className="step-btn-admin" onClick={this.sendDataToApi}>אישור</button>
+                    </div>
             </div>
         </section>
         </>
