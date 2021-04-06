@@ -75,6 +75,53 @@ export class UpdateService extends Component {
         })
     }
 
+    addNewService = () => {
+        try{
+            fetch(url + "post/service", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                body: JSON.stringify({
+                    cat_name: this.state.cat_name,
+                    service_name: this.state.service_name,
+                    price: this.state.price,
+                    description: this.state.description
+                })
+            })
+            .then(this.setState({
+             updateServiceSuccess: "השרות נוסף בהצלחה"
+         }), alert(this.state.service_name + " נוסף בהצלחה"), 
+         );;
+        }
+        catch(e) {
+            console.log(e)}
+        }
+    
+    deleteService = () => 
+    {
+        try{
+            fetch(url + "delete/service", {
+                method: "DELETE",
+                body: JSON.stringify({
+                    service_name: this.state.service_name,
+                })
+            })
+            .then(this.setState({
+                deleteSuccess: "השרות נמחק בהצלחה"
+            }),
+            this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1).then(
+                alert(this.state.service_name + " נמחק בהצלחה")
+            )
+            
+            );;
+        }
+        catch(e) {
+            console.log(e)}
+        }
+
 render() {
     const {values} = this.props; //values is all the props we passed to the component
     const page = window.location.pathname.substring(1); //page name
@@ -109,37 +156,12 @@ render() {
             <div className="btnContainer">
                 <button className="step-btn-admin"
                 // Post request for adding service
-                onClick={() => 
-                   {
-                       try{
-                           fetch(url + "post/service", {
-                               method: "POST",
-                               mode: "no-cors",
-                               headers: {
-                                   'Accept': 'application/json',
-                                   'Content-Type': 'application/json'
-                                 },
-                               body: JSON.stringify({
-                                   cat_name: this.state.cat_name,
-                                   service_name: this.state.service_name,
-                                   price: this.state.price,
-                                   description: this.state.description
-                               })
-                           })
-                           .then(this.setState({
-                            updateServiceSuccess: "השרות נוסף בהצלחה"
-                        }), alert(this.state.service_name + " נוסף בהצלחה"), 
-                        );;
-                       }
-                       catch(e) {
-                           console.log(e)}
-                       }}
+                onClick={this.addNewService}
                 >אישור</button>
             <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
             </div>
             <br/>
             <label>{this.state.updateServiceSuccess}</label>
-
              </>
             :
            null
@@ -158,27 +180,7 @@ render() {
                     <button
                     className="del-btn"
                     // post request for deleteing service
-                    onClick={() => 
-                        {
-                            try{
-                                fetch(url + "delete/service", {
-                                    method: "DELETE",
-                                    body: JSON.stringify({
-                                        service_name: this.state.service_name,
-                                    })
-                                })
-                                .then(this.setState({
-                                    deleteSuccess: "השרות נמחק בהצלחה"
-                                }),
-                                this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1).then(
-                                    alert(this.state.service_name + " נמחק בהצלחה")
-                                )
-                                
-                                );;
-                            }
-                            catch(e) {
-                                console.log(e)}
-                            }}
+                    onClick={this.deleteService}
                     >אישור מחיקה<br/> (הדבר ימחק גם את כל התוספים של אותו שרות)</button>
                     <br/>
                     <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>

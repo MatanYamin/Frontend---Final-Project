@@ -36,6 +36,21 @@ export class UpdateDescription extends Component {
         })
     }
 
+    updateDercriptionForService = () => {
+        try{
+            fetch(url + "put/service_description", {
+                method: "PUT",
+                body: JSON.stringify({
+                    description: this.state.newDes,
+                    service: this.state.service
+                })
+            })
+            .then(alert("התיאור עודכן בהצלחה"));
+        }
+        catch(e) {
+            console.log(e)}
+        }
+
 render() {
     const {values} = this.props; //values is all the props we passed to the component
     const page = window.location.pathname.substring(1); //page name
@@ -62,21 +77,7 @@ render() {
                  <div className="btnContainer">
                      <button className="step-btn-admin"
                     //  put request for chaning description for service
-                     onClick={() => 
-                        {
-                            try{
-                                fetch(url + "put/service_description", {
-                                    method: "PUT",
-                                    body: JSON.stringify({
-                                        description: this.state.newDes,
-                                        service: this.state.service
-                                    })
-                                })
-                                .then(alert("התיאור עודכן בהצלחה"));
-                            }
-                            catch(e) {
-                                console.log(e)}
-                            }}
+                     onClick={this.updateDercriptionForService}
                      >אישור</button>
                  </div>
             

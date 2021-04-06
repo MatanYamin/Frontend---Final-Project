@@ -39,6 +39,52 @@ export class UpdateCity extends Component {
     })
 }
 
+// this is a post request for adding a city
+addNewCity = () => {
+    try{
+        fetch(url + "post/city", {
+            method: "POST",
+            body: JSON.stringify({
+                city: this.state.new_city,
+            })
+        })
+        .then(this.setState({
+            txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה"
+            
+        }),
+        alert(" העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה "),
+        this.state.cities.concat(this.state.new_city)
+        )
+        ;;
+    }
+    catch(e) {
+        console.log(e)}
+        }
+
+    // this is a DELETE request for deleting city
+    deleteCity = () => {
+        try{
+            fetch(url + "delete/city", {
+                method: "DELETE",
+                body: JSON.stringify({
+                    city: this.state.new_city,
+                })
+            })
+            .then(this.setState({
+                txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
+            }),
+            this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1).then(
+                alert(" העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ")
+                
+            )
+            );
+        }
+        catch(e) {
+            console.log(e)
+        }
+        }
+    
+
 render() {
     const {values} = this.props; //values is all the props we passed to the component
     const page = window.location.pathname.substring(1); //page name
@@ -60,27 +106,7 @@ render() {
                  <div className="btnContainer">
                      <button className="step-btn-admin"
                     //  post request for adding city to list
-                     onClick={() => 
-                        {
-                            try{
-                                fetch(url + "post/city", {
-                                    method: "POST",
-                                    body: JSON.stringify({
-                                        city: this.state.new_city,
-                                    })
-                                })
-                                .then(this.setState({
-                                    txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה"
-                                    
-                                }),
-                                alert(" העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה "),
-                                this.state.cities.concat(this.state.new_city)
-                                )
-                                ;;
-                            }
-                            catch(e) {
-                                console.log(e)}
-                            }}
+                    onClick={this.addNewCity}
                      >סיום</button>
                      <button className="step-btn-admin"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                      <br/>
@@ -106,28 +132,7 @@ render() {
                     <button 
                     // delete request for deleting city from list
                     className="del-btn"
-                    onClick={() => 
-                        {
-                            try{
-                                fetch(url + "delete/city", {
-                                    method: "DELETE",
-                                    body: JSON.stringify({
-                                        city: this.state.new_city,
-                                    })
-                                })
-                                .then(this.setState({
-                                    txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
-                                }),
-                                this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1).then(
-                                    alert(" העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ")
-                                    
-                                )
-                                );
-                            }
-                            catch(e) {
-                                console.log(e)}
-                            }
-                            }
+                    onClick={this.deleteCity}
                     >אישור מחיקה</button>
                     <button className="step-btn-admin"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     <br/>

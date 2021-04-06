@@ -1,8 +1,15 @@
 import React from "react"
 import { Component } from "react"
 import axios from "../../node_modules/axios"
+import ReactS3 from "react-s3"
 const url = "http://127.0.0.1:5000/"
 
+const config = {
+    bucketName: 'skycleaner',
+    region: 'us-west-2',
+    accessKeyId: 'AKIAWLXG5TEVQP7WVSFB',
+    secretAccessKey: '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'
+}
 
 export class UploadImage extends Component {
     constructor(props){
@@ -32,30 +39,36 @@ export class UploadImage extends Component {
         })
     }
 
-    onImageChange = event => {
-        if (event.target.files && event.target.files[0]) {
-          let img = event.target.files[0];
-          this.setState({
-            image: URL.createObjectURL(img)
-          });
-        }
-      };
+    // onImageChange = event => {
+    //     if (event.target.files && event.target.files[0]) {
+    //       let img = event.target.files[0];
+    //       this.setState({
+    //         image: URL.createObjectURL(img)
+    //       });
+    //     }
+    //   };
 
-      uploadFile(e) {
-        e.preventDefault();
-        let file = this.state.image;
-        const formData = new FormData();
-        formData.append("file", file);
-        axios
-          .post("/post/images", formData)
-          .then(res => console.log(res))
-          .catch(err => console.warn(err));
-      }
+      // working
+      // need to see how to send post request in the "then" to post/images with the img url and service name
+      uploadToS3(e) {
+        console.log(e.target.files)
+        ReactS3.uploadFile(e.target.files[0], config)
+        .then(
+            (data) => {
+            console.log(data.location)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+
 render() {
     const {values} = this.props; //values is all the props we passed to the component
     const page = window.location.pathname.substring(1); //page name
     return(
         <>
+        {/* <input type="file" onChange={this.testThisImageUpload} /> */}
         <section className="adminComponent">
             <div className="adminComponentContainer">
         <br/><br/>
@@ -68,44 +81,9 @@ render() {
                     <br/><br/>
                     <div>
             <img className="img-show_form" src={this.state.image} />
-            <h1>Select Image</h1>
-            <input type="file" name="myImage" onChange={this.onImageChange} />
+            <h1>העלה תמונה</h1>
+            <input type="file" onChange={this.uploadToS3} />
           </div>
-          <br/> <br/>
-                    <button
-                    className="step-btn-admin"
-                    // post request for deleteing service
-                    onClick={() => 
-                    {
-                        let file = this.state.image;
-                        const formData = new FormData();
-                        formData.append("file", file);
-                        axios
-                        .post(url + "post/images", formData)
-                        .then(res => console.log(res))
-                        .catch(err => console.warn(err));
-      }
-                    }
-                    // onClick={() => 
-                    //     {
-                    //         try{
-                    //             fetch(url + "post/images", {
-                    //                 method: "POST",
-                    //                 // body: this.state.image
-                    //                 body: JSON.stringify({
-                    //                     img: this.state.image,
-                    //                     service: this.state.service_name
-                    //                 })
-                    //             })
-                    //             .then(this.setState({
-                    //                 uploadSuccess: "התמונה הועלתה בהצלחה"
-                    //             })
-                    //             );;
-                    //         }
-                    //         catch(e) {
-                    //             console.log(e)}
-                    //         }}
-                    >העלה</button>
                     <br/>
             </div>
         </section>

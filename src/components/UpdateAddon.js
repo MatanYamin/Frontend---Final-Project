@@ -64,6 +64,47 @@ export class UpdateAddon extends Component {
         })
     }
 
+    addNewAddon = () => {
+        try{
+            fetch(url + "put/addon", {
+                method: "PUT",
+                body: JSON.stringify({
+                    service_name: this.state.service_name,
+                    addon_name: this.state.addon_name,
+                    price: this.state.price
+                })
+            })
+            .then(this.setState({
+                txt1: "הפעולה בוצעה בהצלחה"
+            }),
+            alert(" התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ")
+            );;
+        }
+        catch(e) {
+            console.log(e)}
+        }
+
+    deleteAddon = () => {
+        try{
+            fetch(url + "delete/addon", {
+                method: "DELETE",
+                body: JSON.stringify({
+                    addon_name: this.state.addon_name,
+                })
+            })
+            .then(this.setState({
+                txt2: "התוסף נמחק בהצלחה"
+            }),
+            this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1).then(
+                alert(" התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ")
+            )
+            );;
+        }
+        
+        catch(e) {
+            console.log(e)}
+        }
+
 
 render() {
     const {values} = this.props; //values is all the props we passed to the component
@@ -94,26 +135,7 @@ render() {
                  <div className="btnContainer">
                      <button className="step-btn-admin"
                     //  put request for adding addong in DB
-                     onClick={() => 
-                        {
-                            try{
-                                fetch(url + "put/addon", {
-                                    method: "PUT",
-                                    body: JSON.stringify({
-                                        service_name: this.state.service_name,
-                                        addon_name: this.state.addon_name,
-                                        price: this.state.price
-                                    })
-                                })
-                                .then(this.setState({
-                                    txt1: "הפעולה בוצעה בהצלחה"
-                                }),
-                                alert(" התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ")
-                                );;
-                            }
-                            catch(e) {
-                                console.log(e)}
-                            }}
+                     onClick={this.addNewAddon}
                      >סיום</button>
                      <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                      <br/>
@@ -135,28 +157,7 @@ render() {
                     <div className="btnContainer">
                     <button className="del-btn"
                     // delete request for deleting addon from DB
-                    onClick={() => 
-                        {
-                            try{
-                                fetch(url + "delete/addon", {
-                                    method: "DELETE",
-                                    body: JSON.stringify({
-                                        addon_name: this.state.addon_name,
-                                    })
-                                })
-                                .then(this.setState({
-                                    txt2: "התוסף נמחק בהצלחה"
-                                }),
-                                this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1).then(
-                                    alert(" התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ")
-                                )
-                                );;
-                            }
-                            
-                            catch(e) {
-                                console.log(e)}
-                            }
-                            }
+                    onClick={this.deleteAddon}
                     >אישור מחיקה</button>
                     <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     <br/>

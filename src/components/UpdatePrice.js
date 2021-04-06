@@ -91,6 +91,49 @@ handleNewPrice = (input) => {
     })
 }
 
+updatePriceForService = () => {
+    try{
+        fetch(url + "put/service_price", {
+            method: "PUT",
+            body: JSON.stringify({
+                service: this.state.service,
+                price: this.state.new_price
+            })
+        })
+        .then(this.setState({
+            first_service_price: this.state.new_price + " ₪"
+        }),
+        alert("המחיר עודכן בהצלחה")
+        )
+        ;
+
+    }
+    catch(e) {
+        console.log(e)}
+    }
+
+updatePriceForAddon = () => {
+    try{
+        fetch(url + "put/addon_price", {
+            method: "PUT",
+            body: JSON.stringify({
+                addon: this.state.addon,
+                price: this.state.new_price
+            })
+        })
+        .then(
+            this.setState({
+            first_addon_price: this.state.new_price + " ₪"
+        }),
+        alert("המחיר עודכן בהצלחה")
+        
+        );
+
+    }
+    catch(e) {
+        console.log(e)}
+    }
+
 render() {
     const {values} = this.props; //values is all the props we passed to the component
     const page = window.location.pathname.substring(1); //page name
@@ -122,27 +165,7 @@ render() {
                  <div className="btnContainer">
                      <button className="-admin"
                     //  put request for chaning pruce for service
-                     onClick={() => 
-                        {
-                            try{
-                                fetch(url + "put/service_price", {
-                                    method: "PUT",
-                                    body: JSON.stringify({
-                                        service: this.state.service,
-                                        price: this.state.new_price
-                                    })
-                                })
-                                .then(this.setState({
-                                    first_service_price: this.state.new_price + " ₪"
-                                }),
-                                alert("המחיר עודכן בהצלחה")
-                                )
-                                ;
-
-                            }
-                            catch(e) {
-                                console.log(e)}
-                            }}
+                    onClick={this.updatePriceForService}
                      >אישור</button>
                      <button className="step-btn"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                  </div>
@@ -173,29 +196,7 @@ render() {
                     // onInput={}
                     className="step-btn-admin"
                     //  put request for chaning pruce for addon
-                    onClick={() => 
-                        {
-                            try{
-                                fetch(url + "put/addon_price", {
-                                    method: "PUT",
-                                    body: JSON.stringify({
-                                        addon: this.state.addon,
-                                        price: this.state.new_price
-                                    })
-                                })
-                                .then(
-                                    this.setState({
-                                    first_addon_price: this.state.new_price + " ₪"
-                                }),
-                                alert("המחיר עודכן בהצלחה")
-                                
-                                );
-
-                            }
-                            catch(e) {
-                                console.log(e)}
-                            }
-                            }
+                    onClick={this.updatePriceForAddon}
                     >אישור</button>
                     <button className="-admin"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     </div>
