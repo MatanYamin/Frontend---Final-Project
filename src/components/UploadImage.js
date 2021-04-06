@@ -8,9 +8,7 @@ const url = "http://127.0.0.1:5000/"
 
 const config = {
     bucketName: 'skycleaner',
-    region: 'us-west-2',
-    accessKeyId: 'AKIAWLXG5TEVQP7WVSFB',
-    secretAccessKey: '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'
+    region: 'us-west-2'
 }
 
 export class UploadImage extends Component {
