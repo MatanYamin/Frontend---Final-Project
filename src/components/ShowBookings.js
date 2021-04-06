@@ -2,8 +2,9 @@ import React from "react"
 import { Component } from "react"
 import "./ShowBooking.css"
 import ExportCSVpage from "./ExportCSVpage"
-const url = "http://127.0.0.1:5000/"
+// const url = "http://127.0.0.1:5000/"
 // const url = "http://3.138.43.76:8000/"
+const url = "/"
 
 
 export class ShowBookings extends Component {
