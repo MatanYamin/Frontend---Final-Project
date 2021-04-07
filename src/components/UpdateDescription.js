@@ -1,5 +1,7 @@
 import React from "react"
 import { Component } from "react"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
 
 
@@ -10,6 +12,7 @@ export class UpdateDescription extends Component {
             services_array: [],
             showing: false,
             deleting: false,
+            loading: false,
             newDes: "",
             service: ""
         }
@@ -23,9 +26,14 @@ export class UpdateDescription extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
+
         this.readServices().then((data) => {
             this.setState({
-                services_array: data
+                services_array: data,
+                loading: false
             })
         })
     }
@@ -37,6 +45,10 @@ export class UpdateDescription extends Component {
     }
 
     updateDercriptionForService = () => {
+        this.setState({
+            loading: true
+        });
+
         try{
             fetch(url + "put/service_description", {
                 method: "PUT",
@@ -45,6 +57,20 @@ export class UpdateDescription extends Component {
                     service: this.state.service
                 })
             })
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        alert("התיאור עודכן בהצלחה")
+                        this.setState({
+                            loading: false
+                        })
+                    }
+                    else{
+                        alert("קרתה תקלה. אנא רענן ונסה שוב")  
+                    }
+                }
+            )
+
             .then(alert("התיאור עודכן בהצלחה"));
         }
         catch(e) {
@@ -74,6 +100,13 @@ render() {
                 <input autoComplete="off"
                 onChange={(e) => {this.handleNewDescription(e)}}
                  />
+                 <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
                  <div className="btnContainer">
                      <button className="step-btn-admin"
                     //  put request for chaning description for service

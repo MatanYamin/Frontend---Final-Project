@@ -1,5 +1,7 @@
 import React from "react"
 import { Component } from "react"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
 
 
@@ -12,6 +14,7 @@ export class UpdateCity extends Component {
             showing: false,
             deleting: false,
             check: false,
+            loading: false,
             txt1: "",
             txt2: "",
             isAdded: false
@@ -26,9 +29,13 @@ export class UpdateCity extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
         this.readCities().then((data) => {
             this.setState({
-                cities: data
+                cities: data,
+                loading: false
             })
         })
     }
@@ -41,6 +48,9 @@ export class UpdateCity extends Component {
 
 // this is a post request for adding a city
 addNewCity = () => {
+    this.setState({
+        loading: true
+    });
     try{
         fetch(url + "post/city", {
             method: "POST",
@@ -48,14 +58,21 @@ addNewCity = () => {
                 city: this.state.new_city,
             })
         })
-        .then(this.setState({
-            txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה"
-            
-        }),
-        alert(" העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה "),
-        this.state.cities.concat(this.state.new_city)
+        .then(
+        (response) => {
+            if(response.status === 200){
+                this.setState({
+                    txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה",
+                    loading: false
+                })
+                alert(" העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה ")
+                this.state.cities.concat(this.state.new_city)
+            }
+            else{
+                alert("קרתה תקלה. אנא רענן ונסה שוב")
+            }
+        }
         )
-        ;;
     }
     catch(e) {
         console.log(e)}
@@ -63,6 +80,9 @@ addNewCity = () => {
 
     // this is a DELETE request for deleting city
     deleteCity = () => {
+        this.setState({
+            loading: true
+        });
         try{
             fetch(url + "delete/city", {
                 method: "DELETE",
@@ -70,14 +90,21 @@ addNewCity = () => {
                     city: this.state.new_city,
                 })
             })
-            .then(this.setState({
-                txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
-            }),
-            this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1).then(
-                alert(" העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ")
-                
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ",
+                            loading: false
+                        })
+                        this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1)
+                        alert(" העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ")
+                    }
+                    else{
+                        alert("קרתה תקלה. אנא רענן ונסה שוב")
+                    }
+                }
             )
-            );
         }
         catch(e) {
             console.log(e)
@@ -104,6 +131,13 @@ render() {
                 onChange={(e) => {this.handleCity(e)}}
                  />
                  <div className="btnContainer">
+                 <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
                      <button className="step-btn-admin"
                     //  post request for adding city to list
                     onClick={this.addNewCity}
@@ -129,6 +163,13 @@ render() {
             <option value={city}>{city}</option>))}
             </select>
                     <div className="btnContainer">
+                    <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
                     <button 
                     // delete request for deleting city from list
                     className="del-btn"

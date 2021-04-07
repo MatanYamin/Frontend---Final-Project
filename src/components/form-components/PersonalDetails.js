@@ -4,8 +4,10 @@ import { Component } from "react"
 import TextField from "../../../node_modules/@material-ui/core/TextField"
 import "./Form.css"
 import ReactS3 from "react-s3"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
+import config from "../../../src/config"
 const url = "http://127.0.0.1:5000/"
-
 
 
 export class PersonalDetails extends Component {
@@ -15,6 +17,7 @@ export class PersonalDetails extends Component {
             value: "",
             dig: "",
             cities: [],
+            loading: false,
             mailValue: "",
             firstNameValue: "",
             lastNameValue: "",
@@ -23,8 +26,7 @@ export class PersonalDetails extends Component {
             goodPhone: "",
             badPhone: "",
             tempPhone: "",
-            image: "dd",
-            matan: ""
+            image: ""
         };
         this.uploadToS3 = this.uploadToS3.bind(this);
         // this.onlyDigit = this.onlyDigit.bind(this)
@@ -38,9 +40,13 @@ export class PersonalDetails extends Component {
     }
     
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
         this.readCities().then((data) => {
             this.setState({
-                cities: data
+                cities: data,
+                loading: false
             })
         })
     }
@@ -60,13 +66,25 @@ export class PersonalDetails extends Component {
     }
 
     uploadToS3(e) {
-        console.log(e.target.files)
+        this.setState({
+            loading: true
+        });
         ReactS3.uploadFile(e.target.files[0], config)
         .then(
             (response)=> {
-                this.setState({matan: response.location});
+                if(response.location){
+                this.setState({
+                    image: response.location,
+                    loading: false
+                    
+                });
                 this.props.handleImage(response.location);
+                alert("התמונה נוספה בהצלחה")
               }
+              else{
+                  alert("קרתה תקלה בהעלאת התמונה")
+              }
+            }
           )
         }
 
@@ -135,6 +153,13 @@ export class PersonalDetails extends Component {
             defaultValue={values.email}
             required={true}
             />
+            <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
             <h6><a className="red-text">{this.state.wrongEmail}</a></h6>
             <h6><a className="green-text">{this.state.goodEmail}</a></h6>
             <h6><a className="red-text">*</a>טלפון:</h6>
@@ -168,7 +193,7 @@ export class PersonalDetails extends Component {
             <h6>אנא העלו תמונה של הפריט כדי שניצור איתכם קשר במידת הצורך</h6>
             <input type="file" onChange={this.uploadToS3} />
             <div className="show-image">
-            <img className="img-customer-upload" src={this.state.matan} />
+            <img className="img-customer-upload" src={this.state.image} />
             </div>
             {/*  */}<br/><br/>
             </div>

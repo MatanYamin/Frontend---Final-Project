@@ -1,6 +1,8 @@
 import React from "react"
 import { Component } from "react"
 import axios from "axios"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
 
 
@@ -16,6 +18,7 @@ export class UpdatePrice extends Component {
             showing: false,
             deleting: false,
             check: false,
+            loading: false,
             txt: "matan",
             first_service_price: "",
             first_addon_price: "",
@@ -92,6 +95,9 @@ handleNewPrice = (input) => {
 }
 
 updatePriceForService = () => {
+    this.setState({
+        loading: true
+    });
     try{
         fetch(url + "put/service_price", {
             method: "PUT",
@@ -100,19 +106,31 @@ updatePriceForService = () => {
                 price: this.state.new_price
             })
         })
-        .then(this.setState({
-            first_service_price: this.state.new_price + " ₪"
-        }),
-        alert("המחיר עודכן בהצלחה")
-        )
-        ;
 
+        .then(
+            (response) => {
+                if(response.status === 200){
+                    this.setState({
+                        first_service_price: this.state.new_price + " ₪",
+                        loading: false
+                    })
+                    alert("המחיר עודכן בהצלחה")
+                }
+                else{
+                    alert("קרתה תקלה. אנא רענן ונסה שוב")
+                }
+            }
+        )
+        
     }
     catch(e) {
         console.log(e)}
     }
 
 updatePriceForAddon = () => {
+    this.setState({
+        loading: true
+    });
     try{
         fetch(url + "put/addon_price", {
             method: "PUT",
@@ -122,13 +140,19 @@ updatePriceForAddon = () => {
             })
         })
         .then(
-            this.setState({
-            first_addon_price: this.state.new_price + " ₪"
-        }),
-        alert("המחיר עודכן בהצלחה")
-        
-        );
-
+            (response) => {
+                if(response.status === 200){
+                    this.setState({
+                        first_addon_price: this.state.new_price + " ₪",
+                        loading: false
+                    })
+                    alert("המחיר עודכן בהצלחה")
+                }
+                else{
+                    alert("קרתה תקלה. אנא רענן ונסה שוב")  
+                }
+            }
+        )
     }
     catch(e) {
         console.log(e)}
@@ -163,7 +187,14 @@ render() {
                 onChange={(e) => {this.handleNewPrice(e)}}
                  />
                  <div className="btnContainer">
-                     <button className="-admin"
+                 <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
+                     <button className="step-btn-admin"
                     //  put request for chaning pruce for service
                     onClick={this.updatePriceForService}
                      >אישור</button>
@@ -198,7 +229,7 @@ render() {
                     //  put request for chaning pruce for addon
                     onClick={this.updatePriceForAddon}
                     >אישור</button>
-                    <button className="-admin"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <button className="step-btn-admin"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     </div>
            </>
             :

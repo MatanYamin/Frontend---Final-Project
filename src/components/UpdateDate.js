@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import he from "date-fns/locale/he"; // the locale you want
 import axios from "axios"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
 
 
@@ -15,6 +17,7 @@ export class UpdateDate extends Component {
           showDisableDate: false,
           showActivateDate: false,
           showDisableHour: false,
+          loading: false,
           hours: [],
           hour: "",
           text1: "",
@@ -86,10 +89,20 @@ render() {
             <br/>
             <lable className="white-text">{this.state.text1}</lable>
             <div className="btnContainer">
+            <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
             <button className="step-btn-admin"
             // put request for making a day disable
             onClick={() => 
                 {
+                    this.setState({
+                        loading: true
+                    });
                     try{
                         fetch(url + "put/disabledate", {
                             method: "PUT",
@@ -97,14 +110,24 @@ render() {
                                 date: this.state.selectedDate
                             })
                         })
-                        .then(this.setState({
-                            text1: "עודכן בהצלחה"
-                        }),
-                        alert("היום נחסם בהצלחה")
-                        );;
+                        .then(
+                            (response) => {
+                                if(response.status === 200){
+                                    this.setState({
+                                        text1: "עודכן בהצלחה",
+                                        loading: false
+                                    })
+                                    alert("היום נחסם בהצלחה")
+                                }
+                                else{
+                                    alert("קרתה תקלה. רענן ונסה שוב")
+                                }
+                            }
+                        )
                     }
                     catch(e) {
-                        console.log(e)}
+                        console.log(e)
+                        }
                     }}>אישור</button>
                     <button className="step-btn-admin" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>ביטול</button>
                     </div>
@@ -131,10 +154,20 @@ render() {
             <br/>
             <lable className="white-text">{this.state.text2}</lable>
             <div className="btnContainer">
+            <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
             <button className="step-btn-admin"
             // delete request for deleting a day from the disabled days
             onClick={() => 
                 {
+                    this.setState({
+                        loading: true
+                    });
                     try{
                         fetch(url + "delete/activatedate", {
                             method: "DELETE",
@@ -142,14 +175,24 @@ render() {
                                 date: this.state.selectedDate
                             })
                         })
-                        .then(this.setState({
-                            text2: "עודכן בהצלחה"
-                        }),
-                        alert("היום התפנה בהצלחה")
-                        );;
+                        .then(
+                            (response) => {
+                                if(response.status === 200){
+                                    this.setState({
+                                        text2: "עודכן בהצלחה",
+                                        loading: false
+                                    })
+                                    alert("היום התפנה בהצלחה")
+                                }
+                                else{
+                                    alert("קרתה תקלה. רענן ונסה שוב")
+                                }
+                            }
+                        )
                     }
                     catch(e) {
-                        console.log(e)}
+                        console.log(e)
+                    }
                     }}>אישור</button>
                     <button className="step-btn-admin" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>ביטול</button>
                     </div>
@@ -183,10 +226,20 @@ render() {
                     <option value={hour_map}>{hour_map}</option>))}
                     </select>
                     <div className="btnContainer">
+                    <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
             <button className="step-btn-admin"
             // post request for blocking hout
             onClick={() => 
                 {
+                    this.setState({
+                        loading: true
+                    });
                     try{
                         fetch(url + "post/newhours", {
                             method: "POST",
@@ -200,17 +253,22 @@ render() {
                                 hour: this.state.hour
                             })
                         })
-                        .then(this.setState({
-                            text3: "עודכן בהצלחה",
-                           
-                        }),
-                        this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1).then(
-                            alert(this.state.hour + " נחסמה בהצלחה")
-                        ),
-                        );;
+                        .then(
+                            (response) => {
+                                if(response.status === 200){
+                                    this.setState({
+                                        text3: "עודכן בהצלחה",
+                                        loading: false
+                                    })
+                                    this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1).then(
+                                        alert(this.state.hour + " נחסמה בהצלחה"))
+                                }
+                            }
+                        )
                     }
                     catch(e) {
-                        console.log(e)}
+                        console.log(e)
+                    }
                     }}>
             אישור
             </button>

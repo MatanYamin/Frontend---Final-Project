@@ -6,6 +6,8 @@ import UiButton from "../../../node_modules/@material-ui/core/Button"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import axios from "axios"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
 
 
@@ -15,18 +17,24 @@ export class Addon extends Component {
         super(props)
         this.state = {
             addon_array: [],
+            loading: false,
             second_price: '',
             shekel: ""
         }
     }
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
+
         const postData = {
             add: this.props.service
         };
         try{
         axios.post(url + "addon", postData)
         .then(response => this.setState({
-            addon_array: response.data
+            addon_array: response.data,
+            loading: false
         }));}
         catch(e) {
             console.log(e)}
@@ -46,13 +54,17 @@ export class Addon extends Component {
     }
 
     addonPrice = (e) => {
+        this.setState({
+            loading: true
+        });
         const priceData = {
             addon: e.target.value
         };
         try{
         axios.post(url + "prices/addon", priceData)
         .then(response => this.setState({
-            second_price: response.data
+            second_price: response.data,
+            loading: false
         }));}
         catch(e) {
             console.log(e)}
@@ -67,6 +79,13 @@ export class Addon extends Component {
         const {values} = this.props; //values is all the props we passed to the component
         return(
             <div>
+                <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
             <select 
             class="addon-btn"
             onChange={this.props.handleChange('addons')}

@@ -7,7 +7,10 @@ import "react-datepicker/dist/react-datepicker.css"
 import "./DropDown.css"
 import he from "date-fns/locale/he"; // the locale you want
 import axios from "axios"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner"
 const url = "http://127.0.0.1:5000/"
+
 
 
 export class PickDateAndConfirm extends Component {
@@ -17,7 +20,8 @@ export class PickDateAndConfirm extends Component {
           selectedDate: null,
           disable_dates: [],
           hours: [],
-          temp_hour: false
+          temp_hour: false,
+          loading: false
         };
     }
 
@@ -62,8 +66,8 @@ export class PickDateAndConfirm extends Component {
 
     render() {
     const {values: {service, addons, date, hour, firstName, price, lastName, email, address, city, phone, comments, image}} = this.props;
-    const page = window.location.pathname.substring(1); //page name
     const {temp_hour} = this.state;
+    const {loading} = this.state
     const exclude_days_array = [];
     // mapping disabled dates to an array
     this.state.disable_dates.map(service => (
@@ -95,6 +99,13 @@ export class PickDateAndConfirm extends Component {
                     {this.state.hours.map(hour => (
                     <option value={hour}>{hour}</option>))}
                     </select>
+                    <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    visible={this.state.loading}
+                    />
             </div>
            
             {this.state.temp_hour ? 
@@ -106,9 +117,13 @@ export class PickDateAndConfirm extends Component {
                 </button>
             <button className="step-btn"
             // onClick will send a post request with all the values to the API
+            onInput={() => this.setState({ loading: !loading })}
             onClick={
                 () => 
                 {
+                    this.setState({
+                        loading: true
+                    })
                     try{
                         fetch(url + "booking", {
                             method: "POST",
@@ -130,8 +145,21 @@ export class PickDateAndConfirm extends Component {
                                 image: image,
                                 price: String(price)
                             })
-                        }).then(this.props.nextStep())
-                        ;
+                        })
+                        .then(
+                            (response) => {
+                                if(response.status === 200){
+                                    alert("התור נקבע בהצלחה!")
+                                    // this.setState({
+                                    //     loading: false
+                                    // })
+                                    this.props.nextStep()
+                                }
+                                else{
+                                    alert("קרתה תקלה בניסיון לקבוע תור. אנא נסה שוב")
+                                }
+                            }
+                        )
                     }
                     catch(e) {
                         console.log(e)}

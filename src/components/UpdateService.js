@@ -1,6 +1,9 @@
 import React from "react"
 import { Component } from "react"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
+
 
 export class UpdateService extends Component {
     constructor(props){
@@ -13,6 +16,7 @@ export class UpdateService extends Component {
             price: "",
             showing: false,
             deleting: false,
+            loading: false,
             updateServiceSuccess: "",
             deleteSuccess: "",
             description: ""
@@ -42,7 +46,6 @@ export class UpdateService extends Component {
         })
     
     }
-
 
     componentDidUpdate(prevProps, prevState){
         // after detecting changes in state, we will bring now all services from the API
@@ -74,8 +77,11 @@ export class UpdateService extends Component {
             description: input.target.value
         })
     }
-
+    // this method adds new service the the db from admin panel
     addNewService = () => {
+        this.setState({
+            loading: true
+        });
         try{
             fetch(url + "post/service", {
                 method: "POST",
@@ -91,17 +97,31 @@ export class UpdateService extends Component {
                     description: this.state.description
                 })
             })
-            .then(this.setState({
-             updateServiceSuccess: "השרות נוסף בהצלחה"
-         }), alert(this.state.service_name + " נוסף בהצלחה"), 
-         );;
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            updateServiceSuccess: "השירות נוסף בהצלחה",
+                            loading: false
+                        })
+                        alert("הפעולה נעשתה בהצלחה")
+                    }
+                    else{
+                        alert("קרתה תקלה. רענן ונסה שוב") 
+                    }
+                }
+            )
         }
         catch(e) {
             console.log(e)}
         }
     
+    // this method deletes service from db
     deleteService = () => 
     {
+        this.setState({
+            loading: true
+        });
         try{
             fetch(url + "delete/service", {
                 method: "DELETE",
@@ -109,22 +129,28 @@ export class UpdateService extends Component {
                     service_name: this.state.service_name,
                 })
             })
-            .then(this.setState({
-                deleteSuccess: "השרות נמחק בהצלחה"
-            }),
-            this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1).then(
-                alert(this.state.service_name + " נמחק בהצלחה")
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            deleteSuccess: "השרות נמחק בהצלחה",
+                            loading: false
+                        })
+                        this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1)
+                        alert(this.state.service_name + " נמחק בהצלחה")
+                    }
+                    else{
+                        alert("קרתה תקלה. אנא רענן ונסה שוב")
+                    }
+                }
             )
-            
-            );;
-        }
+            }
         catch(e) {
-            console.log(e)}
+            console.log(e)
+        }
         }
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
     const {showing} = this.state;
     const {deleting} = this.state;
     return(
@@ -137,6 +163,7 @@ render() {
         {this.state.showing ? //for open an option to choose (add service)
         <>
            <label>בחר קטגוריה להוספה</label>
+           {/* shows all cateogries */}
            <select className="select-srp-down" onChange={(e) => this.setState({ cat_name: e.target.value })}>
                <option value="nothing">בחר קטגוריה</option>
                {this.state.categories_array.map(cat => (
@@ -158,6 +185,13 @@ render() {
                 // Post request for adding service
                 onClick={this.addNewService}
                 >אישור</button>
+                <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
             <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
             </div>
             <br/>
@@ -171,6 +205,7 @@ render() {
         <br/><br/>
         {this.state.deleting ? //for open an option to choose (delete service)
            <>
+           {/* shows in select list all the services there are */}
             <select class="del-drp-btn" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
                     {this.state.services_array.map(service => (
@@ -184,9 +219,15 @@ render() {
                     >אישור מחיקה<br/> (הדבר ימחק גם את כל התוספים של אותו שרות)</button>
                     <br/>
                     <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    <Loader
+                type="Puff"
+                color="red"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
                     <br/>
                     <label>{this.state.deleteSuccess}</label>
-
            </>
             :
            null

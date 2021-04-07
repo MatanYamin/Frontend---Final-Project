@@ -1,5 +1,7 @@
 import React from "react"
 import { Component } from "react"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
 
 
@@ -14,6 +16,7 @@ export class UpdateAddon extends Component {
             price: "",
             showing: false,
             deleting: false,
+            loading: false,
             txt1: "",
             txt2: ""
         }
@@ -34,9 +37,13 @@ export class UpdateAddon extends Component {
     }
     
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
         this.readServices().then((data) => {
             this.setState({
-                services_array: data
+                services_array: data,
+                loading: false
             })
         })
     }
@@ -65,6 +72,9 @@ export class UpdateAddon extends Component {
     }
 
     addNewAddon = () => {
+        this.setState({
+            loading: true
+        });
         try{
             fetch(url + "put/addon", {
                 method: "PUT",
@@ -74,17 +84,29 @@ export class UpdateAddon extends Component {
                     price: this.state.price
                 })
             })
-            .then(this.setState({
-                txt1: "הפעולה בוצעה בהצלחה"
-            }),
-            alert(" התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ")
-            );;
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            txt1: "הפעולה בוצעה בהצלחה",
+                            loading: false
+                        })
+                        alert(" התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ")
+                    }
+                    else{
+                        alert("קרתה תקלה. רענן ונסה שוב")
+                    }
+                }
+            )
         }
         catch(e) {
             console.log(e)}
         }
 
     deleteAddon = () => {
+        this.setState({
+            loading: true
+        });
         try{
             fetch(url + "delete/addon", {
                 method: "DELETE",
@@ -92,15 +114,22 @@ export class UpdateAddon extends Component {
                     addon_name: this.state.addon_name,
                 })
             })
-            .then(this.setState({
-                txt2: "התוסף נמחק בהצלחה"
-            }),
-            this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1).then(
-                alert(" התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ")
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            txt2: "התוסף נמחק בהצלחה",
+                            loading: false
+                        })
+                        this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1)
+                        alert(" התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ")
+                    }
+                    else{
+                        alert("קרתה תקלה. רענן ונסה שוב")
+                    }
+                }
             )
-            );;
         }
-        
         catch(e) {
             console.log(e)}
         }
@@ -133,6 +162,13 @@ render() {
                  <input onChange={(e) => {this.handlePrice(e)}}
                 />
                  <div className="btnContainer">
+                 <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
                      <button className="step-btn-admin"
                     //  put request for adding addong in DB
                      onClick={this.addNewAddon}
@@ -155,6 +191,13 @@ render() {
                     <option value={addon}>{addon}</option>))}
                     </select>
                     <div className="btnContainer">
+                    <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
                     <button className="del-btn"
                     // delete request for deleting addon from DB
                     onClick={this.deleteAddon}

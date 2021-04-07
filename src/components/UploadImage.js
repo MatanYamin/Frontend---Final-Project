@@ -3,6 +3,9 @@ import { Component } from "react"
 import axios from "../../node_modules/axios"
 import ReactS3 from "react-s3"
 import { aws } from "../../node_modules/aws-sdk/clients/s3"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner"
+import config from "../config"
 const url = "http://127.0.0.1:5000/"
 // here we let the the admin add pictures to describe the service
 
@@ -17,7 +20,8 @@ export class UploadImage extends Component {
             showing: false,
             image: null,
             uploadSuccess: "",
-            file: null
+            file: null,
+            loading: false
         }
         this.uploadToS3 = this.uploadToS3.bind(this);
     }
@@ -39,6 +43,9 @@ export class UploadImage extends Component {
 
     // sends the data to db
     sendDataToApi = () => {
+        this.setState({
+            loading: true
+        });
         try{
             fetch(url + "post/images", {
                 method: "POST",
@@ -46,6 +53,18 @@ export class UploadImage extends Component {
                     image: this.state.image,
                     service: this.state.service_name
                 })
+            }).then((response) => {
+                if(response.status === 200){
+                    alert("התמונה נשלחה בהצלחה");
+                    this.setState({
+                        uploadSuccess: "התמונה הועלתה בהצלחה",
+                        loading: false,
+                        image: ""
+                    })
+                }
+                else{
+                    alert("קרתה תקלה. אנא רענן ונסה שוב")
+                }
             })
         }
         catch(e) {
@@ -53,15 +72,14 @@ export class UploadImage extends Component {
     }
 
       uploadToS3(e) {
-        console.log(e.target.files)
+        console.log(config)
+        console.log(config.data)
         ReactS3.uploadFile(e.target.files[0], config)
         .then((response)=> {
             this.setState({
                 image: response.location
             })
           },
-          // this send the image and the service to DB
-          this.sendDataToApi
           )
     }
 
@@ -90,6 +108,13 @@ render() {
           </div>
                     <br/>
                     <div className="btnContainer">
+                    <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    visible={this.state.loading}
+                    />
                     <button className="step-btn-admin" onClick={this.sendDataToApi}>אישור</button>
                     </div>
             </div>

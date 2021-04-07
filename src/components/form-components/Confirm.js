@@ -109,16 +109,16 @@ export class Confirm extends Component {
                 <br/>
                 שם:
                 &nbsp;
-                {firstName} {lastName}
+                <h4>{firstName} {lastName}</h4>
                 &nbsp;
                 כתובת:
                 &nbsp;
-               {address}, {city}
+               <h4>{address}, {city}</h4>
                <br/>
                 מייל:
-                {email}
+                <h4>{email}</h4>
                 מספר טלפון:
-               {phone}
+               <h4>{phone}</h4>
                 <br/>
                 השרות:
                 <h4>{service}  {addons}</h4>

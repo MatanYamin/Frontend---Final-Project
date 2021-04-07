@@ -7,6 +7,8 @@ import Addon from "./Addon"
 import "./Form.css"
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 const url = "http://127.0.0.1:5000/"
 
 
@@ -18,6 +20,7 @@ export class PickService extends Component {
             addon_array: [],
             imagesArray: [],
             showing: false,
+            loading: false,
             showDescription: false,
             openPopUp: false,
             selectValue: '',
@@ -33,6 +36,9 @@ export class PickService extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
         // With this Im getting all services from the category that came from the page title
         const postData = {
             title: this.props.page
@@ -40,7 +46,8 @@ export class PickService extends Component {
         try{
         axios.post(url + "services", postData)
         .then(response => this.setState({
-            service_array: response.data
+            service_array: response.data,
+            loading: false
         }));}
         catch(e) {
             console.log(e)}
@@ -58,6 +65,9 @@ export class PickService extends Component {
     }
 
     setPrice = (e) => {
+        this.setState({
+            loading: true
+        });
         // Will get the price from the API and update the state
         const priceData = {
             service: e.target.value
@@ -70,7 +80,8 @@ export class PickService extends Component {
             service_description: response.data[1],
             showDescription: true,
             textOnBubble: response.data[1],
-            imagesArray: response.data[2]
+            imagesArray: response.data[2],
+            loading: false
         }));}
         catch(e) {
             console.log(e)}
@@ -93,6 +104,7 @@ export class PickService extends Component {
         const {showing} = this.state;
         const {showDescription} = this.state;
         const {openPopUp} = this.state;
+        const {loading} = this.state;
         return (
             <>
             <div className="bubble-man">
@@ -117,6 +129,13 @@ export class PickService extends Component {
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
             </select>
+            <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            visible={this.state.loading}
+            />
             &nbsp;<i class="far fa-hand-point-down" />
             </div>
             {this.state.showDescription ?
@@ -139,22 +158,6 @@ export class PickService extends Component {
                 <img className="imgs-to-customer" src={img} />))}
                     </div>
             </Popup>
-             {/* <Popup className="check-me" trigger={<button className="details-btn">לצפיה בתמונות</button>}
-            on="click"
-            open={openPopUp}
-            onOpen={() => this.setState({ openPopUp: !openPopUp })}>
-                
-                <div id="popup1" class="overlay">
-                    <div className="popup">
-                        <div className="content">
-                            מיליםםםם
-              {this.state.imagesArray.map(img => (
-                <img className="imgs-to-customer" src={img} />))}
-                    </div>
-                    </div>
-                    </div>
-            </Popup>  */}
-            
             <br/><br/>
             <button className="addon-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
             <br/>
