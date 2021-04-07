@@ -3,7 +3,9 @@ import React from "react"
 import { Component } from "react"
 import TextField from "../../../node_modules/@material-ui/core/TextField"
 import "./Form.css"
+import ReactS3 from "react-s3"
 const url = "http://127.0.0.1:5000/"
+
 
 
 export class PersonalDetails extends Component {
@@ -20,8 +22,11 @@ export class PersonalDetails extends Component {
             goodEmail: "",
             goodPhone: "",
             badPhone: "",
-            tempPhone: ""
+            tempPhone: "",
+            image: "dd",
+            matan: ""
         };
+        this.uploadToS3 = this.uploadToS3.bind(this);
         // this.onlyDigit = this.onlyDigit.bind(this)
      }
 
@@ -53,20 +58,18 @@ export class PersonalDetails extends Component {
         this.props.clearStates("");
         this.props.prevStep(); //will increase step by 1
     }
-  
-    //validate that only numbers been entered
-    // onlyDigit(e){
-    //     const re = /^[0-9\b]+$/;
-    //     if (re.test(e.target.value)) {
-    //        this.setState({value: e.target.value});
-    //        this.props.handlePhone(this.state.value)
-    //     }
-    //     else{
-    //         alert("ניתן להקליד רק ספרות")
-    //         this.setState({dig: "ניתן להקליד רק ספרות"})
-    //         // this.setState({value: ""});
-    //     }
-    //  }
+
+    uploadToS3(e) {
+        console.log(e.target.files)
+        ReactS3.uploadFile(e.target.files[0], config)
+        .then(
+            (response)=> {
+                this.setState({matan: response.location});
+                this.props.handleImage(response.location);
+              }
+          )
+        }
+
 //validate first name (if exists)
     validFirst(e){
         this.setState({firstNameValue: e.target.value});
@@ -94,23 +97,6 @@ export class PersonalDetails extends Component {
         }
     }
 
-    // cheacking the number length. needs to be atleast 7
-    // validPhone(e){
-    //     this.setState({tempPhone: e.target.value});
-    //     if(e.target.value === ""){
-    //         this.setState({goodPhone: ""});
-    //         this.setState({badPhone: ""});
-    //     }
-    //     if(this.state.tempPhone.length < 6){
-    //         this.setState({badPhone: "מספר קצר מידי"});
-    //         this.setState({goodPhone: ""});
-    //     }
-    //     else{
-    //         this.setState({badPhone: ""});
-    //         this.setState({goodPhone: "מספר תקין"});
-    //     }
-    // }
-
     render() {
     const {values} = this.props; //values is all the props we passed to the component
     if(values.price==""){
@@ -126,7 +112,7 @@ export class PersonalDetails extends Component {
     }
     return (
         <div>
-            <h1>פרטים אישיים</h1>
+            {/* <h1>פרטים אישיים</h1> */}
             <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
             <h6><a className="red-text">*</a>שם פרטי: </h6>
@@ -154,13 +140,7 @@ export class PersonalDetails extends Component {
             <h6><a className="red-text">*</a>טלפון:</h6>
             <TextField
             placeholder={this.state.dig}
-            // onInput={(e) => {this.validPhone(e)}}
             onChange={this.props.handleChange("phone")}
-            // onChange={(e) => {this.onlyDigit(e)}}
-            // defaultValue={values.phone}
-            // defaultValue={this.state.value}
-            // value={this.state.value}
-            // required={true}
             />
             <h6><a className="red-text">{this.state.badPhone}</a></h6>
             <h6><a className="green-text">{this.state.goodPhone}</a></h6>
@@ -184,12 +164,18 @@ export class PersonalDetails extends Component {
             <TextField
             onChange={this.props.handleChange('comments')}
             defaultValue={values.comments}
-            /><br/><br/>
+            />
+            <h6>אנא העלו תמונה של הפריט כדי שניצור איתכם קשר במידת הצורך</h6>
+            <input type="file" onChange={this.uploadToS3} />
+            <div className="show-image">
+            <img className="img-customer-upload" src={this.state.matan} />
             </div>
-            <br/> <br/>
+            {/*  */}<br/><br/>
+            </div>
+            <br/> 
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div className="step-btn-container">
-            <button onClick={this.continue} className="step-btn">לווידוא פרטים</button>
+            <button onClick={this.continue} className="step-btn">המשך</button>
             <button onClick={this.backward} className="step-btn">חזור</button>
             </div>
                 </div>

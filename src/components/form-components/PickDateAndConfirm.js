@@ -61,7 +61,7 @@ export class PickDateAndConfirm extends Component {
     }
 
     render() {
-    const {values: {service, addons, date, hour, firstName, price, lastName, email, address, city, phone, comments}} = this.props;
+    const {values: {service, addons, date, hour, firstName, price, lastName, email, address, city, phone, comments, image}} = this.props;
     const page = window.location.pathname.substring(1); //page name
     const {temp_hour} = this.state;
     const exclude_days_array = [];
@@ -127,6 +127,7 @@ export class PickDateAndConfirm extends Component {
                                 comments: comments,
                                 date: this.state.selectedDate,
                                 hour: hour,
+                                image: image,
                                 price: String(price)
                             })
                         }).then(this.props.nextStep())

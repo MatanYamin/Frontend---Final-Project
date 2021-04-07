@@ -72,7 +72,7 @@ export class Addon extends Component {
             onChange={this.props.handleChange('addons')}
             onInput={(e) => {this.addonPrice(e)}}
             >
-            <option value="nothing">בחרו תוספים</option>
+            <option value="nothing">בחרו מה להוסיף</option>
             {this.state.addon_array.map(addon => (
             <option value={addon}>{addon}</option>))}
             </select>

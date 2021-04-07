@@ -35,7 +35,7 @@ export class Confirm extends Component {
         this.props.prevStep(); //will increase step by 1
     }
     render() {
-    const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments}} = this.props;
+    const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments, image}} = this.props;
     const page = window.location.pathname.substring(1); //page name
     const requierd_fields = [firstName, lastName, email, address, city, phone]
     const missing_fields = ["שם פרטי", "שם משפחה", "מייל", "רחוב", "עיר", "טלפון"]
@@ -103,17 +103,23 @@ export class Confirm extends Component {
     return (
         <div>
             <br/>
-            <h2>אישור פרטי התור</h2>
+            {/* <h2>אישור פרטי התור</h2> */}
             <div className="confirm-wrapper">
+            <img className="img-confirm" src={image} />
+                <br/>
                 שם:
-                <h4>{firstName} {lastName}</h4>
+                &nbsp;
+                {firstName} {lastName}
+                &nbsp;
                 כתובת:
-                <h4>{address}, {city}</h4>
+                &nbsp;
+               {address}, {city}
+               <br/>
                 מייל:
-                <h4>{email}</h4>
+                {email}
                 מספר טלפון:
-                <h4>{phone}</h4>
-                
+               {phone}
+                <br/>
                 השרות:
                 <h4>{service}  {addons}</h4>
                 המחיר:

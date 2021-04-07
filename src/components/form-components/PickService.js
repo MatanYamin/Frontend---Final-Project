@@ -16,8 +16,10 @@ export class PickService extends Component {
         this.state = {
             service_array: [],
             addon_array: [],
+            imagesArray: [],
             showing: false,
             showDescription: false,
+            openPopUp: false,
             selectValue: '',
             first_price: '',
             second_price: '',
@@ -26,7 +28,7 @@ export class PickService extends Component {
             service_description: "",
             priceNow: "",
             Shekel: "",
-            textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. בבקשו בחרו שרות"
+            textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך"
         }
     }
 
@@ -58,21 +60,20 @@ export class PickService extends Component {
     setPrice = (e) => {
         // Will get the price from the API and update the state
         const priceData = {
-            prices: e.target.value
+            service: e.target.value
         };
         try{
         axios.post(url + "prices", priceData)
         .then(response => this.setState(
-            // console.log(response.data),
             {
             first_price: response.data[0],
             service_description: response.data[1],
             showDescription: true,
-            textOnBubble: response.data[1]
+            textOnBubble: response.data[1],
+            imagesArray: response.data[2]
         }));}
         catch(e) {
             console.log(e)}
-        
     }
 
     handleShow = input => {
@@ -91,6 +92,7 @@ export class PickService extends Component {
         const page = window.location.pathname.substring(1); //page name
         const {showing} = this.state;
         const {showDescription} = this.state;
+        const {openPopUp} = this.state;
         return (
             <>
             <div className="bubble-man">
@@ -102,6 +104,7 @@ export class PickService extends Component {
             {/* <h1>מה מנקים?</h1> */}
             <br/>
             <div className="pick-ser-select-btn">
+            
             <select
             defaultValue={this.props.service}
             class="service-btn"
@@ -110,19 +113,48 @@ export class PickService extends Component {
             >
             {/*Showing all services with "map" inside select */}
             <div className="background-img"></div>
-            <option value="nothing">בחרו שירות</option>
+            <option value="nothing">בחרו שירות </option>
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
             </select>
+            &nbsp;<i class="far fa-hand-point-down" />
             </div>
             {this.state.showDescription ?
             <>
             &nbsp;&nbsp;
-            <Popup trigger={<button className="details-btn">לחצו לקבל פרטים</button>} >
+            {/* <Popup trigger={<button className="details-btn">לחצו לקבל פרטים</button>} >
                 <div class="pop-up-content1">
                     {this.state.service_description}
                     </div>
+            </Popup> */}
+            <Popup className="check-me" trigger={<button className="details-btn">לצפיה בתמונות <i class="fas fa-images"></i></button>}
+            on="click"
+            open={openPopUp}
+            onOpen={() => this.setState({ openPopUp: !openPopUp })}>
+                <div class="pop-up-content1">
+                    <button className="details-btn" onClick={() => this.setState({ openPopUp: !openPopUp })}>סגירה</button>
+                    <br/><br/>
+                     <h6>לא בטוחים במשהו? <a href="http://localhost:3000/contact">צרו איתנו קשר!</a></h6> <br/>
+              {this.state.imagesArray.map(img => (
+                <img className="imgs-to-customer" src={img} />))}
+                    </div>
             </Popup>
+             {/* <Popup className="check-me" trigger={<button className="details-btn">לצפיה בתמונות</button>}
+            on="click"
+            open={openPopUp}
+            onOpen={() => this.setState({ openPopUp: !openPopUp })}>
+                
+                <div id="popup1" class="overlay">
+                    <div className="popup">
+                        <div className="content">
+                            מיליםםםם
+              {this.state.imagesArray.map(img => (
+                <img className="imgs-to-customer" src={img} />))}
+                    </div>
+                    </div>
+                    </div>
+            </Popup>  */}
+            
             <br/><br/>
             <button className="addon-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
             <br/>
@@ -156,7 +188,7 @@ export class PickService extends Component {
             
             </div>
             <div className="step-btn-container">
-            <button className="step-btn" onClick={this.continue}>להזנת פרטים אישיים</button>
+            <button className="step-btn" onClick={this.continue}>המשך</button>
              </div>
              </div>
             </>

@@ -2,7 +2,58 @@
 .form > h6{
     color:red
 }
+/* CHECKKK */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
 
+.check-me{
+    transition: opacity 9900ms;
+    background-color: red;
+    color: red;
+}
+
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+
+/* CHECKK */
 .select-srp-down{
     background: darkslategray;
     border: none;
@@ -78,6 +129,35 @@
     /* font-family: Brush Script MT; */
     font-size: 15px;
     font-weight: 100;
+    padding: 7px;
+    -webkit-box-shadow: 1px 1px 20px 0 #000000;
+    -moz-box-shadow: 1px 1px 20px 0 #000000;
+    box-shadow: 1px 1px 20px 0 #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid black 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+.img-details-btn{
+    background: #406334;
+    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    /* font-family: Brush Script MT; */
+    font-size: 15px;
+    font-weight: 100;
+    /* width: 30%; */
+    right: 0;
+    left: 0;
     padding: 7px;
     -webkit-box-shadow: 1px 1px 20px 0 #000000;
     -moz-box-shadow: 1px 1px 20px 0 #000000;
@@ -189,15 +269,20 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    width: 150px;
-    height: 50%;
+    /* width: 150px; */
+    /* height: 50%; */
+    /* width: 40%; */
+    width: fit-content;
+    height: fit-content;
     padding: 15px;  
-    background: #32afb5;
+    /* background: #32afb5; */
+    background: whitesmoke;
+    color: black;
     text-align: center;
     box-sizing: content-box;
-    border: 4px dashed black;
-    color: white;
-    width: 20%;
+    border: 4px double black;
+    /* color: white; */
+    /* width: 20%; */
     font-size: 30px;
 }
 
@@ -246,6 +331,11 @@
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
+}
+
+.imgs-to-customer{
+    height: 350px;
+    width: 350px;
 }
 
 
@@ -365,6 +455,10 @@
     width: 40%;
 }
 
+.img-confirm{
+    width: 10%;
+}
+
 .green-text{
     color: green;
 }
@@ -386,6 +480,7 @@
     padding: 25px;
     border-radius: 20px;
     margin-top: 5px;
+    width: 70%;
 }
 
 .confirm-wrapper{
@@ -393,6 +488,10 @@
     /* left: 50%; */
     /* right: 0; */
     /* left: 0; */
+}
+
+.img-customer-upload{
+    width: 50%;
 }
 
 .service-btn{
@@ -501,6 +600,8 @@
     }
 
     .pop-up-content1{
+        overflow: auto;
+        max-height: 100%;
         font-weight: bold;
         position:fixed;
         left:0;
@@ -510,15 +611,14 @@
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-        width: 100px;
-        height: auto;
+        /* width: 100px; */
+        /* height: auto; */
+        width: fit-content;
+        height: fit-content;
         padding: 15px;  
-        background: #32afb5;
         text-align: center;
         box-sizing: content-box;
-        border: 4px dashed black;
-        color: white;
-        width: 70%;
+        border: 4px black;
     }
 
     .form-stpes{
@@ -530,6 +630,7 @@
       }
 
       .pick-service-containet{
+        position: relative;
         display: inline-grid;
         background-color: lightyellow;
         padding: 25px;

@@ -28,7 +28,8 @@ export class BookForm extends Component {
             address: '',
             city: '',
             comments: '',
-            hour: ''
+            hour: '',
+            image: ''
         }
     }
 
@@ -78,6 +79,12 @@ export class BookForm extends Component {
         })
     }
 
+    handleImage = input => {
+        this.setState({
+            image: input
+        })
+    }
+
     clearStates = input => {
         this.setState({
             price: input,
@@ -101,9 +108,9 @@ export class BookForm extends Component {
 
     render() {
         const {step} = this.state
-        const {service, addons, date, hour, price, firstName, lastName, email, address, city, phone, comments} = this.state;
+        const {service, addons, date, hour, price, firstName, lastName, email, address, city, phone, comments, image} = this.state;
         //The values that will be entered to the form
-        const values = {service, addons, date, hour, price, firstName, lastName, email, address, city, phone, comments};
+        const values = {service, addons, date, hour, price, firstName, lastName, email, address, city, phone, comments, image};
         // switchcase for every step- from the steps in state
         switch(step){
             //First step and initial step
@@ -129,6 +136,7 @@ export class BookForm extends Component {
                     clearStates={this.clearStates}
                     values={values}
                     handlePhone={this.handlePhone}
+                    handleImage={this.handleImage}
                     />
                 )
             //Fourth step

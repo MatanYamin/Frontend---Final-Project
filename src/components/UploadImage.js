@@ -2,14 +2,11 @@ import React from "react"
 import { Component } from "react"
 import axios from "../../node_modules/axios"
 import ReactS3 from "react-s3"
+import { aws } from "../../node_modules/aws-sdk/clients/s3"
 const url = "http://127.0.0.1:5000/"
 // here we let the the admin add pictures to describe the service
 
 
-const config = {
-    bucketName: 'skycleaner',
-    region: 'us-west-2'
-}
 
 export class UploadImage extends Component {
     constructor(props){
