@@ -2,8 +2,10 @@ import React from "react"
 import { Component } from "react"
 import "./ShowBooking.css"
 import ExportCSVpage from "./ExportCSVpage"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from "react-loader-spinner";
 // const url = "http://127.0.0.1:5000/"
-const url = "http://3.138.43.76:8000/"
+const url = "http://3.138.43.76:8080/"
 // const url = "/"
 
 
@@ -17,7 +19,8 @@ export class ShowBookings extends Component {
             deleting: false,
             exportXl: false,
             txt1: "",
-            txt2: ""
+            txt2: "",
+            loading: false
         }
     }
 
@@ -29,9 +32,13 @@ export class ShowBookings extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
         this.readCustomers().then((data) => {
             this.setState({
-                customers: data
+                customers: data,
+                loading: false
             })
         })
     }
@@ -45,7 +52,15 @@ render() {
     const fileName = 'תורים'
     return(
         <>
+        
         <div>
+        <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                    visible={this.state.loading}
+                    />
         <section className="customers-table">
             <div className="loginContainer">
          <ExportCSVpage />
