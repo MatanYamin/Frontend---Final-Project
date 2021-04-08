@@ -250,6 +250,7 @@
     padding: 15px;  
     /* background: #32afb5; */
     background: whitesmoke;
+    /* background: rgba(0, 0, 0, 0.5); */
     color: black;
     text-align: center;
     box-sizing: content-box;

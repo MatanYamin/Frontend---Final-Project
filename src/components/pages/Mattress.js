@@ -4,7 +4,7 @@ import BookForm from "../form-components/BookForm"
 import "../form-components/Form.css"
 
 
-export default function General() {
+export default function Mattress() {
     const page = window.location.pathname.substring(1);
     return(
         <div className="form-stpes">

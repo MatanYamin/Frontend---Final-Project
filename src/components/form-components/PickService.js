@@ -130,8 +130,8 @@ export class PickService extends Component {
             <option value={service}>{service}</option>))}
             </select>
             <Loader
-            type="Puff"
-            color="#00BFFF"
+            type="TailSpin"
+            color="black"
             height={100}
             width={100}
             visible={this.state.loading}
@@ -146,7 +146,9 @@ export class PickService extends Component {
                     {this.state.service_description}
                     </div>
             </Popup> */}
-            <Popup className="check-me" trigger={<button className="details-btn">לצפיה בתמונות <i class="fas fa-images"></i></button>}
+            <Popup 
+            className="check-me" 
+            trigger={<button className="details-btn">לצפיה בתמונות <i class="fas fa-images"></i></button>}
             on="click"
             open={openPopUp}
             onOpen={() => this.setState({ openPopUp: !openPopUp })}>

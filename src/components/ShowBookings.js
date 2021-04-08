@@ -4,8 +4,8 @@ import "./ShowBooking.css"
 import ExportCSVpage from "./ExportCSVpage"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-// const url = "http://127.0.0.1:5000/"
-const url = "http://3.138.43.76:8080/"
+const url = "http://127.0.0.1:5000/"
+// const url = "http://3.138.43.76:8080/"
 // const url = "/"
 
 
@@ -55,8 +55,8 @@ render() {
         
         <div>
         <Loader
-                    type="Puff"
-                    color="#00BFFF"
+                    type="Audio"
+                    color="black"
                     height={100}
                     width={100}
                     visible={this.state.loading}
@@ -113,6 +113,9 @@ render() {
                     className="del-booking"
                     onClick={() => 
                         {
+                            this.setState({
+                                loading: true
+                            });
                             try{
                                 fetch(url + "delete/booking", {
                                     method: "DELETE",
@@ -123,13 +126,19 @@ render() {
 
                                     })
                                 })
-                                .then(this.setState({
-                                    // txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
-                                }),
-                                this.state.customers.splice(this.state.customers.indexOf(rowData), 1).then(
-                                    alert("נמחק בהצלחה")
+                                .then(
+                                    (response) => {
+                                        if(response.status === 200){
+                                            this.setState({
+                                                loading: false
+                                            })
+                                            this.state.customers.splice(this.state.customers.indexOf(rowData), 1)
+                                        }
+                                        else{
+                                            alert("קרתה תקלה. אנא רענן ונסה שוב")
+                                        }
+                                    }
                                 )
-                                );
                             }
                             catch(e) {
                                 console.log(e)}
@@ -139,6 +148,9 @@ render() {
                      <button className="confirm-booking"
                      onClick={() => 
                         {
+                            this.setState({
+                                loading: true
+                            });
                             try{
                                 fetch(url + "post/feedback", {
                                     method: "POST",
@@ -148,12 +160,17 @@ render() {
                                         id: rowData[0]
                                     })
                                 })
-                                .then(this.setState({
-                                    // txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה "
-                                }),
-                                );
-                                this.state.customers.splice(this.state.customers.indexOf(rowData), 1).then(
-                                    alert("פידבק נשלח אל הלקוח")
+                                .then(
+                                    (response) => {
+                                        if(response.status === 200){
+                                            this.setState({
+                                                loading: false
+                                            })
+                                            this.state.customers.splice(this.state.customers.indexOf(rowData), 1)                                        }
+                                        else{
+                                            alert("קרתה תקלה. אנא רענן ונסה שוב")
+                                        }
+                                    }
                                 )
                             }
                             catch(e) {

@@ -90,8 +90,8 @@ render() {
             <lable className="white-text">{this.state.text1}</lable>
             <div className="btnContainer">
             <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}
@@ -117,7 +117,6 @@ render() {
                                         text1: "עודכן בהצלחה",
                                         loading: false
                                     })
-                                    alert("היום נחסם בהצלחה")
                                 }
                                 else{
                                     alert("קרתה תקלה. רענן ונסה שוב")
@@ -155,8 +154,8 @@ render() {
             <lable className="white-text">{this.state.text2}</lable>
             <div className="btnContainer">
             <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}
@@ -182,7 +181,6 @@ render() {
                                         text2: "עודכן בהצלחה",
                                         loading: false
                                     })
-                                    alert("היום התפנה בהצלחה")
                                 }
                                 else{
                                     alert("קרתה תקלה. רענן ונסה שוב")
@@ -228,7 +226,7 @@ render() {
                     <div className="btnContainer">
                     <Loader
                 type="Puff"
-                color="#00BFFF"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}
@@ -260,8 +258,7 @@ render() {
                                         text3: "עודכן בהצלחה",
                                         loading: false
                                     })
-                                    this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1).then(
-                                        alert(this.state.hour + " נחסמה בהצלחה"))
+                                    this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1)
                                 }
                             }
                         )

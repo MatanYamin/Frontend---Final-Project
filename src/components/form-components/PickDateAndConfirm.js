@@ -100,8 +100,8 @@ export class PickDateAndConfirm extends Component {
                     <option value={hour}>{hour}</option>))}
                     </select>
                     <Loader
-                    type="Puff"
-                    color="#00BFFF"
+                    type="TailSpin"
+                    color="black"
                     height={100}
                     width={100}
                     visible={this.state.loading}
@@ -149,7 +149,6 @@ export class PickDateAndConfirm extends Component {
                         .then(
                             (response) => {
                                 if(response.status === 200){
-                                    alert("התור נקבע בהצלחה!")
                                     // this.setState({
                                     //     loading: false
                                     // })

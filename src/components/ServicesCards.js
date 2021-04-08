@@ -6,6 +6,7 @@ import './ServicesCards.css'
 function ServicesCards() {
     // Will be the hole display of services cars (Cars, Rugs...)
     // Each component will get image to display, text for descrription and path
+    // will make it here from DB and manager could add 
     return(
         <div className="cards">
             <h1>הזמנת ניקוי עד הבית</h1>
@@ -40,11 +41,37 @@ function ServicesCards() {
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
-                        name="ניקוי כללי"
+                        name="מזרנים"
                         text="תיאור שרות"
-                        path="/General"
+                        path="/Mattress"
                         />
                         </ul>
+                    {/* <ul className="cards__items">
+                    <SingleService 
+                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
+                        name="מזרנים"
+                        text="תיאור שרות"
+                        path="/Mattress"
+                        />
+                        <SingleService 
+                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
+                        name="מזרנים"
+                        text="תיאור שרות"
+                        path="/Mattress"
+                        />
+                        <SingleService 
+                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
+                        name="מזרנים"
+                        text="תיאור שרות"
+                        path="/Mattress"
+                        />
+                        <SingleService 
+                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
+                        name="מזרנים"
+                        text="תיאור שרות"
+                        path="/SOO"
+                        />
+                    </ul> */}
                 </div>
             </div>
         </div>

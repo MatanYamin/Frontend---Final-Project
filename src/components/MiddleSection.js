@@ -21,7 +21,9 @@ function MiddleSection() {
             <div class="bubble"></div>
         <div className="middle-container">
             <img class="first-img-logo" src="https://i.ibb.co/yh7CyXp/Sky-Cleaner.jpg" />
-            <Popup trigger={<a class="button1">צפו בהגרלות שלנו!</a>} >
+            <Popup 
+            closeOnEscape
+            trigger={<a class="button1">צפו בהגרלות שלנו!</a>} >
                 <div class="pop-up-content-home">
                     <a class="video-intro">צפו בסרטון ההגרלה האחרונה שנערכה הישארו מעודכנים אחר הגרלות נוספות </a>
                     <br/>

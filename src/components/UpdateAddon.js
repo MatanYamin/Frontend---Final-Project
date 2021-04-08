@@ -88,10 +88,11 @@ export class UpdateAddon extends Component {
                 (response) => {
                     if(response.status === 200){
                         this.setState({
-                            txt1: "הפעולה בוצעה בהצלחה",
-                            loading: false
+                            txt1: " התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ",
+                            loading: false,
+                            addon_name: "",
+                            price: ""
                         })
-                        alert(" התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ")
                     }
                     else{
                         alert("קרתה תקלה. רענן ונסה שוב")
@@ -118,11 +119,10 @@ export class UpdateAddon extends Component {
                 (response) => {
                     if(response.status === 200){
                         this.setState({
-                            txt2: "התוסף נמחק בהצלחה",
+                            txt2: " התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ",
                             loading: false
                         })
                         this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1)
-                        alert(" התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ")
                     }
                     else{
                         alert("קרתה תקלה. רענן ונסה שוב")
@@ -155,16 +155,20 @@ render() {
                     <option value={service}>{service}</option>))}
                     </select>
                 <label>הקלד שם תוסף</label>
-                <input autoComplete="off"
+                <input
+                value={this.state.addon_name}
+                autoComplete="off"
                 onChange={(e) => {this.handleAddon(e)}}
                  />
                  <label>מחיר (בשקלים)</label>
-                 <input onChange={(e) => {this.handlePrice(e)}}
+                 <input
+                 value={this.state.price}
+                 onChange={(e) => {this.handlePrice(e)}}
                 />
                  <div className="btnContainer">
                  <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}
@@ -192,8 +196,8 @@ render() {
                     </select>
                     <div className="btnContainer">
                     <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}

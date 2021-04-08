@@ -112,9 +112,9 @@ updatePriceForService = () => {
                 if(response.status === 200){
                     this.setState({
                         first_service_price: this.state.new_price + " ₪",
-                        loading: false
+                        loading: false,
+                        new_price: ""
                     })
-                    alert("המחיר עודכן בהצלחה")
                 }
                 else{
                     alert("קרתה תקלה. אנא רענן ונסה שוב")
@@ -146,7 +146,6 @@ updatePriceForAddon = () => {
                         first_addon_price: this.state.new_price + " ₪",
                         loading: false
                     })
-                    alert("המחיר עודכן בהצלחה")
                 }
                 else{
                     alert("קרתה תקלה. אנא רענן ונסה שוב")  
@@ -183,17 +182,19 @@ render() {
                 {/* <br/> */}
                 <label>{this.state.first_service_price}</label>
                 <label>הקלד מחיר חדש</label>
-                <input autoComplete="off"
+                <Loader
+               type="TailSpin"
+               color="black"
+               height={100}
+               width={100}
+               visible={this.state.loading}
+               />
+                <input
+                value={this.state.new_price}
+                autoComplete="off"
                 onChange={(e) => {this.handleNewPrice(e)}}
                  />
                  <div className="btnContainer">
-                 <Loader
-                type="Puff"
-                color="#00BFFF"
-                height={100}
-                width={100}
-                visible={this.state.loading}
-                />
                      <button className="step-btn-admin"
                     //  put request for chaning pruce for service
                     onClick={this.updatePriceForService}
@@ -219,10 +220,20 @@ render() {
             </select>
             <label>{this.state.first_addon_price}</label>
             <label>הקלד מחיר חדש</label>
-            <input autoComplete="off"
-                onChange={(e) => {this.handleNewPrice(e)}}
+            <Loader
+                type="TailSpin"
+                color="black"
+                height={100}
+                width={100}
+                visible={this.state.loading}
+                />
+            <input
+            value={this.state.new_price}
+            autoComplete="off"
+            onChange={(e) => {this.handleNewPrice(e)}}
                  />
                     <div className="btnContainer">
+                  
                     <button 
                     // onInput={}
                     className="step-btn-admin"

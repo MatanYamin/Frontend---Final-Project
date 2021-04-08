@@ -80,8 +80,8 @@ export class Addon extends Component {
         return(
             <div>
                 <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}

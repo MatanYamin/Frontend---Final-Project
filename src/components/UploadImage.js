@@ -54,7 +54,6 @@ export class UploadImage extends Component {
                 })
             }).then((response) => {
                 if(response.status === 200){
-                    alert("התמונה נשלחה בהצלחה");
                     this.setState({
                         uploadSuccess: "התמונה הועלתה בהצלחה",
                         loading: false,
@@ -71,12 +70,16 @@ export class UploadImage extends Component {
     }
 
       uploadToS3(e) {
-        console.log(config)
-        console.log(config.data)
+        this.setState({
+            loading: true
+        });
+        // console.log(config)
+        // console.log(config.data)
         ReactS3.uploadFile(e.target.files[0], config)
         .then((response)=> {
             this.setState({
-                image: response.location
+                image: response.location,
+                loading: false
             })
           },
           )
@@ -108,10 +111,10 @@ render() {
                     <br/>
                     <div className="btnContainer">
                     <Loader
-                    type="Puff"
-                    color="#00BFFF"
-                    height={100}
-                    width={100}
+                    type="Audio"
+                    color="black"
+                    height={80}
+                    width={80}
                     visible={this.state.loading}
                     />
                     <button className="step-btn-admin" onClick={this.sendDataToApi}>אישור</button>

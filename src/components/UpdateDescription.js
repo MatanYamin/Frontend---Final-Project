@@ -60,7 +60,6 @@ export class UpdateDescription extends Component {
             .then(
                 (response) => {
                     if(response.status === 200){
-                        alert("התיאור עודכן בהצלחה")
                         this.setState({
                             loading: false
                         })
@@ -70,8 +69,6 @@ export class UpdateDescription extends Component {
                     }
                 }
             )
-
-            .then(alert("התיאור עודכן בהצלחה"));
         }
         catch(e) {
             console.log(e)}
@@ -102,7 +99,7 @@ render() {
                  />
                  <Loader
                 type="Puff"
-                color="#00BFFF"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}

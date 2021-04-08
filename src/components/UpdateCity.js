@@ -63,9 +63,9 @@ addNewCity = () => {
             if(response.status === 200){
                 this.setState({
                     txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה",
-                    loading: false
+                    loading: false,
+                    new_city: ""
                 })
-                alert(" העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה ")
                 this.state.cities.concat(this.state.new_city)
             }
             else{
@@ -98,7 +98,6 @@ addNewCity = () => {
                             loading: false
                         })
                         this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1)
-                        alert(" העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ")
                     }
                     else{
                         alert("קרתה תקלה. אנא רענן ונסה שוב")
@@ -128,12 +127,13 @@ render() {
             <>
                 <label>הקלד שם עיר</label>
                 <input autoComplete="off"
+                value={this.state.new_city}
                 onChange={(e) => {this.handleCity(e)}}
                  />
                  <div className="btnContainer">
                  <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}
@@ -164,8 +164,8 @@ render() {
             </select>
                     <div className="btnContainer">
                     <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}

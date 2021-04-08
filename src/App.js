@@ -8,7 +8,7 @@ import Cars from "./components/pages/Cars"
 import Furniture from "./components/pages/Furniture"
 import Rugs from "./components/pages/Rugs"
 import Chairs from "./components/pages/Chairs"
-import General from "./components/pages/General"
+import Mattress from "./components/pages/Mattress"
 import AdminLogin from "./components/AdminLogin"
 import Contact from "./components/pages/Contact"
 import About from "./components/pages/About"
@@ -29,7 +29,7 @@ function App() {
         <Route path='/Furniture' component={Furniture} />
         <Route path='/Rugs' component={Rugs} />
         <Route path='/Chairs' component={Chairs} />
-        <Route path='/General' component={General} />
+        <Route path='/Mattress' component={Mattress} />
         <Route path='/Contact' component={Contact} />
         <Route path='/About' component={About} />
         <Route path='/AdminLogin' component={AdminLogin} />

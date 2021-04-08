@@ -102,9 +102,11 @@ export class UpdateService extends Component {
                     if(response.status === 200){
                         this.setState({
                             updateServiceSuccess: "השירות נוסף בהצלחה",
-                            loading: false
+                            loading: false,
+                            service_name: "",
+                            description: "",
+                            price: ""
                         })
-                        alert("הפעולה נעשתה בהצלחה")
                     }
                     else{
                         alert("קרתה תקלה. רענן ונסה שוב") 
@@ -137,7 +139,6 @@ export class UpdateService extends Component {
                             loading: false
                         })
                         this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1)
-                        alert(this.state.service_name + " נמחק בהצלחה")
                     }
                     else{
                         alert("קרתה תקלה. אנא רענן ונסה שוב")
@@ -171,14 +172,18 @@ render() {
                </select>
            <label>הקלד שם שרות</label>
            <input autoComplete="off"
+           value={this.state.service_name}
            onChange={(e) => {this.handleService(e)}}
             />
             <label>הוסף תיאור</label>
            <input autoComplete="off"
+           value={this.state.description}
            onChange={(e) => {this.handleDescription(e)}}
             />
             <label>מחיר (בשקלים)</label>
-            <input onChange={(e) => {this.handlePrice(e)}}
+            <input 
+            value={this.state.price}
+            onChange={(e) => {this.handlePrice(e)}}
            />
             <div className="btnContainer">
                 <button className="step-btn-admin"
@@ -186,8 +191,8 @@ render() {
                 onClick={this.addNewService}
                 >אישור</button>
                 <Loader
-                type="Puff"
-                color="#00BFFF"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}
@@ -220,8 +225,8 @@ render() {
                     <br/>
                     <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     <Loader
-                type="Puff"
-                color="red"
+                type="TailSpin"
+                color="black"
                 height={100}
                 width={100}
                 visible={this.state.loading}
