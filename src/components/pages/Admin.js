@@ -42,7 +42,7 @@ class Admin extends React.Component {
         const {uploadImage} = this.state
     return(
         <div class="admin-main-container">
-        <h1> ברוים הבאים למסך הניהול
+        <h1 className="admin-panel-title"> ברוכים הבאים למסך הניהול
          </h1>
          {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
          <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים <i class="fas fa-table"></i></button>
@@ -100,7 +100,7 @@ class Admin extends React.Component {
             :
            null
         }
-        <button className="button-form2" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות </button>
+        <button className="button-form" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות  <i class="fas fa-images"></i> </button>
          {this.state.uploadImage ?
            <UploadImage
            />
@@ -108,7 +108,7 @@ class Admin extends React.Component {
            null
         }
          {/* Adding new manager component after click */}
-         <button className="button-form" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
+         <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
         {/* Using "showing" for clicking a button */}
         {this.state.showDelete ?
         <>
@@ -123,7 +123,7 @@ class Admin extends React.Component {
             :
             null
          }
-        <button className="button-form2" onClick={this.props.handleLogout}>התנתק</button>
+        <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
         {/* <button className="button-form2">אישור על סיום תור</button> */}
       </div>
          </div>

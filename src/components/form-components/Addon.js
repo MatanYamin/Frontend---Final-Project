@@ -83,7 +83,7 @@ export class Addon extends Component {
                 type="TailSpin"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
             <select 

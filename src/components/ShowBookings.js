@@ -44,12 +44,7 @@ export class ShowBookings extends Component {
     }
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
-    const {showing} = this.state;
-    const {deleting} = this.state;
-    const {exportXl} = this.state;
-    const fileName = 'תורים'
+    
     return(
         <>
         
@@ -58,7 +53,7 @@ render() {
                     type="Audio"
                     color="black"
                     height={100}
-                    width={100}
+                    width={60}
                     visible={this.state.loading}
                     />
         <section className="customers-table">
@@ -132,7 +127,7 @@ render() {
                                             this.setState({
                                                 loading: false
                                             })
-                                            this.state.customers.splice(this.state.customers.indexOf(rowData), 1)
+                                            this.state.customers.splice(this.state.customers.indexOf(rowData), 1);
                                         }
                                         else{
                                             alert("קרתה תקלה. אנא רענן ונסה שוב")

@@ -135,7 +135,7 @@ render() {
                 type="TailSpin"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
                      <button className="step-btn-admin"
@@ -167,7 +167,7 @@ render() {
                 type="TailSpin"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
                     <button 

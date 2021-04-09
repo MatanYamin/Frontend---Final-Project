@@ -61,7 +61,8 @@ export class UpdateDescription extends Component {
                 (response) => {
                     if(response.status === 200){
                         this.setState({
-                            loading: false
+                            loading: false,
+                            newDes: ""
                         })
                     }
                     else{
@@ -75,11 +76,6 @@ export class UpdateDescription extends Component {
         }
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
-    const {showing} = this.state;
-    const {deleting} = this.state;
-    const {check} = this.state;
     return(
         <>
         <section className="adminComponent">
@@ -94,14 +90,16 @@ render() {
                     <option value={ser}>{ser}</option>))}
                 </select>
                 <label>הקלד תיאור חדש</label>
-                <input autoComplete="off"
+                <input 
+                value={this.state.newDes}
+                autoComplete="off"
                 onChange={(e) => {this.handleNewDescription(e)}}
                  />
                  <Loader
                 type="Puff"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
                  <div className="btnContainer">

@@ -4,7 +4,7 @@ import axios from "../../node_modules/axios"
 import ReactS3 from "react-s3"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner"
-import config from "../config"
+import config from "../configur"
 const url = "http://127.0.0.1:5000/"
 // here we let the the admin add pictures to describe the service
 
@@ -113,8 +113,8 @@ render() {
                     <Loader
                     type="Audio"
                     color="black"
-                    height={80}
-                    width={80}
+                    height={100}
+                    width={50}
                     visible={this.state.loading}
                     />
                     <button className="step-btn-admin" onClick={this.sendDataToApi}>אישור</button>

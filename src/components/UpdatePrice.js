@@ -144,7 +144,8 @@ updatePriceForAddon = () => {
                 if(response.status === 200){
                     this.setState({
                         first_addon_price: this.state.new_price + " ₪",
-                        loading: false
+                        loading: false,
+                        new_price: ""
                     })
                 }
                 else{
@@ -186,7 +187,7 @@ render() {
                type="TailSpin"
                color="black"
                height={100}
-               width={100}
+               width={50}
                visible={this.state.loading}
                />
                 <input
@@ -224,7 +225,7 @@ render() {
                 type="TailSpin"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
             <input

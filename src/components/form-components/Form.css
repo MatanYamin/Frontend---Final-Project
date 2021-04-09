@@ -15,6 +15,13 @@
     transition: opacity 0.3s;
   }
   
+.admin-panel-title{
+    FONT-WEIGHT: 100;
+    font-family: system-ui;
+    height: 70px;
+    padding-top: 14px;
+}
+  
   .loader--hide {
     opacity: 0;
   }
@@ -148,22 +155,24 @@
     padding: 15px 0;
     color: #fff;
     font-size: 25px;
-    background: #32afb5;
+    background: black;
     cursor: pointer;
     border-color: grey;
-    width: 90%;
+    width: 100%;
+    font-family: system-ui;
   }
 
   .button-form2 {
     outline: none;
+    font-family: system-ui;
     /* width: 100%; */
     padding: 15px 0;
     color: #fff;
     font-size: 25px;
-    background: #34c8cf;
     cursor: pointer;
     border-color: grey;
-    width: 90%;
+    width: 100%;
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   }
 
   .admin-main-container{
@@ -196,7 +205,7 @@
     font-size: 23px;
     /* height: 120vh; */
     height: 87vh;
-    background-color: whitesmoke;
+    background-color: #ffffff;
     /* background-image: url("https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg");
     background-repeat: no-repeat, repeat;
     background-size: 480px 500px; */
@@ -309,7 +318,7 @@
 
 .imgs-to-customer{
     height: 350px;
-    width: 350px;
+    width: 250px;
 }
 
 

@@ -194,7 +194,7 @@ render() {
                 type="TailSpin"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
             <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
@@ -228,7 +228,7 @@ render() {
                 type="TailSpin"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
                     <br/>

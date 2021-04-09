@@ -6,8 +6,9 @@ import "./Form.css"
 import ReactS3 from "react-s3"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-import config from "../../../src/config"
+import config from "../../../src/configur"
 const url = "http://127.0.0.1:5000/"
+
 
 
 export class PersonalDetails extends Component {
@@ -157,7 +158,7 @@ export class PersonalDetails extends Component {
                 type="TailSpin"
                 color="black"
                 height={100}
-                width={100}
+                width={50}
                 visible={this.state.loading}
                 />
             <h6><a className="red-text">{this.state.wrongEmail}</a></h6>
