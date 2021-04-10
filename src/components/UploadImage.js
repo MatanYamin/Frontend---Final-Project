@@ -1,6 +1,5 @@
 import React from "react"
 import { Component } from "react"
-import axios from "../../node_modules/axios"
 import ReactS3 from "react-s3"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner"

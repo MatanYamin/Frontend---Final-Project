@@ -4,7 +4,8 @@ import "./ShowBooking.css"
 import ExportCSVpage from "./ExportCSVpage"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-const url = "http://127.0.0.1:5000/"
+// const url = "http://127.0.0.1:5000/"
+const url = "http://3.19.66.156/"
 // const url = "http://3.138.43.76:8080/"
 // const url = "/"
 
@@ -53,7 +54,7 @@ render() {
                     type="Audio"
                     color="black"
                     height={100}
-                    width={60}
+                    width={50}
                     visible={this.state.loading}
                     />
         <section className="customers-table">
@@ -104,6 +105,7 @@ render() {
                      {/* מס' מזהה */}
                      <td>{rowData[0]}</td> 
                      <th>
+                     
                      <button 
                     className="del-booking"
                     onClick={() => 
@@ -127,7 +129,7 @@ render() {
                                             this.setState({
                                                 loading: false
                                             })
-                                            this.state.customers.splice(this.state.customers.indexOf(rowData), 1);
+                                            this.state.customers.splice(this.state.customers.indexOf(rowData[0]), 1);
                                         }
                                         else{
                                             alert("קרתה תקלה. אנא רענן ונסה שוב")
@@ -179,6 +181,13 @@ render() {
                 ))}
                 </tbody>
              </table>
+             <Loader
+                    type="Audio"
+                    color="black"
+                    height={100}
+                    width={60}
+                    visible={this.state.loading}
+                    />
             </div>
         </section>
         </div>
