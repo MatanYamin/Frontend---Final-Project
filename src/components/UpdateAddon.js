@@ -24,14 +24,14 @@ export class UpdateAddon extends Component {
 
     async readServices() {
         // bring categories
-        let response = await fetch(url + 'get/services', { credentials: 'include' });
+        let response = await fetch(url + 'get/services');
         let data = await response.json(); // for string
         return data
     }
 
     async readAddons() {
         // bring services
-        let response = await fetch(url + 'get/addons', { credentials: 'include' });
+        let response = await fetch(url + 'get/addons');
         let data = await response.json(); // for string
         return data
     }

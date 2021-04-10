@@ -25,14 +25,14 @@ export class UpdateService extends Component {
 
     async readCategories() {
         // get all categories inorder to know to whick category we will add a service
-        let response = await fetch(url + 'get/categories', { credentials: 'include' });
+        let response = await fetch(url + 'get/categories');
         let data = await response.json();
         return data
     }
 
     async readServices() {
         // bringing all service for deleting one
-        let response = await fetch(url + 'get/services', { credentials: 'include' });
+        let response = await fetch(url + 'get/services');
         let data = await response.json();
         return data
     }

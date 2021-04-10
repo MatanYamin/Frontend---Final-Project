@@ -14,7 +14,7 @@ export class ExportCSVpage extends Component {
 
     async readCustomers() {
         // bring all cities allowed
-        let response = await fetch(url + 'get/customers', { credentials: 'include' });
+        let response = await fetch(url + 'get/customers');
         let data = await response.json(); // for string
         return data
     }

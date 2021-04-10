@@ -35,7 +35,7 @@ export class PersonalDetails extends Component {
 
      async readCities() {
         // bring all cities allowed
-        let response = await fetch(url + 'get/cities', { credentials: 'include' });
+        let response = await fetch(url + 'get/cities');
         let data = await response.json(); // for string
         return data
     }

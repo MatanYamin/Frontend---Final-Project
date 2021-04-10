@@ -26,7 +26,7 @@ export class UploadImage extends Component {
 
     async readServices() {
         // bringing all service for deleting one
-        let response = await fetch(url + 'get/services', { credentials: 'include' });
+        let response = await fetch(url + 'get/services');
         let data = await response.json();
         return data
     }

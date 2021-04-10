@@ -20,7 +20,7 @@ export class UpdateDescription extends Component {
 
     async readServices() {
         // bring all services
-        let response = await fetch(url + 'get/services', { credentials: 'include' });
+        let response = await fetch(url + 'get/services');
         let data = await response.json(); // for string
         return data
     }
