@@ -27,7 +27,7 @@ export class ShowBookings extends Component {
 
     async readCustomers() {
         // bring all cities allowed
-        let response = await fetch(url + 'get/customers', {mode: 'cors'});
+        let response = await fetch(url + 'get/customers');
         let data = await response.json(); // for string
         return data
     }

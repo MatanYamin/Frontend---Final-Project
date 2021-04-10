@@ -2,7 +2,8 @@ import React from "react"
 import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-const url = "http://127.0.0.1:5000/"
+// const url = "http://127.0.0.1:5000/"
+const url = "http://3.19.66.156:8080/"
 
 
 export class UpdateService extends Component {
@@ -32,7 +33,7 @@ export class UpdateService extends Component {
 
     async readServices() {
         // bringing all service for deleting one
-        let response = await fetch(url + 'get/services');
+        let response = await fetch(url + 'get/services')
         let data = await response.json();
         return data
     }
