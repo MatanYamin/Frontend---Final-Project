@@ -2,7 +2,8 @@ import React from "react"
 import { Component } from "react"
 import {ExportCSV} from './ExportCSV';
 // const url = "http://127.0.0.1:5000/"
-const url = "http://3.19.66.156/"
+// const url = "http://3.19.66.156/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class ExportCSVpage extends Component {
