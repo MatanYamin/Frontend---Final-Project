@@ -11,7 +11,8 @@ import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
 // const url = "/"
 // const url = "http://3.19.66.156/"
-const url = "http://3.19.66.156/"
+// const url = "http://3.19.66.156/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class ShowBookings extends Component {
