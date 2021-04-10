@@ -5,9 +5,13 @@ import ExportCSVpage from "./ExportCSVpage"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://127.0.0.1:5000/"
-const url = "http://3.19.66.156/"
-// const url = "http://3.138.43.76:8080/"
+// const url = "httpד://3.19.66.156/"
+// const url = "https://3.19.66.156/"
+// const url = "https://3.138.43.76:8080/"
+// const url = "http://3.19.66.156/"
 // const url = "/"
+// const url = "http://3.19.66.156/"
+const url = "http://3.19.66.156/"
 
 
 export class ShowBookings extends Component {
