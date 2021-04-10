@@ -7,7 +7,8 @@ import axios from "../../../node_modules/axios"
 import PickDateAndConfirm from "./PickDateAndConfirm"
 import Footer from "../Footer"
 //Will need to add adming page
-const url = "http://127.0.0.1:5000/"
+// const url = "http://127.0.0.1:5000/"
+const url = "http://3.19.66.156/"
 
 
 //Main Form Component for the steps. Will hold all the steps. maybe in the future I will add more steps

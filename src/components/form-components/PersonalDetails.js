@@ -7,7 +7,8 @@ import ReactS3 from "react-s3"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 import config from "../../../src/configur"
-const url = "http://127.0.0.1:5000/"
+// const url = "http://127.0.0.1:5000/"
+const url = "http://3.19.66.156/"
 
 
 
