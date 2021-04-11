@@ -74,8 +74,6 @@ export class UploadImage extends Component {
         this.setState({
             loading: true
         });
-        // console.log(config)
-        // console.log(config.data)
         ReactS3.uploadFile(e.target.files[0], config)
         .then((response)=> {
             this.setState({
