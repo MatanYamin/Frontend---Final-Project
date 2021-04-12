@@ -258,9 +258,9 @@ render() {
                                 if(response.status === 200){
                                     this.setState({
                                         text3: "עודכן בהצלחה",
-                                        loading: false
+                                        loading: false,
+                                        hours: this.state.hours.filter((_, i) => i !== this.state.hours.indexOf(this.state.hour))
                                     })
-                                    this.state.hours.splice(this.state.hours.indexOf(this.state.hour), 1)
                                 }
                             }
                         )

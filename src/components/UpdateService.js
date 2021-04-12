@@ -6,8 +6,8 @@ import ReactS3 from "react-s3"
 import config from "../configur"
 // const url = "http://3.19.66.156:8080/"
 // const url = "http://3.19.66.156/"
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdateService extends Component {
@@ -158,9 +158,9 @@ export class UpdateService extends Component {
                     if(response.status === 200){
                         this.setState({
                             deleteSuccess: "השרות נמחק בהצלחה",
-                            loading: false
+                            loading: false,
+                            services_array: this.state.services_array.filter((_, i) => i !== this.state.services_array.indexOf(this.state.service_name))
                         })
-                        this.state.services_array.splice(this.state.services_array.indexOf(this.state.service_name), 1)
                     }
                     else{
                         alert("קרתה תקלה. אנא רענן ונסה שוב")

@@ -3,8 +3,8 @@ import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdateCity extends Component {
@@ -19,7 +19,8 @@ export class UpdateCity extends Component {
             loading: false,
             txt1: "",
             txt2: "",
-            isAdded: false
+            isAdded: false,
+            tempCity: ""
         }
     }
 
@@ -65,10 +66,10 @@ addNewCity = () => {
             if(response.status === 200){
                 this.setState({
                     txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה",
+                    tempCity: this.state.new_city,
                     loading: false,
-                    new_city: ""
-                })
-                this.state.cities.concat(this.state.new_city)
+                    new_city: "",
+                });
             }
             else{
                 alert("קרתה תקלה. אנא רענן ונסה שוב")
@@ -97,9 +98,9 @@ addNewCity = () => {
                     if(response.status === 200){
                         this.setState({
                             txt2: " העיר" + " " + this.state.new_city + " " + "נמחקה בהצלחה ",
-                            loading: false
+                            loading: false,
+                            cities: this.state.cities.filter((_, i) => i !== this.state.cities.indexOf(this.state.new_city))
                         })
-                        this.state.cities.splice(this.state.cities.indexOf(this.state.new_city), 1)
                     }
                     else{
                         alert("קרתה תקלה. אנא רענן ונסה שוב")
