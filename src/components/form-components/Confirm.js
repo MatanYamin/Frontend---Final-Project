@@ -105,8 +105,8 @@ export class Confirm extends Component {
             <br/>
             {/* <h2>אישור פרטי התור</h2> */}
             <div className="confirm-wrapper">
-            <img className="img-confirm" src={image} />
-                <br/>
+            {/* <img className="img-confirm" src={image} /> */}
+                {/* <br/> */}
                 שם:
                 &nbsp;
                 <h4>{firstName} {lastName}</h4>
@@ -114,12 +114,10 @@ export class Confirm extends Component {
                 כתובת:
                 &nbsp;
                <h4>{address}, {city}</h4>
-               <br/>
                 מייל:
                 <h4>{email}</h4>
                 מספר טלפון:
                <h4>{phone}</h4>
-                <br/>
                 השרות:
                 <h4>{service}  {addons}</h4>
                 המחיר:

@@ -2,10 +2,12 @@ import React from "react"
 import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-// const url = "http://127.0.0.1:5000/"
+import ReactS3 from "react-s3"
+import config from "../configur"
 // const url = "http://3.19.66.156:8080/"
 // const url = "http://3.19.66.156/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdateService extends Component {
@@ -22,8 +24,10 @@ export class UpdateService extends Component {
             loading: false,
             updateServiceSuccess: "",
             deleteSuccess: "",
-            description: ""
+            description: "",
+            image: ""
         }
+        this.uploadToS3 = this.uploadToS3.bind(this);
     }
 
     async readCategories() {
@@ -80,6 +84,20 @@ export class UpdateService extends Component {
             description: input.target.value
         })
     }
+    // this uploads the image to the S3 aws
+    uploadToS3(e) {
+        this.setState({
+            loading: true
+        });
+        ReactS3.uploadFile(e.target.files[0], config)
+        .then((response)=> {
+            this.setState({
+                image: response.location,
+                loading: false
+            })
+          },
+          )
+    }
     // this method adds new service the the db from admin panel
     addNewService = () => {
         this.setState({
@@ -97,7 +115,8 @@ export class UpdateService extends Component {
                     cat_name: this.state.cat_name,
                     service_name: this.state.service_name,
                     price: this.state.price,
-                    description: this.state.description
+                    description: this.state.description,
+                    image: this.state.image
                 })
             })
             .then(
@@ -188,6 +207,22 @@ render() {
             value={this.state.price}
             onChange={(e) => {this.handlePrice(e)}}
            />
+           {/*  */}
+           <div>
+            {/* After the img will upload succesfully, we will se the image */}
+            <img className="img-show_form" src={this.state.image} />
+            <h1>העלה תמונה</h1>
+            <input type="file" onChange={this.uploadToS3} />
+          </div>
+                    <br/>
+                    <Loader
+                    type="Audio"
+                    color="black"
+                    height={100}
+                    width={50}
+                    visible={this.state.loading}
+                    />
+           {/*  */}
             <div className="btnContainer">
                 <button className="step-btn-admin"
                 // Post request for adding service

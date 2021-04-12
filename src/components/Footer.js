@@ -10,40 +10,41 @@ function Footer(){
              <div className="footer-links">
                  <div className="footer-link-wrapper">
                     <div className="footer-link-items">
-                        <h2>שרותים</h2>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
+                        <h2>שירותים</h2>
+                        <Link to="/cars">רכב</Link>
+                        <Link to="/furniture">ספות</Link>
+                        <Link to="/rugs">שטיחים</Link>
+                        <Link to="/chairs">כיסאות</Link>
+                        <Link to="/mattress">מזרנים</Link>
                     </div>
+                    {/* <div className="footer-link-items"> */}
+                        {/* <h2>לקניית מוצרים</h2> */}
+                        {/* <Link to="/">קישור לאנשהו</Link> */}
+                        {/* <Link to="/">קישור לאנשהו</Link>
+                        <Link to="/">קישור לאנשהו</Link>
+                        <Link to="/">קישור לאנשהו</Link> */}
+                    {/* </div> */}
                     <div className="footer-link-items">
-                        <h2>לקניית מוצרים</h2>
+                        <h2>שירות דחוף</h2>
+                        <Link to="/SOS">S.O.S</Link>
+                        {/* <Link to="/">קישור לאנשהו</Link>
                         <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                    </div>
-                    <div className="footer-link-items">
-                        <h2>להזמנת שרות</h2>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
+                        <Link to="/">קישור לאנשהו</Link> */}
                     </div>
                     <div className="footer-link-items">
                         <h2>מי אנחנו?</h2>
-                        <Link to="/">איך מגיעים</Link>
-                        <Link to="/">צרו קשר</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                        <Link to="/">קישור לאנשהו</Link>
+                        <Link to="/about">קצת עלינו</Link>
+                        <Link to="/contact">צרו קשר</Link>
+                        <Link to="/adminLogin">איזור ראשי</Link>
+                        {/* <Link to="/">קישור לאנשהו</Link> */}
                     </div>
-                    <div className="footer-link-items">
-                        <h2>שרות דחוף</h2>
-                        <Link to="/">מילים</Link>
-                        <Link to="/">מילים</Link>
+                    {/* <div className="footer-link-items"> */}
+                        {/* <h2>שרות דחוף</h2> */}
+                        {/* <Link to="/">מילים</Link> */}
+                        {/* <Link to="/">מילים</Link>
                         <Link to="/">קישור</Link>
-                        <Link to="/">קישור לאנשהו</Link>
-                    </div>
+                        <Link to="/">קישור לאנשהו</Link> */}
+                    {/* </div> */}
                 </div>
             </div>
             {/* the social media logos */}

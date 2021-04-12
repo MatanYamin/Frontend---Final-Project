@@ -63,11 +63,11 @@ function Navbar() {
                             צרו קשר
                         </Link>
                     </li>
-                    <li className='nav-item'>
+                    {/* <li className='nav-item'>
                         <Link to='/adminLogin' className='nav-links' onClick={closeMobileMenu}>
                             עמוד ניהול
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
 

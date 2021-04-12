@@ -9,9 +9,9 @@ import he from "date-fns/locale/he"; // the locale you want
 import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner"
-// const url = "http://127.0.0.1:5000/"
+const url = "http://127.0.0.1:5000/"
 // const url = "http://3.19.66.156/"
-const url = "https://skycleanerapi.xyz/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 
@@ -23,7 +23,8 @@ export class PickDateAndConfirm extends Component {
           disable_dates: [],
           hours: [],
           temp_hour: false,
-          loading: false
+          loading: false,
+          textOnBubble: "בחלק הזה יש לבחור יום מהלוח שנה ולאחר מכן שעה מבין השעות שנותרו. אם התאריך שרציתם אינו פנוי, אנא פנו אלינו"
         };
     }
 
@@ -76,6 +77,10 @@ export class PickDateAndConfirm extends Component {
         exclude_days_array.push(new Date(service))));
     return (
         <>
+        <div className="bubble-man">
+        <div class="text-on-bubble">
+                <label>{this.state.textOnBubble}</label>
+            </div>
         <div>
             <br/>
             <h3>בחרו יום</h3>
@@ -179,6 +184,7 @@ export class PickDateAndConfirm extends Component {
                 </div>
                 </>
                 }
+                </div>
             </>
     );
     }

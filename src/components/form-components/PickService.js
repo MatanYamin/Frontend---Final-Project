@@ -9,9 +9,9 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-// const url = "http://127.0.0.1:5000/"
 // const url = "http://3.19.66.156/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class PickService extends Component {
@@ -111,7 +111,7 @@ export class PickService extends Component {
             <>
             <div className="bubble-man">
             <div class="text-on-bubble">
-                {this.state.textOnBubble}
+                <label>{this.state.textOnBubble}</label>
             </div>
              <div className="pick-service-containet">
             {/* <h1>בחרתם ב {page}</h1> */}
