@@ -15,12 +15,10 @@ export class UpdateCity extends Component {
             new_city: "",
             showing: false,
             deleting: false,
-            check: false,
             loading: false,
             txt1: "",
             txt2: "",
-            isAdded: false,
-            tempCity: ""
+            // tempCity: ""
         }
     }
 
@@ -66,7 +64,7 @@ addNewCity = () => {
             if(response.status === 200){
                 this.setState({
                     txt1: "העיר" + " " + this.state.new_city + " " + "נוספה בהצלחה",
-                    tempCity: this.state.new_city,
+                    // tempCity: this.state.new_city,
                     loading: false,
                     new_city: "",
                 });
@@ -141,7 +139,7 @@ render() {
                      <button className="step-btn-admin"
                     //  post request for adding city to list
                     onClick={this.addNewCity}
-                     >סיום</button>
+                     >אישור</button>
                      <button className="step-btn-admin"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                      <br/>
                      <label>{this.state.txt1}</label>

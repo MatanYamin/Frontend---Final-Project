@@ -19,16 +19,12 @@ export class PickService extends Component {
         super(props)
         this.state = {
             service_array: [],
-            addon_array: [],
             imagesArray: [],
             showing: false,
             loading: false,
             showDescription: false,
             openPopUp: false,
-            selectValue: '',
             first_price: '',
-            second_price: '',
-            price_title: "המחיר: ",
             ser: "",
             service_description: "",
             priceNow: "",

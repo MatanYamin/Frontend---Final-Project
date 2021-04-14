@@ -19,9 +19,7 @@ export class UpdatePrice extends Component {
             addon: "",
             showing: false,
             deleting: false,
-            check: false,
             loading: false,
-            txt: "matan",
             first_service_price: "",
             first_addon_price: "",
             new_price: ""
@@ -171,7 +169,7 @@ render() {
         <>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-            <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>עדכן מחיר לשרות <i class="fas fa-shekel-sign"></i></button>
+            <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}> מחיר לשרות <i class="fas fa-shekel-sign"></i></button>
             {this.state.showing ?
             <>
                 <br/>
@@ -210,7 +208,7 @@ render() {
             :
             null}
             <br/><br/>
-            <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>עדכן מחיר לתוסף <i class="fas fa-shekel-sign"></i></button>
+            <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}> מחיר לתוסף <i class="fas fa-shekel-sign"></i></button>
             {this.state.deleting ?
            <>
            <br/>

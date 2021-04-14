@@ -21,8 +21,8 @@ function ServicesCards() {
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/bvFRLRg/sofa.jpg" 
-                        name="ניקוי רהיטים"
-                        text="אנו מנקים את כל סוגי הרהיטים"
+                        name="ניקוי ספות"
+                        text="אנו מנקים את כל סוגי הספות"
                         path="/Furniture"
                         />
                     </ul>

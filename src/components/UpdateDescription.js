@@ -12,8 +12,6 @@ export class UpdateDescription extends Component {
         super(props)
         this.state = {
             services_array: [],
-            showing: false,
-            deleting: false,
             loading: false,
             newDes: "",
             service: ""

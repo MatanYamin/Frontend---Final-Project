@@ -17,7 +17,6 @@ export class UploadImage extends Component {
         this.state = {
             services: [],
             service_name: "",
-            showing: false,
             image: null,
             uploadSuccess: "",
             file: null,

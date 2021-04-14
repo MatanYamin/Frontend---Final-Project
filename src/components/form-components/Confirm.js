@@ -7,7 +7,6 @@ import "./DropDown.css"
 
 
 export class Confirm extends Component {
-    
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
         event.preventDefault();
@@ -17,8 +16,7 @@ export class Confirm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          selectedDate: null,
-          num: ""
+          selectedDate: null
         };
     }
 

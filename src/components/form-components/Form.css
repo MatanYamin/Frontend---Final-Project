@@ -287,14 +287,16 @@
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.6em 0.0em 0;
-    border-radius:2em;
+    /* border-radius:2em; */
+    /* border-radius: 5px; */
     box-sizing: border-box;
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
     font-size: 25px;
-    color:#FFFFFF;
-    background-color:green;
+    color:whitesmoke;
+    /* background-color:green; */
+    background-color: #22a222;
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
@@ -304,14 +306,15 @@
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.6em 0.0em 0;
-    border-radius:2em;
+    /* border-radius:2em; */
     box-sizing: border-box;
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
     font-size: 25px;
-    color:#FFFFFF;
-    background-color:red;
+    color:whitesmoke;
+    /* background-color:red; */
+    background-color:#ab2323;
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;

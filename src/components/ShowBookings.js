@@ -14,12 +14,6 @@ export class ShowBookings extends Component {
         super(props)
         this.state = {
             customers: [],
-            new_city: "",
-            showing: false,
-            deleting: false,
-            exportXl: false,
-            txt1: "",
-            txt2: "",
             loading: false
         }
     }
