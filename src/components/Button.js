@@ -1,6 +1,5 @@
 import './Button.css'
 import {Link} from 'react-router-dom'
-
 // STYLES will hold 2 classes for later use
 const STYLES = ['btn--primary', 'btn--outline']
 

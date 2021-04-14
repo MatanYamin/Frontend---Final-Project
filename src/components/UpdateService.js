@@ -30,22 +30,22 @@ export class UpdateService extends Component {
         this.uploadToS3 = this.uploadToS3.bind(this);
     }
 
+    // get all categories inorder to know to whick category we will add a service
     async readCategories() {
-        // get all categories inorder to know to whick category we will add a service
         let response = await fetch(url + 'get/categories');
         let data = await response.json();
         return data
     }
 
+    // bringing all service for deleting one
     async readServices() {
-        // bringing all service for deleting one
         let response = await fetch(url + 'get/services')
         let data = await response.json();
         return data
     }
     
+    // when open this component, we will get all categories first
     componentDidMount() {
-        // when open this component, we will get all categories first
         this.readCategories().then((data) => {
             this.setState({
                 categories_array: data
@@ -54,8 +54,8 @@ export class UpdateService extends Component {
     
     }
 
+    // after detecting changes in state, we will bring now all services from the API
     componentDidUpdate(prevProps, prevState){
-        // after detecting changes in state, we will bring now all services from the API
         if (prevState.categories_array !== this.state.categories_array) {
             
             this.readServices().then((data) => {
@@ -106,7 +106,6 @@ export class UpdateService extends Component {
         try{
             fetch(url + "post/service", {
                 method: "POST",
-                mode: "no-cors",
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -128,7 +127,7 @@ export class UpdateService extends Component {
                             service_name: "",
                             description: "",
                             price: ""
-                        })
+                        });
                     }
                     else{
                         alert("קרתה תקלה. רענן ונסה שוב") 

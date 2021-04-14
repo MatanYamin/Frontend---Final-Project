@@ -20,18 +20,17 @@ export class UpdateDescription extends Component {
         }
     }
 
+    // bring all services
     async readServices() {
-        // bring all services
         let response = await fetch(url + 'get/services');
         let data = await response.json(); // for string
         return data
     }
-
+    // when component is open, do the following
     componentDidMount() {
         this.setState({
             loading: true
         });
-
         this.readServices().then((data) => {
             this.setState({
                 services_array: data,
@@ -40,12 +39,13 @@ export class UpdateDescription extends Component {
         })
     }
 
+    // inserts the new description inside the state
     handleNewDescription = (input) => {
         this.setState({
             newDes: input.target.value
         })
     }
-
+    // this sends the description to the server sie to handle the changes with put
     updateDercriptionForService = () => {
         this.setState({
             loading: true

@@ -28,13 +28,13 @@ export class PickDateAndConfirm extends Component {
         };
     }
 
+    // will get all dates from DB that admin choosed to disable
     async read_disable_days(){
-        // will get all dates from DB that admin choosed to disable
         let response = await fetch(url + 'get/disabledate');
         let data = await response.json();
         return data
     }
-
+    // get all houes for a certain day
     get_hours = (e) => {
         const day = {
             date: e
@@ -45,8 +45,8 @@ export class PickDateAndConfirm extends Component {
         }));
     }
 
+    // when open this component, we will get all dates to be disabled
     componentDidMount() {
-        // when open this component, we will get all dates to be disabled
         this.read_disable_days().then((data) => {
             this.setState({
                 disable_dates: data
@@ -54,8 +54,8 @@ export class PickDateAndConfirm extends Component {
         })
     }
 
+    // will be the selected date from calendar
     setSelectedDate = date => {
-        // will be the selected date from calendar
         this.setState({
             selectedDate: date
         });

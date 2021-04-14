@@ -24,20 +24,20 @@ export class UpdateAddon extends Component {
         }
     }
 
+    // bring all services
     async readServices() {
-        // bring categories
         let response = await fetch(url + 'get/services');
         let data = await response.json(); // for string
         return data
     }
 
+    // bring addons
     async readAddons() {
-        // bring services
         let response = await fetch(url + 'get/addons');
         let data = await response.json(); // for string
         return data
     }
-    
+    // when the component is open, do the following
     componentDidMount() {
         this.setState({
             loading: true
@@ -49,7 +49,7 @@ export class UpdateAddon extends Component {
             })
         })
     }
-
+    // when there are changes in state, do the following
     componentDidUpdate(prevProps, prevState){
         if (prevState.services_array !== this.state.services_array) {
             
@@ -60,19 +60,19 @@ export class UpdateAddon extends Component {
             })
         }
     }
-
+    // insert changes into addon_name state
     handleAddon = (input) => {
         this.setState({
             addon_name: input.target.value
         })
     }
-
+    // insert changes into price state
     handlePrice = (input) => {
         this.setState({
             price: input.target.value
         })
     }
-
+    // this is a post request for adding an addon
     addNewAddon = () => {
         this.setState({
             loading: true
@@ -106,6 +106,7 @@ export class UpdateAddon extends Component {
             console.log(e)}
         }
 
+    // DELETE request for deleting an addon
     deleteAddon = () => {
         this.setState({
             loading: true
@@ -138,8 +139,6 @@ export class UpdateAddon extends Component {
 
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
     const {showing} = this.state;
     const {deleting} = this.state;
     return(

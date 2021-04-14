@@ -243,7 +243,7 @@ render() {
                     try{
                         fetch(url + "post/newhours", {
                             method: "POST",
-                            mode: "no-cors",
+                            // mode: "no-cors",
                             headers: {
                                 'Accept': 'application/json',
                                 'Content-Type': 'application/json'

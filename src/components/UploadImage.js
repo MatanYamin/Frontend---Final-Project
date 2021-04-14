@@ -26,13 +26,14 @@ export class UploadImage extends Component {
         this.uploadToS3 = this.uploadToS3.bind(this);
     }
 
+    // bringing all service for deleting one
     async readServices() {
-        // bringing all service for deleting one
         let response = await fetch(url + 'get/services');
         let data = await response.json();
         return data
     }
 
+    // when the component will rise, we will get all cities
     componentDidMount() {
         this.readServices().then((data) => {
             this.setState({
@@ -41,7 +42,7 @@ export class UploadImage extends Component {
         })
     }
 
-    // sends the data to db
+    // sends the data to db (data of the image)
     sendDataToApi = () => {
         this.setState({
             loading: true
@@ -70,6 +71,7 @@ export class UploadImage extends Component {
             console.log(e)}
     }
 
+      // this method uploads the image to the aws s3 and gets back to me the image url
       uploadToS3(e) {
         this.setState({
             loading: true
@@ -86,11 +88,8 @@ export class UploadImage extends Component {
 
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
     return(
         <>
-        {/* <input type="file" onChange={this.testThisImageUpload} /> */}
         <section className="adminComponent">
             <div className="adminComponentContainer">
         <br/><br/>

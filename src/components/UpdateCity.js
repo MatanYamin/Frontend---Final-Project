@@ -24,13 +24,13 @@ export class UpdateCity extends Component {
         }
     }
 
+    // bring all cities allowed
     async readCities() {
-        // bring all cities allowed
         let response = await fetch(url + 'get/cities');
         let data = await response.json(); // for string
         return data
     }
-
+    // when the component is open, do the following
     componentDidMount() {
         this.setState({
             loading: true
@@ -42,7 +42,7 @@ export class UpdateCity extends Component {
             })
         })
     }
-
+    // insert changes into new_city state
     handleCity = (input) => {
     this.setState({
         new_city: input.target.value
@@ -115,11 +115,8 @@ addNewCity = () => {
     
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
     const {showing} = this.state;
     const {deleting} = this.state;
-    const {check} = this.state;
     return(
         <>
         <div className="city">

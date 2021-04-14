@@ -24,13 +24,13 @@ export class ShowBookings extends Component {
         }
     }
 
+    // bring all customers from DB
     async readCustomers() {
-        // bring all cities allowed
         let response = await fetch(url + 'get/customers');
         let data = await response.json(); // for string
         return data
     }
-
+    // when the component is open, do the following
     componentDidMount() {
         this.setState({
             loading: true
@@ -44,10 +44,8 @@ export class ShowBookings extends Component {
     }
 
 render() {
-    
     return(
         <>
-        
         <div>
         <Loader
                     type="Audio"
@@ -78,7 +76,6 @@ render() {
                  </thead>
                  <tbody>
 {this.state.customers.map(
-    
     (rowData, index) => (
                 
                  <tr>
@@ -104,7 +101,6 @@ render() {
                      {/* מס' מזהה */}
                      <td>{rowData[0]}</td> 
                      <th>
-                     
                      <button 
                     className="del-booking"
                     onClick={() => 

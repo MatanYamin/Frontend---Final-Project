@@ -21,6 +21,7 @@ export class Addon extends Component {
             shekel: ""
         }
     }
+    // when the component is open, do the following
     componentDidMount() {
         this.setState({
             loading: true
@@ -38,20 +39,17 @@ export class Addon extends Component {
         catch(e) {
             console.log(e)}
     }
-
+    // when there are changes in states
     componentDidUpdate(prevProps, prevState){
         if (prevState.second_price !== this.state.second_price) {
-            // alert(this.state.second_price)
-            // alert(this.props.firstPrice)
             var number = Number(this.state.second_price) + Number(this.props.firstPrice)
-            // alert(number)
             this.props.handlePrice(number)
             this.setState({
                 shekel: "₪"
             })
           }
     }
-
+    // gets price for a certein addon
     addonPrice = (e) => {
         this.setState({
             loading: true
@@ -68,7 +66,7 @@ export class Addon extends Component {
         catch(e) {
             console.log(e)}
     }
-
+    // when click, add the price to the state
     handleClick = () => {
         this.props.handlePrice(this.props.firstPrice);
         this.props.handleShow();

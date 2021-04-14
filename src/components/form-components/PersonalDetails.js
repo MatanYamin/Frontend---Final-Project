@@ -12,7 +12,6 @@ import config from "../../../src/configur"
 const url = "https://skycleanerapi.xyz/"
 
 
-
 export class PersonalDetails extends Component {
     constructor(props){
         super(props);
@@ -41,7 +40,7 @@ export class PersonalDetails extends Component {
         let data = await response.json(); // for string
         return data
     }
-    
+    // when the component is open, do the following
     componentDidMount() {
         this.setState({
             loading: true
@@ -59,15 +58,13 @@ export class PersonalDetails extends Component {
         event.preventDefault();
         this.props.nextStep(); //will increase step by 1
     }
-
-
-
+    // go backwards
     backward = event => {
         event.preventDefault();
         this.props.clearStates("");
         this.props.prevStep(); //will increase step by 1
     }
-
+    // this uploads the image to the S3 aws
     uploadToS3(e) {
         this.setState({
             loading: true
@@ -91,7 +88,7 @@ export class PersonalDetails extends Component {
           )
         }
 
-//validate first name (if exists)
+    //validate first name (if exists)
     validFirst(e){
         this.setState({firstNameValue: e.target.value});
     }

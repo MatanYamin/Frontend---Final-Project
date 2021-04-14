@@ -36,7 +36,7 @@ export class PickService extends Component {
             textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך"
         }
     }
-
+    // when component is opening do the following
     componentDidMount() {
         this.setState({
             loading: true
@@ -54,7 +54,7 @@ export class PickService extends Component {
         catch(e) {
             console.log(e)}
     }
-
+    // when firsprice state has changed
     componentDidUpdate(prevProps, prevState){
         if (prevState.first_price !== this.state.first_price) {
             this.props.handlePrice(this.state.first_price);
@@ -66,11 +66,11 @@ export class PickService extends Component {
           }
     }
 
+    // Will get the price from the API and update the state
     setPrice = (e) => {
         this.setState({
             loading: true
         });
-        // Will get the price from the API and update the state
         const priceData = {
             service: e.target.value
         };
@@ -102,11 +102,8 @@ export class PickService extends Component {
     }
     render() {
         const {values} = this.props; //values is all the props we passed to the component
-        const page = window.location.pathname.substring(1); //page name
         const {showing} = this.state;
-        const {showDescription} = this.state;
         const {openPopUp} = this.state;
-        const {loading} = this.state;
         return (
             <>
             <div className="bubble-man">
@@ -114,11 +111,8 @@ export class PickService extends Component {
                 <label>{this.state.textOnBubble}</label>
             </div>
              <div className="pick-service-containet">
-            {/* <h1>בחרתם ב {page}</h1> */}
-            {/* <h1>מה מנקים?</h1> */}
             <br/>
             <div className="pick-ser-select-btn">
-            
             <select
             defaultValue={this.props.service}
             class="service-btn"
@@ -143,11 +137,6 @@ export class PickService extends Component {
             {this.state.showDescription ?
             <>
             &nbsp;&nbsp;
-            {/* <Popup trigger={<button className="details-btn">לחצו לקבל פרטים</button>} >
-                <div class="pop-up-content1">
-                    {this.state.service_description}
-                    </div>
-            </Popup> */}
             <Popup 
             className="check-me" 
             trigger={<button className="details-btn">לצפיה בתמונות <i class="fas fa-images"></i></button>}
@@ -192,7 +181,6 @@ export class PickService extends Component {
             <br/>
             <br/>
             <br/><br/>
-            
             </div>
             <div className="step-btn-container">
             <button className="step-btn" onClick={this.continue}>המשך</button>

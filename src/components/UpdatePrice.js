@@ -28,20 +28,21 @@ export class UpdatePrice extends Component {
         }
     }
 
+    // bring all services
     async readServices() {
-        // bring all services
         let response = await fetch(url + 'get/services');
         let data = await response.json(); // for string
         return data
     }
 
+    // bring all addons
     async readAddons() {
-        // bring services
         let response = await fetch(url + 'get/addons');
         let data = await response.json(); // for string
         return data
     }
 
+    // everytime the component will open, do the following
     componentDidMount() {
         this.readServices().then((data) => {
             this.setState({
@@ -50,6 +51,7 @@ export class UpdatePrice extends Component {
         })
     }
 
+    // everytime the component will change do the following
     componentDidUpdate(prevProps, prevState){
         if (prevState.services_array !== this.state.services_array) {
             this.readAddons().then((data) => {
@@ -60,14 +62,15 @@ export class UpdatePrice extends Component {
         }
     }
 
+    // the typed city will go inside "new_city" state
     handleCity = (input) => {
     this.setState({
         new_city: input.target.value
     })
 }
 
+// Will get the price from the API and update the state
 getServicePrice = (e) => {
-    // Will get the price from the API and update the state
     const priceData = {
         prices: e.target.value
     };
@@ -78,8 +81,8 @@ getServicePrice = (e) => {
     }));
 }
 
+// Will get the price from the API and update the state
 getAddonPrice = (e) => {
-    // Will get the price from the API and update the state
     const priceData = {
         addon: e.target.value
     };
@@ -89,13 +92,13 @@ getAddonPrice = (e) => {
         first_addon_price: response.data + " ₪"
     }));
 }
-
+// will insert into new_price state
 handleNewPrice = (input) => {
     this.setState({
         new_price: input.target.value
     })
 }
-
+// this sends the new price and service to api and the backend changes the price
 updatePriceForService = () => {
     this.setState({
         loading: true
@@ -129,6 +132,7 @@ updatePriceForService = () => {
         console.log(e)}
     }
 
+// this sends the new price and addon to api and the backend changes the price
 updatePriceForAddon = () => {
     this.setState({
         loading: true
@@ -161,8 +165,6 @@ updatePriceForAddon = () => {
     }
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
     const {showing} = this.state;
     const {deleting} = this.state;
     return(
