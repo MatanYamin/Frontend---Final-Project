@@ -10,8 +10,8 @@ import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner"
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 
@@ -134,7 +134,7 @@ export class PickDateAndConfirm extends Component {
                     try{
                         fetch(url + "booking", {
                             method: "POST",
-                            // mode: "no-cors",
+                            mode: "no-cors",
                             headers: {
                                 'Accept': 'application/json',
                                 'Content-Type': 'application/json'
@@ -156,7 +156,7 @@ export class PickDateAndConfirm extends Component {
 
                         .then(
                             (response) => {
-                                if(response.status === 200){
+                                if(response.status === 200 || response.status === 0){
                                     this.props.nextStep();
                                 }
                                 else{
