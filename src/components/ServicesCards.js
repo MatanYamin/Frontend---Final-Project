@@ -15,13 +15,13 @@ function ServicesCards() {
                     <ul className="cards__items">
                         <SingleService 
                         imgurl="https://i.ibb.co/VChPMLY/eco-car-wash.jpg" 
-                        name="ניקוי רכב"
-                        text="תיאור דברים שאפשר לכתוב כאן אנחנו מתמחים בניקיון הרבה דברים"
+                        name="רכב"
+                        text="טיפול במושבים/ספסלים/כסאות ועוד מגוון רחב של אפשרויות לניקוי. היכנסו לפרטים"
                         path="/Cars"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/bvFRLRg/sofa.jpg" 
-                        name="ניקוי ספות"
+                        name="ספות"
                         text="אנו מנקים את כל סוגי הספות"
                         path="/Furniture"
                         />
@@ -29,20 +29,20 @@ function ServicesCards() {
                         <ul className="cards__items">
                         <SingleService 
                         imgurl="https://i.ibb.co/VJw3B5b/carpet.jpg" 
-                        name="ניקוי שטיחים"
-                        text="אנחנו מנקים את כל סוגי השטיחים"
+                        name="שטיחים"
+                        text="אנחנו מנקים את כל סוגי השטיחים. היכנסו לקבלת פרטים נוספים"
                         path="/Rugs"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/PGVYcd6/chair.jpg" 
-                        name="ניקוי כיסאות"
-                        text="אנחנו מנקים את כל הכיסאות"
+                        name="כיסאות"
+                        text="ניקוי רחב של ספות. היכנסו לקבלת פרטים"
                         path="/Chairs"
                         />
                         <SingleService 
-                        imgurl="https://i.ibb.co/MCnJ3Mj/2947964-46.png" 
+                        imgurl="https://www.fourstar.com.sg/wp-content/uploads/2019/12/how-to-clean-your-mattress-right-during-spring-cleaning.png" 
                         name="מזרנים"
-                        text="תיאור שרות"
+                        text="ניקוי רחב של מזרנים ומיטות שונות. היכנסו לקבלת פרטים."
                         path="/Mattress"
                         />
                         </ul>

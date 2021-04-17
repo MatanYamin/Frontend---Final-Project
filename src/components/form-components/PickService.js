@@ -29,7 +29,8 @@ export class PickService extends Component {
             service_description: "",
             priceNow: "",
             Shekel: "",
-            textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך"
+            temp: "",
+            textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך. לחיצה על 'תרצו להוסיף' תפתח עבורכם עוד אפשרויות ניקוי שונות"
         }
     }
     // when component is opening do the following

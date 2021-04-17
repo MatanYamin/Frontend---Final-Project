@@ -179,7 +179,7 @@ export class PersonalDetails extends Component {
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
-            <h6><a className="red-text">העיר שלכם לא ברשימה? <a href="http://localhost:3000/contact">צרו איתנו קשר!</a> </a></h6>
+            <h6><a className="red-text">העיר שלכם לא ברשימה? <a href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</a> </a></h6>
             <h6><a className="red-text">*</a>רחוב: </h6>
             <TextField
             onChange={this.props.handleChange('address')}

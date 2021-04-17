@@ -5,8 +5,8 @@ import "react-datepicker/dist/react-datepicker.css"
 import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-// const url = "http://127.0.0.1:5000/"
 // const url = "http://3.19.66.156/"
+// const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
 
@@ -55,7 +55,8 @@ export class Addon extends Component {
             loading: true
         });
         const priceData = {
-            addon: e.target.value
+            addon: e.target.value,
+            ser: this.props.service
         };
         try{
         axios.post(url + "prices/addon", priceData)
