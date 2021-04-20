@@ -42,7 +42,8 @@ export class PickDateAndConfirm extends Component {
         };
         axios.post(url + "post/hours", day)
         .then(response => this.setState({
-            hours: response.data
+            hours: response.data,
+            loading: false
         }));
     }
 
@@ -59,7 +60,8 @@ export class PickDateAndConfirm extends Component {
     setSelectedDate = date => {
         this.setState({
             selectedDate: date,
-            temp_hour: true
+            temp_hour: true,
+            loading: true
         });
         this.get_hours(date)
     }
@@ -115,6 +117,13 @@ export class PickDateAndConfirm extends Component {
             filterDate={day => day.getDay() != 6} // for weekends
             />
             {/* "hours buttons list" */}
+            <Loader
+                    type="TailSpin"
+                    color="black"
+                    height={100}
+                    width={50}
+                    visible={this.state.loading}
+                    />
             {hours_button_list}
                 {/* <select className="service-btn"
                 onChange={this.props.handleChange('hour')}
@@ -125,13 +134,6 @@ export class PickDateAndConfirm extends Component {
                     {this.state.hours.map(hour => (
                     <option value={hour}>{hour}</option>))}
                     </select> */}
-                    <Loader
-                    type="TailSpin"
-                    color="black"
-                    height={100}
-                    width={50}
-                    visible={this.state.loading}
-                    />
             </div>
            
             {this.state.temp_hour ? 
