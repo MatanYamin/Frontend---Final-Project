@@ -119,7 +119,7 @@ export class Confirm extends Component {
                 השרות:
                 <h4>{service}  {addons}</h4>
                 המחיר:
-                <a className="red-text"><h3>{price} ₪</h3></a>
+                <a><h3>{price} ₪</h3></a>
                   הערות:    
                 <h4>{comments} </h4>
                 </div>
