@@ -16,6 +16,36 @@
     transition: opacity 0.3s;
   }
   
+.pick-hour-btn{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.6em 0.0em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    font-size: 25px;
+    color:#FFFFFF;
+    background-color:black;
+    text-align:center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.pick-hour-btn:focus{
+    background-color: #b11200;
+    /* width: 12%; */
+    transition: all 0.4s linear;
+    transform: scale(1.1);
+}
+
+.pick-hour-btn:hover{
+    background-color: #b11200;
+    transform: scale(1.1);
+    transition: all 0.4s linear;
+}
+
 .admin-panel-title{
     FONT-WEIGHT: 100;
     font-family: system-ui;
@@ -400,9 +430,7 @@
 }
 
 .react-datepicker{
-    /* background-color: #32afb5; */
     font-size: 15px;
-    width: 100%;
     border-radius: 5%;
 }
 
@@ -472,7 +500,7 @@
 
 
 .pickDateContainer{
-    background: gray;
+    /* background: gray; */
 }
 
 .confirm-wrapper{
@@ -484,6 +512,10 @@
 
 .img-customer-upload{
     width: 50%;
+}
+
+.react-datepicker{
+    /* width: 2%; */
 }
 
 .service-btn{

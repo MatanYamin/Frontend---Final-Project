@@ -24,6 +24,7 @@ export class PickDateAndConfirm extends Component {
           hours: [],
           temp_hour: false,
           loading: false,
+          clickedHour: "",
           textOnBubble: "בחלק הזה יש לבחור יום מהלוח שנה ולאחר מכן שעה מבין השעות שנותרו. אם התאריך שרציתם אינו פנוי, אנא פנו אלינו"
         };
     }
@@ -57,7 +58,8 @@ export class PickDateAndConfirm extends Component {
     // will be the selected date from calendar
     setSelectedDate = date => {
         this.setState({
-            selectedDate: date
+            selectedDate: date,
+            temp_hour: true
         });
         this.get_hours(date)
     }
@@ -72,9 +74,24 @@ export class PickDateAndConfirm extends Component {
     const {temp_hour} = this.state;
     const {loading} = this.state
     const exclude_days_array = [];
+    // const part = []
+    // part.push("matan")
+    // part.push("yamin")
+    // part.push("the")
+    // part.push("king")
     // mapping disabled dates to an array
     this.state.disable_dates.map(day => (
         exclude_days_array.push(new Date(day))));
+
+    // CHECK
+    const hours_button_list = []
+    this.state.hours.map(hour_now => (
+        hours_button_list.push(<button 
+            className="pick-hour-btn"
+            onClick={() => this.setState({ clickedHour: hour_now })}
+            >
+            {hour_now}</button>)));
+    // CHECK
     return (
         <>
         <div className="bubble-man">
@@ -82,12 +99,13 @@ export class PickDateAndConfirm extends Component {
                 <label>{this.state.textOnBubble}</label>
             </div>
         <div className="pickDateContainer">
-            <br/><br/><br/><br/>
+            <br/>
             <h3>בחרו יום</h3>
             {this.props.date}
             <DatePicker 
             locale={he}
-            autoFocus
+            // autoFocus
+            inline
             excludeDates={exclude_days_array}
             placeholderText="לחצו לבחירת תאריך"
             selected={this.state.selectedDate}
@@ -96,8 +114,9 @@ export class PickDateAndConfirm extends Component {
             minDate={new Date()}
             filterDate={day => day.getDay() != 6} // for weekends
             />
-            <br/><br/>
-                <select className="service-btn"
+            {/* "hours buttons list" */}
+            {hours_button_list}
+                {/* <select className="service-btn"
                 onChange={this.props.handleChange('hour')}
                 onInput={() => this.setState({ temp_hour: !temp_hour })}
                 >
@@ -105,7 +124,7 @@ export class PickDateAndConfirm extends Component {
                     value="nothing">בחרו שעה</option>
                     {this.state.hours.map(hour => (
                     <option value={hour}>{hour}</option>))}
-                    </select>
+                    </select> */}
                     <Loader
                     type="TailSpin"
                     color="black"
@@ -148,7 +167,7 @@ export class PickDateAndConfirm extends Component {
                                 addons: addons,
                                 comments: comments,
                                 date: this.state.selectedDate,
-                                hour: hour,
+                                hour: this.state.clickedHour,
                                 image: image,
                                 price: String(price)
                             })
