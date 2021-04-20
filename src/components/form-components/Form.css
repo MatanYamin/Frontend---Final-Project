@@ -2,6 +2,7 @@
 .form > h6{
     color:red
 }
+
 .loader {
     position: absolute;
     top: calc(50% - 4em);
@@ -96,7 +97,8 @@
 }
 
 .details-btn{
-    background: #406334;
+    /* background: #406334; */
+    background: darkslategray;
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
@@ -254,24 +256,23 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    /* width: 150px; */
-    /* height: 50%; */
-    /* width: 40%; */
-    width: fit-content;
+    /* width: fit-content; */
+    width: 100%;;
     height: fit-content;
     padding: 15px;  
-    /* background: #32afb5; */
-    background: whitesmoke;
-    /* background: rgba(0, 0, 0, 0.5); */
+    /* background: whitesmoke; */
+    background: rgba(0, 0, 0, 0.8);
     color: black;
     text-align: center;
     box-sizing: content-box;
-    border: 4px double black;
-    /* color: white; */
-    /* width: 20%; */
+    /* border: 4px double black; */
     font-size: 30px;
 }
 
+.top-pop-up-content1{
+    color: white;
+    /* background: rgba(0, 0, 0, 0.8); */
+}
 
 .last-step-btns{
     bottom: 1;
@@ -283,7 +284,6 @@
     /* position: absolute; */
     position: fixed;
 }
-
 
 .admin-btn-add{
     display:inline-block;
@@ -324,7 +324,7 @@
 
 .imgs-to-customer{
     height: 350px;
-    width: 250px;
+    width: 280px;
 }
 
 
@@ -362,7 +362,6 @@
     cursor: pointer;
 }
 
-
 .step-btn-admin:hover{
     /* border-bottom: 5px solid #fff; */
     transition: all 0.8s ease-out;
@@ -383,7 +382,6 @@
     text-align: center;
     font-size: large;
 }
-
 
 .del-city-drp-down{
     background: red;
@@ -462,14 +460,14 @@
     width: 30%;
 }
 
-
 .personal-wrapper{
     display: inline-grid;
-    background-color: lightyellow;
+    /* background-color: lightyellow; */
     padding: 25px;
     border-radius: 20px;
     margin-top: 5px;
     width: 70%;
+    text-align-last: center;
 }
 
 .confirm-wrapper{
@@ -525,7 +523,8 @@
  }
 
  .addon-btn{
-    background: #406334;
+    /* background: #406334; */
+    background: darkslategray;
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
@@ -601,6 +600,7 @@
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
+        /* transition: all 5.8s ease-out; */
         /* width: 100px; */
         /* height: auto; */
         width: fit-content;

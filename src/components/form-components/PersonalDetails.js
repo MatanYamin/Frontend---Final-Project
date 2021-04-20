@@ -16,8 +16,6 @@ export class PersonalDetails extends Component {
     constructor(props){
         super(props);
         this.state = {
-            value: "",
-            dig: "",
             cities: [],
             loading: false,
             mailValue: "",
@@ -27,8 +25,8 @@ export class PersonalDetails extends Component {
             goodEmail: "",
             goodPhone: "",
             badPhone: "",
-            tempPhone: "",
-            image: ""
+            image: "",
+            checkPhone: ""
         };
         this.uploadToS3 = this.uploadToS3.bind(this);
         // this.onlyDigit = this.onlyDigit.bind(this)
@@ -105,13 +103,31 @@ export class PersonalDetails extends Component {
             this.setState({goodEmail: ""});
             this.setState({wrongEmail: ""});
         }
-        if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === false && e.target.value !== ""){
+        // check if email is valid
+        if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === true && e.target.value !== ""){
+                this.setState({wrongEmail: ""});
+                this.setState({goodEmail: "כתובת תקינה"});
+            }
+        else{
             this.setState({wrongEmail: "כתובת לא תקינה"});
             this.setState({goodEmail: ""});
         }
-        else if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === true && e.target.value !== ""){
-            this.setState({wrongEmail: ""});
-            this.setState({goodEmail: "כתובת תקינה"});
+    }
+
+    // check if the input is only digits
+    validPhone(e){
+        this.setState({checkPhone: e.target.value});
+        if(!/^\d+$/.test(e.target.value)){
+            alert("ניתן להקליד ספרות בלבד");
+            this.setState({checkPhone: ""});
+        }
+        if(e.target.value.length < 7){
+            this.setState({badPhone: "מספר קצר מידי"});
+            this.setState({goodPhone: ""});
+        }
+        else{
+            this.setState({badPhone: ""});
+            this.setState({goodPhone: "מספר תקין"});
         }
     }
 
@@ -130,7 +146,6 @@ export class PersonalDetails extends Component {
     }
     return (
         <div>
-            {/* <h1>פרטים אישיים</h1> */}
             <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
             <h6><a className="red-text">*</a>שם פרטי: </h6>
@@ -164,8 +179,9 @@ export class PersonalDetails extends Component {
             <h6><a className="green-text">{this.state.goodEmail}</a></h6>
             <h6><a className="red-text">*</a>טלפון:</h6>
             <TextField
-            placeholder={this.state.dig}
             onChange={this.props.handleChange("phone")}
+            onInput={(e) => {this.validPhone(e)}}
+            value={this.state.checkPhone}
             />
             <h6><a className="red-text">{this.state.badPhone}</a></h6>
             <h6><a className="green-text">{this.state.goodPhone}</a></h6>

@@ -5,8 +5,8 @@ import ExportCSVpage from "./ExportCSVpage"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class ShowBookings extends Component {

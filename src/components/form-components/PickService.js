@@ -10,8 +10,8 @@ import 'reactjs-popup/dist/index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class PickService extends Component {
@@ -141,9 +141,11 @@ export class PickService extends Component {
             open={openPopUp}
             onOpen={() => this.setState({ openPopUp: !openPopUp })}>
                 <div class="pop-up-content1">
+                    <br/>
+                    <div class="top-pop-up-content1">
+                     <h6>לא בטוחים במשהו? <a href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</a></h6>
                     <button className="details-btn" onClick={() => this.setState({ openPopUp: !openPopUp })}>סגירה</button>
-                    <br/><br/>
-                     <h6>לא בטוחים במשהו? <a href="http://localhost:3000/contact">צרו איתנו קשר!</a></h6> <br/>
+                     </div>
               {this.state.imagesArray.map(img => (
                 <img className="imgs-to-customer" src={img} />))}
                     </div>
