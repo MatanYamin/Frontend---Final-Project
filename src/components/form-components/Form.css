@@ -470,6 +470,11 @@
     text-align-last: center;
 }
 
+
+.pickDateContainer{
+    background: gray;
+}
+
 .confirm-wrapper{
     /* background-color: lightyellow; */
     /* left: 50%; */

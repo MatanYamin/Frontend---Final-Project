@@ -73,16 +73,16 @@ export class PickDateAndConfirm extends Component {
     const {loading} = this.state
     const exclude_days_array = [];
     // mapping disabled dates to an array
-    this.state.disable_dates.map(service => (
-        exclude_days_array.push(new Date(service))));
+    this.state.disable_dates.map(day => (
+        exclude_days_array.push(new Date(day))));
     return (
         <>
         <div className="bubble-man">
         <div class="text-on-bubble">
                 <label>{this.state.textOnBubble}</label>
             </div>
-        <div>
-            <br/>
+        <div className="pickDateContainer">
+            <br/><br/><br/><br/>
             <h3>בחרו יום</h3>
             {this.props.date}
             <DatePicker 
@@ -96,7 +96,7 @@ export class PickDateAndConfirm extends Component {
             minDate={new Date()}
             filterDate={day => day.getDay() != 6} // for weekends
             />
-            <br/><br/><br/><br/>
+            <br/><br/>
                 <select className="service-btn"
                 onChange={this.props.handleChange('hour')}
                 onInput={() => this.setState({ temp_hour: !temp_hour })}
