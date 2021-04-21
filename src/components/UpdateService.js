@@ -4,8 +4,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 import ReactS3 from "react-s3"
 import config from "../configur"
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdateService extends Component {
@@ -227,7 +227,7 @@ render() {
            {/*  */}
            <label>כתובת של תמונה</label>
            <input autoComplete="off"
-        //    value={this.state.description}
+           value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
             />
             <img className="img-show_form" src={this.state.image} />

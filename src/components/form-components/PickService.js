@@ -10,8 +10,8 @@ import 'reactjs-popup/dist/index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class PickService extends Component {
@@ -25,12 +25,14 @@ export class PickService extends Component {
             loading: false,
             showDescription: false,
             openPopUp: false,
+            serviceOrAddon: true,
             first_price: '',
             ser: "",
             service_description: "",
             priceNow: "",
             Shekel: "",
             temp: "",
+            imageService: "",
             textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך. לחיצה על 'תרצו להוסיף' תפתח עבורכם עוד אפשרויות ניקוי שונות"
         }
     }
@@ -59,7 +61,7 @@ export class PickService extends Component {
             this.props.handlePrice(this.state.first_price);
             this.state.showing= false;
             this.setState({
-                priceNow: " המחיר ",
+                priceNow: " המחיר: ",
                 Shekel: "₪"
             })
           }
@@ -94,6 +96,12 @@ export class PickService extends Component {
         })
     }
 
+    keepImage = input => {
+        this.setState({
+            imageService: input
+        })
+    }
+
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
         event.preventDefault();
@@ -103,32 +111,29 @@ export class PickService extends Component {
         const {values} = this.props; //values is all the props we passed to the component
         const {showing} = this.state;
         const {openPopUp} = this.state;
-        const services_button_list = []
+        const {serviceOrAddon} = this.state;
+        const services_button_list = [];
         this.state.service_array.map(service_now => (
             services_button_list.push(
             <>
-            {/* <img src="https://www.w3schools.com/howto/img_snow.jpg" /> */}
-            {/* <div> */}
             <img src={service_now[1]} />
             <button 
-            // class="btn"
             className="btn-on-image"
             value={service_now[0]}
-            // className="pick-hour-btn"
             onClick={() => {
                 this.setPrice(service_now[0]);
-                this.props.handleService(service_now[0])
+                this.props.handleService(service_now[0]);
+                this.keepImage(service_now[1]);
+                this.setState({
+                    serviceOrAddon: !serviceOrAddon
+                })
             }}
-            // onInput={this.props.handleService(service_now)}
             >
             {service_now[0]} 
             </button>
-            {/* <img src={service_now[1]} /> */}
-            {/* </div> */}
             </>
             ),
             services_button_list.push(" ")
-            
             )
             );
         return (
@@ -152,7 +157,12 @@ export class PickService extends Component {
             <option value={service}>{service}</option>))}
             </select> */}
             <div className="service-btn-container">
-            {services_button_list}
+            {serviceOrAddon ? <> {services_button_list}</> : <>
+            <label>{values.service}</label>
+            <br/>
+            <img src={this.state.imageService} />
+             </>}
+            
             </div>
             <Loader
             type="TailSpin"
@@ -161,7 +171,6 @@ export class PickService extends Component {
             width={50}
             visible={this.state.loading}
             />
-            {/* &nbsp;<i class="far fa-hand-point-down" /> */}
             </div>
             {this.state.showDescription ?
             <>
@@ -169,7 +178,7 @@ export class PickService extends Component {
             <br/>
             <Popup 
             className="check-me" 
-            trigger={<button className="details-btn">לצפיה בתמונות <i class="fas fa-images"></i></button>}
+            trigger={<button className="details-btn">לצפייה בתמונות <i class="fas fa-images"></i></button>}
             on="click"
             open={openPopUp}
             onOpen={() => this.setState({ openPopUp: !openPopUp })}>
@@ -184,11 +193,14 @@ export class PickService extends Component {
                     </div>
             </Popup>
             <br/><br/>
-            <button className="addon-btn" onClick={() => this.setState({ showing: !showing })}>תרצו להוסיף?</button>
+            <button className="addon-btn" onClick={() => this.setState({ 
+                showing: !showing
+                 })}>לחצו לצפייה בשירותים לסוג שבחרתם</button>
             <br/>
             <br/>
             {this.state.showing ?
             // Addon is a compontnet that holds all Addons services and prices
+            <>
             <Addon 
             addons={this.props.addons}
             service={values.service}
@@ -200,10 +212,15 @@ export class PickService extends Component {
             handleShow={this.handleShow}
             handleAddon={this.props.handleAddon}
             />
+            <button className="addon-btn" onClick={() => this.setState({ 
+                serviceOrAddon: !serviceOrAddon,
+                showing: !showing })}>ביטול</button>
+            </>
             :<>
             {this.state.priceNow}
             <b>{this.state.first_price} </b>
             {this.state.Shekel}
+            
             </>
             }
             </>

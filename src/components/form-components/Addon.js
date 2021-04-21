@@ -18,7 +18,8 @@ export class Addon extends Component {
             addon_array: [],
             loading: false,
             second_price: '',
-            shekel: ""
+            shekel: "",
+            nothingToShow: "נראה שאין כרגע מה להוסיף לשירות זה"
         }
     }
     // when the component is open, do the following
@@ -79,10 +80,10 @@ export class Addon extends Component {
         this.state.addon_array.map(addon_now => (
             addons_button_list.push(<><button 
             value={addon_now}
-            className="pick-hour-btn"
+            className="pick-addon-btn"
             onClick={() => {
                 this.addonPrice(addon_now);
-                this.props.handleAddon(addon_now)
+                this.props.handleAddon(addon_now);
             }}
             // onInput={this.props.handleService(service_now)}
             >
@@ -91,15 +92,11 @@ export class Addon extends Component {
             // services_button_list.push()
             )
             );
+           
+            
         return(
             <div>
-                <Loader
-                type="TailSpin"
-                color="black"
-                height={100}
-                width={50}
-                visible={this.state.loading}
-                />
+                
             {/* <select 
             class="addon-btn"
             onChange={this.props.handleChange('addons')}
@@ -109,11 +106,21 @@ export class Addon extends Component {
             {this.state.addon_array.map(addon => (
             <option value={addon}>{addon}</option>))}
             </select> */}
+            <img src={this.props.imageService} />
             {addons_button_list}
-            <br/><br/>
-            <b>{this.props.firstPrice} ₪+{this.state.second_price} {this.state.shekel}</b>
+            {/* <br/><br/> */}
             <br/>
-            <button className={"cancelAddon"} onClick={this.handleClick}> הסתר תוספים</button>
+            {/* <br/> */}
+            {this.state.addon_array.length > 1 ? <>{this.props.firstPrice} ₪ + <b>{this.state.second_price} {this.state.shekel}</b></> : <><b>₪{this.props.firstPrice}</b><br/> <label>{this.state.nothingToShow}</label></>}
+            
+            {/* <button className={"cancelAddon"} onClick={this.handleClick}> הסתר תוספים</button> */}
+            <Loader
+                type="TailSpin"
+                color="black"
+                height={100}
+                width={50}
+                visible={this.state.loading}
+                />
             </div>
         );
     }

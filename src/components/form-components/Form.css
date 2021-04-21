@@ -65,6 +65,47 @@
     transition: opacity 0.3s;
   }
   
+.pick-addon-btn{
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.6em 0.0em 0;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    font-size: 15px;
+    color:#FFFFFF;
+    background-color:lightslategrey;
+    text-align:center;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.pick-addon-btn:focus{
+    background-color: #b11200;
+    transition: all 0.4s linear;
+    transform: scale(1.1);
+}
+
+.pick-addon-btn:hover{
+    background-color: #b11200;
+    transition: all 0.4s linear;
+    transform: scale(1.1);
+}
+
+.pick-addon-btn:active{
+    background-color: #b11200;
+    transition: all 0.4s linear;
+    transform: scale(1.1);
+}
+
+.pick-addon-btn:target{
+    background-color: #b11200;
+    transition: all 0.4s linear;
+    transform: scale(1.1);
+}
+
 .pick-hour-btn{
     display:inline-block;
     padding:0.3em 1.2em;
@@ -195,9 +236,9 @@
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 10px;
+    /* -webkit-border-radius: 20px; */
+    /* -moz-border-radius: 20px; */
+    /* border-radius: 10px; */
     color: #FFFFFF;
     /* font-family: Brush Script MT; */
     font-size: 15px;
@@ -315,7 +356,7 @@
   }
 
   .text-on-bubble{
-      left: 11%;
+      left: 14%;
       width: 20%;
       position: absolute;
       margin-top: 67px;
@@ -626,18 +667,18 @@
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 10px;
+    /* -webkit-border-radius: 20px; */
+    /* -moz-border-radius: 20px; */
+    /* border-radius: 10px; */
     color: #FFFFFF;
     font-family: Brush Script MT;
     font-size: 20px;
     font-weight: 100;
     padding: 10px;
-    -webkit-box-shadow: 1px 1px 20px 0 #000000;
-    -moz-box-shadow: 1px 1px 20px 0 #000000;
-    box-shadow: 1px 1px 20px 0 #000000;
-    text-shadow: 1px 1px 20px #000000;
+    /* -webkit-box-shadow: 1px 1px 20px 0 #000000; */
+    /* -moz-box-shadow: 1px 1px 20px 0 #000000; */
+    /* box-shadow: 1px 1px 20px 0 #000000; */
+    /* text-shadow: 1px 1px 20px #000000; */
     border: solid #337FED 1px;
     text-decoration: none;
     display: inline-block;
@@ -716,8 +757,9 @@
       }
 
       .pick-service-containet{
-        position: relative;
-        display: inline-grid;
+        /* position: relative; */
+        /* display: inline-grid; */
+        display: contents;
         /* background-color: lightyellow; */
         padding: 25px;
         width: 70%;
