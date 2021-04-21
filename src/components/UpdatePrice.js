@@ -3,9 +3,9 @@ import { Component } from "react"
 import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-// const url = "http://127.0.0.1:5000/"
 // const url = "http://3.19.66.156/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdatePrice extends Component {
@@ -82,7 +82,8 @@ getServicePrice = (e) => {
 // Will get the price from the API and update the state
 getAddonPrice = (e) => {
     const priceData = {
-        addon: e.target.value
+        addon: e.target.value,
+
     };
     axios.post(url + "prices/addon", priceData)
     .then(response => this.setState(
