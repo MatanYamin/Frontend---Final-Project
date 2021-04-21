@@ -33,6 +33,7 @@ export class PickService extends Component {
             Shekel: "",
             temp: "",
             imageService: "",
+            titleService: "בחרו את השירות המבוקש",
             textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך. לחיצה על 'תרצו להוסיף' תפתח עבורכם עוד אפשרויות ניקוי שונות"
         }
     }
@@ -84,7 +85,8 @@ export class PickService extends Component {
             showDescription: true,
             textOnBubble: response.data[1],
             imagesArray: response.data[2],
-            loading: false
+            loading: false,
+            titleService: ""
         }));}
         catch(e) {
             console.log(e)}
@@ -143,6 +145,9 @@ export class PickService extends Component {
                 <label>{this.state.textOnBubble}</label>
             </div>
              <div className="pick-service-containet">
+                <div className="pick-service-headline">
+                <h1>{this.state.titleService}</h1>
+                </div>
             <br/>
             <div className="pick-ser-select-btn">
             {/* <select
@@ -154,7 +159,7 @@ export class PickService extends Component {
             <div className="background-img"></div>
             <option value="nothing">בחרו שירות </option>
             {this.state.service_array.map(service => (
-            <option value={service}>{service}</option>))}
+                <option value={service}>{service}</option>))}
             </select> */}
             <div className="service-btn-container">
             {serviceOrAddon ? <> {services_button_list}</> : <>
@@ -198,6 +203,7 @@ export class PickService extends Component {
                  })}>לחצו לצפייה בשירותים לסוג שבחרתם</button>
             <br/>
             <br/>
+                 
             {this.state.showing ?
             // Addon is a compontnet that holds all Addons services and prices
             <>
@@ -212,9 +218,11 @@ export class PickService extends Component {
             handleShow={this.handleShow}
             handleAddon={this.props.handleAddon}
             />
-            <button className="addon-btn" onClick={() => this.setState({ 
+            <button className="addon-btn-cancel" onClick={() => this.setState({ 
                 serviceOrAddon: !serviceOrAddon,
-                showing: !showing })}>ביטול</button>
+                showing: !showing,
+                titleService: "בחרו את השירות המבוקש"
+                 })}>ביטול</button>
             </>
             :<>
             {this.state.priceNow}
@@ -223,6 +231,16 @@ export class PickService extends Component {
             
             </>
             }
+            <br/>
+            <br/>
+            <button
+                 className="addon-btn-cancel"
+                 onClick={() => this.setState({ 
+                    serviceOrAddon: !serviceOrAddon,
+                    showDescription: !this.state.showDescription
+                     })}
+                 >ביטול</button>
+                 <br/>
             </>
             :
             null

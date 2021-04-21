@@ -5,12 +5,12 @@
 
 .btn-on-image{
     position: absolute;
-    margin-right: -30%;
+    margin-right: -32%;
     /* margin-top: 1%; */
-    background-color: #555;
+    background-color: #e6e3e3;
+    font-weight: bold;
     /* height: 10%; */
     
-    color: white;
     /* transform: translate(-50%, -50%); */
     /* -ms-transform: translate(-50%, -50%); */
     padding: 10px 20px;
@@ -28,8 +28,13 @@
 }
 /* Make the image responsive */
 .service-btn-container img {
-    width: 30%;
+    width: 32%;
     /* height: auto; */
+  }
+
+  .service-btn-container img:hover{
+    transition: all 0.6s linear;
+      transform: scale(1.05);
   }
   
   /* Style the button and place it in the middle of the container/image */
@@ -67,7 +72,7 @@
   
 .pick-addon-btn{
     display:inline-block;
-    padding:0.3em 1.2em;
+    padding: 0.6em 1.3em;
     margin:0 0.6em 0.0em 0;
     border-radius:2em;
     box-sizing: border-box;
@@ -76,26 +81,31 @@
     font-weight:300;
     font-size: 15px;
     color:#FFFFFF;
-    background-color:lightslategrey;
+    background-color:#32afb5;
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
 }
 
 .pick-addon-btn:focus{
-    background-color: #b11200;
+    background-color: #84dc84;
     transition: all 0.4s linear;
     transform: scale(1.1);
 }
 
+.pick-service-headline{
+    display: flex;
+    margin-right: 8px;
+}
+
 .pick-addon-btn:hover{
-    background-color: #b11200;
+    background-color: #84dc84;
     transition: all 0.4s linear;
     transform: scale(1.1);
 }
 
 .pick-addon-btn:active{
-    background-color: #b11200;
+    background-color: #84dc84;
     transition: all 0.4s linear;
     transform: scale(1.1);
 }
@@ -229,8 +239,8 @@
 }
 
 .details-btn{
-    /* background: #406334; */
-    background: darkslategray;
+    background: #84dc84;
+    /* background: darkslategray; */
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
@@ -349,15 +359,16 @@
   }
 
   .bubble-man{
-    background-image: url("https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg");
+    background-image: url(https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg);
     background-repeat: no-repeat, repeat;
-    background-size: 480px 500px;
+    background-size: 588px 581px;
     height: 86vh;
+    margin-top: 0px;
   }
 
   .text-on-bubble{
-      left: 11%;
-      width: 20%;
+      left: 15%;
+      width: 15%;
       position: absolute;
       margin-top: 67px;
       font-size: 17px;
@@ -569,7 +580,7 @@
 
 
 .img-show_form{
-    /* width: 40%; */
+    width: 100%;
 }
 
 .img-confirm{
@@ -659,19 +670,41 @@
     text-decoration: none;
  }
 
- .addon-btn{
-    /* background: #406334; */
-    background: darkslategray;
+.addon-btn-cancel{
+    background: #b11200;
+    /* background: darkslategray; */
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-    /* -webkit-border-radius: 20px; */
-    /* -moz-border-radius: 20px; */
-    /* border-radius: 10px; */
     color: #FFFFFF;
-    font-family: Brush Script MT;
+    /* font-family: Brush Script MT; */
+    font-size: 20px;
+    font-weight: 100;
+    padding: 10px;
+    /* -webkit-box-shadow: 1px 1px 20px 0 #000000; */
+    /* -moz-box-shadow: 1px 1px 20px 0 #000000; */
+    /* box-shadow: 1px 1px 20px 0 #000000; */
+    /* text-shadow: 1px 1px 20px #000000; */
+    border: solid #337FED 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+ .addon-btn{
+    background: #84dc84;
+    /* background: darkslategray; */
+    background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+    background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+    color: #FFFFFF;
+    /* font-family: Brush Script MT; */
     font-size: 20px;
     font-weight: 100;
     padding: 10px;
@@ -687,16 +720,16 @@
  }
  
  .addon-btn:hover {
-    border: solid #337FED 1px;
-    background: #a85e57;
+    /* border: solid #337FED 1px; */
+    background: rgb(108, 136, 108);
     background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
     background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
     background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
     background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
     background-image: -webkit-gradient(to bottom, #1E62D0, #3D94F6);
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    /* -webkit-border-radius: 20px; */
+    /* -moz-border-radius: 20px; */
+    /* border-radius: 20px; */
     text-decoration: none;
  }
 
