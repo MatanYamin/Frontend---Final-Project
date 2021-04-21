@@ -76,16 +76,10 @@ export class PickDateAndConfirm extends Component {
     const {temp_hour} = this.state;
     const {loading} = this.state
     const exclude_days_array = [];
-    // const part = []
-    // part.push("matan")
-    // part.push("yamin")
-    // part.push("the")
-    // part.push("king")
     // mapping disabled dates to an array
     this.state.disable_dates.map(day => (
         exclude_days_array.push(new Date(day))));
-
-    // CHECK
+    // hours_button_list will hold all the available hours as buttons
     const hours_button_list = []
     this.state.hours.map(hour_now => (
         hours_button_list.push(<button 
@@ -93,7 +87,6 @@ export class PickDateAndConfirm extends Component {
             onClick={() => this.setState({ clickedHour: hour_now })}
             >
             {hour_now}</button>)));
-    // CHECK
     return (
         <>
         <div className="bubble-man">
@@ -124,6 +117,7 @@ export class PickDateAndConfirm extends Component {
                     width={50}
                     visible={this.state.loading}
                     />
+            <br/>
             {hours_button_list}
                 {/* <select className="service-btn"
                 onChange={this.props.handleChange('hour')}

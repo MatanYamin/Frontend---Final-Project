@@ -4,8 +4,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 import ReactS3 from "react-s3"
 import config from "../configur"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdateService extends Component {
@@ -49,9 +49,7 @@ export class UpdateService extends Component {
                 categories_array: data
             })
         })
-    
     }
-
     // after detecting changes in state, we will bring now all services from the API
     componentDidUpdate(prevProps, prevState){
         if (prevState.categories_array !== this.state.categories_array) {
@@ -80,6 +78,12 @@ export class UpdateService extends Component {
     handleDescription = (input) => {
         this.setState({
             description: input.target.value
+        })
+    }
+    // upload image by url
+    handleImageUrl = (input) => {
+        this.setState({
+            image: input.target.value
         })
     }
     // this uploads the image to the S3 aws
@@ -124,7 +128,8 @@ export class UpdateService extends Component {
                             loading: false,
                             service_name: "",
                             description: "",
-                            price: ""
+                            price: "",
+                            image: ""
                         });
                     }
                     else{
@@ -207,8 +212,8 @@ render() {
            {/*  */}
            <div>
             {/* After the img will upload succesfully, we will se the image */}
-            <img className="img-show_form" src={this.state.image} />
             <h1>העלה תמונה</h1>
+            <br/>
             <input type="file" onChange={this.uploadToS3} />
           </div>
                     <br/>
@@ -220,6 +225,12 @@ render() {
                     visible={this.state.loading}
                     />
            {/*  */}
+           <label>כתובת של תמונה</label>
+           <input autoComplete="off"
+        //    value={this.state.description}
+           onChange={(e) => {this.handleImageUrl(e)}}
+            />
+            <img className="img-show_form" src={this.state.image} />
             <div className="btnContainer">
                 <button className="step-btn-admin"
                 // Post request for adding service

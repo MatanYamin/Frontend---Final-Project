@@ -74,6 +74,18 @@ export class BookForm extends Component {
         })
     }
 
+    handleService = input => {
+        this.setState({
+            service: input
+        })
+    }
+
+    handleAddon = input => {
+        this.setState({
+            addons: input
+        })
+    }
+
     handlePhone = input => {
         this.setState({
             phone: input
@@ -125,6 +137,8 @@ export class BookForm extends Component {
                     page={this.props.page}
                     handlePrice={this.handlePrice}
                     clearStates={this.clearStates}
+                    handleService={this.handleService}
+                    handleAddon={this.handleAddon}
                     />
                     </>
                 )

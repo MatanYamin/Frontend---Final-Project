@@ -10,8 +10,8 @@ import 'reactjs-popup/dist/index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class PickService extends Component {
@@ -20,6 +20,7 @@ export class PickService extends Component {
         this.state = {
             service_array: [],
             imagesArray: [],
+            servicesImages: [],
             showing: false,
             loading: false,
             showDescription: false,
@@ -46,6 +47,7 @@ export class PickService extends Component {
         axios.post(url + "services", postData)
         .then(response => this.setState({
             service_array: response.data,
+            // servicesImages: response.data[1],
             loading: false
         }));}
         catch(e) {
@@ -69,7 +71,7 @@ export class PickService extends Component {
             loading: true
         });
         const priceData = {
-            service: e.target.value
+            service: e
         };
         try{
         axios.post(url + "prices", priceData)
@@ -101,6 +103,34 @@ export class PickService extends Component {
         const {values} = this.props; //values is all the props we passed to the component
         const {showing} = this.state;
         const {openPopUp} = this.state;
+        const services_button_list = []
+        this.state.service_array.map(service_now => (
+            services_button_list.push(
+            <>
+            {/* <img src="https://www.w3schools.com/howto/img_snow.jpg" /> */}
+            {/* <div> */}
+            <img src={service_now[1]} />
+            <button 
+            // class="btn"
+            className="btn-on-image"
+            value={service_now[0]}
+            // className="pick-hour-btn"
+            onClick={() => {
+                this.setPrice(service_now[0]);
+                this.props.handleService(service_now[0])
+            }}
+            // onInput={this.props.handleService(service_now)}
+            >
+            {service_now[0]} 
+            </button>
+            {/* <img src={service_now[1]} /> */}
+            {/* </div> */}
+            </>
+            ),
+            services_button_list.push(" ")
+            
+            )
+            );
         return (
             <>
             <div className="bubble-man">
@@ -110,18 +140,20 @@ export class PickService extends Component {
              <div className="pick-service-containet">
             <br/>
             <div className="pick-ser-select-btn">
-            <select
+            {/* <select
             defaultValue={this.props.service}
             class="service-btn"
             onChange={this.props.handleChange("service")}
             onInput={(e) => {this.setPrice(e)}}
             >
-            {/*Showing all services with "map" inside select */}
             <div className="background-img"></div>
             <option value="nothing">בחרו שירות </option>
             {this.state.service_array.map(service => (
             <option value={service}>{service}</option>))}
-            </select>
+            </select> */}
+            <div className="service-btn-container">
+            {services_button_list}
+            </div>
             <Loader
             type="TailSpin"
             color="black"
@@ -129,11 +161,12 @@ export class PickService extends Component {
             width={50}
             visible={this.state.loading}
             />
-            &nbsp;<i class="far fa-hand-point-down" />
+            {/* &nbsp;<i class="far fa-hand-point-down" /> */}
             </div>
             {this.state.showDescription ?
             <>
             &nbsp;&nbsp;
+            <br/>
             <Popup 
             className="check-me" 
             trigger={<button className="details-btn">לצפיה בתמונות <i class="fas fa-images"></i></button>}
@@ -165,6 +198,7 @@ export class PickService extends Component {
             handlePrice={this.props.handlePrice}
             showing={this.state.showing}
             handleShow={this.handleShow}
+            handleAddon={this.props.handleAddon}
             />
             :<>
             {this.state.priceNow}

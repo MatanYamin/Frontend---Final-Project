@@ -6,8 +6,8 @@ import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class Addon extends Component {
@@ -55,7 +55,7 @@ export class Addon extends Component {
             loading: true
         });
         const priceData = {
-            addon: e.target.value,
+            addon: e,
             ser: this.props.service
         };
         try{
@@ -75,6 +75,22 @@ export class Addon extends Component {
 
     render(){
         const {values} = this.props; //values is all the props we passed to the component
+        const addons_button_list = []
+        this.state.addon_array.map(addon_now => (
+            addons_button_list.push(<><button 
+            value={addon_now}
+            className="pick-hour-btn"
+            onClick={() => {
+                this.addonPrice(addon_now);
+                this.props.handleAddon(addon_now)
+            }}
+            // onInput={this.props.handleService(service_now)}
+            >
+            {addon_now} </button></>)
+            // services_button_list.push(" ")
+            // services_button_list.push()
+            )
+            );
         return(
             <div>
                 <Loader
@@ -84,7 +100,7 @@ export class Addon extends Component {
                 width={50}
                 visible={this.state.loading}
                 />
-            <select 
+            {/* <select 
             class="addon-btn"
             onChange={this.props.handleChange('addons')}
             onInput={(e) => {this.addonPrice(e)}}
@@ -92,7 +108,8 @@ export class Addon extends Component {
             <option value="nothing">בחרו מה להוסיף</option>
             {this.state.addon_array.map(addon => (
             <option value={addon}>{addon}</option>))}
-            </select>
+            </select> */}
+            {addons_button_list}
             <br/><br/>
             <b>{this.props.firstPrice} ₪+{this.state.second_price} {this.state.shekel}</b>
             <br/>
