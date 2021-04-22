@@ -115,10 +115,21 @@ export class PickService extends Component {
         const {openPopUp} = this.state;
         const {serviceOrAddon} = this.state;
         const services_button_list = [];
+        const titles = []
         this.state.service_array.map(service_now => (
             services_button_list.push(
             <>
-            <img src={service_now[1]} />
+            <img
+            onClick={() => {
+                this.setPrice(service_now[0]);
+                this.props.handleService(service_now[0]);
+                this.keepImage(service_now[1]);
+                this.setState({
+                    serviceOrAddon: !serviceOrAddon
+                })
+            }} 
+            src={service_now[1]} />
+            
             <button 
             className="btn-on-image"
             value={service_now[0]}
@@ -138,6 +149,7 @@ export class PickService extends Component {
             services_button_list.push(" ")
             )
             );
+            
         return (
             <>
             <div className="bubble-man">
@@ -162,7 +174,9 @@ export class PickService extends Component {
                 <option value={service}>{service}</option>))}
             </select> */}
             <div className="service-btn-container">
-            {serviceOrAddon ? <> {services_button_list}</> : <>
+            {serviceOrAddon ? <>
+            {services_button_list}
+            </> : <>
             <label>{values.service}</label>
             <br/>
             <img src={this.state.imageService} />
@@ -218,11 +232,11 @@ export class PickService extends Component {
             handleShow={this.handleShow}
             handleAddon={this.props.handleAddon}
             />
-            <button className="addon-btn-cancel" onClick={() => this.setState({ 
+            {/* <button className="addon-btn-cancel" onClick={() => this.setState({ 
                 serviceOrAddon: !serviceOrAddon,
                 showing: !showing,
                 titleService: "בחרו את השירות המבוקש"
-                 })}>ביטול</button>
+                 })}>ביטול</button> */}
             </>
             :<>
             {this.state.priceNow}
@@ -237,7 +251,9 @@ export class PickService extends Component {
                  className="addon-btn-cancel"
                  onClick={() => this.setState({ 
                     serviceOrAddon: !serviceOrAddon,
-                    showDescription: !this.state.showDescription
+                    showDescription: !this.state.showDescription,
+                    textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך. לחיצה על 'תרצו להוסיף' תפתח עבורכם עוד אפשרויות ניקוי שונות"
+
                      })}
                  >ביטול</button>
                  <br/>
