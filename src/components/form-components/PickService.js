@@ -133,14 +133,14 @@ export class PickService extends Component {
             <button 
             className="btn-on-image"
             value={service_now[0]}
-            onClick={() => {
-                this.setPrice(service_now[0]);
-                this.props.handleService(service_now[0]);
-                this.keepImage(service_now[1]);
-                this.setState({
-                    serviceOrAddon: !serviceOrAddon
-                })
-            }}
+            // onClick={() => {
+            //     this.setPrice(service_now[0]);
+            //     this.props.handleService(service_now[0]);
+            //     this.keepImage(service_now[1]);
+            //     this.setState({
+            //         serviceOrAddon: !serviceOrAddon
+            //     })
+            // }}
             >
             {service_now[0]} 
             </button>
