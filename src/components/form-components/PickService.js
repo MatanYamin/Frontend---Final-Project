@@ -133,14 +133,14 @@ export class PickService extends Component {
             <button 
             className="btn-on-image"
             value={service_now[0]}
-            // onClick={() => {
-            //     this.setPrice(service_now[0]);
-            //     this.props.handleService(service_now[0]);
-            //     this.keepImage(service_now[1]);
-            //     this.setState({
-            //         serviceOrAddon: !serviceOrAddon
-            //     })
-            // }}
+            onClick={() => {
+                this.setPrice(service_now[0]);
+                this.props.handleService(service_now[0]);
+                this.keepImage(service_now[1]);
+                this.setState({
+                    serviceOrAddon: !serviceOrAddon
+                })
+            }}
             >
             {service_now[0]} 
             </button>
@@ -173,16 +173,17 @@ export class PickService extends Component {
             {this.state.service_array.map(service => (
                 <option value={service}>{service}</option>))}
             </select> */}
-            <div className="service-btn-container">
             {serviceOrAddon ? <>
+            <div className="service-btn-container">
             {services_button_list}
+            </div>
             </> : <>
             <label>{values.service}</label>
             <br/>
-            <img src={this.state.imageService} />
+            <img width="50%"
+            src={this.state.imageService} />
              </>}
             
-            </div>
             <Loader
             type="TailSpin"
             color="black"

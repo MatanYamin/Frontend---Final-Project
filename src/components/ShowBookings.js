@@ -66,6 +66,8 @@ render() {
                      <th>מחיר</th>
                      <th>הערות</th>
                      <th>ID</th>
+                     <th>מחיקה</th>
+                     <th>אישור תור</th>
                 </tr>
                  </thead>
                  <tbody>
@@ -94,9 +96,9 @@ render() {
                      <td>{rowData[9]}</td>
                      {/* מס' מזהה */}
                      <td>{rowData[0]}</td> 
-                     <th>
+                     <td>
                      <button 
-                    className="del-booking"
+                    className="delet-btn-show-booking"
                     onClick={() => 
                         {
                             this.setState({
@@ -130,8 +132,11 @@ render() {
                                 console.log(e)}
                             }
                             }
-                    >מחיקה <i class="fas fa-trash-alt"></i></button>
-                     <button className="confirm-booking"
+                    > <i class="fas fa-trash-alt"></i></button>
+                    </td>
+                    <td>
+                     <button 
+                     className="confirm-show-booking"
                      onClick={() => 
                         {
                             this.setState({
@@ -163,9 +168,9 @@ render() {
                                 console.log(e)}
                             }
                             }
-                     >אישור תור <i class="fas fa-check-circle"></i></button>
+                     ><i class="fas fa-check-circle"></i></button>
                      
-                     </th>
+                     </td>
                  </tr>
                 ))}
                 </tbody>

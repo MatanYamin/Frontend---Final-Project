@@ -80,6 +80,7 @@ render() {
             <div className="admin-date">
             <DatePicker 
             locale={he}
+            inline
             // autoFocus
             placeholderText="לחץ לבחירת יום לחסום"
             selected={this.state.selectedDate}
@@ -144,6 +145,7 @@ render() {
         <div class="admin-date-container">
             <div className="admin-date">
             <DatePicker 
+            inline
             locale={he}
             placeholderText="בחר מתי תוכל לעבוד"
             selected={this.state.selectedDate}
@@ -208,6 +210,7 @@ render() {
             <div className="admin-date-container">
             <div className="admin-date">
             <DatePicker 
+            inline
             locale={he}
             placeholderText="בחר יום"
             selected={this.state.selectedDate}

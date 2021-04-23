@@ -20,6 +20,8 @@ export class UpdatePrice extends Component {
             showing: false,
             deleting: false,
             loading: false,
+            addonLoading: false,
+            serviceLoading: false,
             first_service_price: "",
             first_addon_price: "",
             new_price: ""
@@ -69,18 +71,25 @@ export class UpdatePrice extends Component {
 
 // Will get the price from the API and update the state
 getServicePrice = (e) => {
+    this.setState({
+        serviceLoading: true
+    })
     const priceData = {
         prices: e.target.value
     };
     axios.post(url + "admin/prices", priceData)
     .then(response => this.setState(
         {
-        first_service_price: response.data + " ₪"
+        first_service_price: response.data + " ₪",
+        serviceLoading: false
     }));
 }
 
 // Will get the price from the API and update the state
 getAddonPrice = (e) => {
+    this.setState({
+        addonLoading: true
+    })
     const priceData = {
         addon: e.target.value,
 
@@ -88,7 +97,8 @@ getAddonPrice = (e) => {
     axios.post(url + "prices/addon", priceData)
     .then(response => this.setState(
         {
-        first_addon_price: response.data + " ₪"
+        first_addon_price: response.data + " ₪",
+        addonLoading: false
     }));
 }
 // will insert into new_price state
@@ -184,6 +194,13 @@ render() {
                     <option value={ser}>{ser}</option>))}
                 </select>
                 {/* <br/> */}
+                <Loader
+               type="TailSpin"
+               color="black"
+               height={100}
+               width={50}
+               visible={this.state.serviceLoading}
+               />
                 <label>{this.state.first_service_price}</label>
                 <label>הקלד מחיר חדש</label>
                 <Loader
@@ -222,6 +239,13 @@ render() {
             {this.state.addons_array.map(add => (
             <option value={add}>{add}</option>))}
             </select>
+            <Loader
+               type="TailSpin"
+               color="black"
+               height={100}
+               width={50}
+               visible={this.state.addonLoading}
+               />
             <label>{this.state.first_addon_price}</label>
             <label>הקלד מחיר חדש</label>
             <Loader

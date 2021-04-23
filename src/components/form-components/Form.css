@@ -3,17 +3,26 @@
     color:red
 }
 
-
+.confirm-show-booking, .delet-btn-show-booking{
+    border: none;
+    background: none;
+    height: 20px;
+    
+}
+.confirm-show-booking:hover, .delet-btn-show-booking:hover{
+    transition: all 0.6s linear;
+    transform: scale(1.8);
+}
 
 .btn-on-image{
     position: absolute;
     background: rgba(0, 0, 0, 0.3);
     color: white;
-    margin-right: -32%;
+    margin-right: -240px;
     font-size: 20px;
     border: none;
     font-weight: bold;
-    width: 32%;
+    width: 17%;
     padding: 10px 20px;
 }
 
@@ -38,8 +47,8 @@
 }
 
 .service-btn-container{
-  position: relative;
-  /* width: 50%; */
+  position: absolute;
+  width: 58%;
 }
 /* Make the image responsive */
 .service-btn-container img {
@@ -390,11 +399,10 @@
   }
 
   .text-on-bubble{
-    left: 15%;
-    width: 18%;
     position: absolute;
-    margin-top: 67px;
-    font-size: 21px;
+    left: 108px;
+    top: 192px;
+    width: 352px;
   }
 
 .credit-MY{
@@ -462,9 +470,9 @@
     font-family:'Roboto',sans-serif;
     font-weight:300;
     font-size: 25px;
-    color:whitesmoke;
+    /* color:whitesmoke; */
     /* background-color:green; */
-    background-color: #22a222;
+    /* background-color: #22a222; */
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
@@ -480,9 +488,9 @@
     font-family:'Roboto',sans-serif;
     font-weight:300;
     font-size: 25px;
-    color:whitesmoke;
+    /* color:whitesmoke; */
     /* background-color:red; */
-    background-color:#ab2323;
+    /* background-color:#ab2323; */
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
@@ -490,7 +498,7 @@
 
 .imgs-to-customer{
     height: 350px;
-    width: 280px;
+    width: 484px;
 }
 
 
@@ -515,14 +523,14 @@
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.6em 0.0em 0;
-    border-radius:2em;
+    /* border-radius:2em; */
     box-sizing: border-box;
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
     font-size: 25px;
-    color:#FFFFFF;
-    background-color:darkslategray;
+    /* color:#FFFFFF; */
+    /* background-color:darkslategray; */
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
@@ -784,7 +792,7 @@
         margin-right: -45%;
         /* margin-top: 1%; */
         /* background-color: #e6e3e3; */
-        font-size: 8px;
+        font-size: 18px;
         border: none;
         background: none;
         font-weight: bold;
@@ -842,8 +850,8 @@
     .service-btn-container img {
         /* width: 32%; */
         /* height: auto; */
-        width: 157px;
-        height: 110px;
+        width: 175px;
+        height: 135px;
       }
 
     .bubble-man{
@@ -853,4 +861,7 @@
       .text-on-bubble{
         display: none;
     }
+    .service-btn-container{
+        position: absolute;
+      }
 }
