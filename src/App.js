@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, BrowserRouter} from 'react-router-dom';
 //BrowserRouter is used for doing client side routing
 import './App.css';
 import Home from "./components/pages/Home"
@@ -13,7 +13,7 @@ import AdminLogin from "./components/AdminLogin"
 import Contact from "./components/pages/Contact"
 import About from "./components/pages/About"
 import SOS from "./components/pages/SOS"
-
+import ShowBookings from "./components/ShowBookings"
 //App will execute the program. Adding routes for pages in th e website
 //I built a few components that help us route in the website
 //The name Clean1 - Clean5 will alter in the future
@@ -36,6 +36,9 @@ function App() {
         <Route path='/SOS' component={SOS} />
       </Switch>
       </Router>
+        <BrowserRouter>
+          <Route path='/AdminLogin/ShowBookings' component={ShowBookings} />
+        </BrowserRouter>
     </>
   );
 }

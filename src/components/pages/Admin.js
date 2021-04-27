@@ -9,6 +9,7 @@ import ShowBookings from "../ShowBookings"
 import UpdateDescription from "../UpdateDescription"
 import UploadImage from "../UploadImage"
 import ExportCSVpage from "../ExportCSVpage"
+import Sidebar from "../../Sidebar/Sidebar"
 //Admin panel will hold all components that are able by the admin
 
 
@@ -26,9 +27,69 @@ class Admin extends React.Component {
           showPrice: false,
           showFuture: false,
           showDescription: false,
-          uploadImage: false
+          uploadImage: false,
+          page: ""
         };
+        this.pickAcomponent = this.pickAcomponent.bind(this);
       }
+
+      pickAcomponent = (input) => {
+        var page
+        switch (input) {
+          case "ShowBookings":
+            page = <ShowBookings />
+            break;
+        
+          case "AddAdmin":
+            page = <AddAdmin
+                    email={this.props.email}
+                    setEmail={this.props.setEmail}
+                    password={this.props.password}
+                    setPassword={this.props.setPassword}
+                    handleSingup={this.props.handleSingup}
+                    />
+            break;
+
+          case "UpdateService":
+            page = <UpdateService />
+            break;
+
+          case "UpdateAddon":
+            page = <UpdateAddon />
+            break;
+
+          case "UpdateDate":
+            page = <UpdateDate />
+            break;
+
+          case "UpdateCity":
+            page = <UpdateCity />
+            break;
+
+          case "UpdatePrice":
+            page = <UpdatePrice />
+            break;
+
+          case "UpdateDescription":
+            page = <UpdateDescription />
+            break;
+
+          case "UploadImage":
+            page = <UploadImage />
+            break;
+
+          default:
+            break;
+        }
+
+        this.setState({
+          page: page
+      });
+
+
+
+      }
+
       render() {
         //will update if there is a click
         const {showDelete} = this.state;
@@ -40,94 +101,121 @@ class Admin extends React.Component {
         const {showFuture} = this.state
         const {showDescription} = this.state
         const {uploadImage} = this.state
-    return(
-        <div class="admin-main-container">
-        <h1 className="admin-panel-title"> ברוכים הבאים למסך הניהול
-         </h1>
-         {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
-         <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים <i class="fas fa-table"></i></button>
-        {this.state.showFuture ?
-           <ShowBookings
-           />
-            :
-           null
-        }
-         <div>
-        {/* moving to change service: delete or add new one */}
-        <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות <i class="fas fa-concierge-bell"></i></button>
-        {this.state.showUpdateService ?
-           <UpdateService
-           />
-            :
-           null
-        }
-        {/* moving to change addon: delete or add new one */}
-        <button className="button-form2" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף <i class="fas fa-cart-plus"></i></button>
-        {this.state.showUpdateAddon ?
-           <UpdateAddon
-           />
-            :
-           null
-        }
-        {/* Admin can block a day/hour or free a day inside UpdateDate */}
-        <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות <i class="fas fa-calendar-alt"></i></button>
-        {this.state.showDisableDate ?
-           <UpdateDate
-           />
-            :
-           null
-        }
-        {/* Admin can add city to the list or delete one */}
-         <button className="button-form2" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים <i class="fas fa-city"></i></button>
-         {this.state.showCity ?
-           <UpdateCity
-           />
-            :
-           null
-        }
-        {/* Admin can change price for a certain product */}
-        <button className="button-form" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר <i class="fas fa-shekel-sign"></i></button>
-         {this.state.showPrice ?
-           <UpdatePrice
-           />
-            :
-           null
-        }
-        <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
-         {this.state.showDescription ?
-           <UpdateDescription
-           />
-            :
-           null
-        }
-        <button className="button-form" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות  <i class="fas fa-images"></i> </button>
-         {this.state.uploadImage ?
-           <UploadImage
-           />
-            :
-           null
-        }
-         {/* Adding new manager component after click */}
-         <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
-        {/* Using "showing" for clicking a button */}
-        {this.state.showDelete ?
-        <>
-           <AddAdmin
-           email={this.props.email}
-           setEmail={this.props.setEmail}
-           password={this.props.password}
-           setPassword={this.props.setPassword}
-           handleSingup={this.props.handleSingup}
-           />
-         </>
-            :
-            null
-         }
-        <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
-        {/* <button className="button-form2">אישור על סיום תור</button> */}
-      </div>
-         </div>
-    );
+
+        return(
+           <div className="admin-container">
+              {/* hiding navbar inside admin page */}
+               <style type="text/css">
+               {`.navbar {display: none}`}
+               </style>
+               {/* {this.state.page} */}
+               <Sidebar
+                pickAcomponent={this.pickAcomponent}
+                comp={this.state.page}
+                logOut={this.props.handleLogout} />
+                {/* {this.state.page} */}
+               {/* <div className="next-to-sidebar"> */}
+                {/* {props.comp} */}
+                {/* </div> */}
+           </div>
+        )
+
+
+
+   // THIS IS ok $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+   //  return(
+   //      <div class="admin-main-container">
+   //      <h1 className="admin-panel-title"> ברוכים הבאים למסך הניהול
+   //       </h1>
+   //       {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
+   //       <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים <i class="fas fa-table"></i></button>
+   //      {this.state.showFuture ?
+   //         <ShowBookings
+   //         />
+   //          :
+   //         null
+   //      }
+   //       <div>
+   //      {/* moving to change service: delete or add new one */}
+   //      <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות <i class="fas fa-concierge-bell"></i></button>
+   //      {this.state.showUpdateService ?
+   //         <UpdateService
+   //         />
+   //          :
+   //         null
+   //      }
+   //      {/* moving to change addon: delete or add new one */}
+   //      <button className="button-form2" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף <i class="fas fa-cart-plus"></i></button>
+   //      {this.state.showUpdateAddon ?
+   //         <UpdateAddon
+   //         />
+   //          :
+   //         null
+   //      }
+   //      {/* Admin can block a day/hour or free a day inside UpdateDate */}
+   //      <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות <i class="fas fa-calendar-alt"></i></button>
+   //      {this.state.showDisableDate ?
+   //         <UpdateDate
+   //         />
+   //          :
+   //         null
+   //      }
+   //      {/* Admin can add city to the list or delete one */}
+   //       <button className="button-form2" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים <i class="fas fa-city"></i></button>
+   //       {this.state.showCity ?
+   //         <UpdateCity
+   //         />
+   //          :
+   //         null
+   //      }
+   //      {/* Admin can change price for a certain product */}
+   //      <button className="button-form" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר <i class="fas fa-shekel-sign"></i></button>
+   //       {this.state.showPrice ?
+   //         <UpdatePrice
+   //         />
+   //          :
+   //         null
+   //      }
+   //      <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
+   //       {this.state.showDescription ?
+   //         <UpdateDescription
+   //         />
+   //          :
+   //         null
+   //      }
+   //      <button className="button-form" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות  <i class="fas fa-images"></i> </button>
+   //       {this.state.uploadImage ?
+   //         <UploadImage
+   //         />
+   //          :
+   //         null
+   //      }
+   //       {/* Adding new manager component after click */}
+   //       <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
+   //      {/* Using "showing" for clicking a button */}
+   //      {this.state.showDelete ?
+   //      <>
+   //         <AddAdmin
+   //         email={this.props.email}
+   //         setEmail={this.props.setEmail}
+   //         password={this.props.password}
+   //         setPassword={this.props.setPassword}
+   //         handleSingup={this.props.handleSingup}
+   //         />
+   //       </>
+   //          :
+   //          null
+   //       }
+   //      <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
+   //      {/* <button className="button-form2">אישור על סיום תור</button> */}
+   //    </div>
+   //       </div>
+   //  );
+
+
+       // THIS IS ok $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 }
 }
 

@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import fire from './Fire';
 import AdminLoginPage from "./pages/AdminLoginPage"
 import Admin from "./pages/Admin"
+import Cars from "./pages/Cars"
+import {BrowserRouter as Router, Switch, Route, BrowserRouter} from 'react-router-dom';
+
 //Admin login page
 
 
@@ -87,6 +90,7 @@ const AdminLogin = () => {
     return(
         <div>
         {user? (  //if user is True -> means we are logged in. else-> go to admin login page
+        <>
             <Admin 
         handleLogout={handleLogout}
         handleSingup={handleSingup}
@@ -97,7 +101,8 @@ const AdminLogin = () => {
         handleLogin={handleLogin}
         emailError={emailError}
         passwordError={passwordError}
-        />) : ( //else
+        />,
+        </>) : ( //else
         <AdminLoginPage
         email={email}
         setEmail={setEmail}

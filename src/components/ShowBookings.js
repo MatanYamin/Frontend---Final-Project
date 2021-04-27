@@ -42,16 +42,18 @@ render() {
         <>
         <div>
         <Loader
-                    type="Audio"
-                    color="black"
-                    height={100}
-                    width={50}
-                    visible={this.state.loading}
-                    />
-        <section className="customers-table">
-            <div className="loginContainer">
+            type="Audio"
+            color="black"
+            height={100}
+            width={50}
+            visible={this.state.loading}
+            />
+        <section >
+         <div>
          <ExportCSVpage />
-         <br/>
+         </div>
+            <div >
+         {/* <br/> */}
             <table bordered>
                  <thead>
                  <tr>

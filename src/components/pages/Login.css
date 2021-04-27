@@ -5,6 +5,11 @@
     font-family: "Nunito", sans-serif;
   }
   
+  .admin-container.navbar{
+    background-color: red;
+    display: none;
+
+  }
 
   .login {
     width: 100%;

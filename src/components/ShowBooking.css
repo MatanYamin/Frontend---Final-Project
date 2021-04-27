@@ -13,7 +13,7 @@ table {
   }
 
   .customers-table {
-    padding: 60px;
+    /* padding: 60px; */
     margin: auto;
     width: 100%;
     /* max-width: 520px; */
@@ -68,7 +68,7 @@ table {
   }
 
   table thead tr{
-    background-color: black;
+    background-color: #15171c;
     color: white;
   }
 @media only screen and (max-width: 760px),
