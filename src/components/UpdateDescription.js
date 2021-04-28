@@ -2,8 +2,10 @@ import React from "react"
 import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-// const url = "http://127.0.0.1:5000/"
+import axios from "axios"
+import TextField from "@material-ui/core/TextField"
 // const url = "http://3.19.66.156/"
+// const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
 
@@ -14,7 +16,9 @@ export class UpdateDescription extends Component {
             services_array: [],
             loading: false,
             newDes: "",
-            service: ""
+            service: "",
+            currentDescrition: "",
+            beforeAndAfter: ""
         }
     }
 
@@ -24,6 +28,7 @@ export class UpdateDescription extends Component {
         let data = await response.json(); // for string
         return data
     }
+
     // when component is open, do the following
     componentDidMount() {
         this.setState({
@@ -62,6 +67,8 @@ export class UpdateDescription extends Component {
                     if(response.status === 200){
                         this.setState({
                             loading: false,
+                            beforeAndAfter: "התיאור החדש: ",
+                            currentDescrition: this.state.newDes,
                             newDes: ""
                         })
                     }
@@ -75,25 +82,61 @@ export class UpdateDescription extends Component {
             console.log(e)}
         }
 
+
+        getDescriptionForService(e) {
+            this.setState({
+                loading: true
+            });
+    
+            const postData = {
+                service: e.target.value
+            };
+            try{
+            axios.post(url + "post/service_description", postData)
+            .then(response => this.setState({
+                beforeAndAfter: "התיאור כרגע: ",
+                currentDescrition: response.data,
+                loading: false
+            }));}
+            catch(e) {
+                console.log(e)}
+        }
+
 render() {
     return(
         <>
         <section className="adminComponent">
             <div className="adminComponentContainer">
+            <div className="border-card-bottom-image">
+                <br/>
+                <h1>בחר שירות ולאחר מכן הקלד תיאור חדש עבורו</h1>
+                <br/>
                 <select 
                     class="select-srp-down"
-                    onChange={(e) => this.setState({ service: e.target.value })}
+                    onClick={(e) => this.setState({ service: e.target.value })}
+                    onInput={(e) => this.getDescriptionForService(e)}
                     >
                     <option
                     value="">בחר שרות</option>
                     {this.state.services_array.map(ser => (
                     <option value={ser}>{ser}</option>))}
                 </select>
+                <br/>
+                <div className="description-show">
+                {this.state.beforeAndAfter}
+                <br/>
+                {this.state.currentDescrition}
+                </div>
                 <label>הקלד תיאור חדש</label>
-                <input 
+                {/* <input 
                 value={this.state.newDes}
                 autoComplete="off"
                 onChange={(e) => {this.handleNewDescription(e)}}
+                 /> */}
+                 <TextField 
+                 value={this.state.newDes}
+                 autoComplete="off"
+                 onChange={(e) => {this.handleNewDescription(e)}}
                  />
                  <Loader
                 type="Puff"
@@ -108,7 +151,7 @@ render() {
                      onClick={this.updateDercriptionForService}
                      >אישור</button>
                  </div>
-            
+                 </div>
             </div>
         </section>
         </>

@@ -4,6 +4,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 import ReactS3 from "react-s3"
 import config from "../configur"
+import TextField from "@material-ui/core/TextField"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -17,8 +18,6 @@ export class UpdateService extends Component {
             cat_name: "",
             service_name: "",
             price: "",
-            showing: false,
-            deleting: false,
             loading: false,
             updateServiceSuccess: "",
             deleteSuccess: "",
@@ -176,43 +175,49 @@ export class UpdateService extends Component {
         }
 
 render() {
-    const {showing} = this.state;
-    const {deleting} = this.state;
     return(
         <>
-        <br/>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-        <button className="admin-btn-add" onClick={() => this.setState({ showing: !showing })}>הוספת שרות <i class="fas fa-plus"></i></button>
-        {/* Using "showing" for clicking a button */}
-        {this.state.showing ? //for open an option to choose (add service)
-        <>
-           <label>בחר קטגוריה להוספה</label>
+                <div className="border-card-top">
+                    <br/>
+                <h1>הוספת שירות חדש</h1>
+           <label>בחר קטגוריה</label>
            {/* shows all cateogries */}
            <select className="select-srp-down" onChange={(e) => this.setState({ cat_name: e.target.value })}>
                <option value="nothing">בחר קטגוריה</option>
                {this.state.categories_array.map(cat => (
                <option value={cat}>{cat}</option>))}
                </select>
-           <label>הקלד שם שרות</label>
-           <input autoComplete="off"
+           <label>הקלד שם שירות</label>
+           {/* <input autoComplete="off"
            value={this.state.service_name}
            onChange={(e) => {this.handleService(e)}}
-            />
+            /> */}
+            <TextField
+            value={this.state.service_name}
+            onChange={(e) => {this.handleService(e)}} />
             <label>הוסף תיאור</label>
-           <input autoComplete="off"
+           {/* <input autoComplete="off"
            value={this.state.description}
            onChange={(e) => {this.handleDescription(e)}}
-            />
+            /> */}
+            <TextField 
+            value={this.state.description}
+            onChange={(e) => {this.handleDescription(e)}}/>
             <label>מחיר (בשקלים)</label>
-            <input 
+            {/* <input 
             value={this.state.price}
             onChange={(e) => {this.handlePrice(e)}}
-           />
+           /> */}
+           <TextField 
+           value={this.state.price}
+           onChange={(e) => {this.handlePrice(e)}}/>
            {/*  */}
            <div>
             {/* After the img will upload succesfully, we will se the image */}
-            <h1>העלה תמונה</h1>
+            <br/>
+            <label>העלה תמונה</label>
             <br/>
             <input type="file" onChange={this.uploadToS3} />
           </div>
@@ -226,9 +231,13 @@ render() {
                     />
            {/*  */}
            <label>כתובת של תמונה</label>
-           <input autoComplete="off"
+           {/* <input autoComplete="off"
            value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
+            /> */}
+            <TextField 
+            value={this.state.image}
+            onChange={(e) => {this.handleImageUrl(e)}}
             />
             <img className="img-show_form" src={this.state.image} />
             <div className="btnContainer">
@@ -243,19 +252,13 @@ render() {
                 width={50}
                 visible={this.state.loading}
                 />
-            <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
+                </div>
             </div>
-            <br/>
             <label>{this.state.updateServiceSuccess}</label>
-             </>
-            :
-           null
-        }
-        <br/><br/>
-        <button className="admin-btn-del" onClick={() => this.setState({ deleting: !deleting })}>מחיקת שרות <i class="fas fa-trash"></i></button>
-        <br/><br/>
-        {this.state.deleting ? //for open an option to choose (delete service)
-           <>
+            <div className="border-card-bottom">
+                <br/>
+            <h1>מחיקת שירות:</h1>
+            <br/>
            {/* shows in select list all the services there are */}
             <select class="del-drp-btn" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
@@ -263,13 +266,14 @@ render() {
                     <option value={service}>{service}</option>))}
                     </select>
                     <br/><br/>
+                    <div className="btnContainer">
                     <button
-                    className="del-btn"
+                    className="step-btn-admin"
                     // post request for deleteing service
                     onClick={this.deleteService}
-                    >אישור מחיקה<br/> (הדבר ימחק גם את כל התוספים של אותו שרות)</button>
+                    >אישור </button>
                     <br/>
-                    <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    </div>
                     <Loader
                 type="TailSpin"
                 color="black"
@@ -279,10 +283,7 @@ render() {
                 />
                     <br/>
                     <label>{this.state.deleteSuccess}</label>
-           </>
-            :
-           null
-        }
+                    </div>
             </div>
         </section>
         </>

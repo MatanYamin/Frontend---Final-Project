@@ -9,6 +9,50 @@
     height: 20px;
     
 }
+
+.border-card-bottom-image{
+    border-top: dashed;
+    border-bottom: dashed;
+    display: grid;
+}
+
+.border-for-calendar{
+    border-top: dashed;
+    border-bottom: dashed;
+}
+
+.delete-service-container{
+    width: 20%;
+}
+
+.on-nav{
+    color: white;
+    width: -webkit-fill-available;
+    text-align: center;
+    font-size: 40px;
+}
+
+.description-show{
+    background-color: white;
+    border-radius: 10px;
+    align-self: center;
+    font-size: 25px;
+    width: -webkit-fill-available;
+    max-width: fit-content;
+    padding: 10px;
+}
+
+.border-card-top{
+    border-top: dashed;
+    display: grid;
+}
+
+.border-card-bottom{
+    border-top: dashed;
+    border-bottom: dashed;
+    text-align: center;
+}
+
 .confirm-show-booking:hover, .delet-btn-show-booking:hover{
     transition: all 0.6s linear;
     transform: scale(1.8);
@@ -21,8 +65,25 @@
 }
 
 .inside-next{
-    width: 1100px;
-    padding: 20px;
+    /* height: 550px; */
+    /* width: 86vw; */
+    /* width: 100vw; */
+    width: 80.4vw;
+    padding: 2vh;
+    height: -webkit-fill-available;
+    position: fixed;
+    overflow: auto;
+
+    /* background-color: blue; */
+  /* height: 100vh; */
+  /* position: absolute; */
+  /* left: 0; */
+  /* color: white; */
+    /* justify-content: center; */
+    /* position: relative; */
+    /* position: fixed; */
+    /* top: 0; */
+
 }
 
 .btn-on-image{
@@ -215,10 +276,10 @@
     }
   }
 .select-srp-down{
-    background: darkslategray;
+    background: #15171c;;
     border: none;
     outline: none;
-    padding: 15px 0;
+    padding: 4px 0;
     color: #fff;
     font-size: 25px;
     letter-spacing: 2px;
@@ -235,10 +296,11 @@
 }
 
 .del-drp-btn{
-    background: red;
+    background: #15171c;;
+    text-align-last: center;
     border: none;
     outline: none;
-    padding: 15px 0;
+    padding: 3px 0;
     color: #fff;
     font-size: 25px;
     letter-spacing: 2px;
@@ -269,6 +331,8 @@
 
 .admin-date{
     text-align: center;
+    border-top: dashed;
+    border-bottom: dashed;
 }
 
 .white-text{

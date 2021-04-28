@@ -2,6 +2,7 @@ import React from "react"
 import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
+import TextField from "@material-ui/core/TextField"
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -16,8 +17,6 @@ export class UpdateAddon extends Component {
             service_name: "",
             addon_name: "",
             price: "",
-            showing: false,
-            deleting: false,
             loading: false,
             txt1: "",
             txt2: ""
@@ -139,32 +138,38 @@ export class UpdateAddon extends Component {
 
 
 render() {
-    const {showing} = this.state;
-    const {deleting} = this.state;
     return(
         <>
         <br/>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-            <button className="admin-btn-add" onClick={() => this.setState({ showing: !showing })}>להוספת תוסף  <i class="fas fa-plus"></i></button>
-            {this.state.showing ?
-            <>
                 <label>בחר שרות להוסיף לו תוספת</label>
+            <div className="border-card-top">
+                <br/>
                 <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
                     {this.state.services_array.map(service => (
                     <option value={service}>{service}</option>))}
                     </select>
                 <label>הקלד שם תוסף</label>
-                <input
+                {/* <input
                 value={this.state.addon_name}
                 autoComplete="off"
                 onChange={(e) => {this.handleAddon(e)}}
+                 /> */}
+                 <TextField 
+                 value={this.state.addon_name}
+                 autoComplete="off"
+                 onChange={(e) => {this.handleAddon(e)}}
                  />
                  <label>מחיר (בשקלים)</label>
-                 <input
+                 {/* <input
                  value={this.state.price}
                  onChange={(e) => {this.handlePrice(e)}}
+                /> */}
+                <TextField 
+                value={this.state.price}
+                onChange={(e) => {this.handlePrice(e)}}
                 />
                  <div className="btnContainer">
                  <Loader
@@ -178,18 +183,13 @@ render() {
                     //  put request for adding addong in DB
                      onClick={this.addNewAddon}
                      >סיום</button>
-                     <button className="step-btn-admin" onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                      <br/>
                      <label>{this.state.txt1}</label>
+                     </div>
                  </div>
-            </>
-            :
-            null}
-            <br/><br/>
-            <button className="admin-btn-del" onClick={() => this.setState({ deleting: !deleting })}>למחיקת תוסף <i class="fas fa-trash"></i></button>
-            {this.state.deleting ?
-           <>
-           <br/>
+                 <div className="border-card-bottom">
+                     <br/>
+           <label>מחיקת תוסף</label>
             <select class="del-drp-btn" onChange={(e) => this.setState({ addon_name: e.target.value })}>
                     <option value="nothing">בחר תוסף למחיקה</option>
                     {this.state.addons_array.map(addon => (
@@ -207,14 +207,10 @@ render() {
                     // delete request for deleting addon from DB
                     onClick={this.deleteAddon}
                     >אישור מחיקה</button>
-                    <button className="step-btn-admin" onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
                     <br/>
                      <label>{this.state.txt2}</label>
                     </div>
-           </>
-            :
-           null
-        }
+                    </div>
             </div>
         </section>
         </>

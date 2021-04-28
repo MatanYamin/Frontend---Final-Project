@@ -8,6 +8,11 @@ import UpdatePrice from "../UpdatePrice"
 import ShowBookings from "../ShowBookings"
 import UpdateDescription from "../UpdateDescription"
 import UploadImage from "../UploadImage"
+import BlockDay from "../BlockDay"
+import BlockHour from "../BlockHour"
+import FreeDay from "../FreeDay"
+import UploadMainImage from "../UploadMainImage"
+import UploadGalleryImage from "../UploadGalleryImage"
 import ExportCSVpage from "../ExportCSVpage"
 import Sidebar from "../../Sidebar/Sidebar"
 //Admin panel will hold all components that are able by the admin
@@ -34,7 +39,9 @@ class Admin extends React.Component {
       }
 
       pickAcomponent = (input) => {
-        var page
+        // this is a function that get a name of component and render it
+        var page;
+
         switch (input) {
           case "ShowBookings":
             page = <ShowBookings />
@@ -54,6 +61,27 @@ class Admin extends React.Component {
             page = <UpdateService />
             break;
 
+          case "BlockDay":
+            page = <BlockDay />
+            break;
+
+          case "UploadMainImage":
+            page = <UploadMainImage />
+            break;
+            
+          case "UploadGalleryImage":
+            page = <UploadGalleryImage />
+            break;
+
+          case "FreeDay":
+            page = <FreeDay />
+            break;
+
+          case "BlockHour":
+            page = <BlockHour />
+            break;
+
+         
           case "UpdateAddon":
             page = <UpdateAddon />
             break;
@@ -76,6 +104,10 @@ class Admin extends React.Component {
 
           case "UploadImage":
             page = <UploadImage />
+            break;
+
+          case "Logout":
+            page = this.props.handleLogout()
             break;
 
           default:
@@ -101,9 +133,10 @@ class Admin extends React.Component {
         const {showFuture} = this.state
         const {showDescription} = this.state
         const {uploadImage} = this.state
-
+        const defaultComponent = <ShowBookings />
         return(
-           <div className="admin-container">
+          <>
+            <div className="admin-container">
               {/* hiding navbar inside admin page */}
                <style type="text/css">
                {`.navbar {display: none}`}
@@ -112,14 +145,13 @@ class Admin extends React.Component {
                <Sidebar
                 pickAcomponent={this.pickAcomponent}
                 comp={this.state.page}
-                logOut={this.props.handleLogout} />
-                {/* {this.state.page} */}
-               {/* <div className="next-to-sidebar"> */}
-                {/* {props.comp} */}
-                {/* </div> */}
-           </div>
+                logOut={this.props.handleLogout}
+                defaultComponent={defaultComponent}
+                />
+                </div>
+                </>
+          
         )
-
 
 
    // THIS IS ok $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

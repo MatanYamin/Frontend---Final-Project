@@ -40,7 +40,6 @@ export class ShowBookings extends Component {
 render() {
     return(
         <>
-        <div>
         <Loader
             type="Audio"
             color="black"
@@ -49,10 +48,7 @@ render() {
             visible={this.state.loading}
             />
         <section >
-         <div>
          <ExportCSVpage />
-         </div>
-            <div >
          {/* <br/> */}
             <table bordered>
                  <thead>
@@ -184,9 +180,7 @@ render() {
                     width={60}
                     visible={this.state.loading}
                     />
-            </div>
         </section>
-        </div>
         </>
     )}
 }

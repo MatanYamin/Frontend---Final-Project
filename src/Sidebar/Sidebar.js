@@ -14,6 +14,8 @@ const Nav = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: sticky;
+    top: 0;
 `;
 // styles of the nav icons
 const NavIcon = styled(Link)`
@@ -28,8 +30,9 @@ const NavIcon = styled(Link)`
 const SidebarNav = styled.nav`
     background: #15171c;
     width: 250px;
+    // width: fit-content;
     height: 110vh;
-    // height: auto;
+    // height: 100%;
     display: flex;
     justify-content: center;
     position: relative;
@@ -43,6 +46,7 @@ const SidebarNav = styled.nav`
 const SidebarWrap = styled.div`
     width: 100%;
 `;
+
 // render the sidebar along its logic
 const Sidebar = (props) => {
     const [sidebar, setSidebar] = useState(false);
@@ -59,6 +63,9 @@ const Sidebar = (props) => {
             <NavIcon>
                 <FaIcons.FaBars onClick={showSidebar}/>
             </NavIcon>
+            <div className="on-nav">
+                ברוכים הבאים למסך הניהול
+            </div>
         </Nav>
         <SidebarNav sidebar={sidebar}>
             <SidebarWrap>
@@ -71,11 +78,14 @@ const Sidebar = (props) => {
             </SidebarWrap>
         
         <div className="next-to-sidebar">
-                <div className="inside-next">
+            <div className="inside-next">
                 {/* The shoing of the component: */}
+                {/* חזרה לעמוד הבית */}
+                {props.comp === "" ? <> {props.defaultComponent} </> : null}
                 {props.comp}
-                </div>
-                </div>
+                <br/>
+            </div>
+        </div>
         </SidebarNav>
         </IconContext.Provider>
         </>

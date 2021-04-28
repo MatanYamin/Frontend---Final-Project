@@ -9,7 +9,7 @@ import * as RiIcons from "react-icons/ri"
 export const SidebarData = [
     {
         title: "עמוד הבית",
-        path: "home",
+        path: "/",
         icon: <AiIcons.AiFillHome />
     },
 
@@ -21,41 +21,18 @@ export const SidebarData = [
     },
     {
     title: "שירותים",
-    path: "#",
+    path: "UpdateService",
     icon: <FaIcons.FaWrench />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-        {
-            title: "הוספת שירות חדש",
-            path: "UpdateService",
-            icon: <FaIcons.FaPlus />
-        },
-        {
-            title: "מחיקת שירות קיים",
-            path: "UpdateService",
-            icon: <FaIcons.FaTrash />
-        }
-    ]
+   
 },
 {
     title: "תוספים",
-    path: "#",
+    path: "UpdateAddon",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
-    subNav: [
-        {
-            title: "הוספת תוסף חדש",
-            path: "#",
-            icon: <FaIcons.FaPlus />
-        },
-        {
-            title: "מחיקת תוסף קיים",
-            path: "#",
-            icon: <FaIcons.FaTrash />
-        }
-    ]
 },
 {
     title: "זמינות",
@@ -66,58 +43,34 @@ export const SidebarData = [
     subNav: [
         {
             title: "חסימת יום שלם",
-                path: "#",
+                path: "BlockDay",
                 icon: <FaIcons.FaMinusCircle />
         },
         {
             title: "פתיחה של יום",
-                path: "#",
+                path: "FreeDay",
                 icon: <FaIcons.FaCalendarCheck />
         },
         {
             title: "חסימה של שעה",
-                path: "#",
+                path: "BlockHour",
                 icon: <FaIcons.FaClock />
         }
     ]
 },
     {
         title: "ערים",
-        path: "#",
+        path: "UpdateCity",
         icon: <FaIcons.FaBuilding />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
-        subNav: [
-            {
-                title: "הוספת עיר חדשה",
-                path: "/overview/Reports1",
-                icon: <FaIcons.FaPlus />
-            },
-            {
-                title: "מחיקת עיר קיימת",
-                path: "/overview/Reports2",
-                icon: <FaIcons.FaTrash />
-            }
-        ]
     },
     {
         title: "מחירים",
-        path: "#",
+        path: "UpdatePrice",
         icon: <FaIcons.FaShekelSign />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
-        subNav: [
-            {
-                title: "שירות",
-                path: "/overview/Reports1",
-                icon: <FaIcons.FaEdit />
-            },
-            {
-                title: "תוסף",
-                path: "/overview/Reports2",
-                icon: <FaIcons.FaEdit />
-            }
-        ]
     },
     {
         title: "תמונות",
@@ -128,34 +81,22 @@ export const SidebarData = [
         subNav: [
             {
                 title: "הוסף תמונה ראשית לשירות",
-                path: "/overview/Reports1",
+                path: "UploadMainImage",
                 icon: <FaIcons.FaImage />
             },
             {
                 title: "הוסף תמונה לגלרייה",
-                path: "/overview/Reports2",
+                path: "UploadGalleryImage",
                 icon: <FaIcons.FaPhotoVideo />
             }
         ]
     },
     {
         title: "תיאור",
-        path: "#",
+        path: "UpdateDescription",
         icon: <FaIcons.FaComment />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
-        subNav: [
-            {
-                title: "שינוי תיאור לשירות",
-                path: "/overview/Reports1",
-                icon: <FaIcons.FaCommentDots />
-            },
-            {
-                title: "שינוי תיאור לתוסף",
-                path: "/overview/Reports2",
-                icon: <FaIcons.FaCommentDots />
-            }
-        ]
     },
     {
         title: "ניהול מנהלים",
@@ -165,7 +106,7 @@ export const SidebarData = [
     },
     {
         title: "התנתק",
-        path: "/AdminLogin/Cars",
+        path: "Logout",
         icon: <FaIcons.FaSignOutAlt />
 
     }

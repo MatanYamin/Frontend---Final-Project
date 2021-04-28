@@ -2,6 +2,7 @@ import React from "react"
 import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
+import TextField from "@material-ui/core/TextField"
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -113,20 +114,22 @@ addNewCity = () => {
     
 
 render() {
-    const {showing} = this.state;
-    const {deleting} = this.state;
     return(
         <>
         <div className="city">
         <section className="adminComponent">
             <div className="adminComponentContainer">
-            <button className="admin-btn-add" onClick={() => this.setState({ showing: !showing })}>להוספת עיר <i class="fas fa-plus"></i></button>
-            {this.state.showing ?
-            <>
+            <div className="border-card-top">
+                <br/>
+                <h1>הוספת עיר חדשה</h1>
                 <label>הקלד שם עיר</label>
-                <input autoComplete="off"
+                {/* <input autoComplete="off"
                 value={this.state.new_city}
                 onChange={(e) => {this.handleCity(e)}}
+                 /> */}
+                 <TextField 
+                 value={this.state.new_city}
+                 onChange={(e) => {this.handleCity(e)}}
                  />
                  <div className="btnContainer">
                  <Loader
@@ -140,20 +143,16 @@ render() {
                     //  post request for adding city to list
                     onClick={this.addNewCity}
                      >אישור</button>
-                     <button className="step-btn-admin"  onClick={() => this.setState({ showing: !showing })}>ביטול</button>
                      <br/>
                      <label>{this.state.txt1}</label>
                  </div>
-            </>
-            :
-            null}
-            <br/><br/>
-            <button className="admin-btn-del" onClick={() => this.setState({ deleting: !deleting })}>למחיקת עיר <i class="fas fa-trash"></i></button>
-            {this.state.deleting ?
-           <>
-           <br/>
+                 </div>
+                 <div className="border-card-bottom">
+                 <br/>
+            <h1>מחיקת עיר מהרשימה</h1>
+            <br/>
            <select 
-            class="del-city-drp-down"
+            class="del-drp-btn"
             onChange={(e) => this.setState({ new_city: e.target.value })}>
             <option
             value="">בחרו עיר</option>
@@ -170,17 +169,13 @@ render() {
                 />
                     <button 
                     // delete request for deleting city from list
-                    className="del-btn"
+                    className="step-btn-admin"
                     onClick={this.deleteCity}
-                    >אישור מחיקה</button>
-                    <button className="step-btn-admin"  onClick={() => this.setState({ deleting: !deleting })}>ביטול</button>
+                    >אישור</button>
                     <br/>
                     <label>{this.state.txt2}</label>
                     </div>
-           </>
-            :
-           null
-        }
+                    </div>
             </div>
         </section>
         </div>

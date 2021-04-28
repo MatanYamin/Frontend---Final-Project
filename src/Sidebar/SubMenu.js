@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components"
 import {Link} from "react-router-dom"
+import * as AiIcons from "react-icons/ai"
+import { faPassport } from '@fortawesome/free-solid-svg-icons';
 
 // style of the links
 const SidebarLink = styled(Link)`
@@ -18,6 +20,10 @@ const SidebarLink = styled(Link)`
     border-right: 4px solid #632ce4;
     cursor: pointer;
     }
+    &:focus {
+        border-right: 4px solid #632ce4;
+        background: #252831;
+        }
 `;
 
 const SidebarLabel = styled.span`
@@ -49,7 +55,10 @@ const SubMenu = ( props ) => {
     };
     // when click on option, will open a component with the right name
     const showComponent = () => {
-        props.pickAcomponent(item.path);
+        // incase its the father menu
+        if(item.path !== "#"){
+            props.pickAcomponent(item.path);
+        }
     }
     // when click inside submenu, the like the above
     const showComponentOnSubMenu = (index) => {
@@ -58,10 +67,12 @@ const SubMenu = ( props ) => {
 
     return(
         <>
+        {/* makes the whole div clickable for the component */}
+            <div onClick={showComponent}>
             <SidebarLink onClick={item.subNav && showSubnav}>
                 <div>
                     {item.icon}
-                    <SidebarLabel onClick={showComponent}>
+                    <SidebarLabel>
                         {item.title}
                     </SidebarLabel>
                 </div>
@@ -71,14 +82,17 @@ const SubMenu = ( props ) => {
                         item.iconOpened : item.subNav ? item.iconClosed : null}
                     </div>
             </SidebarLink>
+            </div>
             {subNav && item.subNav.map((item, index) => {
                 return (
-                    <DropdownLink key={index}>
+                    <div onClick={() => showComponentOnSubMenu(index)}>
+                    <DropdownLink key={index} >
                         {item.icon}
-                        <SidebarLabel onClick={() => showComponentOnSubMenu(index)}>
+                        <SidebarLabel>
                             {item.title}
                         </SidebarLabel>
                     </DropdownLink>
+                    </div>
                 )
             })}
             
