@@ -68,9 +68,10 @@
     /* height: 550px; */
     /* width: 86vw; */
     /* width: 100vw; */
-    width: 80.4vw;
+    width: 83.5vw;
     padding: 2vh;
-    height: -webkit-fill-available;
+    /* height: -webkit-fill-available; */
+    height: 100vh;
     position: fixed;
     overflow: auto;
 

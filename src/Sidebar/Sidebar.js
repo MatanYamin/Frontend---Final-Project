@@ -29,7 +29,8 @@ const NavIcon = styled(Link)`
 // style of the sidebar itself
 const SidebarNav = styled.nav`
     background: #15171c;
-    width: 250px;
+    // width: 250px;
+    width: 15vw;
     // width: fit-content;
     height: 110vh;
     // height: 100%;
