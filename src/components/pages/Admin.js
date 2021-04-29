@@ -15,8 +15,8 @@ import UploadMainImage from "../UploadMainImage"
 import UploadGalleryImage from "../UploadGalleryImage"
 import ExportCSVpage from "../ExportCSVpage"
 import Sidebar from "../../Sidebar/Sidebar"
+import GoogleMap from "../GoogleMap"
 //Admin panel will hold all components that are able by the admin
-
 
 class Admin extends React.Component {
     // Admin main page. will hold all functions to use for the admin
@@ -133,7 +133,9 @@ class Admin extends React.Component {
         const {showFuture} = this.state
         const {showDescription} = this.state
         const {uploadImage} = this.state
-        const defaultComponent = <ShowBookings />
+        // const defaultComponent = <ShowBookings />
+        const defaultComponent = 
+        <GoogleMap />
         return(
           <>
             <div className="admin-container">
