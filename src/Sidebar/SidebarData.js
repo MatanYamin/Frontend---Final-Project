@@ -8,8 +8,8 @@ import * as RiIcons from "react-icons/ri"
 // SidebarData will hold the names, icons and the components name to be open when clicked
 export const SidebarData = [
     {
-        title: "עמוד הבית",
-        path: "/",
+        title: "ראשי",
+        path: "GoogleMap",
         icon: <AiIcons.AiFillHome />
     },
 

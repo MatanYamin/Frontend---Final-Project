@@ -33,7 +33,8 @@ class Admin extends React.Component {
           showFuture: false,
           showDescription: false,
           uploadImage: false,
-          page: ""
+          page: "",
+          secondTitle: ""
         };
         this.pickAcomponent = this.pickAcomponent.bind(this);
       }
@@ -45,6 +46,9 @@ class Admin extends React.Component {
         switch (input) {
           case "ShowBookings":
             page = <ShowBookings />
+            this.setState({
+              secondTitle: "- הצגת תורים עתידיים"
+            })
             break;
         
           case "AddAdmin":
@@ -55,55 +59,83 @@ class Admin extends React.Component {
                     setPassword={this.props.setPassword}
                     handleSingup={this.props.handleSingup}
                     />
+            this.setState({
+              secondTitle: "- הוספת מנהל"
+            })
             break;
 
           case "UpdateService":
             page = <UpdateService />
+            this.setState({
+              secondTitle: "- עדכון שירות"
+            })
             break;
 
           case "BlockDay":
             page = <BlockDay />
+            this.setState({
+              secondTitle: "- חסימת יום"
+            })
             break;
 
           case "UploadMainImage":
             page = <UploadMainImage />
+            this.setState({
+              secondTitle: "- עדכון תמונה"
+            })
             break;
             
           case "UploadGalleryImage":
             page = <UploadGalleryImage />
+            this.setState({
+              secondTitle: "- עדכון תמונה לגלרייה"
+            })
             break;
 
           case "FreeDay":
             page = <FreeDay />
+            this.setState({
+              secondTitle: "- פתיחת יום"
+            })
             break;
 
           case "BlockHour":
             page = <BlockHour />
+            this.setState({
+              secondTitle: "- חסימת שעה"
+            })
             break;
-
          
           case "UpdateAddon":
             page = <UpdateAddon />
-            break;
-
-          case "UpdateDate":
-            page = <UpdateDate />
+            this.setState({
+              secondTitle: "- עדכון תוספים"
+            })
             break;
 
           case "UpdateCity":
             page = <UpdateCity />
+            this.setState({
+              secondTitle: "- עדכון רשימת ערים"
+            })
             break;
 
           case "UpdatePrice":
             page = <UpdatePrice />
+            this.setState({
+              secondTitle: "- עדכון מחירים"
+            })
             break;
 
           case "UpdateDescription":
             page = <UpdateDescription />
+            this.setState({
+              secondTitle: "- עדכון תיאור"
+            })
             break;
 
-          case "UploadImage":
-            page = <UploadImage />
+          case "GoogleMap":
+            page = <GoogleMap />
             break;
 
           case "Logout":
@@ -134,13 +166,13 @@ class Admin extends React.Component {
         const {showDescription} = this.state
         const {uploadImage} = this.state
         // const defaultComponent = <ShowBookings />
-        const defaultComponent = 
-        <GoogleMap />
+        const defaultComponent = <GoogleMap />
         return(
           <>
             <div className="admin-container">
               {/* hiding navbar inside admin page */}
-               <style type="text/css">
+               <style 
+               type="text/css">
                {`.navbar {display: none}`}
                </style>
                {/* {this.state.page} */}
@@ -149,6 +181,7 @@ class Admin extends React.Component {
                 comp={this.state.page}
                 logOut={this.props.handleLogout}
                 defaultComponent={defaultComponent}
+                secondTitle={this.state.secondTitle}
                 />
                 </div>
                 </>

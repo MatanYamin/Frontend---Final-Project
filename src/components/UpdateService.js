@@ -254,7 +254,7 @@ render() {
                 />
                 </div>
             </div>
-            <label>{this.state.updateServiceSuccess}</label>
+            <h1>{this.state.updateServiceSuccess}</h1>
             <div className="border-card-bottom">
                 <br/>
             <h1>מחיקת שירות:</h1>
@@ -282,7 +282,7 @@ render() {
                 visible={this.state.loading}
                 />
                     <br/>
-                    <label>{this.state.deleteSuccess}</label>
+                    <h1>{this.state.deleteSuccess}</h1>
                     </div>
             </div>
         </section>

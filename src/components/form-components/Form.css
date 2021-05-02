@@ -7,7 +7,17 @@
     border: none;
     background: none;
     height: 20px;
-    
+}
+
+.back-home{
+    text-align: center;
+    font-size: 21px;
+    background: #d5d1d1;
+}
+
+.map-title{
+    height: 40px;
+    font-size: 23px;
 }
 
 .border-card-bottom-image{
@@ -479,6 +489,7 @@
     left: 108px;
     top: 192px;
     width: 352px;
+    font-size: 17px;
   }
 
 .credit-MY{

@@ -65,7 +65,7 @@ const Sidebar = (props) => {
                 <FaIcons.FaBars onClick={showSidebar}/>
             </NavIcon>
             <div className="on-nav">
-                ברוכים הבאים למסך הניהול
+                ברוכים הבאים למסך הניהול {props.secondTitle}
             </div>
         </Nav>
         <SidebarNav sidebar={sidebar}>
@@ -81,9 +81,12 @@ const Sidebar = (props) => {
         <div className="next-to-sidebar">
             <div className="inside-next">
                 {/* The shoing of the component: */}
-                {/* חזרה לעמוד הבית */}
+                <div className="back-home">
+                <a href="https://skycleanerisrael.com/">חזרה לעמוד הבית</a>
+                </div>
                 {props.comp === "" ? <> {props.defaultComponent} </> : null}
                 {props.comp}
+                <br/>
                 <br/>
             </div>
         </div>

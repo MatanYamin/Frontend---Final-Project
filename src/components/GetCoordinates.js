@@ -1,7 +1,7 @@
 import Geocode from "react-geocode";
-
+import myAPI from "../GoogleApi"
 // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-Geocode.setApiKey("AIzaSyAiGkubS17E5pQVXBGxsrFmZ0X8ioQisK0");
+Geocode.setApiKey(myAPI);
 
 // set response language. Defaults to english.
 Geocode.setLanguage("iw");

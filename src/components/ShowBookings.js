@@ -48,8 +48,8 @@ render() {
             visible={this.state.loading}
             />
         <section >
+         <div className="inside-table">
          <ExportCSVpage />
-         {/* <br/> */}
             <table bordered>
                  <thead>
                  <tr>
@@ -72,7 +72,7 @@ render() {
 {this.state.customers.map(
     (rowData, index) => (
                 
-                 <tr>
+                 <tr className={index%2==0 ? null : "td1"}>
                      <th scope="row">{index + 1}</th>
                      {/* שם מלא */}
                      <td>{rowData[1]}</td> 
@@ -173,6 +173,7 @@ render() {
                 ))}
                 </tbody>
              </table>
+             </div>
              <Loader
                     type="Audio"
                     color="black"
