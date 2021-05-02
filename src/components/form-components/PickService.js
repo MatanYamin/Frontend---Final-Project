@@ -161,6 +161,7 @@ export class PickService extends Component {
                 <h1>{this.state.titleService}</h1>
                 </div>
             <br/>
+            <div className="whole_pick_ser_containet">
             <div className="pick-ser-select-btn">
             {/* <select
             defaultValue={this.props.service}
@@ -269,6 +270,7 @@ export class PickService extends Component {
             </div>
             <div className="step-btn-container">
             <button className="step-btn" onClick={this.continue}>המשך</button>
+             </div>
              </div>
              </div>
             </>

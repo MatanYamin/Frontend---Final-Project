@@ -95,8 +95,13 @@ export class PickDateAndConfirm extends Component {
             </div>
         <div className="pickDateContainer">
             <br/>
+
             <h3>בחרו יום</h3>
             {this.props.date}
+            <div className="calendar_final">
+                <div className="hours_btns">
+            {hours_button_list}
+            </div>
             <DatePicker 
             locale={he}
             // autoFocus
@@ -118,7 +123,9 @@ export class PickDateAndConfirm extends Component {
                     visible={this.state.loading}
                     />
             <br/>
-            {hours_button_list}
+            {/* <div className="hours_to_display"> */}
+            </div>
+            {/* </div> */}
                 {/* <select className="service-btn"
                 onChange={this.props.handleChange('hour')}
                 onInput={() => this.setState({ temp_hour: !temp_hour })}
@@ -132,7 +139,7 @@ export class PickDateAndConfirm extends Component {
            
             {this.state.temp_hour ? 
             <>
-            <div>
+            {/* <div> */}
             <div className="step-btn-container">
             <button className="step-btn"
             onClick={this.backward}>בצע שינויים
@@ -186,7 +193,7 @@ export class PickDateAndConfirm extends Component {
             הזמינו את התור!
             </button>
             </div>
-            </div>
+            {/* </div> */}
             </>
             :
             <>
