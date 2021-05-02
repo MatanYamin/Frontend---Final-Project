@@ -4,8 +4,8 @@ import Geocode from "react-geocode";
 import myAPI from "../GoogleApi"
 // import { Map, GoogleApiWrapper } from 'google-maps-react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class MapContainer extends Component {
