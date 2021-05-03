@@ -9,7 +9,8 @@
   .adminComponent .adminComponentContainer {
     padding: 60px;
     margin: auto;
-    width: 100%;
+    /* width: 100%; */
+    width: 100vw;
     /* max-width: 520px; */
     /* min-height: 600px; */
     display: flex;

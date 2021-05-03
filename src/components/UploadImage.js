@@ -130,7 +130,7 @@ render() {
         {this.state.showMainImage ? 
         <>
         <div>
-        {this.state.uploadSuccess}
+        <a className="success_action">{this.state.uploadSuccess}</a>
         <br/>
             <select class="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
@@ -165,7 +165,7 @@ render() {
         {this.state.showImageMultiple ?
          <>
         <br/><br/>
-        {this.state.uploadSuccess}
+        <a className="success_action">{this.state.uploadSuccess}</a>
             <select class="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
                     {this.state.services.map(service => (

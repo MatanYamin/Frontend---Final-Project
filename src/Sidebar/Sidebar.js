@@ -64,9 +64,11 @@ const Sidebar = (props) => {
             <NavIcon>
                 <FaIcons.FaBars onClick={showSidebar}/>
             </NavIcon>
+        <a className="date_sidebar">{props.blessing}, <br/>{props.fullDayAndDate} </a>
             <div className="on-nav">
                 ברוכים הבאים למסך הניהול {props.secondTitle}
             </div>
+            <a className="left_sidebar" href="https://skycleanerisrael.com/"><AiIcons.AiFillHome /></a>
         </Nav>
         <SidebarNav sidebar={sidebar}>
             <SidebarWrap>

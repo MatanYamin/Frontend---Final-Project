@@ -9,6 +9,31 @@
     height: 20px;
 }
 
+.black_while_loading{
+    background: rgba(0, 0, 0, 0.8);
+    /* width: 100%; */
+    /* padding: 0 20px; */
+    /* display: flex; */
+}
+
+.date_sidebar{
+    color: white;
+    width: 20vw;
+    font-size: 1.3vw;
+    padding: 1.2vw;
+}
+
+.left_sidebar{
+    color: white;
+    padding: 1vw;
+    font-size: 2.5vw;
+    padding-top: 4vh;
+}
+
+.success_action{
+    background: white;
+}
+
 .react-datepicker__navigation--next{
     right: 0.5vw;
     border-left-color: #ccc;
@@ -41,13 +66,13 @@
 }
 
 .whole_pick_ser_containet{
-    background: #e7e7e7;
+    /* background: #e7e7e7; */
 }
 
 .back-home{
     text-align: center;
     font-size: 21px;
-    background: #d5d1d1;
+    background: #e3e1e1;
     position: sticky;
     top: 0;
     text-decoration: none;
@@ -78,7 +103,7 @@
     color: white;
     width: -webkit-fill-available;
     text-align: center;
-    font-size: 40px;
+    font-size: 3vw;
 }
 
 .description-show{
@@ -94,12 +119,14 @@
 .border-card-top{
     border-top: dashed;
     display: grid;
+    text-decoration: underline;
 }
 
 .border-card-bottom{
     border-top: dashed;
     border-bottom: dashed;
     text-align: center;
+    text-decoration: underline;
 }
 
 .confirm-show-booking:hover, .delet-btn-show-booking:hover{
@@ -509,10 +536,10 @@
 .form-stpes{
     text-align: center;
     align-items: center;
-    font-size: 23px;
+    font-size: 1.5vw;
     /* height: 120vh; */
-    height: 87vh;
-    background-color: #ffffff;
+    height: 110vh;
+    background-color: whitesmoke;
     /* background-image: url("https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg");
     background-repeat: no-repeat, repeat;
     background-size: 480px 500px; */
@@ -589,9 +616,14 @@
 }
 
 .step-btn-container{
-    width: 100%;
+    width: 100vw;
+    /* width: fit-content; */
     bottom: 0.0em;
     /* position: absolute; */
+    background: transparent;
+    /* background: transparent, whitesmoke; */
+    left: 0;
+    right: 0;
     position: fixed;
 }
 
@@ -642,13 +674,14 @@
     display:inline-block;
     padding:0.3em 1.2em;
     margin:0 0.6em 0.0em 0;
-    border-radius:2em;
+    /* border-radius:2em; */
     box-sizing: border-box;
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
     /* font-size: 25px; */
     font-size: 5vh;
+    width: 20vw;
     color:#FFFFFF;
     background-color:black;
     text-align:center;
@@ -854,17 +887,18 @@
  }
 
 .addon-btn-cancel{
-    background: #b11200;
+    /* background: #b11200; */
     /* background: darkslategray; */
     background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
     background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
     /* font-family: Brush Script MT; */
     /* font-size: 20px; */
     font-size: 2vw;
+    width: 10vw;
     font-weight: 100;
     padding: 10px;
     /* -webkit-box-shadow: 1px 1px 20px 0 #000000; */
@@ -919,20 +953,19 @@
 @media screen and (max-width: 960px) {
     .step-btn-container{
         display: grid;
-        width: 100%;
+        width: 100vw;
         bottom: 0;
+        margin:0;
         position: fixed;
     }
     .step-btn{
         display:inline-block;
-        padding:0.3em 1.2em;
-        margin:0 0.6em 0.0em 0;
-        border-radius:2em;
+        margin:0;
+        width: 100vw;
         box-sizing: border-box;
         text-decoration:none;
         font-family:'Roboto',sans-serif;
-        font-weight:300;
-        font-size: 25px;
+        font-size: 6vw;
         color:#FFFFFF;
         background-color:black;
         text-align:center;
@@ -1106,5 +1139,19 @@
     }
     .confirm-wrapper h4{
         font-size: 8vw;
+    }
+
+    .pick-addon-btn{
+        width: 28vw;
+        font-size: 5vw;
+    }
+
+    .details-btn{
+        font-size: 8vw;
+    }
+
+    .addon-btn-cancel{
+        font-size: 6vw;
+        width: 28vw;
     }
 }
