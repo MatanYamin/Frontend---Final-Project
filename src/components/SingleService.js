@@ -14,7 +14,7 @@ function SingleService(props) {
             >
                 <h1>{props.name}</h1>
                 <figure className="cards__item__pic-wrap">
-                    <img src={props.imgurl} className="cards__item__img" />
+                    <img alt="" src={props.imgurl} className="cards__item__img" />
                 </figure>
                 <div className="cards__item__info">
                     <h5 className="cards__item__text">{props.text}</h5>

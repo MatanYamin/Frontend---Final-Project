@@ -60,10 +60,11 @@ export class PickService extends Component {
     componentDidUpdate(prevProps, prevState){
         if (prevState.first_price !== this.state.first_price) {
             this.props.handlePrice(this.state.first_price);
-            this.state.showing= false;
+            // this.state.showing= false;
             this.setState({
                 priceNow: " המחיר: ",
-                Shekel: "₪"
+                Shekel: "₪",
+                showing: false
             })
           }
     }
@@ -115,11 +116,11 @@ export class PickService extends Component {
         const {openPopUp} = this.state;
         const {serviceOrAddon} = this.state;
         const services_button_list = [];
-        const titles = []
         this.state.service_array.map(service_now => (
             services_button_list.push(
             <>
             <img
+            alt=""
             onClick={() => {
                 this.setPrice(service_now[0]);
                 this.props.handleService(service_now[0]);
@@ -145,8 +146,7 @@ export class PickService extends Component {
             {service_now[0]} 
             </button>
             </>
-            ),
-            services_button_list.push(" ")
+            ) + services_button_list.push(" ")
             )
             );
             
@@ -181,7 +181,7 @@ export class PickService extends Component {
             </> : <>
             <label>{values.service}</label>
             <br/>
-            <img width="50%"
+            <img alt="" width="50%"
             src={this.state.imageService} />
              </>}
             
@@ -210,7 +210,7 @@ export class PickService extends Component {
                     <button className="details-btn" onClick={() => this.setState({ openPopUp: !openPopUp })}>סגירה</button>
                      </div>
               {this.state.imagesArray.map(img => (
-                <img className="imgs-to-customer" src={img} />))}
+                <img alt="" className="imgs-to-customer" src={img} />))}
                     </div>
             </Popup>
             <br/><br/>
@@ -244,7 +244,6 @@ export class PickService extends Component {
             {this.state.priceNow}
             <b>{this.state.first_price} </b>
             {this.state.Shekel}
-            
             </>
             }
             <br/>

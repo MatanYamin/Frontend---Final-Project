@@ -152,10 +152,11 @@ render() {
            onChange={(e) => {this.handleImageUrl(e)}}
             /> */}
             <TextField 
+            placeholder="כתובת תמונה"
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />
-            <img className="img-show_form" src={this.state.image} />
+            <img alt="" className="img-show_form" src={this.state.image} />
             <br/>
                     <br/>
                     <div className="btnContainer">

@@ -3,7 +3,6 @@ import { Component } from "react"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import he from "date-fns/locale/he"; // the locale you want
-import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 // const url = "http://127.0.0.1:5000/"
@@ -48,7 +47,7 @@ render() {
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
-            filterDate={day => day.getDay() != 6} // for weekends
+            filterDate={day => day.getDay() !== 6} // for weekends
             />
             <br/>
             <lable className="white-text">{this.state.text1}</lable>

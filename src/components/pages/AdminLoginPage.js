@@ -1,12 +1,11 @@
 import React from "react"
 import "./Login.css"
 import "./AdminComponent.css"
-import Admin from "./Admin"
 
 
 const AdminLoginPage = (props) => {
     //all the props we brought from AdminLogin
-    const {email, setEmail, password, setPassword, handleLogin, handleSingup, hasAccount, setHasAccount, emailError, passwordError} = props;
+    const {email, setEmail, password, setPassword, handleLogin, emailError, passwordError} = props;
     return(
         <>
         <section className="login">

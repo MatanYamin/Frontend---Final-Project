@@ -1,5 +1,5 @@
 //By Matan Yamin
-import React, {useState} from "react"
+import React from "react"
 import { Component } from "react"
 import "react-datepicker/dist/react-datepicker.css"
 import axios from "axios"
@@ -75,7 +75,6 @@ export class Addon extends Component {
     }
 
     render(){
-        const {values} = this.props; //values is all the props we passed to the component
         const addons_button_list = []
         this.state.addon_array.map(addon_now => (
             addons_button_list.push(<><button 
@@ -106,7 +105,7 @@ export class Addon extends Component {
             {this.state.addon_array.map(addon => (
             <option value={addon}>{addon}</option>))}
             </select> */}
-            <img src={this.props.imageService} />
+            <img alt="" src={this.props.imageService} />
             {addons_button_list}
             {/* <br/><br/> */}
             <br/>

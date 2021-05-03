@@ -5,8 +5,6 @@ import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form
 import axios from "../../../node_modules/axios"
 import PickDateAndConfirm from "./PickDateAndConfirm"
-import Footer from "../Footer"
-//Will need to add adming page
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -182,7 +180,8 @@ export class BookForm extends Component {
                  values={values}
                  />
             )
-            
+            default:
+            break;
         }
 }
 }

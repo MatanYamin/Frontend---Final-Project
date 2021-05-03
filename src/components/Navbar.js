@@ -1,30 +1,28 @@
 // Matan Yamin - Frontend: Final Project.
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import './Navbar.css';
 
 
 function Navbar() {
     const [click, setClick] = useState(false);  //when we useing useState we will make "click" false for getting out from menu
-    const [button, setButton] = useState(true);
-
+    // const [button, setButton] = useState(true);
     const handleClick = () => setClick(!click);  // reverse the false and true every time we click and then we can change states
     const closeMobileMenu = () => setClick(false)  // handles closing menu
+    // const showButton = () => {
+    //     if(window.innerWidth <= 960) {
+    //         setButton(false);
+    //     }
+    //     else {
+    //         setButton(true);
+    //     }
+    // }
 
-    const showButton = () => {
-        if(window.innerWidth <= 960) {
-            setButton(false);
-        }
-        else {
-            setButton(true);
-        }
-    }
+    // useEffect(() => {
+    //     showButton();
+    // }, []);
 
-    useEffect(() => {
-        showButton();
-    }, []);
-
-    window.addEventListener('resize', showButton);
+    // window.addEventListener('resize', showButton);
 
     return (
         //Will be the upper part including hamburger menu
@@ -33,7 +31,7 @@ function Navbar() {
             <div className="navbar-container">
                 {/*  Main title, links to home page */}
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> 
-                Sky Cleaner
+                סקיי קלינר
                 {/* <img src="https://i.ibb.co/Fbs8KWk/Picture3.jpg" class='icon-img' /> */}
                 </Link>
                 {/*  when pressing the icon it will alter*/}

@@ -72,8 +72,7 @@ export class PickDateAndConfirm extends Component {
     }
 
     render() {
-    const {values: {service, addons, date, hour, firstName, price, lastName, email, address, city, phone, comments, image}} = this.props;
-    const {temp_hour} = this.state;
+    const {values: {service, addons, firstName, price, lastName, email, address, city, phone, comments, image}} = this.props;
     const {loading} = this.state
     const exclude_days_array = [];
     // mapping disabled dates to an array
@@ -112,7 +111,7 @@ export class PickDateAndConfirm extends Component {
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
-            filterDate={day => day.getDay() != 6} // for weekends
+            filterDate={day => day.getDay() !== 6} // for weekends
             />
             {/* "hours buttons list" */}
             <Loader
@@ -144,7 +143,7 @@ export class PickDateAndConfirm extends Component {
             <button className="step-btn"
             onClick={this.backward}>בצע שינויים
                 </button>
-            <button className="step-btn"
+            <button className="step-btn2"
             // onClick will send a post request with all the values to the API
             onInput={() => this.setState({ loading: !loading })}
             onClick={

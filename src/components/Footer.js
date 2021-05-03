@@ -59,18 +59,21 @@ function Footer(){
                     <div className="social-icons">
                         <a className="social-icon-link facebook"
                         target="_blank"
+                        rel="noreferrer"
                         href="https://www.facebook.com/SkyCleanerIsrael"
                         aria-label="Facebook">
                             <i className="fab fa-facebook-f"></i>
                         </a>
                         <a className="social-icon-link instagram"
                         target="_blank"
+                        rel="noreferrer"
                         href="https://www.instagram.com/skycleaner1/"
                         aria-label="Instagram">
                             <i className="fab fa-instagram"></i>
                         </a>
                         <a className="social-icon-link phone"
                         target="_blank"
+                        rel="noreferrer"
                         href="tel:054-220-1042"
                         aria-label="Phone">
                             <i className="fas fa-phone"></i>
@@ -83,6 +86,7 @@ function Footer(){
                         </a>
                         <a className="social-icon-link email"
                         target="_blank"
+                        rel="noreferrer"
                         href="mailto:skycleanerisrael@gmail.com"
                         aria-label="Email">
                             <i className="fas fa-envelope"></i>

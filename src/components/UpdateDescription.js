@@ -134,6 +134,7 @@ render() {
                 onChange={(e) => {this.handleNewDescription(e)}}
                  /> */}
                  <TextField 
+                 placeholder="תיאור חדש"
                  value={this.state.newDes}
                  autoComplete="off"
                  onChange={(e) => {this.handleNewDescription(e)}}

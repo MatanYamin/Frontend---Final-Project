@@ -33,8 +33,8 @@ export class Confirm extends Component {
         this.props.prevStep(); //will increase step by 1
     }
     render() {
-    const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments, image}} = this.props;
-    const page = window.location.pathname.substring(1); //page name
+    const {values: {service, price, addons, firstName, lastName, email, address, city, phone, comments}} = this.props;
+    // const page = window.location.pathname.substring(1); //page name
     const requierd_fields = [firstName, lastName, email, address, city, phone]
     const missing_fields = ["שם פרטי", "שם משפחה", "מייל", "רחוב", "עיר", "טלפון"]
     let mail_flag = false
@@ -50,7 +50,7 @@ export class Confirm extends Component {
     let req_flag = false
     // This part is to validate that all fields are enterd
     requierd_fields.forEach((value, index)  =>{
-    if(value==""){
+    if(value === ""){
         // if a value is empty, means that nothing entered. so enter the name of field according to index
         show_err_array.push(missing_fields[index])
         req_flag = true
@@ -119,23 +119,21 @@ export class Confirm extends Component {
                 השרות:
                 <h4>{service}  {addons}</h4>
                 המחיר:
-                <a><h3>{price} ₪</h3></a>
+                <label><h3>{price} ₪</h3></label>
                   הערות:    
                 <h4>{comments} </h4>
                 </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
-            <div>
             <div className="step-btn-container">
             <button className="step-btn"
             onClick={this.continue}>
            לקביעת זמן הגעה
             </button>
             {/* back button - calls "backward" that decrease step state by 1 */}
-            <button className="step-btn"
+            <button className="step-btn2"
             onClick={this.backward}>חזור
                 </button>
                 </div>
-            </div>
             </div>
     );
         }

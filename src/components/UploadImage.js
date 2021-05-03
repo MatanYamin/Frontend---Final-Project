@@ -130,7 +130,7 @@ render() {
         {this.state.showMainImage ? 
         <>
         <div>
-        <a className="success_action">{this.state.uploadSuccess}</a>
+        <label className="success_action">{this.state.uploadSuccess}</label>
         <br/>
             <select class="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
@@ -145,7 +145,7 @@ render() {
            value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
             />
-            <img className="img-show_form" src={this.state.image} />
+            <img alt="" className="img-show_form" src={this.state.image} />
           </div>
                     <br/>
                     <div className="btnContainer">
@@ -165,7 +165,7 @@ render() {
         {this.state.showImageMultiple ?
          <>
         <br/><br/>
-        <a className="success_action">{this.state.uploadSuccess}</a>
+        <label className="success_action">{this.state.uploadSuccess}</label>
             <select class="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
                     {this.state.services.map(service => (
@@ -174,7 +174,7 @@ render() {
                     <br/><br/>
                     <div>
             {/* After the img will upload succesfully, we will se the image */}
-            <img className="img-show_form" src={this.state.image} />
+            <img alt="" className="img-show_form" src={this.state.image} />
             <h1>העלה תמונה</h1>
             <input type="file" onChange={this.uploadToS3} />
             <label>כתובת של תמונה</label>

@@ -133,7 +133,7 @@ export class PersonalDetails extends Component {
 
     render() {
     const {values} = this.props; //values is all the props we passed to the component
-    if(values.price==""){
+    if(values.price === ""){
         return(
             <>
             <br/><br/><br/><br/><br/><br/><br/>
@@ -148,19 +148,19 @@ export class PersonalDetails extends Component {
         <div>
             <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
-            <h6><a className="red-text">*</a>שם פרטי: </h6>
+            <h6><label className="red-text">*</label>שם פרטי: </h6>
             <TextField 
             onChange={this.props.handleChange('firstName')}
             onInput={(e) => {this.validFirst(e)}}
             defaultValue={values.firstName}
             />
-            <h6><a className="red-text">*</a>שם משפחה:</h6>
+            <h6><label className="red-text">*</label>שם משפחה:</h6>
             <TextField
             onChange={this.props.handleChange('lastName')}
             onInput={(e) => {this.validLast(e)}}
             defaultValue={values.lastName}
             />
-            <h6><a className="red-text">*</a>דוא"ל: </h6>
+            <h6><label className="red-text">*</label>דוא"ל: </h6>
             <TextField
             type="email"
             onChange={this.props.handleChange('email')}
@@ -175,17 +175,17 @@ export class PersonalDetails extends Component {
                 width={50}
                 visible={this.state.loading}
                 />
-            <h6><a className="red-text">{this.state.wrongEmail}</a></h6>
-            <h6><a className="green-text">{this.state.goodEmail}</a></h6>
-            <h6><a className="red-text">*</a>טלפון:</h6>
+            <h6><label className="red-text">{this.state.wrongEmail}</label></h6>
+            <h6><label className="green-text">{this.state.goodEmail}</label></h6>
+            <h6><label className="red-text">*</label>טלפון:</h6>
             <TextField
             onChange={this.props.handleChange("phone")}
             onInput={(e) => {this.validPhone(e)}}
             value={this.state.checkPhone}
             />
-            <h6><a className="red-text">{this.state.badPhone}</a></h6>
-            <h6><a className="green-text">{this.state.goodPhone}</a></h6>
-            <h6><a className="red-text">*</a>עיר:</h6>
+            <h6><label className="red-text">{this.state.badPhone}</label></h6>
+            <h6><label className="green-text">{this.state.goodPhone}</label></h6>
+            <h6><label className="red-text">*</label>עיר:</h6>
             <select 
             class="city-drp-down"
             defaultValue={values.city}
@@ -195,8 +195,8 @@ export class PersonalDetails extends Component {
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
-            <h6><a className="red-text">העיר שלכם לא ברשימה? <a href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</a> </a></h6>
-            <h6><a className="red-text">*</a>רחוב: </h6>
+            <h6><label className="red-text">העיר שלכם לא ברשימה? <label href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</label> </label></h6>
+            <h6><label className="red-text">*</label>רחוב: </h6>
             <TextField
             onChange={this.props.handleChange('address')}
             defaultValue={values.address}
@@ -209,15 +209,15 @@ export class PersonalDetails extends Component {
             <h6>אנא העלו תמונה של הפריט כדי שניצור איתכם קשר במידת הצורך</h6>
             <input type="file" onChange={this.uploadToS3} />
             <div className="show-image">
-            <img className="img-customer-upload" src={this.state.image} />
+            <img alt="" className="img-customer-upload" src={this.state.image} />
             </div>
             {/*  */}<br/><br/>
             </div>
             <br/> 
             {/* Continue button - calls "continue" that increase step state by 1 */}
-            <div className="step-btn-container">
+            <div className="step-btn-container2">
             <button onClick={this.continue} className="step-btn">המשך</button>
-            <button onClick={this.backward} className="step-btn">חזור</button>
+            <button onClick={this.backward} className="step-btn2">חזור</button>
             </div>
                 </div>
     );

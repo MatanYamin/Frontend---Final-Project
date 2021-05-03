@@ -86,7 +86,7 @@ render() {
             onChange={(date)=> this.setSelectedDateForHours(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
-            filterDate={day => day.getDay() != 6} // for weekends
+            filterDate={day => day.getDay() !== 6} // for weekends
             />
             <lable className="white-text">{this.state.text3}</lable>
             {hours_button_list}

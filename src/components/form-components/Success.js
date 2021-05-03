@@ -5,7 +5,7 @@ import { Component } from "react"
 
 export class Success extends Component {
     render() {
-        const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments, image}} = this.props;
+        // const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments, image}} = this.props;
     return (
         <div>
             <br/>

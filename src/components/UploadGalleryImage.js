@@ -138,7 +138,7 @@ render() {
                     <option value={service}>{service}</option>))}
                     </select>
             {/* After the img will upload succesfully, we will se the image */}
-            <img className="img-show_form" src={this.state.image} />
+            <img alt="" className="img-show_form" src={this.state.image} />
             <label>העלה קובץ</label>
             <input type="file" onChange={this.uploadToS3} />
             <label>כתובת של תמונה</label>
@@ -147,6 +147,7 @@ render() {
            onChange={(e) => {this.handleImageUrl(e)}}
             /> */}
             <TextField 
+            placeholder="כתובת תמונה"
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />

@@ -195,6 +195,7 @@ render() {
            onChange={(e) => {this.handleService(e)}}
             /> */}
             <TextField
+            placeholder="שם שירות"
             value={this.state.service_name}
             onChange={(e) => {this.handleService(e)}} />
             <label>הוסף תיאור</label>
@@ -203,6 +204,7 @@ render() {
            onChange={(e) => {this.handleDescription(e)}}
             /> */}
             <TextField 
+            placeholder="תיאור"
             value={this.state.description}
             onChange={(e) => {this.handleDescription(e)}}/>
             <label>מחיר (בשקלים)</label>
@@ -211,6 +213,7 @@ render() {
             onChange={(e) => {this.handlePrice(e)}}
            /> */}
            <TextField 
+           placeholder="מחיר"
            value={this.state.price}
            onChange={(e) => {this.handlePrice(e)}}/>
            {/*  */}
@@ -236,10 +239,11 @@ render() {
            onChange={(e) => {this.handleImageUrl(e)}}
             /> */}
             <TextField 
+            placeholder="כתובת תמונה"
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />
-            <img className="img-show_form" src={this.state.image} />
+            <img alt="" className="img-show_form" src={this.state.image} />
             <div className="btnContainer">
                 <button className="step-btn-admin"
                 // Post request for adding service

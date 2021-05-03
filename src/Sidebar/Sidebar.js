@@ -56,15 +56,23 @@ const Sidebar = (props) => {
         
         setSidebar(!sidebar);
     }
+    
 
     return(
         <>
+        <script type="text/javascript" charset="utf-8"
+ src="https://www.hebcal.com/etc/hdate-he.js"></script>
         <IconContext.Provider value={{color: '#fff'}}>
         <Nav>
             <NavIcon>
                 <FaIcons.FaBars onClick={showSidebar}/>
             </NavIcon>
-        <a className="date_sidebar">{props.blessing}, <br/>{props.fullDayAndDate} </a>
+        <label className="date_sidebar">
+            {props.blessing}
+            <br/>
+            {props.fullDayAndDate}
+               
+          </label>
             <div className="on-nav">
                 ברוכים הבאים למסך הניהול {props.secondTitle}
             </div>

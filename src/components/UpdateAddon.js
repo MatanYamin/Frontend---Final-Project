@@ -89,7 +89,7 @@ export class UpdateAddon extends Component {
                 (response) => {
                     if(response.status === 200){
                         this.setState({
-                            txt1: " התוסף" + " " + this.state.addon_name + " " + "נוסף בהצלחה ",
+                            txt1: "  התוסף "  + this.state.addon_name + " נוסף בהצלחה  ",
                             loading: false,
                             addon_name: "",
                             price: ""
@@ -121,7 +121,7 @@ export class UpdateAddon extends Component {
                 (response) => {
                     if(response.status === 200){
                         this.setState({
-                            txt2: " התוסף" + " " + this.state.addon_name + " " + "נמחק בהצלחה ",
+                            txt2: "  התוסף " + this.state.addon_name + " נמחק בהצלחה  ",
                             loading: false
                         })
                         this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1)
@@ -158,6 +158,7 @@ render() {
                 onChange={(e) => {this.handleAddon(e)}}
                  /> */}
                  <TextField 
+                 placeholder="שם תוסף"
                  value={this.state.addon_name}
                  autoComplete="off"
                  onChange={(e) => {this.handleAddon(e)}}
@@ -168,6 +169,7 @@ render() {
                  onChange={(e) => {this.handlePrice(e)}}
                 /> */}
                 <TextField 
+                placeholder="מחיר"
                 value={this.state.price}
                 onChange={(e) => {this.handlePrice(e)}}
                 />

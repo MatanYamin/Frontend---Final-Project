@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import fire from './Fire';
 import AdminLoginPage from "./pages/AdminLoginPage"
 import Admin from "./pages/Admin"
-import Cars from "./pages/Cars"
-import {BrowserRouter as Router, Switch, Route, BrowserRouter} from 'react-router-dom';
+// import Cars from "./pages/Cars"
+// import {BrowserRouter as Router, Switch, Route, BrowserRouter} from 'react-router-dom';
 
 //Admin login page
 
@@ -45,7 +45,11 @@ const AdminLogin = () => {
                 case "auth/wrong-password":
                     setPasswordError("סיסמה שגויה"); //Error for wrong password
                     break;
+                
+                default:
+                    break;
             }
+            
         })
     }
 
@@ -79,13 +83,16 @@ const AdminLogin = () => {
                 case "auth/weak-password":
                     setPasswordError(err.message); 
                     break;
+
+                default:
+                    break;
             }
         })
     }
 
     useEffect(() => {
         authListener();
-    }, [])
+    })
 
     return(
         <div>

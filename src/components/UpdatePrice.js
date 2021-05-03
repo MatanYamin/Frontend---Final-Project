@@ -26,7 +26,8 @@ export class UpdatePrice extends Component {
             first_service_price: "",
             first_addon_price: "",
             new_price: "",
-            pickedService: ""
+            pickedService: "",
+            placeholder: "הקלד מחיר חדש"
         }
     }
 
@@ -257,6 +258,7 @@ render() {
                 onChange={(e) => {this.handleNewPrice(e)}}
                  /> */}
                  <TextField 
+                 placeholder={this.state.placeholder}
                  onChange={(e) => {this.handleNewPrice(e)}}
                  />
                  <div className="btnContainer">
@@ -315,6 +317,7 @@ render() {
             onChange={(e) => {this.handleNewPrice(e)}} */}
                  {/* /> */}
             <TextField 
+            placeholder={this.state.placeholder}
             autoComplete="off"
             onChange={(e) => {this.handleNewPrice(e)}}
             />

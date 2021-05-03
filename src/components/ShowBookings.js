@@ -72,7 +72,7 @@ render() {
 {this.state.customers.map(
     (rowData, index) => (
                 
-                 <tr className={index%2==0 ? null : "td1"}>
+                 <tr className={index%2 === 0 ? null : "td1"}>
                      <th scope="row">{index + 1}</th>
                      {/* שם מלא */}
                      <td>{rowData[1]}</td> 

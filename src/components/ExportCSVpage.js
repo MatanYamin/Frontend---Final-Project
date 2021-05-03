@@ -31,8 +31,6 @@ export class ExportCSVpage extends Component {
     }
 
 render() {
-    const {values} = this.props; //values is all the props we passed to the component
-    const page = window.location.pathname.substring(1); //page name
     // title of the file
     const fileName = 'תורים'
     // book will hold all the bookings

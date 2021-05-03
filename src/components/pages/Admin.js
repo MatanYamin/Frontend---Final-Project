@@ -13,7 +13,7 @@ import BlockHour from "../BlockHour"
 import FreeDay from "../FreeDay"
 import UploadMainImage from "../UploadMainImage"
 import UploadGalleryImage from "../UploadGalleryImage"
-import ExportCSVpage from "../ExportCSVpage"
+// import ExportCSVpage from "../ExportCSVpage"
 import Sidebar from "../../Sidebar/Sidebar"
 import GoogleMap from "../GoogleMap"
 //Admin panel will hold all components that are able by the admin
@@ -50,7 +50,7 @@ class Admin extends React.Component {
 
       componentDidMount() {
         // this function findout wheter its morning, noon or evening
-        this.whatTimeIsIt()        
+        this.whatTimeIsIt();    
       }
 
       componentWillMount() {
@@ -162,6 +162,9 @@ class Admin extends React.Component {
 
           case "GoogleMap":
             page = <GoogleMap />
+            this.setState({
+              secondTitle: ""
+            })
             break;
 
           case "Logout":
@@ -189,7 +192,7 @@ class Admin extends React.Component {
             blessNumber: 2
           })
         }
-        else if(this.state.hourOfDay > 22 && this.state.hourOfDay <= 4){
+        else if(this.state.hourOfDay > 22 || this.state.hourOfDay <= 4){
           this.setState({
             blessNumber: 3
           })
@@ -209,6 +212,8 @@ class Admin extends React.Component {
         const {uploadImage} = this.state;
         const fullDayAndDate = this.state.dayInWeek[this.state.date] + ", " + this.state.dayInMonth + " " + this.state.months[this.state.month];
         const defaultComponent = <GoogleMap />;
+        // alert(fullDayAndDate)
+
         // findout what is the width of the screen and that way to know if its belong to mobile or not
         const { width } = this.state;
         const isMobile = width <= 500;
@@ -329,102 +334,6 @@ class Admin extends React.Component {
          </div>
     );
         }
-
-
-   // THIS IS ok $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-
-   //  return(
-   //      <div class="admin-main-container">
-   //      <h1 className="admin-panel-title"> ברוכים הבאים למסך הניהול
-   //       </h1>
-   //       {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
-   //       <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים <i class="fas fa-table"></i></button>
-   //      {this.state.showFuture ?
-   //         <ShowBookings
-   //         />
-   //          :
-   //         null
-   //      }
-   //       <div>
-   //      {/* moving to change service: delete or add new one */}
-   //      <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות <i class="fas fa-concierge-bell"></i></button>
-   //      {this.state.showUpdateService ?
-   //         <UpdateService
-   //         />
-   //          :
-   //         null
-   //      }
-   //      {/* moving to change addon: delete or add new one */}
-   //      <button className="button-form2" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף <i class="fas fa-cart-plus"></i></button>
-   //      {this.state.showUpdateAddon ?
-   //         <UpdateAddon
-   //         />
-   //          :
-   //         null
-   //      }
-   //      {/* Admin can block a day/hour or free a day inside UpdateDate */}
-   //      <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות <i class="fas fa-calendar-alt"></i></button>
-   //      {this.state.showDisableDate ?
-   //         <UpdateDate
-   //         />
-   //          :
-   //         null
-   //      }
-   //      {/* Admin can add city to the list or delete one */}
-   //       <button className="button-form2" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים <i class="fas fa-city"></i></button>
-   //       {this.state.showCity ?
-   //         <UpdateCity
-   //         />
-   //          :
-   //         null
-   //      }
-   //      {/* Admin can change price for a certain product */}
-   //      <button className="button-form" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר <i class="fas fa-shekel-sign"></i></button>
-   //       {this.state.showPrice ?
-   //         <UpdatePrice
-   //         />
-   //          :
-   //         null
-   //      }
-   //      <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
-   //       {this.state.showDescription ?
-   //         <UpdateDescription
-   //         />
-   //          :
-   //         null
-   //      }
-   //      <button className="button-form" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות  <i class="fas fa-images"></i> </button>
-   //       {this.state.uploadImage ?
-   //         <UploadImage
-   //         />
-   //          :
-   //         null
-   //      }
-   //       {/* Adding new manager component after click */}
-   //       <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
-   //      {/* Using "showing" for clicking a button */}
-   //      {this.state.showDelete ?
-   //      <>
-   //         <AddAdmin
-   //         email={this.props.email}
-   //         setEmail={this.props.setEmail}
-   //         password={this.props.password}
-   //         setPassword={this.props.setPassword}
-   //         handleSingup={this.props.handleSingup}
-   //         />
-   //       </>
-   //          :
-   //          null
-   //       }
-   //      <button className="button-form" onClick={this.props.handleLogout}>התנתק</button>
-   //      {/* <button className="button-form2">אישור על סיום תור</button> */}
-   //    </div>
-   //       </div>
-   //  );
-
-
-       // THIS IS ok $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 }
 }
 
