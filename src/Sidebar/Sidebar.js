@@ -60,8 +60,6 @@ const Sidebar = (props) => {
 
     return(
         <>
-        <script type="text/javascript" charset="utf-8"
- src="https://www.hebcal.com/etc/hdate-he.js"></script>
         <IconContext.Provider value={{color: '#fff'}}>
         <Nav>
             <NavIcon>
