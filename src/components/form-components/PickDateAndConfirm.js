@@ -60,7 +60,7 @@ export class PickDateAndConfirm extends Component {
     setSelectedDate = date => {
         this.setState({
             selectedDate: date,
-            temp_hour: true,
+            // temp_hour: true,
             loading: true
         });
         this.get_hours(date)
@@ -83,7 +83,10 @@ export class PickDateAndConfirm extends Component {
     this.state.hours.map(hour_now => (
         hours_button_list.push(<button 
             className="pick-hour-btn"
-            onClick={() => this.setState({ clickedHour: hour_now })}
+            onClick={() => this.setState({ 
+                clickedHour: hour_now,
+                temp_hour: true
+            })}
             >
             {hour_now}</button>)));
     return (

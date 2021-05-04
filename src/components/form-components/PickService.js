@@ -184,7 +184,6 @@ export class PickService extends Component {
             <img alt="" width="50%"
             src={this.state.imageService} />
              </>}
-            
             <Loader
             type="TailSpin"
             color="black"
