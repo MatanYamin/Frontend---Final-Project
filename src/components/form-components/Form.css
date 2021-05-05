@@ -16,6 +16,8 @@
     /* display: flex; */
 }
 
+
+
 .date_sidebar{
     color: white;
     width: 20vw;
@@ -65,9 +67,6 @@
     width: 3vw;
 }
 
-.whole_pick_ser_containet{
-    /* background: #e7e7e7; */
-}
 
 .back-home{
     text-align: center;
@@ -166,7 +165,7 @@
     background: rgba(0, 0, 0, 0.3);
     color: white;
     margin-right: -18vw;
-    font-size: 20px;
+    font-size: 1.5vw;
     border: none;
     font-weight: bold;
     /* width: 240px; */
@@ -194,9 +193,21 @@
     transform: scale(1.1);
 }
 
+.whole_pick_ser_containet{
+    /* position: fixed; */
+    overflow: auto;
+    height: 60vh;
+    /* background: #d7d0d0; */
+}
+
 .service-btn-container{
-  position: absolute;
-  width: 58%;
+  /* position: absolute; */
+  width: 58vw;
+  position: fixed;
+  overflow: auto;
+  height: 70vh;
+  border: solid;
+  /* background: #d7d0d0; */
 }
 /* Make the image responsive */
 .service-btn-container img {
@@ -532,11 +543,13 @@
 }
 
 .form-stpes{
+    background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover
+    no-repeat;
     text-align: center;
     align-items: center;
     font-size: 1.5vw;
     /* height: 120vh; */
-    height: 110vh;
+    height: 100vh;
     background-color: whitesmoke;
     /* background-image: url("https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg");
     background-repeat: no-repeat, repeat;
@@ -546,13 +559,17 @@
   }
 
   .bubble-man{
+    /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Speech_bubble.svg/1280px-Speech_bubble.svg.png);
+    background-repeat: no-repeat, repeat;
+    background-size: 80vh 34vw; */
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Speech_bubble.svg/1280px-Speech_bubble.svg.png);
     background-repeat: no-repeat, repeat;
-    /* background-size: 564px 404px; */
     background-size: 80vh 34vw;
-    /* height: 86vh; */
-    /* margin-top: 0px; */
-  }
+    height: 100vh;
+    width: 40vw;
+    left: 0;
+    position: fixed;
+}
 
   .text-on-bubble{
     position: absolute;
@@ -561,7 +578,7 @@
     width: 352px;
     font-size: 17px; */
     left: 8vw;
-    top: 27vh;
+    top: 14vh;
     width: 25vw;
     font-size: 3vh;
   }
@@ -792,6 +809,7 @@
 
 .react-datepicker__current-month{
     color: whitesmoke;
+    font-size: 1.5vw;
     /* width: 1vw; */
 }
 
@@ -830,7 +848,7 @@
     padding: 25px;
     height: 86vh;
     width: 60%;
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }
 
 .personal-wrapper{
@@ -861,10 +879,6 @@
 
 .img-customer-upload{
     width: 50%;
-}
-
-.react-datepicker{
-    /* width: 2%; */
 }
 
 .service-btn{
@@ -946,7 +960,7 @@
     transition: all 0.2s;
     color: #FFFFFF;
     /* font-family: Brush Script MT; */
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: 100;
     padding: 10px;
     /* -webkit-box-shadow: 1px 1px 20px 0 #000000; */
@@ -958,6 +972,8 @@
     display: inline-block;
     cursor: pointer;
     text-align: center;
+    /* font-size: 5.5vw; */
+    /* width: 100vw; */
  }
  
  .addon-btn:hover {
@@ -1077,11 +1093,7 @@
         /* font-size: 1vw; */
         border-radius: 5%;
     }
-    
-    .react-datepicker__month-container{
-        /* width: 18vw; */
-    }
-    
+ 
     .react-datepicker__header {
         background-color: rgb(28, 27, 27);
         width: 72vw;
@@ -1135,7 +1147,7 @@
         text-decoration:none;
         font-family:'Roboto',sans-serif;
         font-weight:300;
-        font-size: 2.5vw;
+        font-size: 7.5vw;
         text-align:center;
         transition: all 0.2s;
     }
@@ -1157,7 +1169,7 @@
         /* left: 50%; */
         /* right: 0; */
         /* left: 0; */
-        font-size: 8vw;
+        font-size: 6vw;
     }
     .confirm-wrapper h4{
         font-size: 8vw;
@@ -1170,10 +1182,50 @@
 
     .details-btn{
         font-size: 8vw;
+        width: 100vw;
     }
 
     .addon-btn-cancel{
         font-size: 6vw;
         width: 28vw;
+    }
+    .addon-btn{
+        background: #2d2929;
+        /* background: darkslategray; */
+        background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
+        background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
+        background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
+        background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
+        background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
+        transition: all 0.2s;
+        color: #FFFFFF;
+        /* font-family: Brush Script MT; */
+        font-weight: 100;
+        padding: 10px;
+        /* -webkit-box-shadow: 1px 1px 20px 0 #000000; */
+        /* -moz-box-shadow: 1px 1px 20px 0 #000000; */
+        /* box-shadow: 1px 1px 20px 0 #000000; */
+        /* text-shadow: 1px 1px 20px #000000; */
+        border: solid #337FED 1px;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        font-size: 5.5vw;
+        width: 100vw;
+     }
+
+     .step-btn2{
+        display:inline-block;
+        margin:0;
+        width: 100vw;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:'Roboto',sans-serif;
+        font-size: 6vw;
+        background: white;
+        text-align:center;
+        transition: all 0.2s;
+        cursor: pointer;
     }
 }

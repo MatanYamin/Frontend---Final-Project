@@ -156,11 +156,12 @@ export class PickService extends Component {
             <div class="text-on-bubble">
                 <label>{this.state.textOnBubble}</label>
             </div>
+                </div>
              <div className="pick-service-containet">
                 <div className="pick-service-headline">
-                <h1>{this.state.titleService}</h1>
                 </div>
             <br/>
+                <h1>{this.state.titleService}</h1>
             <div className="whole_pick_ser_containet">
             <div className="pick-ser-select-btn">
             {/* <select
@@ -270,7 +271,7 @@ export class PickService extends Component {
             <button className="step-btn" onClick={this.continue}>המשך</button>
              </div>
              </div>
-             </div>
+             {/* </div> */}
             </>
     );
         }

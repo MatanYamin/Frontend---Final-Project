@@ -25,6 +25,7 @@ export class PickDateAndConfirm extends Component {
           temp_hour: false,
           loading: false,
           clickedHour: "",
+          avail: "",
           textOnBubble: "בחלק הזה יש לבחור יום מהלוח שנה ולאחר מכן שעה מבין השעות שנותרו. אם התאריך שרציתם אינו פנוי, אנא פנו אלינו"
         };
     }
@@ -60,7 +61,7 @@ export class PickDateAndConfirm extends Component {
     setSelectedDate = date => {
         this.setState({
             selectedDate: date,
-            // temp_hour: true,
+            avail: "בחרו שעה מבין השעות שנותרו",
             loading: true
         });
         this.get_hours(date)
@@ -95,6 +96,7 @@ export class PickDateAndConfirm extends Component {
         <div class="text-on-bubble">
                 <label>{this.state.textOnBubble}</label>
             </div>
+        </div>
         <div className="pickDateContainer">
             <br/>
 
@@ -102,6 +104,9 @@ export class PickDateAndConfirm extends Component {
             {this.props.date}
             <div className="calendar_final">
                 <div className="hours_btns">
+                    {this.state.avail}
+                    <br/>
+                    <br/>
             {hours_button_list}
             </div>
             <DatePicker 
@@ -123,6 +128,7 @@ export class PickDateAndConfirm extends Component {
                     height={100}
                     width={50}
                     visible={this.state.loading}
+                    
                     />
             <br/>
             {/* <div className="hours_to_display"> */}
@@ -208,7 +214,7 @@ export class PickDateAndConfirm extends Component {
                 </div>
                 </>
                 }
-                </div>
+                {/* </div> */}
             </>
     );
     }

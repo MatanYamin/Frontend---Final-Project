@@ -74,7 +74,7 @@ const Sidebar = (props) => {
             <div className="on-nav">
                 ברוכים הבאים למסך הניהול {props.secondTitle}
             </div>
-            <a className="left_sidebar" href="https://skycleanerisrael.com/"><AiIcons.AiFillHome /></a>
+            <a className="left_sidebar" href="/"><AiIcons.AiFillHome /></a>
         </Nav>
         <SidebarNav sidebar={sidebar}>
             <SidebarWrap>
@@ -90,7 +90,7 @@ const Sidebar = (props) => {
             <div className="inside-next">
                 {/* The shoing of the component: */}
                 <div className="back-home">
-                <a href="https://skycleanerisrael.com/">חזרה לעמוד הבית</a>
+                <a href="/">חזרה לעמוד הבית</a>
                 </div>
                 {props.comp === "" ? <> {props.defaultComponent} </> : null}
                 {props.comp}

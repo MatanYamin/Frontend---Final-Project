@@ -18,7 +18,7 @@ export class Success extends Component {
             <br/>
             <br/>
             <br/>
-            <h5><a href="https://skycleanerisrael.com">לחזרה לעמוד הבית</a></h5>
+            <h5><a href="/">לחזרה לעמוד הבית</a></h5>
         </div>
     );
         }
