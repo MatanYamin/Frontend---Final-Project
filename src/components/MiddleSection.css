@@ -132,7 +132,8 @@ label.button1{
     color:#FFFFFF;
     text-align:center;
     transition: all 0.2s;
-    font-size: 25px;
+    /* font-size: 25px; */
+    font-size: 1.83vw;
     width: 21%;
     }
     
@@ -154,7 +155,8 @@ label.button1{
       color:#FFFFFF;
       text-align:center;
       transition: all 0.2s;
-      font-size: 25px;
+      /* font-size: 25px; */
+      font-size: 1.83vw;
       width: 21%;
       }
       
@@ -169,12 +171,14 @@ label.button1{
         display:block;
         margin:0.4em auto;
         width: 90%;
+        font-size: 7vw;
     }
 
     a.button1{
       display:block;
       margin:0.4em auto;
       width: 90%;
+      font-size: 7vw;
   }
     .pop-up-content-home{
         font-weight: bold;
