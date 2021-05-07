@@ -87,7 +87,7 @@ render() {
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
-            filterDate={day => day.getDay() !== 5 && day.getDay() !== 6} // for weekends
+            filterDate={day => day.getDay() !== 6} // for weekends
             />
             <br/>
             <lable className="white-text">{this.state.text1}</lable>
@@ -152,7 +152,7 @@ render() {
             onChange={(date)=> this.setSelectedDate(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
-            filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
+            filterDate={day => day.getDay() !== 6} // for weekends
             />
             <br/>
             <lable className="white-text">{this.state.text2}</lable>
@@ -217,7 +217,7 @@ render() {
             onChange={(date)=> this.setSelectedDateForHours(date)}
             dateFormat="dd-MM-yyyy"
             minDate={new Date()}
-            filterDate={day => day.getDay() != 5 && day.getDay() != 6} // for weekends
+            filterDate={day => day.getDay() !== 6} // for weekends
             />
             <br/>
             <lable className="white-text">{this.state.text3}</lable>
