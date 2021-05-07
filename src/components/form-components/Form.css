@@ -370,7 +370,7 @@
     outline: none;
     padding: 4px 0;
     color: #fff;
-    font-size: 25px;
+    font-size: 2.83vw;
     letter-spacing: 2px;
     cursor: pointer;
     width: fit-content;
@@ -1222,6 +1222,30 @@
         background: white;
         text-align:center;
         transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    .select-srp-down{
+        background: #15171c;;
+        border: none;
+        outline: none;
+        padding: 4px 0;
+        color: #fff;
+        font-size: 2.83vw;
+        letter-spacing: 2px;
+        cursor: pointer;
+        width: fit-content;
+    }
+
+    .del-drp-btn{
+        background: #15171c;;
+        text-align-last: center;
+        border: none;
+        outline: none;
+        padding: 3px 0;
+        color: #fff;
+        font-size: 2.83vw;
+        letter-spacing: 2px;
         cursor: pointer;
     }
 }

@@ -10,7 +10,7 @@ import { IconContext } from 'react-icons/lib';
 // style of the top navBar
 const Nav = styled.div`
     background: #15171c;
-    height: 80px;
+    height: 12.176vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;

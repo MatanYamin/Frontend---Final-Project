@@ -77,3 +77,11 @@
     font-size: 16px;
   }
   
+
+  @media screen and (max-width: 500px) {
+    .adminComponent{
+      width: 100%;
+      background: #e9e9e9;
+      display: flex;
+    }
+  }
