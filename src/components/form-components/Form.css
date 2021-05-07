@@ -70,7 +70,7 @@
 
 .back-home{
     text-align: center;
-    font-size: 21px;
+    font-size: 1.537vw;
     background: #e3e1e1;
     position: sticky;
     top: 0;
@@ -80,13 +80,14 @@
 
 .map-title{
     height: 40px;
-    font-size: 23px;
+    font-size: 1.537vw;
 }
 
 .border-card-bottom-image{
     border-top: dashed;
     border-bottom: dashed;
     display: grid;
+    font-size: 1.2vw;
 }
 
 .border-for-calendar{
@@ -109,7 +110,7 @@
     background-color: white;
     border-radius: 10px;
     align-self: center;
-    font-size: 25px;
+    font-size: 1.637vw;
     width: -webkit-fill-available;
     max-width: fit-content;
     padding: 10px;
@@ -118,12 +119,14 @@
 .border-card-top{
     border-top: dashed;
     display: grid;
+    font-size: 1.2vw;
 }
 
 .border-card-bottom{
     border-top: dashed;
     border-bottom: dashed;
     text-align: center;
+    font-size: 1.2vw;
 }
 
 .confirm-show-booking:hover, .delet-btn-show-booking:hover{
@@ -370,7 +373,7 @@
     outline: none;
     padding: 4px 0;
     color: #fff;
-    font-size: 2.83vw;
+    font-size: 1.83vw;
     letter-spacing: 2px;
     cursor: pointer;
     width: fit-content;
@@ -392,7 +395,7 @@
     outline: none;
     padding: 3px 0;
     color: #fff;
-    font-size: 25px;
+    font-size: 1.83vw;
     letter-spacing: 2px;
     cursor: pointer;
 }
@@ -406,7 +409,7 @@
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
-    font-size: 25px;
+    font-size: 1.83vw;
     color:#FFFFFF;
     background-color:red;
     text-align:center;
@@ -737,7 +740,7 @@
     text-decoration:none;
     font-family:'Roboto',sans-serif;
     font-weight:300;
-    font-size: 25px;
+    font-size: 1.83vw;
     /* color:#FFFFFF; */
     /* background-color:darkslategray; */
     text-align:center;

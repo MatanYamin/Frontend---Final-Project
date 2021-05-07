@@ -32,11 +32,12 @@ const SidebarNav = styled.nav`
     // width: 250px;
     width: 15vw;
     // width: fit-content;
-    height: 110vh;
+    height: 100vh;
+    overflow: auto;
     // height: 100%;
     display: flex;
     justify-content: center;
-    position: relative;
+    // position: relative;
     // position: fixed;
     top: 0;
     right: ${({ sidebar }) => (sidebar ? '-100%' : '0')};
