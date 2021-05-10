@@ -116,7 +116,7 @@ addNewCity = () => {
 render() {
     return(
         <>
-        <div className="city">
+        {/* <div className="city"> */}
         <section className="adminComponent">
             <div className="adminComponentContainer">
             <div className="border-card-top">
@@ -178,8 +178,8 @@ render() {
                     </div>
                     </div>
             </div>
+        {/* </div> */}
         </section>
-        </div>
         </>
     )}
 }

@@ -32,7 +32,7 @@ export class PickDateAndConfirm extends Component {
 
     // will get all dates from DB that admin choosed to disable
     async read_disable_days(){
-        let response = await fetch(url + 'get/disabledate');
+        let response = await fetch(url + 'get/disable_date');
         let data = await response.json();
         return data
     }

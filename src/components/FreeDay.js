@@ -65,7 +65,7 @@ render() {
                         loading: true
                     });
                     try{
-                        fetch(url + "delete/activatedate", {
+                        fetch(url + "delete/activate_date", {
                             method: "DELETE",
                             body: JSON.stringify({
                                 date: this.state.selectedDate

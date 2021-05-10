@@ -104,7 +104,7 @@ render() {
                         loading: true
                     });
                     try{
-                        fetch(url + "put/disabledate", {
+                        fetch(url + "put/disable_date", {
                             method: "PUT",
                             body: JSON.stringify({
                                 date: this.state.selectedDate

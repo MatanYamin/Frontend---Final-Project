@@ -9,14 +9,37 @@
     height: 20px;
 }
 
+.dits_on_side{
+    position: fixed;
+    right: 0;
+    margin-left: 0vw;
+    margin-top: 3vh;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.3vw;
+    width: 17vw;
+    transition: all 0.6s linear;
+}
+
+.each_manu{
+    background: rgba(0, 0, 0, 0.7);
+    top: 1vh;
+    padding: 0.3vw;
+    /* width: 15vw; */
+    /* width: fit-content; */
+    /* max-width: 18vw; */
+    width: 17vw;
+    transition: all 0.6s linear;
+    /* transform: scale(1.8); */
+    cursor: pointer;
+}
+
 .black_while_loading{
     background: rgba(0, 0, 0, 0.8);
     /* width: 100%; */
     /* padding: 0 20px; */
     /* display: flex; */
 }
-
-
 
 .date_sidebar{
     color: white;
@@ -1250,5 +1273,13 @@
         font-size: 2.83vw;
         letter-spacing: 2px;
         cursor: pointer;
+    }
+
+    .dits_on_side{
+        display: none;
+    }
+
+    .each_manu{
+        display: none;
     }
 }

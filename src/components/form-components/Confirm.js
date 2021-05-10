@@ -63,7 +63,7 @@ export class Confirm extends Component {
             <b>כתובת מייל לא חוקית</b>
             <div className="step-btn-container">
             <button className="step-btn"
-            onClick={this.backward}>לביצוע שינויים
+            onClick={this.backward}>חזור
                 </button>
                 </div>
             </>
@@ -76,7 +76,7 @@ export class Confirm extends Component {
             יש בעיה תחת השדה "טלפון"
             <div className="step-btn-container">
             <button className="step-btn"
-            onClick={this.backward}>לביצוע שינויים
+            onClick={this.backward}>חזור
                 </button>
                 </div>
             </>
@@ -92,7 +92,7 @@ export class Confirm extends Component {
             })}
             <div className="step-btn-container">
             <button className="step-btn"
-            onClick={this.backward}>לביצוע שינויים
+            onClick={this.backward}>חזור
                 </button>
                 </div>
             </div>

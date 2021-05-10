@@ -48,7 +48,7 @@ function Navbar() {
                     </li>
                     <li className='nav-item'>
                         <Link to='/SOS' className='nav-links' onClick={closeMobileMenu}>
-                            שרות SOS
+                            שירות SOS
                         </Link>
                     </li>
                     <li className='nav-item'>

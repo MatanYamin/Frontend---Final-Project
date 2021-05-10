@@ -107,7 +107,7 @@ render() {
                         loading: true
                     });
                     try{
-                        fetch(url + "put/disabledate", {
+                        fetch(url + "put/disable_date", {
                             method: "PUT",
                             body: JSON.stringify({
                                 date: this.state.selectedDate
@@ -172,7 +172,7 @@ render() {
                         loading: true
                     });
                     try{
-                        fetch(url + "delete/activatedate", {
+                        fetch(url + "delete/activate_date", {
                             method: "DELETE",
                             body: JSON.stringify({
                                 date: this.state.selectedDate
@@ -244,7 +244,7 @@ render() {
                         loading: true
                     });
                     try{
-                        fetch(url + "post/newhours", {
+                        fetch(url + "post/new_hours", {
                             method: "POST",
                             // mode: "no-cors",
                             headers: {

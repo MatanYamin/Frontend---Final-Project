@@ -113,7 +113,7 @@ render() {
                         loading: true
                     });
                     try{
-                        fetch(url + "post/newhours", {
+                        fetch(url + "post/new_hours", {
                             method: "POST",
                             // mode: "no-cors",
                             headers: {

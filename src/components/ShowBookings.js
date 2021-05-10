@@ -37,6 +37,10 @@ export class ShowBookings extends Component {
         })
     }
 
+    searchTable = (e) => {
+        
+    }
+
 render() {
     return(
         <>

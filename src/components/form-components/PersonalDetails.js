@@ -26,7 +26,9 @@ export class PersonalDetails extends Component {
             goodPhone: "",
             badPhone: "",
             image: "",
-            checkPhone: ""
+            checkPhone: "",
+            notes: "",
+            temp: ""
         };
         this.uploadToS3 = this.uploadToS3.bind(this);
         // this.onlyDigit = this.onlyDigit.bind(this)
@@ -38,6 +40,25 @@ export class PersonalDetails extends Component {
         let data = await response.json(); // for string
         return data
     }
+
+    async readnotes() {
+        // bring all cities allowed
+        let response = await fetch(url + 'get/notes');
+        let data = await response.json(); // for string
+        return data
+    }
+
+    // get_note = (ser) => {
+    //     const data = {
+    //         service: ser
+    //     };
+    //     axios.post(url + "post/note", data)
+    //     .then(response => this.setState({
+    //         notes: response.data,
+    //         loading: false
+    //     }));
+    // }
+
     // when the component is open, do the following
     componentDidMount() {
         this.setState({
@@ -50,6 +71,12 @@ export class PersonalDetails extends Component {
             })
         })
     }
+
+    // componentDidUpdate(prevProps, prevState){
+    //     if (prevState.cities !== this.state.cities) {
+    //         // this.get_note(this.props.service);
+    //       }
+    //   }
 
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
@@ -133,6 +160,7 @@ export class PersonalDetails extends Component {
 
     render() {
     const {values} = this.props; //values is all the props we passed to the component
+    
     if(values.price === ""){
         return(
             <>
@@ -146,6 +174,30 @@ export class PersonalDetails extends Component {
     }
     return (
         <div>
+            <div className="dits_on_side">
+                השירות שנבחר: <br/>
+                {values.service}
+                <br/>
+                מחיר:
+                <br/>
+                {values.price}
+                </div>
+            <div className="right_nav_personal">
+            <br/>
+            <div className="each_manu">
+                <p onClick={this.backward}>חזרה</p>
+            </div>
+            <br/>
+            <div className="each_manu">
+                <p href="/contact">העיר שלכם לא ברשימה?<br/> צרו איתנו קשר!</p>
+            </div>
+            </div>
+            {/* <div className="notes_on_right">
+                מילים
+                <h1>אחד</h1>
+                <h1>שתיים</h1>
+                <h1>שלוש</h1>
+            </div> */}
             <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
             <h6><label className="red-text">*</label>שם פרטי: </h6>
@@ -154,6 +206,7 @@ export class PersonalDetails extends Component {
             onInput={(e) => {this.validFirst(e)}}
             defaultValue={values.firstName}
             />
+            
             <h6><label className="red-text">*</label>שם משפחה:</h6>
             <TextField
             onChange={this.props.handleChange('lastName')}
@@ -191,11 +244,11 @@ export class PersonalDetails extends Component {
             defaultValue={values.city}
             onChange={this.props.handleChange('city')}>
             <option
-            value="">בחרו עיר</option>
+            value="">בחרו עיר מהרשימה</option>
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
-            <h6><label className="red-text">העיר שלכם לא ברשימה? <label href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</label> </label></h6>
+            {/* <h6><label className="red-text">העיר שלכם לא ברשימה? <label href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</label> </label></h6> */}
             <h6><label className="red-text">*</label>רחוב: </h6>
             <TextField
             onChange={this.props.handleChange('address')}

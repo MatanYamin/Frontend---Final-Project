@@ -85,7 +85,7 @@ export class UploadGalleryImage extends Component {
             loading: true
         });
         try{
-            fetch(url + "post/mainimages", {
+            fetch(url + "post/main_images", {
                 method: "POST",
                 body: JSON.stringify({
                     image: this.state.image,
