@@ -14,7 +14,8 @@ export class ShowBookings extends Component {
         super(props)
         this.state = {
             customers: [],
-            loading: false
+            loading: false,
+            numOfBook: 6
         }
     }
 
@@ -37,8 +38,17 @@ export class ShowBookings extends Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.customers !== this.state.customers) {
+            this.setState({
+              numOfBook: this.state.customers.length
+            });
+          }
+      }
+
     searchTable = (e) => {
-        
+        // alert(e.target.value)
+        // alert(this.state.customers)
     }
 
 render() {
@@ -54,6 +64,16 @@ render() {
         <section >
          <div className="inside-table">
          <ExportCSVpage />
+         <div className="search">
+             <div className="search_input">
+             <label>חיפוש לקוח: </label>
+         <input onInput={(e) => {this.searchTable(e)}} />
+         </div>
+         </div>
+         <p className="num_bookings">
+         מספר לקוחות: 
+         {this.state.numOfBook}
+         </p>
             <table bordered>
                  <thead>
                  <tr>

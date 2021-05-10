@@ -29,6 +29,6 @@ export const ExportCSV = ({csvData, fileName}) => {
     }
 
     return (
-        <button className="confirm-booking"  onClick={(e) => exportToCSV(csvData,fileName)}>ייצא לקובץ אקסל <i class="fas fa-download"></i></button>
+        <button className="confirm-booking"  onClick={(e) => exportToCSV(csvData,fileName)}>ייצא תורים לקובץ אקסל <i class="fas fa-download"></i></button>
     )
 }
