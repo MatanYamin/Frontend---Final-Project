@@ -9,6 +9,37 @@
     height: 20px;
 }
 
+.image_upload_input{
+    width: fit-content;
+    justify-self: center;
+    border: solid;
+    padding: 0.5vw;
+    margin-top: 0.7vh;
+    background: whitesmoke;
+    cursor: pointer;
+}
+
+.right_nav_personal{
+    position: fixed;
+}
+
+.first{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    cursor: pointer;
+    width: 17vw;
+}
+
+.second{
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    width: 17vw;
+    position: absolute;
+    right: 0;
+}
+
 .dits_on_side{
     position: fixed;
     right: 0;
@@ -22,16 +53,17 @@
 }
 
 .each_manu{
-    background: rgba(0, 0, 0, 0.7);
-    top: 1vh;
+    /* background: rgba(0, 0, 0, 0.7); */
+    top: 25vh;
     padding: 0.3vw;
     /* width: 15vw; */
     /* width: fit-content; */
     /* max-width: 18vw; */
+    position: absolute;
     width: 17vw;
     transition: all 0.6s linear;
     /* transform: scale(1.8); */
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .black_while_loading{
@@ -222,7 +254,7 @@
 .whole_pick_ser_containet{
     /* position: fixed; */
     overflow: auto;
-    height: 60vh;
+    height: 100vh;
     /* background: #d7d0d0; */
 }
 
@@ -575,7 +607,7 @@
     align-items: center;
     font-size: 1.5vw;
     /* height: 120vh; */
-    height: 100vh;
+    /* height: 100vh; */
     background-color: whitesmoke;
     /* background-image: url("https://thumbs.dreamstime.com/b/creative-cartoon-man-talking-speech-bubble-smooth-gradient-style-original-152899950.jpg");
     background-repeat: no-repeat, repeat;
@@ -789,7 +821,7 @@
     color: black;
     cursor: pointer;
     text-align: center;
-    font-size: large;
+    font-size: 1.3vw;
 }
 
 .del-city-drp-down{
@@ -811,6 +843,8 @@
 .react-datepicker{
     font-size: 1vw;
     border-radius: 5%;
+    /* width: 18.1vw; */
+    /* height: 43vh; */
 }
 
 .react-datepicker__month-container{
@@ -872,7 +906,7 @@
 .pick-service-containet{
     /* display: inline-grid; */
     padding: 25px;
-    height: 86vh;
+    /* height: 86vh; */
     width: 60%;
     /* margin-top: 5px; */
 }
@@ -901,6 +935,7 @@
     /* right: 0; */
     /* left: 0; */
     font-size: 1.8vw;
+    height: 100vh;
 }
 
 .img-customer-upload{
@@ -1141,6 +1176,7 @@
     .react-datepicker__current-month{
         color: whitesmoke;
         width: 71vw;
+        font-size: 4vw;
     }
     
     .react-datepicker__day{
@@ -1281,5 +1317,57 @@
 
     .each_manu{
         display: none;
+    }
+    .city-drp-down{
+        background: whitesmoke;
+        outline: none;
+        color: black;
+        cursor: pointer;
+        text-align: center;
+        font-size: 4.3vw;
+    }
+
+    .step-btn-admin {
+        display: inline-block;
+        padding: 0.3em 1.2em;
+        margin: 0 0.6em 0.0em 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto',sans-serif;
+        font-weight: 300;
+        font-size: 6.83vw;
+        text-align: center;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    .border-card-top{
+        border-top: dashed;
+        display: grid;
+        font-size: 4vw;
+    }
+    
+    .border-card-bottom{
+        border-top: dashed;
+        border-bottom: dashed;
+        text-align: center;
+        font-size: 4vw;
+    }
+
+    .border-card-bottom-image{
+        border-top: dashed;
+        border-bottom: dashed;
+        display: grid;
+        font-size: 4vw;
+    }
+
+    .description-show{
+        background-color: white;
+        border-radius: 10px;
+        align-self: center;
+        font-size: 4.637vw;
+        width: -webkit-fill-available;
+        max-width: fit-content;
+        padding: 10px;
     }
 }

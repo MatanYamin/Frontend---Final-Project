@@ -173,24 +173,27 @@ export class PersonalDetails extends Component {
         )
     }
     return (
-        <div>
+        <>
             <div className="dits_on_side">
-                השירות שנבחר: <br/>
+                <label>השירות שנבחר: <br/>
                 {values.service}
                 <br/>
                 מחיר:
                 <br/>
-                {values.price}
+                {values.price} ש"ח
+                </label>
                 </div>
             <div className="right_nav_personal">
             <br/>
             <div className="each_manu">
-                <p onClick={this.backward}>חזרה</p>
+                <p className="first" onClick={this.backward}>חזרה</p>
+                <br/>
+                <a className="second" href="/contact"  >צרו איתנו קשר!</a>
             </div>
             <br/>
-            <div className="each_manu">
+            {/* <div className="each_manu">
                 <p href="/contact">העיר שלכם לא ברשימה?<br/> צרו איתנו קשר!</p>
-            </div>
+            </div> */}
             </div>
             {/* <div className="notes_on_right">
                 מילים
@@ -260,7 +263,9 @@ export class PersonalDetails extends Component {
             defaultValue={values.comments}
             />
             <h6>אנא העלו תמונה של הפריט כדי שניצור איתכם קשר במידת הצורך</h6>
-            <input type="file" onChange={this.uploadToS3} />
+            <label className="image_upload_input">העלה תמונה
+            <input hidden type="file" onChange={this.uploadToS3} />
+            </label>
             <div className="show-image">
             <img alt="" className="img-customer-upload" src={this.state.image} />
             </div>
@@ -272,7 +277,7 @@ export class PersonalDetails extends Component {
             <button onClick={this.continue} className="step-btn">המשך</button>
             <button onClick={this.backward} className="step-btn2">חזור</button>
             </div>
-                </div>
+                </>
     );
         }
             }

@@ -150,7 +150,7 @@ export class PickDateAndConfirm extends Component {
             {/* <div> */}
             <div className="step-btn-container">
             <button className="step-btn"
-            onClick={this.backward}>בצע שינויים
+            onClick={this.backward}>חזור
                 </button>
             <button className="step-btn2"
             // onClick will send a post request with all the values to the API
@@ -209,7 +209,7 @@ export class PickDateAndConfirm extends Component {
             לא נבחרה שעה
             <div className="step-btn-container">
             <button className="step-btn"
-            onClick={this.backward}>בצע שינויים
+            onClick={this.backward}>חזור
                 </button>
                 </div>
                 </>

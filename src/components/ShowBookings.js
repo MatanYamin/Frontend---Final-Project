@@ -71,7 +71,7 @@ render() {
          </div>
          </div>
          <p className="num_bookings">
-         מספר לקוחות: 
+         מספר לקוחות: &nbsp;
          {this.state.numOfBook}
          </p>
             <table bordered>

@@ -27,7 +27,7 @@ class Admin extends React.Component {
           date: new Date().getDay(),
           hourOfDay: new Date().getHours(),
           dayInMonth: new Date().getDate(),
-          bless: ["בוקר טוב", "צוהריים טובים", "ערב טוב", "לילה טוב"],
+          bless: ["בוקר טוב", "אחר הצהריים טובים", "ערב טוב", "לילה טוב"],
           blessNumber: 0,
           month: new Date().getMonth(),
           months: ["בינואר", "בפברואר", "במרץ", "באפריל", "במאי", "ביוני", "ביולי", "באוגוסט", "בספטמבר", "באוקטובר", "בנובמבר", "בדצמבר"],

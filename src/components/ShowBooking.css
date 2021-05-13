@@ -113,11 +113,9 @@ table {
   }
 @media only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
-
-
     .customers-table{
-     display: flex;
-     flex-direction: column;
+      display: flex;
+      flex-direction: column;
       /* width: 100%; */
       /* height: 90vh; */
       position: absolute;
@@ -129,8 +127,9 @@ table {
 
 	/* Force table to not be like tables anymore */
 	table, thead, tbody, th, td, tr { 
-		display: block; 
-        text-align: center;
+		  display: block; 
+      text-align: center;
+      font-size: 4vw;
 	}
 	
 	/* Hide table headers (but not display: none;, for accessibility) */
@@ -162,20 +161,54 @@ table {
 		padding-right: 10px; 
 		white-space: nowrap;
 	}
-
-    .center-table{
-
+  td:nth-of-type(1):before { content: "שם מלא:"; background: rgb(22, 22, 22); color: white;}
+	td:nth-of-type(2):before { content: "דוא''ל:"; background: rgb(22, 22, 22);; color: white;}
+	td:nth-of-type(3):before { content: "טלפון:"; background: rgb(22, 22, 22);; color: white;}
+	td:nth-of-type(4):before { content: "כתובת:"; background: rgb(22, 22, 22);; color: white;}
+	td:nth-of-type(5):before { content: "שרות:"; background: rgb(22, 22, 22);; color: white;}
+	td:nth-of-type(6):before { content: "תאריך:"; background: rgb(22, 22, 22);; color: white;}
+	td:nth-of-type(7):before { content: "שעה:"; background: rgb(22, 22, 22);; color: white;}
+	td:nth-of-type(8):before { content: "מחיר:"; background: rgb(22, 22, 22);; color: white;}
+  td:nth-of-type(9):before { content: "הערות:"; background: rgb(22, 22, 22);; color: white;}
+  td:nth-of-type(9):after {
+     content: " ";
+     padding: 3px;
     }
-    td:nth-of-type(1):before { content: "שם מלא:"; }
-	td:nth-of-type(2):before { content: "דוא''ל:"; }
-	td:nth-of-type(3):before { content: "טלפון:"; }
-	td:nth-of-type(4):before { content: "כתובת:"; }
-	td:nth-of-type(5):before { content: "שרות:"; }
-	td:nth-of-type(6):before { content: "תאריך:"; }
-	td:nth-of-type(7):before { content: "שעה:"; }
-	td:nth-of-type(8):before { content: "מחיר:"; }
-  td:nth-of-type(9):before { content: "הערות:"; }
-  td:nth-of-type(10):before { content: "מזהה:"; }
-  td:nth-of-type(11):before { content: "מחיקה:"; }
-  td:nth-of-type(12):before { content: "אישור תור:"; }
+  td:nth-of-type(10):before { content: "מזהה:"; background: rgb(22, 22, 22);; color: white;}
+  td:nth-of-type(11):before { content: "מחיקה:"; background: rgb(22, 22, 22);; color: white;}
+  td:nth-of-type(12):before { content: "אישור תור:"; background: rgb(22, 22, 22);; color: white;}
+
+  .num_bookings {
+    /* text-align: left; */
+    /* width: fit-content; */
+    position: absolute;
+    left: 0;
+    /* margin: -26px 1.6em -1em 32px; */
+    margin: -3vh 1.874vw -1.73vh 2.542vw;
+    font-size: 3vw;
+    font-weight: bold;
+    /* border: solid; */
+    padding: 0.5vw;
+}
+
+.confirm-booking {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    margin: -28px 1.2em 0em 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 300;
+    font-size: 2.5vw;
+    /* color: #FFFFFF; */
+    /* background-color: green; */
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .search_input{
+    display: none;
+  }
 }

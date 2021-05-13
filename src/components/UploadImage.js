@@ -138,9 +138,12 @@ render() {
                     <option value={service}>{service}</option>))}
                     </select>
             {/* After the img will upload succesfully, we will se the image */}
-            <h1>העלה תמונה</h1>
-            <input type="file" onChange={this.uploadToS3} />
-            <label>כתובת של תמונה</label>
+            {/* <h1>העלה תמונה</h1> */}
+            {/* <input type="file" onChange={this.uploadToS3} /> */}
+            <label className="image_upload_input">העלה תמונה
+            <input hidden type="file" onChange={this.uploadToS3} />
+            </label>
+            <label>או כתובת של תמונה</label>
            <input autoComplete="off"
            value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
@@ -171,13 +174,16 @@ render() {
                     {this.state.services.map(service => (
                     <option value={service}>{service}</option>))}
                     </select>
-                    <br/><br/>
+                    {/* <br/><br/> */}
                     <div>
             {/* After the img will upload succesfully, we will se the image */}
             <img alt="" className="img-show_form" src={this.state.image} />
-            <h1>העלה תמונה</h1>
-            <input type="file" onChange={this.uploadToS3} />
-            <label>כתובת של תמונה</label>
+            {/* <h1>העלה תמונה</h1> */}
+            <label className="image_upload_input">העלה תמונה
+            <input hidden type="file" onChange={this.uploadToS3} />
+            </label>
+            {/* <input type="file" onChange={this.uploadToS3} /> */}
+            <label>או כתובת של תמונה</label>
            <input autoComplete="off"
            value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
