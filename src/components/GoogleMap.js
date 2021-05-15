@@ -41,7 +41,9 @@ componentDidMount() {
 }
 
 componentDidUpdate(prevProps, prevState){
+  // when the coordinates change we will add a new pin on the map
   if (prevState.coordinates !== this.state.coordinates) {
+    // this pushes all locations inside "markers" array or markers
       this.state.markers.push(
            <Marker 
           title={this.state.locationName[0]}
