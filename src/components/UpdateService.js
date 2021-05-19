@@ -5,8 +5,8 @@ import Loader from "react-loader-spinner";
 import ReactS3 from "react-s3"
 import config from "../configur"
 import TextField from "@material-ui/core/TextField"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdateService extends Component {

@@ -21,18 +21,63 @@ export const SidebarData = [
     },
     {
     title: "שירותים",
-    path: "UpdateService",
+    path: "#",
     icon: <FaIcons.FaWrench />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+        {
+            title: "הוספה או מחיקת שירות",
+                path: "UpdateService",
+                icon: <FaIcons.FaPlus />
+        },
+        {
+            title: "עדכון מחירים",
+                path: "UpdatePrice",
+                icon: <FaIcons.FaShekelSign />
+        },
+        {
+            title: "עריכת שם",
+                path: "ChangeServiceName",
+                icon: <FaIcons.FaEdit />
+        },
+
+        {
+            title: "הוספת תמונה ראשית",
+                path: "UploadMainImage",
+                icon: <FaIcons.FaImage />
+        },
+        {
+            title: "הוספת תמונה לגלרייה",
+                path: "UploadGalleryImage",
+                icon: <FaIcons.FaPhotoVideo />
+        },
+        {
+            title: "שינוי תיאור",
+                path: "UpdateDescription",
+                icon: <FaIcons.FaComment />
+        }
+    ]
    
 },
 {
     title: "תוספים",
-    path: "UpdateAddon",
+    path: "#",
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
+    subNav: [
+        {
+            title: "הוספה או מחיקת תוסף",
+                path: "UpdateAddon",
+                icon: <FaIcons.FaPlus />
+        },
+        {
+            title: "עדכון מחירים",
+                path: "UpdatePrice",
+                icon: <FaIcons.FaShekelSign />
+        }
+    ]
 },
 {
     title: "זמינות",
@@ -66,7 +111,7 @@ export const SidebarData = [
         iconOpened: <RiIcons.RiArrowUpSFill />,
     },
     {
-        title: "מחירים",
+        title: "עדכון מחירים",
         path: "UpdatePrice",
         icon: <FaIcons.FaShekelSign />,
         iconClosed: <RiIcons.RiArrowDownSFill />,

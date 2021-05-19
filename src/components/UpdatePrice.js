@@ -92,7 +92,6 @@ getServicePrice = (e) => {
     }));
 }
 
-
 getAddonsForService = (e) => {
     this.setState({
         addonLoading: true

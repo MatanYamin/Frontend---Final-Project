@@ -64,7 +64,7 @@ addNewCity = () => {
         (response) => {
             if(response.status === 200){
                 this.setState({
-                    txt1: " העיר"  + this.state.new_city + " נוספה בהצלחה ",
+                    txt1: " העיר "  + this.state.new_city + " נוספה בהצלחה ",
                     // tempCity: this.state.new_city,
                     loading: false,
                     new_city: "",

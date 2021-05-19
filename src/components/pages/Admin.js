@@ -16,6 +16,7 @@ import UploadGalleryImage from "../UploadGalleryImage"
 // import ExportCSVpage from "../ExportCSVpage"
 import Sidebar from "../../Sidebar/Sidebar"
 import GoogleMap from "../GoogleMap"
+import ChangeServiceName from "../ChangeServiceName"
 //Admin panel will hold all components that are able by the admin
 
 class Admin extends React.Component {
@@ -169,6 +170,13 @@ class Admin extends React.Component {
 
           case "Logout":
             page = this.props.handleLogout()
+            break;
+
+          case "ChangeServiceName":
+            page = <ChangeServiceName />
+            this.setState({
+              secondTitle: "- עדכון כותרת"
+            })
             break;
 
           default:
