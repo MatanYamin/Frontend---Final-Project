@@ -42,6 +42,7 @@ class Admin extends React.Component {
           showFuture: false,
           showDescription: false,
           uploadImage: false,
+          changeTitle: false,
           page: "",
           secondTitle: "",
           width: window.innerWidth
@@ -214,6 +215,7 @@ class Admin extends React.Component {
         const {showUpdateAddon} = this.state;
         const {showDisableDate} = this.state;
         const {showCity} = this.state;
+        const {changeTitle} = this.state;
         const {showPrice} = this.state;
         const {showFuture} = this.state;
         const {showDescription} = this.state;
@@ -274,8 +276,17 @@ class Admin extends React.Component {
             :
            null
         }
+
+        <button className="button-form2" onClick={() => this.setState({ changeTitle: !changeTitle })}>שינוי שם לשירות <i class="fas fa-edit"></i></button>
+        {this.state.changeTitle ?
+           <ChangeServiceName
+           />
+            :
+           null
+        }
+        
         {/* moving to change addon: delete or add new one */}
-        <button className="button-form2" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף <i class="fas fa-cart-plus"></i></button>
+        <button className="button-form" onClick={() => this.setState({ showUpdateAddon: !showUpdateAddon })}>עדכון תוסף <i class="fas fa-cart-plus"></i></button>
         {this.state.showUpdateAddon ?
            <UpdateAddon
            />
@@ -283,7 +294,7 @@ class Admin extends React.Component {
            null
         }
         {/* Admin can block a day/hour or free a day inside UpdateDate */}
-        <button className="button-form" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות <i class="fas fa-calendar-alt"></i></button>
+        <button className="button-form2" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>עדכן זמינות <i class="fas fa-calendar-alt"></i></button>
         {this.state.showDisableDate ?
            <UpdateDate
            />
@@ -291,7 +302,7 @@ class Admin extends React.Component {
            null
         }
         {/* Admin can add city to the list or delete one */}
-         <button className="button-form2" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים <i class="fas fa-city"></i></button>
+         <button className="button-form" onClick={() => this.setState({ showCity: !showCity })}>עדכן רשימת ערים <i class="fas fa-city"></i></button>
          {this.state.showCity ?
            <UpdateCity
            />
@@ -299,21 +310,21 @@ class Admin extends React.Component {
            null
         }
         {/* Admin can change price for a certain product */}
-        <button className="button-form" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר <i class="fas fa-shekel-sign"></i></button>
+        <button className="button-form2" onClick={() => this.setState({ showPrice: !showPrice })}>עדכן מחיר <i class="fas fa-shekel-sign"></i></button>
          {this.state.showPrice ?
            <UpdatePrice
            />
             :
            null
         }
-        <button className="button-form2" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
+        <button className="button-form" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i class="fab fa-creative-commons-nd"></i> </button>
          {this.state.showDescription ?
            <UpdateDescription
            />
             :
            null
         }
-        <button className="button-form" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות  <i class="fas fa-images"></i> </button>
+        <button className="button-form2" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות  <i class="fas fa-images"></i> </button>
          {this.state.uploadImage ?
            <UploadImage
            />
@@ -321,7 +332,7 @@ class Admin extends React.Component {
            null
         }
          {/* Adding new manager component after click */}
-         <button className="button-form2" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
+         <button className="button-form" onClick={() => this.setState({ showDelete: !showDelete })}>הוספת מנהל <i class="fas fa-user-plus"></i></button>
         {/* Using "showing" for clicking a button */}
         {this.state.showDelete ?
         <>

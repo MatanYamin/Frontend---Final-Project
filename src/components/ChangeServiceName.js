@@ -5,8 +5,8 @@ import Loader from "react-loader-spinner";
 // import axios from "axios"
 import TextField from "@material-ui/core/TextField"
 // const url = "http://3.19.66.156/"
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class ChangeServiceName extends Component {
