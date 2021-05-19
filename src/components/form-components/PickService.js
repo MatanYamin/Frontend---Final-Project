@@ -218,7 +218,7 @@ export class PickService extends Component {
                 showing: !showing
                  })}>לחצו לצפייה בשירותים לסוג שבחרתם</button>
             <br/>
-            <br/>
+            {/* <br/> */}
                  
             {this.state.showing ?
             // Addon is a compontnet that holds all Addons services and prices
@@ -234,6 +234,11 @@ export class PickService extends Component {
             handleShow={this.handleShow}
             handleAddon={this.props.handleAddon}
             />
+            <button 
+            className="addon-btn-cancel2"
+            onClick={() => this.setState({ 
+                showing: !showing
+                 })}>חזור</button>
             {/* <button className="addon-btn-cancel" onClick={() => this.setState({ 
                 serviceOrAddon: !serviceOrAddon,
                 showing: !showing,
@@ -247,7 +252,7 @@ export class PickService extends Component {
             </>
             }
             <br/>
-            <br/>
+            {/* <br/> */}
             <button
                  className="addon-btn-cancel"
                  onClick={() => this.setState({ 

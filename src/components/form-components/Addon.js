@@ -109,7 +109,7 @@ export class Addon extends Component {
             <img alt="" src={this.props.imageService} />
             {addons_button_list}
             {/* <br/><br/> */}
-            <br/>
+            {/* <br/> */}
             <br/>
             {/* <br/> */}
             {this.state.addon_array.length >= 1 ? <>{this.props.firstPrice} ₪ + <b>{this.state.second_price} {this.state.shekel}</b></> : <><b>₪{this.props.firstPrice}</b><br/> <label>{this.state.nothingToShow}</label></>}
