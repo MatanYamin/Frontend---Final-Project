@@ -101,7 +101,7 @@ render() {
                 <br/>
                 <label>הקלד שם חדש</label>
                  <TextField 
-                 placeholder="תיאור חדש"
+                 placeholder="שם חדש"
                  value={this.state.newTitle}
                  autoComplete="off"
                  onChange={(e) => {this.handleNewTitle(e)}}
