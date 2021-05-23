@@ -40,13 +40,14 @@ export class PersonalDetails extends Component {
         let data = await response.json(); // for string
         return data
     }
-
-    async readnotes() {
-        // bring all cities allowed
-        let response = await fetch(url + 'get/notes');
-        let data = await response.json(); // for string
-        return data
-    }
+    
+    //Currenty I decided not to use this function
+    // async readnotes() {
+    //     // bring all cities allowed
+    //     let response = await fetch(url + 'get/notes');
+    //     let data = await response.json(); // for string
+    //     return data
+    // }
 
     // get_note = (ser) => {
     //     const data = {
