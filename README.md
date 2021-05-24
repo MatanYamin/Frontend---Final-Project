@@ -8,12 +8,12 @@ The frontend is divided to 2 parts.
 
 The manager has a whole management page that allow him to control his intire buisness with simple steps.
 
-The code that has been written with ReactJS is attached to the backend side that has been written with Python and works with varity of services and requests such as:
-Post
-PUT
-GET
-DELETE requests
-and using:
-Amaoz S3 bucket for handling images with the manager and the customer
-Google Calendar API for creating events
+The code that has been written with ReactJS is attached to the backend side that has been written with Python and works with varity of services and requests such as: <br/>
+Post <br/>
+PUT <br/>
+GET <br/>
+DELETE requests <br/>
+and using: <br/>
+Amaoz S3 bucket for handling images with the manager and the customer <br/>
+Google Calendar API for creating events <br/>
 Google Maps for easy track after next appointment
