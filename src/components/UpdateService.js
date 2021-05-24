@@ -264,7 +264,7 @@ render() {
             <h1>מחיקת שירות:</h1>
             <br/>
            {/* shows in select list all the services there are */}
-            <select class="del-drp-btn" onChange={(e) => this.setState({ service_name: e.target.value })}>
+            <select className="del-drp-btn" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
                     {this.state.services_array.map(service => (
                     <option value={service}>{service}</option>))}

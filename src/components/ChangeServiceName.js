@@ -89,7 +89,7 @@ render() {
                 <h1>בחר שירות לו תרצה לשנות את הכותרת</h1>
                 <br/>
                 <select 
-                    class="select-srp-down"
+                    className="select-srp-down"
                     onClick={(e) => this.setState({ service: e.target.value })}
                     // onInput={(e) => this.getDescriptionForService(e)}
                     >

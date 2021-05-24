@@ -226,7 +226,7 @@ render() {
                 <h1>שינוי מחיר לשירות</h1>
                 <br/>
                 <select 
-                    class="select-srp-down"
+                    className="select-srp-down"
                     onChange={(e) => this.setState({ service: e.target.value })}
                     onInput={(e) => {this.getServicePrice(e)}}>
                     <option
@@ -275,7 +275,7 @@ render() {
             <h1>שינוי מחיר לתוסף:</h1>
             <br/>
             <select 
-                    class="select-srp-down"
+                    className="select-srp-down"
                     onChange={(e) => this.setState({ service: e.target.value })}
                     onInput={(e) => {this.getAddonsForService(e)}}>
                     <option
@@ -286,7 +286,7 @@ render() {
             <br/>
             <br/>
            <select 
-            class="select-srp-down"
+            className="select-srp-down"
             onChange={(e) => this.setState({ addon: e.target.value })}
             onInput={(e) => {this.getAddonPrice(e)}}>
             <option

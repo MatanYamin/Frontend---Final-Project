@@ -192,7 +192,7 @@ render() {
                  <div className="border-card-bottom">
                      <br/>
            <label>מחיקת תוסף</label>
-            <select class="del-drp-btn" onChange={(e) => this.setState({ addon_name: e.target.value })}>
+            <select className="del-drp-btn" onChange={(e) => this.setState({ addon_name: e.target.value })}>
                     <option value="nothing">בחר תוסף למחיקה</option>
                     {this.state.addons_array.map(addon => (
                     <option value={addon}>{addon}</option>))}

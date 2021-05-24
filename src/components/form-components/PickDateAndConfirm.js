@@ -93,7 +93,7 @@ export class PickDateAndConfirm extends Component {
     return (
         <>
         <div className="bubble-man">
-        <div class="text-on-bubble">
+        <div className="text-on-bubble">
                 <label>{this.state.textOnBubble}</label>
             </div>
         </div>

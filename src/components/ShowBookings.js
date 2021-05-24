@@ -154,7 +154,7 @@ render() {
                                 console.log(e)}
                             }
                             }
-                    > <i class="fas fa-trash-alt"></i></button>
+                    > <i className="fas fa-trash-alt"></i></button>
                     </td>
                     <td>
                      <button 
@@ -190,7 +190,7 @@ render() {
                                 console.log(e)}
                             }
                             }
-                     ><i class="fas fa-check-circle"></i></button>
+                     ><i className="fas fa-check-circle"></i></button>
                      
                      </td>
                  </tr>

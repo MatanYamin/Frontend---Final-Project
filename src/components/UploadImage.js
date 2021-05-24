@@ -126,13 +126,13 @@ render() {
         <>
         <section className="adminComponent">
         <div className="adminComponentContainer">
-        <button className="admin-btn-add" onClick={() => this.setState({ showMainImage: !this.state.showMainImage })}>הוספת תמונה ראשית לשירות <i class="fas fa-plus"></i></button>
+        <button className="admin-btn-add" onClick={() => this.setState({ showMainImage: !this.state.showMainImage })}>הוספת תמונה ראשית לשירות <i className="fas fa-plus"></i></button>
         {this.state.showMainImage ? 
         <>
         <div>
         <label className="success_action">{this.state.uploadSuccess}</label>
         <br/>
-            <select class="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
+            <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
                     {this.state.services.map(service => (
                     <option value={service}>{service}</option>))}
@@ -164,12 +164,12 @@ render() {
         </> : null}
 
         <br/>
-        <button className="admin-btn-add" onClick={() => this.setState({ showImageMultiple: !this.state.showImageMultiple })}>להוספת תמונות של שירות <i class="fas fa-plus"></i></button>
+        <button className="admin-btn-add" onClick={() => this.setState({ showImageMultiple: !this.state.showImageMultiple })}>להוספת תמונות של שירות <i className="fas fa-plus"></i></button>
         {this.state.showImageMultiple ?
          <>
         <br/><br/>
         <label className="success_action">{this.state.uploadSuccess}</label>
-            <select class="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
+            <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">בחר שרות</option>
                     {this.state.services.map(service => (
                     <option value={service}>{service}</option>))}

@@ -32,7 +32,7 @@ function Navbar() {
                 {/*  Main title, links to home page */}
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> 
                 סקיי קלינר
-                {/* <img src="https://i.ibb.co/Fbs8KWk/Picture3.jpg" class='icon-img' /> */}
+                {/* <img src="https://i.ibb.co/Fbs8KWk/Picture3.jpg" className='icon-img' /> */}
                 </Link>
                 {/*  when pressing the icon it will alter*/}
                 <div className="menu-icon" onClick={handleClick}> 

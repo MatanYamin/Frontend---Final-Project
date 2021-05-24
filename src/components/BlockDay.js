@@ -35,7 +35,7 @@ render() {
         <>
         <section className="adminComponent">
         <div className="adminComponentContainer">
-        <div class="admin-date-container">
+        <div className="admin-date-container">
             <div className="admin-date">
                 <label>בחר יום בו לא תרצה לקבל הזמנות. לאחר מכן לחץ על אישור</label>
             <DatePicker 

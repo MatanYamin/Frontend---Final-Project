@@ -153,7 +153,7 @@ render() {
             <h1>מחיקת עיר מהרשימה</h1>
             <br/>
            <select 
-            class="del-drp-btn"
+            className="del-drp-btn"
             onChange={(e) => this.setState({ new_city: e.target.value })}>
             <option
             value="">בחרו עיר</option>

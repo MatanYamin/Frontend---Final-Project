@@ -244,7 +244,7 @@ export class PersonalDetails extends Component {
             <h6><label className="green-text">{this.state.goodPhone}</label></h6>
             <h6><label className="red-text">*</label>עיר:</h6>
             <select 
-            class="city-drp-down"
+            className="city-drp-down"
             defaultValue={values.city}
             onChange={this.props.handleChange('city')}>
             <option

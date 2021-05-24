@@ -1,15 +1,27 @@
 import React from "react"
 import SingleService from "./SingleService"
 import './ServicesCards.css'
+// import { useState, useEffect } from 'react';
+// const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 function ServicesCards() {
     // Will be the hole display of services cars (Cars, Rugs...)
-    // Each component will get image to display, text for descrription and path
-    // will make it here from DB and manager could add 
+    // Each component will get image to display, text for description and path
+
+    // const [text, setText] = useState([])
+    // useEffect(() => {
+    //     fetch(url + 'get/cities').then(
+    //         res => setText(res.json())
+    //         )
+    //     }
+    // )
+        
     return(
         <div className="cards">
             <h1>הזמנת ניקוי עד הבית</h1>
+            {/* {text} */}
             <div className="cards__container">
                 <div className="cards__wrapper">
                     <ul className="cards__items">

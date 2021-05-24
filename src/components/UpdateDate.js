@@ -72,11 +72,11 @@ render() {
         <>
         <section className="adminComponent">
         <div className="adminComponentContainer">
-        <button className="admin-btn-del" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>לחסום יום <i class="fas fa-calendar-minus"></i></button>
+        <button className="admin-btn-del" onClick={() => this.setState({ showDisableDate: !showDisableDate })}>לחסום יום <i className="fas fa-calendar-minus"></i></button>
         {this.state.showDisableDate ?
             <>
         <br/>
-        <div class="admin-date-container">
+        <div className="admin-date-container">
             <div className="admin-date">
             <DatePicker 
             locale={he}
@@ -138,11 +138,11 @@ render() {
             :
             null}
         <br/><br/>
-        <button className="admin-btn-add" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>לאפשר יום <i class="fas fa-calendar-plus"></i></button>
+        <button className="admin-btn-add" onClick={() => this.setState({ showActivateDate: !showActivateDate })}>לאפשר יום <i className="fas fa-calendar-plus"></i></button>
         {this.state.showActivateDate ?
             <>
         <br/>
-        <div class="admin-date-container">
+        <div className="admin-date-container">
             <div className="admin-date">
             <DatePicker 
             inline
@@ -203,7 +203,7 @@ render() {
             :
             null}
             <br/><br/>
-            <button className="admin-btn-del" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>חסום שעה <i class="far fa-clock"></i></button>
+            <button className="admin-btn-del" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>חסום שעה <i className="far fa-clock"></i></button>
             {this.state.showDisableHour ?
             <>
             <br/><br/>

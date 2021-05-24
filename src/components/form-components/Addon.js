@@ -98,7 +98,7 @@ export class Addon extends Component {
             <div>
                 
             {/* <select 
-            class="addon-btn"
+            className="addon-btn"
             onChange={this.props.handleChange('addons')}
             onInput={(e) => {this.addonPrice(e)}}
             >

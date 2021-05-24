@@ -73,7 +73,7 @@ render() {
         <section className="adminComponent">
         <div className="adminComponentContainer">
         <br/>
-        <div class="admin-date-container">
+        <div className="admin-date-container">
             <div className="admin-date">
             <DatePicker 
             locale={he}

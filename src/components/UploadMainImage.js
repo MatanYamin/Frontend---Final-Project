@@ -135,7 +135,7 @@ render() {
         {this.state.uploadSuccess}
         <br/>
         <label>בחר שירות</label>
-            <select class="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
+            <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">לחץ לבחירה</option>
                     {this.state.services.map(service => (
                     <option value={service}>{service}</option>))}

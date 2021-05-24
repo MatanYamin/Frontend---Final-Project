@@ -9,7 +9,7 @@ export default function About() {
     return(
         <>
         <div className="about">
-            <img class="img-about" alt="" src="https://i.ibb.co/NFSwNfM/favicon.png"></img>
+            <img className="img-about" alt="" src="https://i.ibb.co/NFSwNfM/favicon.png"></img>
     <h1>קצת על החברה</h1>
     <br/>
     <h3>סקיי קלינר הוקמה בשנת 2018 ויושבת בבר כוכבא, רמת גן</h3>

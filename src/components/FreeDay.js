@@ -34,7 +34,7 @@ render() {
         <>
         <section className="adminComponent">
         <div className="adminComponentContainer">
-        <div class="admin-date-container">
+        <div className="admin-date-container">
             <div className="admin-date">
                 <label>לחץ על יום בו תוכל לעבוד ולאחר מכן לחץ על אישור</label>
             <DatePicker 

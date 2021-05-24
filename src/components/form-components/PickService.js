@@ -153,7 +153,7 @@ export class PickService extends Component {
         return (
             <>
             <div className="bubble-man">
-            <div class="text-on-bubble">
+            <div className="text-on-bubble">
                 <label>{this.state.textOnBubble}</label>
             </div>
                 </div>
@@ -166,7 +166,7 @@ export class PickService extends Component {
             <div className="pick-ser-select-btn">
             {/* <select
             defaultValue={this.props.service}
-            class="service-btn"
+            className="service-btn"
             onChange={this.props.handleChange("service")}
             onInput={(e) => {this.setPrice(e)}}
             >
@@ -199,13 +199,13 @@ export class PickService extends Component {
             <br/>
             <Popup 
             className="check-me" 
-            trigger={<button className="details-btn">לצפייה בתמונות <i class="fas fa-images"></i></button>}
+            trigger={<button className="details-btn">לצפייה בתמונות <i className="fas fa-images"></i></button>}
             on="click"
             open={openPopUp}
             onOpen={() => this.setState({ openPopUp: !openPopUp })}>
-                <div class="pop-up-content1">
+                <div className="pop-up-content1">
                     <br/>
-                    <div class="top-pop-up-content1">
+                    <div className="top-pop-up-content1">
                      <h6>לא בטוחים במשהו? <a href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</a></h6>
                     <button className="details-btn" onClick={() => this.setState({ openPopUp: !openPopUp })}>סגירה</button>
                      </div>
