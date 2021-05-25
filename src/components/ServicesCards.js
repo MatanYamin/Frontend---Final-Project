@@ -7,6 +7,7 @@ import './ServicesCards.css'
 
 
 function ServicesCards() {
+    // will fetch from DB that allow the admin to change the syntax
     // Will be the hole display of services cars (Cars, Rugs...)
     // Each component will get image to display, text for description and path
 
