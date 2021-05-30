@@ -10,7 +10,7 @@ function ServicesCards() {
     // will fetch from DB that allow the admin to change the syntax
     // Will be the hole display of services cars (Cars, Rugs...)
     // Each component will get image to display, text for description and path
-
+    // adding an opion to increase dynamicly the number of categories
     // const [text, setText] = useState([])
     // useEffect(() => {
     //     fetch(url + 'get/cities').then(
