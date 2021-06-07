@@ -113,12 +113,14 @@ render() {
                         .then(
                             (response) => {
                                 if(response.status === 200){
+                                    // changes when the status is ok and the function worked succesfully
                                     this.setState({
                                         text1: "עודכן בהצלחה",
                                         loading: false
                                     })
                                 }
                                 else{
+                                    // incase something went wrong, show an error message
                                     alert("קרתה תקלה. רענן ונסה שוב")
                                 }
                             }

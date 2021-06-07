@@ -88,6 +88,7 @@ export class UpdateAddon extends Component {
             .then(
                 (response) => {
                     if(response.status === 200){
+                        // changes when the status is ok and the function worked succesfully
                         this.setState({
                             txt1: "  התוסף "  + this.state.addon_name + " נוסף בהצלחה  ",
                             loading: false,
@@ -96,6 +97,7 @@ export class UpdateAddon extends Component {
                         })
                     }
                     else{
+                        // error
                         alert("קרתה תקלה. רענן ונסה שוב")
                     }
                 }
@@ -121,12 +123,14 @@ export class UpdateAddon extends Component {
                 (response) => {
                     if(response.status === 200){
                         this.setState({
+                            // changes when the status is ok and the function worked succesfully
                             txt2: "  התוסף " + this.state.addon_name + " נמחק בהצלחה  ",
                             loading: false
                         })
                         this.state.addons_array.splice(this.state.addons_array.indexOf(this.state.addon_name), 1)
                     }
                     else{
+                        // error
                         alert("קרתה תקלה. רענן ונסה שוב")
                     }
                 }
