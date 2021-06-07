@@ -88,7 +88,7 @@ render() {
                      <th>מחיר</th>
                      <th>הערות</th>
                      <th>ID</th>
-                     <th>מחיקה</th>
+                     <th>ביטול תור</th>
                      <th>אישור תור</th>
                 </tr>
                  </thead>
@@ -140,6 +140,7 @@ render() {
                                     (response) => {
                                         if(response.status === 200){
                                             this.setState({
+                                                // changes when the status is ok and the function worked succesfully
                                                 loading: false,
                                                 customers: this.state.customers.filter((_, i) => i !== this.state.customers.indexOf(rowData))
                                             })

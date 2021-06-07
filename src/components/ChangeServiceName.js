@@ -64,6 +64,7 @@ export class ChangeServiceName extends Component {
             .then(
                 (response) => {
                     if(response.status === 200){
+                        // changes when the status is ok and the function worked succesfully
                         this.setState({
                             loading: false,
                             beforeAndAfter: "השם שונה בהצלחה ל " + this.state.newTitle
