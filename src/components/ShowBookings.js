@@ -39,6 +39,7 @@ export class ShowBookings extends Component {
     }
 
     componentDidUpdate(prevProps, prevState){
+        // whenever there is a change in the last state, it will change the current state
         if (prevState.customers !== this.state.customers) {
             this.setState({
               numOfBook: this.state.customers.length

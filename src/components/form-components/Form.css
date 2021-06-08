@@ -9,6 +9,12 @@
     height: 20px;
 }
 
+.pickRegion:focus{
+    background-color: rgb(221, 214, 214);
+    transition: all 0.4s linear;
+    transform: scale(1);
+}
+
 .image_upload_input{
     width: fit-content;
     justify-self: center;

@@ -4,8 +4,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 import TextField from "@material-ui/core/TextField"
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class UpdateCity extends Component {
@@ -19,7 +19,7 @@ export class UpdateCity extends Component {
             loading: false,
             txt1: "",
             txt2: "",
-            // tempCity: ""
+            region: ""
         }
     }
 
@@ -58,6 +58,7 @@ addNewCity = () => {
             method: "POST",
             body: JSON.stringify({
                 city: this.state.new_city,
+                region: this.state.region
             })
         })
         .then(
@@ -132,6 +133,19 @@ render() {
                  value={this.state.new_city}
                  onChange={(e) => {this.handleCity(e)}}
                  />
+                 <label>לאיזה מחוז שייכת העיר?</label>
+                 <button className="pickRegion" onClick={() => this.setState({
+                     region: "0"
+                 })}>צפון</button>
+                 <button className="pickRegion" onClick={() => this.setState({
+                     region: "1"
+                 })}>מרכז</button>
+                 <button className="pickRegion" onClick={() => this.setState({
+                     region: "2"
+                 })}>דרום</button>
+                 <button className="pickRegion" onClick={() => this.setState({
+                     region: "5"
+                 })}>לא להשפיע על סדר היום</button>
                  <div className="btnContainer">
                  <Loader
                 type="TailSpin"

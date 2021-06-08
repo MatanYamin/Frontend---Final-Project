@@ -10,8 +10,8 @@ import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner"
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 
@@ -22,6 +22,7 @@ export class PickDateAndConfirm extends Component {
           selectedDate: null,
           disable_dates: [],
           hours: [],
+          matan: [],
           temp_hour: false,
           loading: false,
           clickedHour: "",
@@ -31,11 +32,12 @@ export class PickDateAndConfirm extends Component {
     }
 
     // will get all dates from DB that admin choosed to disable
-    async read_disable_days(){
-        let response = await fetch(url + 'get/disable_date');
-        let data = await response.json();
-        return data
-    }
+    // this function is off for now
+    // async read_disable_days(){
+    //     let response = await fetch(url + 'get/disable_date');
+    //     let data = await response.json();
+    //     return data
+    // }
     // get all houes for a certain day
     get_hours = (e) => {
         const day = {
@@ -48,13 +50,28 @@ export class PickDateAndConfirm extends Component {
         }));
     }
 
+    get_disable = () => {
+        // first we send the name of the city to the backend inorder to findout their region
+        const val = {
+            city: this.props.values.city
+        };
+        axios.post(url + "post/disabled_dates", val)
+        // the response should hold the dates that been booked with another region inside it
+        // and then the calendar will update
+        .then(response => this.setState({
+            disable_dates: response.data,
+            loading: false
+        }));
+    }
+
     // when open this component, we will get all dates to be disabled
     componentDidMount() {
-        this.read_disable_days().then((data) => {
-            this.setState({
-                disable_dates: data
-            })
-        })
+        this.get_disable()
+        // this.read_disable_days().then((data) => {
+        //     this.setState({
+        //         disable_dates: data
+        //     })
+        // });
     }
 
     // will be the selected date from calendar
@@ -174,6 +191,7 @@ export class PickDateAndConfirm extends Component {
                                 email: email,
                                 phone: phone,
                                 fullAddress: address + ', ' + city,
+                                cit: city,
                                 service: service,
                                 addons: addons,
                                 comments: comments,
