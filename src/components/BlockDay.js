@@ -17,13 +17,12 @@ export class BlockDay extends Component {
           selectedDate: null,
           loading: false,
           hour: "",
-          text1: "",
+          text1: ""
         };
     }
 
     // setting selected date to state
     setSelectedDate = date => {
-        
         this.setState({
             selectedDate: date
         });
@@ -50,7 +49,7 @@ render() {
             filterDate={day => day.getDay() !== 6} // for weekends
             />
             <br/>
-            <lable className="white-text">{this.state.text1}</lable>
+            <lable>{this.state.text1}</lable>
             <div className="btnContainer">
             <Loader
                 type="TailSpin"
@@ -78,7 +77,7 @@ render() {
                                 if(response.status === 200){
                                     // changes when the status is ok and the function worked succesfully
                                     this.setState({
-                                        text1: "עודכן בהצלחה",
+                                        text1: "היום נחסם בהצלחה ",
                                         loading: false
                                     })
                                 }

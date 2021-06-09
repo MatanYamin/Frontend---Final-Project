@@ -88,7 +88,7 @@ render() {
             minDate={new Date()}
             filterDate={day => day.getDay() !== 6} // for weekends
             />
-            <lable className="white-text">{this.state.text3}</lable>
+            <label>{this.state.text3}</label>
             {hours_button_list}
             <br/>
                     {/* <select className="select-srp-down"

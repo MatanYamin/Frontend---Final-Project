@@ -48,7 +48,7 @@ render() {
             filterDate={day => day.getDay() !== 6} // for weekends
             />
             <br/>
-            <lable className="white-text">{this.state.text2}</lable>
+            <label>{this.state.text2}</label>
             <div className="btnContainer">
             <Loader
                 type="TailSpin"

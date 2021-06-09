@@ -30,7 +30,6 @@ export class UpdateDate extends Component {
 
     // setting selected date to state
     setSelectedDate = date => {
-        
         this.setState({
             selectedDate: date
         });
