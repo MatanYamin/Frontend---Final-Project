@@ -3,10 +3,22 @@ import './MiddleSection.css';
 import "../App.css";
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css';
+// import axios from "axios"
+// const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
+
+// function readme() {
+//     fetch(url + 'get/cities')
+//     .then(function(response){ return response.json(); })
+//     .then(function(data) {
+//         const items = data;
+//     })
+//     }
 
 function MiddleSection() {
     return(
+        <>
         <section className="sticky">
         <div className="bubbles">
         <div className="bubble"></div>
@@ -35,7 +47,7 @@ function MiddleSection() {
   </div>
 
 </section>
-
+</>
     )
 }
 
