@@ -2,16 +2,13 @@ import React from 'react'
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 
-
+// This component will receive customers data and will export it as csv file within a button click
 
 export const ExportCSV = ({csvData, fileName}) => {
-
-
 
     const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 
     const fileExtension = '.xlsx';
-
 
 
     const exportToCSV = (csvData, fileName) => {
@@ -29,6 +26,7 @@ export const ExportCSV = ({csvData, fileName}) => {
     }
 
     return (
-        <button className="confirm-booking"  onClick={(e) => exportToCSV(csvData,fileName)}>ייצא תורים לקובץ אקסל <i className="fas fa-download"></i></button>
+        // this is the button that is displayed to the managers
+        <button className="confirm-booking"  onClick={(e) => exportToCSV(csvData,fileName)}>ייצא תורים לקובץ csv <i className="fas fa-download"></i></button>
     )
 }
