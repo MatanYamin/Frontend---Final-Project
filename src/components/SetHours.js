@@ -16,8 +16,8 @@ import {
 // import TimePicker from 'react-time-picker';
 // import {KeyboardTimePicker} from '@material-ui/pickers';
 // const url = "http://3.19.66.156/"
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class SetHours extends Component {
@@ -25,8 +25,8 @@ export class SetHours extends Component {
         super(props)
         this.state = {
             hours: [],
-            start_time: "בחר שעת התחלה",
-            end_time: "בחר שעת סיום",
+            start_time: "בחר שעה",
+            end_time: "בחר שעה",
             interval: "",
             deleting: false,
             loading: false,
@@ -161,6 +161,7 @@ export class SetHours extends Component {
 render() {
     return(
         <>
+        <div className="fullSetHour">
         <section className="adminComponent">
             <div className="adminComponentContainer">
             <div className="border-card-top">
@@ -225,15 +226,15 @@ utils={DateFnsUtils}>
       </div>‎
       </MuiPickersUtilsProvider>
                  <div className="btnContainer">
-                 <Loader
+                 {/* <Loader
                 type="TailSpin"
                 color="black"
                 height={100}
                 width={50}
                 visible={this.state.loading}
-                />
+                /> */}
                 {this.state.missingField} 
-                <br/>
+                {/* <br/> */}
                      <button className="step-btn-admin"
                     //  post request for adding city to list
                     onClick={this.changeTimes}
@@ -246,6 +247,7 @@ utils={DateFnsUtils}>
                     </div>
             </div>
         </section>
+        </div>
         </>
     )}
 }

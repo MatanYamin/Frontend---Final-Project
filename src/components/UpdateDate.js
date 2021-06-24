@@ -6,6 +6,7 @@ import he from "date-fns/locale/he"; // the locale you want
 import axios from "axios"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
+import SetHours from "./SetHours";
 // const url = "http://127.0.0.1:5000/"
 // const url = "http://3.19.66.156/"
 const url = "https://skycleanerapi.xyz/"
@@ -19,6 +20,7 @@ export class UpdateDate extends Component {
           showDisableDate: false,
           showActivateDate: false,
           showDisableHour: false,
+          showTimeChange: false,
           loading: false,
           hours: [],
           hour: "",
@@ -67,6 +69,7 @@ render() {
     const {showDisableDate} = this.state;
     const {showActivateDate} = this.state;
     const {showDisableHour} = this.state;
+    const {showTimeChange} = this.state;
     return(
         <>
         <section className="adminComponent">
@@ -203,6 +206,17 @@ render() {
             </>
             :
             null}
+            
+            <br/><br/>
+            <button className="admin-btn-del" onClick={() => this.setState({ showTimeChange: !showTimeChange })}>שינוי שעות <i className="far fa-clock"></i></button>
+            {this.state.showTimeChange ?
+            <>
+            <br/><br/>
+            {/* <button className="step-btn-admin" onClick={() => this.setState({ showTimeChange: !showTimeChange })}>ביטול</button> */}
+            <SetHours />
+            </>
+            :
+            null}
             <br/><br/>
             <button className="admin-btn-del" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>חסום שעה <i className="far fa-clock"></i></button>
             {this.state.showDisableHour ?
@@ -222,7 +236,7 @@ render() {
             />
             <br/>
             <lable className="white-text">{this.state.text3}</lable>
-            <br/><br/><br/>
+            <br/>
                     <select className="select-srp-down"
                     onChange={(hour_time)=> this.setHour(hour_time)}>
                     <option value="nothing">בחרו שעה</option>
@@ -275,6 +289,7 @@ render() {
                     }}>
             אישור
             </button>
+            {/* <br/><br/> */}
             <button className="step-btn-admin" onClick={() => this.setState({ showDisableHour: !showDisableHour })}>ביטול</button>
                 </div>
                 </div>
@@ -282,7 +297,6 @@ render() {
             </>
             :
             null}
-            
                     </div>
             </section>
         </>
