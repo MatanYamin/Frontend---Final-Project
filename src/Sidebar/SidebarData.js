@@ -100,6 +100,12 @@ export const SidebarData = [
             title: "חסימה של שעה",
                 path: "BlockHour",
                 icon: <FaIcons.FaClock />
+        },
+
+        {
+            title: "שעות שירות",
+                path: "SetHours",
+                icon: <FaIcons.FaClock />
         }
     ]
 },

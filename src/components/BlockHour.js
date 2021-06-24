@@ -90,7 +90,7 @@ render() {
             />
             <label>{this.state.text3}</label>
             {hours_button_list}
-            <br/>
+            {/* <br/> */}
                     {/* <select className="select-srp-down"
                     onChange={(hour_time)=> this.setHour(hour_time)}>
                     <option value="nothing">בחרו שעה</option>
@@ -105,7 +105,7 @@ render() {
                 width={50}
                 visible={this.state.loading}
                 />
-            <button className="step-btn-admin"
+            <button className="specialBtn"
             // post request for blocking hout
             onClick={() => 
                 {

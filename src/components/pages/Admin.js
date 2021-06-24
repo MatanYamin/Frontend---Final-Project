@@ -13,6 +13,7 @@ import BlockHour from "../BlockHour"
 import FreeDay from "../FreeDay"
 import UploadMainImage from "../UploadMainImage"
 import UploadGalleryImage from "../UploadGalleryImage"
+import SetHours from '../SetHours';
 // import ExportCSVpage from "../ExportCSVpage"
 import Sidebar from "../../Sidebar/Sidebar"
 import GoogleMap from "../GoogleMap"
@@ -166,6 +167,13 @@ class Admin extends React.Component {
             page = <GoogleMap />
             this.setState({
               secondTitle: ""
+            })
+            break;
+
+          case "SetHours":
+            page = <SetHours />
+            this.setState({
+              secondTitle: "- עדכון זמני שירות"
             })
             break;
 
