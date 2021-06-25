@@ -36,6 +36,7 @@ export class PickService extends Component {
             titleService: "בחרו את השירות המבוקש",
             textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך. לחיצה על 'תרצו להוסיף' תפתח עבורכם עוד אפשרויות ניקוי שונות"
         }
+        this.continue = this.continue.bind(this);
     }
     // when component is opening do the following
     componentDidMount() {
@@ -107,8 +108,13 @@ export class PickService extends Component {
 
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
-        event.preventDefault();
-        this.props.nextStep(); //will increase step by 1
+        if(!this.props.values.service){
+            alert("נא לבחור שירות")
+        }
+        else{
+            event.preventDefault();
+            this.props.nextStep(); //will increase step by 1
+        }
     }
     render() {
         const {values} = this.props; //values is all the props we passed to the component

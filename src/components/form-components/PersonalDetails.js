@@ -28,9 +28,15 @@ export class PersonalDetails extends Component {
             image: "",
             checkPhone: "",
             notes: "",
-            temp: ""
+            temp: "",
+            streetCheck: "",
+            firstNameFlag: false,
+            missingField: "",
+            missFieldText: ""
         };
         this.uploadToS3 = this.uploadToS3.bind(this);
+        this.continue = this.continue.bind(this);
+        
         // this.onlyDigit = this.onlyDigit.bind(this)
      }
 
@@ -81,8 +87,19 @@ export class PersonalDetails extends Component {
 
     //when we call continue, we call "nextStep" from the props which increase "step" by 1
     continue = event => {
-        event.preventDefault();
-        this.props.nextStep(); //will increase step by 1
+        if(!this.props.values.firstName || !this.props.values.lastName || !this.props.values.email || !this.props.values.phone || !this.props.values.address){
+            this.setState({
+                missingField: "‎",
+                missFieldText: "השדות אשר מוסמנים באדום הינם שדות חובה."
+            })
+        }
+        else{
+            this.setState({
+                missFieldText: ""
+            })
+            event.preventDefault();
+            this.props.nextStep(); //will increase step by 1
+        }
     }
     // go backwards
     backward = event => {
@@ -206,6 +223,7 @@ export class PersonalDetails extends Component {
             <div className="personal-wrapper">
             <h6><label className="red-text">*</label>שם פרטי: </h6>
             <TextField 
+            placeholder={this.state.missingField}
             onChange={this.props.handleChange('firstName')}
             onInput={(e) => {this.validFirst(e)}}
             defaultValue={values.firstName}
@@ -213,12 +231,14 @@ export class PersonalDetails extends Component {
             
             <h6><label className="red-text">*</label>שם משפחה:</h6>
             <TextField
+            placeholder={this.state.missingField}
             onChange={this.props.handleChange('lastName')}
             onInput={(e) => {this.validLast(e)}}
             defaultValue={values.lastName}
             />
             <h6><label className="red-text">*</label>דוא"ל: </h6>
             <TextField
+            placeholder={this.state.missingField}
             type="email"
             onChange={this.props.handleChange('email')}
             onInput={(e) => {this.validEmail(e)}}
@@ -236,9 +256,10 @@ export class PersonalDetails extends Component {
             <h6><label className="green-text">{this.state.goodEmail}</label></h6>
             <h6><label className="red-text">*</label>טלפון:</h6>
             <TextField
+            placeholder={this.state.missingField}
             onChange={this.props.handleChange("phone")}
             onInput={(e) => {this.validPhone(e)}}
-            value={this.state.checkPhone}
+            value={this.props.values.phone}
             />
             <h6><label className="red-text">{this.state.badPhone}</label></h6>
             <h6><label className="green-text">{this.state.goodPhone}</label></h6>
@@ -255,8 +276,14 @@ export class PersonalDetails extends Component {
             {/* <h6><label className="red-text">העיר שלכם לא ברשימה? <label href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</label> </label></h6> */}
             <h6><label className="red-text">*</label>רחוב: </h6>
             <TextField
+            placeholder={this.state.missingField}
             onChange={this.props.handleChange('address')}
             defaultValue={values.address}
+            onInput={(e) => {
+                this.setState({
+                    streetCheck: e.target.value
+                })
+            }}
             />
             <h6>הערות:</h6>
             <TextField
@@ -270,7 +297,10 @@ export class PersonalDetails extends Component {
             <div className="show-image">
             <img alt="" className="img-customer-upload" src={this.state.image} />
             </div>
-            {/*  */}<br/><br/>
+                <div className="red-text-error">
+                    {this.state.missFieldText}
+                </div>
+            {/* <br/><br/> */}
             </div>
             <br/> 
             {/* Continue button - calls "continue" that increase step state by 1 */}

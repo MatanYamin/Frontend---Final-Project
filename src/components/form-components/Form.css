@@ -7,6 +7,29 @@
     align-self: center;
 }
 
+.ChangeTime{
+    background: #d8d8d8;
+}
+
+.ChangeTime{
+    background: #d8d8d8;
+}
+
+.form-stpes ::placeholder {
+    color: red;
+    background: red;
+  }
+
+.ChangeTime ::placeholder {
+    color: red;
+    background: red;
+  }
+
+.red-text-error{
+    font-size: 2vw;
+    color: red;
+}
+
 .hoursDetails{
     background: white;
     font-weight: bold;
@@ -1448,5 +1471,10 @@
         height: 50vh;
     /* position: fixed; */
         overflow: auto;
+    }
+
+    .red-text-error{
+        font-size: 4vw;
+        color: red;
     }
 }

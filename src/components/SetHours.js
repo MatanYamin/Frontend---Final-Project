@@ -16,8 +16,8 @@ import {
 // import TimePicker from 'react-time-picker';
 // import {KeyboardTimePicker} from '@material-ui/pickers';
 // const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class SetHours extends Component {
@@ -37,7 +37,8 @@ export class SetHours extends Component {
             startFlag: false,
             endFlag: false,
             intervalFlag: false,
-            missingField: ""
+            missingField: "",
+            placeHolder: "",
         }
     }
 
@@ -164,10 +165,14 @@ handleStartTime = (input) => {
                     if(response.status === 200){
                         this.setState({
                             txt1: "הזמנים שונו בהצלחה",
+                            missingField: "",
                             currentStart: this.state.start_time,
                             currentEnd: this.state.end_time,
                             currentInterval: this.state.interval,
-                            loading: false
+                            loading: false,
+                            start_time: "‎",
+                            end_time: "‎",
+                            interval: "‎"
                         });
                     }
                     else{
@@ -181,8 +186,24 @@ handleStartTime = (input) => {
         }
         else{
             this.setState({
-                missingField: "אחד השדות ריקים, יש למלא הכל ולאחר מכן לחץ על אישור"
+                missingField: "אחד השדות ריקים, יש למלא הכל ולאחר מכן לחץ על אישור",
+                placeHolder: "‎",
             })
+            if(!this.state.startFlag){
+                this.setState({
+                    start_time: ""
+                })
+            }
+            if(!this.state.endFlag){
+                this.setState({
+                    end_time: ""
+                })
+            }
+            if(!this.state.intervalFlag){
+                this.setState({
+                    interval: ""
+                })
+            }
         }
             }
 
@@ -208,12 +229,13 @@ render() {
                 <br/>
 <MuiPickersUtilsProvider
 utils={DateFnsUtils}>
-    <div className="check">
       <Grid
+      className="ChangeTime"
       container justify="space-evenly">
-          <div className="nameInMiddle">שעת התחלה</div>
+          <div className="nameInMiddle">שעת התחלה:</div>
         <KeyboardTimePicker
         inputValue={this.state.start_time}
+        placeholder={this.state.placeHolder}
         ampm={false}
         value=""
         cancelLabel="ביטול"
@@ -224,10 +246,13 @@ utils={DateFnsUtils}>
         keyboardIcon={<AiIcons.AiFillClockCircle />}
         />
         </Grid>
+        <br/>
         <Grid
+        className="ChangeTime"
         container justify="space-evenly">
-            <div className="nameInMiddle">שעת סיום ‎ ‎ ‎ ‎ ‎</div>
+            <div className="nameInMiddle">שעת סיום: ‎ ‎ ‎ ‎ ‎</div>
         <KeyboardTimePicker
+        placeholder={this.state.placeHolder}
         inputValue={this.state.end_time}
         ampm={false}
         cancelLabel="ביטול"
@@ -241,9 +266,11 @@ utils={DateFnsUtils}>
       <br/>
     <div className="intervalContainer">
     <div className="interval">      
-    ‎מרווח (דקות) 
+    ‎מרווח (דקות): 
     </div> 
      <TextField
+      placeholder={this.state.placeHolder}
+      value={this.state.interval}
       type = "number"
       onChange={(e) => {this.setState({
       interval: e.target.value,
@@ -251,7 +278,6 @@ utils={DateFnsUtils}>
       })}}
       />
       </div>
-      </div>‎
       </MuiPickersUtilsProvider>
                  <div className="btnContainer">
                  <Loader
@@ -261,8 +287,8 @@ utils={DateFnsUtils}>
                 width={50}
                 visible={this.state.loading}
                 />
-                {this.state.missingField} 
-                {/* <br/> */}
+                <label className="red-text">{this.state.missingField} </label>
+                <br/>
                      <button className="step-btn-admin"
                     //  post request for adding city to list
                     onClick={this.changeTimes}
