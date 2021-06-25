@@ -4,7 +4,7 @@ import React from "react"
 function AdminForm() {
     return(
         <div>
-            טופס שינוי שרותים וזמנים
+            טופס שינוי שירותים וזמנים
         </div>
     )
 }

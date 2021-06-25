@@ -183,7 +183,7 @@ export class PersonalDetails extends Component {
         return(
             <>
             <br/><br/><br/><br/><br/><br/><br/>
-            <b>  לא נבחר שרות</b>
+            <b>  לא נבחר שירות</b>
             <div className="step-btn-container">
             <button onClick={this.backward} className="step-btn">חזור</button>
             </div>

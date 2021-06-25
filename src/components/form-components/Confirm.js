@@ -116,7 +116,7 @@ export class Confirm extends Component {
                 <h4>{email}</h4>
                 מספר טלפון:
                <h4>{phone}</h4>
-                השרות:
+                השירות:
                 <h4>{service}  {addons}</h4>
                 המחיר:
                 <label><h3>{price} ₪</h3></label>

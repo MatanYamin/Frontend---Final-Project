@@ -43,7 +43,7 @@ render() {
                 "מייל": rowData[2],
                 "טלפון": rowData[3],
                 "כתובת": rowData[4],
-                "שרות": rowData[5],
+                "שירות": rowData[5],
                 "תאריך": rowData[6],
                 "שעה": rowData[7],
                 "מחיר": rowData[8],

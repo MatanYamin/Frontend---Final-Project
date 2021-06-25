@@ -17,7 +17,9 @@ export class ChangeServiceName extends Component {
             loading: false,
             newTitle: "",
             service: "",
-            beforeAndAfter: ""
+            placeHolder: "",
+            beforeAndAfter: "",
+            changeNameFlag: false
         }
     }
 
@@ -41,43 +43,60 @@ export class ChangeServiceName extends Component {
         })
     }
 
-    // inserts the new description inside the state
+    // inserts the new משצק inside the state
     handleNewTitle = (input) => {
+        if(input.target.value.length >= 2){
+            this.setState({
+                changeNameFlag: true
+            })
+        }
+        else{
+            this.setState({
+                changeNameFlag: false
+            })
+        }
         this.setState({
             newTitle: input.target.value
         })
     }
     // this sends the description to the server sie to handle the changes with put
     updateTitleForService = () => {
-        this.setState({
-            loading: true
-        });
-
-        try{
-            fetch(url + "put/service_name", {
-                method: "PUT",
-                body: JSON.stringify({
-                    newName: this.state.newTitle,
-                    service: this.state.service
-                })
+        if(!this.state.newTitle || !this.state.service){
+            this.setState({
+                placeHolder: "‎"
             })
-            .then(
-                (response) => {
-                    if(response.status === 200){
-                        // changes when the status is ok and the function worked succesfully
-                        this.setState({
-                            loading: false,
-                            beforeAndAfter: "השם שונה בהצלחה ל " + this.state.newTitle
-                        })
-                    }
-                    else{
-                        alert("קרתה תקלה. אנא רענן ונסה שוב")  
-                    }
-                }
-            )
         }
-        catch(e) {
-            console.log(e)}
+        else{
+            this.setState({
+                loading: true
+            });
+    
+            try{
+                fetch(url + "put/service_name", {
+                    method: "PUT",
+                    body: JSON.stringify({
+                        newName: this.state.newTitle,
+                        service: this.state.service
+                    })
+                })
+                .then(
+                    (response) => {
+                        if(response.status === 200){
+                            // changes when the status is ok and the function worked succesfully
+                            this.setState({
+                                loading: false,
+                                beforeAndAfter: "השם שונה בהצלחה ל " + this.state.newTitle
+                            })
+                        }
+                        else{
+                            alert("קרתה תקלה. אנא רענן ונסה שוב")  
+                        }
+                    }
+                )
+            }
+            catch(e) {
+                console.log(e)}
+        }
         }
 
 render() {
@@ -95,18 +114,28 @@ render() {
                     // onInput={(e) => this.getDescriptionForService(e)}
                     >
                     <option
-                    value="">בחר שרות</option>
+                    value="">בחר שירות</option>
                     {this.state.services_array.map(ser => (
                     <option value={ser}>{ser}</option>))}
                 </select>
                 <br/>
                 <label>הקלד שם חדש</label>
+                <div className="addonPlaceHolder">
+                {this.state.changeNameFlag? 
+                    <>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className="fas fa-check fa-1x"></i>
+                    </>
+                    :
+                    null
+                    }
                  <TextField 
-                 placeholder="שם חדש"
+                 placeholder={this.state.placeHolder}
                  value={this.state.newTitle}
                  autoComplete="off"
                  onChange={(e) => {this.handleNewTitle(e)}}
                  />
+                 </div>
                  {this.state.beforeAndAfter}
                  <Loader
                 type="Puff"

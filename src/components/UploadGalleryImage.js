@@ -23,7 +23,8 @@ export class UploadGalleryImage extends Component {
             image: null,
             uploadSuccess: "",
             file: null,
-            loading: false
+            loading: false,
+            imageFlag: false
         }
         this.uploadToS3 = this.uploadToS3.bind(this);
     }
@@ -132,15 +133,27 @@ render() {
                     <h1>העלה תמונה לגלריית תמונות באמצעות קישור או קובץ</h1>
                     <br/>
         {this.state.uploadSuccess}
+        <div className="imageContainer1">
             <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
-                    <option value="nothing">בחר שרות</option>
+                    <option value="nothing">בחר שירות</option>
                     {this.state.services.map(service => (
                     <option value={service}>{service}</option>))}
                     </select>
             {/* After the img will upload succesfully, we will se the image */}
             <img alt="" className="img-show_form" src={this.state.image} />
-            <label>העלה קובץ</label>
-            <input type="file" onChange={this.uploadToS3} />
+            {/* <label>העלה קובץ</label> */}
+            {/* <input type="file" onChange={this.uploadToS3} /> */}
+            <label className="image_upload_input">העלה תמונה
+            <input hidden type="file" onChange={this.uploadToS3} />
+            </label>
+            {this.state.imageFlag? 
+            <>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <i className="fas fa-check fa-2x"></i>
+             </>
+            :
+            null
+            }
             <label>כתובת של תמונה</label>
            {/* <input autoComplete="off"
            value={this.state.image}
@@ -151,6 +164,7 @@ render() {
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />
+            </div>
                     <br/>
                     <div className="btnContainer">
                     <Loader

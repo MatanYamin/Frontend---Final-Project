@@ -277,7 +277,7 @@ class Admin extends React.Component {
         }
          <div>
         {/* moving to change service: delete or add new one */}
-        <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שרות <i className="fas fa-concierge-bell"></i></button>
+        <button className="button-form" onClick={() => this.setState({ showUpdateService: !showUpdateService })}>עדכון שירות <i className="fas fa-concierge-bell"></i></button>
         {this.state.showUpdateService ?
            <UpdateService
            />
@@ -325,14 +325,14 @@ class Admin extends React.Component {
             :
            null
         }
-        <button className="button-form" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשרות <i className="fab fa-creative-commons-nd"></i> </button>
+        <button className="button-form" onClick={() => this.setState({ showDescription: !showDescription })}>עדכן תיאור לשירות <i className="fab fa-creative-commons-nd"></i> </button>
          {this.state.showDescription ?
            <UpdateDescription
            />
             :
            null
         }
-        <button className="button-form2" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשרות  <i className="fas fa-images"></i> </button>
+        <button className="button-form2" onClick={() => this.setState({ uploadImage: !uploadImage })}>הוסף תמונה לשירות  <i className="fas fa-images"></i> </button>
          {this.state.uploadImage ?
            <UploadImage
            />

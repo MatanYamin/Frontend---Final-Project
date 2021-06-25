@@ -19,7 +19,9 @@ export class UpdateCity extends Component {
             loading: false,
             txt1: "",
             txt2: "",
-            region: ""
+            placeHolder: "",
+            region: "",
+            regionName: ""
         }
     }
 
@@ -50,35 +52,48 @@ export class UpdateCity extends Component {
 
 // this is a post request for adding a city
 addNewCity = () => {
-    this.setState({
-        loading: true
-    });
-    try{
-        fetch(url + "post/city", {
-            method: "POST",
-            body: JSON.stringify({
-                city: this.state.new_city,
-                region: this.state.region
-            })
-        })
-        .then(
-        (response) => {
-            if(response.status === 200){
-                this.setState({
-                    txt1: " העיר "  + this.state.new_city + " נוספה בהצלחה ",
-                    // tempCity: this.state.new_city,
-                    loading: false,
-                    new_city: "",
-                });
-            }
-            else{
-                alert("קרתה תקלה. אנא רענן ונסה שוב")
-            }
-        }
-        )
+    if(!this.state.regionName){
+        alert("לא נבחר איזור")
     }
-    catch(e) {
-        console.log(e)}
+    else{
+
+        if(!this.state.new_city){
+            this.setState({
+                placeHolder: "‎"
+            })
+        }
+        else{
+            this.setState({
+                loading: true
+            });
+            try{
+                fetch(url + "post/city", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        city: this.state.new_city,
+                        region: this.state.region
+                    })
+                })
+                .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            txt1: " העיר "  + this.state.new_city + " ממחוז " + this.state.regionName + " נוספה בהצלחה ",
+                            // tempCity: this.state.new_city,
+                            loading: false,
+                            new_city: "",
+                        });
+                    }
+                    else{
+                        alert("קרתה תקלה. אנא רענן ונסה שוב")
+                    }
+                }
+                )
+            }
+            catch(e) {
+                console.log(e)}
+        }
+    }
         }
 
     // this is a DELETE request for deleting city
@@ -128,23 +143,29 @@ render() {
                 value={this.state.new_city}
                 onChange={(e) => {this.handleCity(e)}}
                  /> */}
+                 <div className="addonPlaceHolder">
                  <TextField 
-                 placeholder="שם עיר"
+                 placeholder={this.state.placeHolder}
                  value={this.state.new_city}
                  onChange={(e) => {this.handleCity(e)}}
                  />
+                 </div>
                  <label>לאיזה מחוז שייכת העיר?</label>
                  <button className="pickRegion" onClick={() => this.setState({
-                     region: "0"
+                     region: "0",
+                     regionName: "צפון"
                  })}>צפון</button>
                  <button className="pickRegion" onClick={() => this.setState({
-                     region: "1"
+                     region: "1",
+                     regionName: "מרכז"
                  })}>מרכז</button>
                  <button className="pickRegion" onClick={() => this.setState({
-                     region: "2"
+                     region: "2",
+                     regionName: "דרום"
                  })}>דרום</button>
                  <button className="pickRegion" onClick={() => this.setState({
-                     region: "5"
+                     region: "5",
+                     regionName: "(בלי))"
                  })}>לא להשפיע על סדר היום</button>
                  <div className="btnContainer">
                  <Loader

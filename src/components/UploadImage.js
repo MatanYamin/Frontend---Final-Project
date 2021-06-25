@@ -133,7 +133,7 @@ render() {
         <label className="success_action">{this.state.uploadSuccess}</label>
         <br/>
             <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
-                    <option value="nothing">בחר שרות</option>
+                    <option value="nothing">בחר שירות</option>
                     {this.state.services.map(service => (
                     <option value={service}>{service}</option>))}
                     </select>
@@ -170,7 +170,7 @@ render() {
         <br/><br/>
         <label className="success_action">{this.state.uploadSuccess}</label>
             <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
-                    <option value="nothing">בחר שרות</option>
+                    <option value="nothing">בחר שירות</option>
                     {this.state.services.map(service => (
                     <option value={service}>{service}</option>))}
                     </select>

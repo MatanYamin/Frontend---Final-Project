@@ -16,8 +16,8 @@ import {
 // import TimePicker from 'react-time-picker';
 // import {KeyboardTimePicker} from '@material-ui/pickers';
 // const url = "http://3.19.66.156/"
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class SetHours extends Component {
@@ -186,8 +186,8 @@ handleStartTime = (input) => {
         }
         else{
             this.setState({
-                missingField: "אחד השדות ריקים, יש למלא הכל ולאחר מכן לחץ על אישור",
-                placeHolder: "‎",
+                missingField: "יש למלא את כל השדות",
+                placeHolder: "‎"
             })
             if(!this.state.startFlag){
                 this.setState({
@@ -252,9 +252,10 @@ utils={DateFnsUtils}>
         container justify="space-evenly">
             <div className="nameInMiddle">שעת סיום: ‎ ‎ ‎ ‎ ‎</div>
         <KeyboardTimePicker
-        placeholder={this.state.placeHolder}
         inputValue={this.state.end_time}
+        placeholder={this.state.placeHolder}
         ampm={false}
+        value=""
         cancelLabel="ביטול"
         okLabel="אישור"
         invalidDateMessage=""
@@ -265,9 +266,9 @@ utils={DateFnsUtils}>
       </Grid>
       <br/>
     <div className="intervalContainer">
-    <div className="interval">      
+    <label className="interval">      
     ‎מרווח (דקות): 
-    </div> 
+    </label> 
      <TextField
       placeholder={this.state.placeHolder}
       value={this.state.interval}

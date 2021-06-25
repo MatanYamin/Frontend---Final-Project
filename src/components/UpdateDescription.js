@@ -18,7 +18,9 @@ export class UpdateDescription extends Component {
             newDes: "",
             service: "",
             currentDescrition: "",
-            beforeAndAfter: ""
+            beforeAndAfter: "",
+            placeHolder: "",
+            checkFlag: false
         }
     }
 
@@ -44,42 +46,59 @@ export class UpdateDescription extends Component {
 
     // inserts the new description inside the state
     handleNewDescription = (input) => {
+        if(input.target.value.length >= 2){
+            this.setState({
+                checkFlag: true
+            })
+        }
+        else{
+            this.setState({
+                checkFlag: false
+            })
+        }
         this.setState({
             newDes: input.target.value
         })
     }
     // this sends the description to the server sie to handle the changes with put
     updateDercriptionForService = () => {
-        this.setState({
-            loading: true
-        });
-
-        try{
-            fetch(url + "put/service_description", {
-                method: "PUT",
-                body: JSON.stringify({
-                    description: this.state.newDes,
-                    service: this.state.service
-                })
+        if(!this.state.newDes || !this.state.service){
+            this.setState({
+                placeHolder: "‎"
             })
-            .then(
-                (response) => {
-                    if(response.status === 200){
-                        this.setState({
-                            loading: false,
-                            beforeAndAfter: "התיאור החדש: ",
-                            currentDescrition: this.state.newDes,
-                            newDes: ""
-                        })
-                    }
-                    else{
-                        alert("קרתה תקלה. אנא רענן ונסה שוב")  
-                    }
-                }
-            )
         }
-        catch(e) {
-            console.log(e)}
+        else{
+            this.setState({
+                loading: true
+            });
+    
+            try{
+                fetch(url + "put/service_description", {
+                    method: "PUT",
+                    body: JSON.stringify({
+                        description: this.state.newDes,
+                        service: this.state.service
+                    })
+                })
+                .then(
+                    (response) => {
+                        if(response.status === 200){
+                            this.setState({
+                                loading: false,
+                                beforeAndAfter: "התיאור החדש: ",
+                                currentDescrition: this.state.newDes,
+                                newDes: ""
+                            })
+                        }
+                        else{
+                            alert("קרתה תקלה. אנא רענן ונסה שוב")  
+                        }
+                    }
+                )
+            }
+            catch(e) {
+                console.log(e)}
+        }
         }
 
 
@@ -117,7 +136,7 @@ render() {
                     onInput={(e) => this.getDescriptionForService(e)}
                     >
                     <option
-                    value="">בחר שרות</option>
+                    value="">בחר שירות</option>
                     {this.state.services_array.map(ser => (
                     <option value={ser}>{ser}</option>))}
                 </select>
@@ -127,6 +146,7 @@ render() {
                 <br/>
                 {this.state.currentDescrition}
                 </div>
+                <div className="addonPlaceHolder">
                 <label>הקלד תיאור חדש</label>
                 {/* <input 
                 value={this.state.newDes}
@@ -134,11 +154,20 @@ render() {
                 onChange={(e) => {this.handleNewDescription(e)}}
                  /> */}
                  <TextField 
-                 placeholder="תיאור חדש"
+                 placeholder={this.state.placeHolder}
                  value={this.state.newDes}
                  autoComplete="off"
                  onChange={(e) => {this.handleNewDescription(e)}}
                  />
+                 {this.state.checkFlag? 
+                    <>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className="fas fa-check fa-2x"></i>
+                    </>
+                    :
+                    null
+                    }
+                 </div>
                  <Loader
                 type="Puff"
                 color="black"

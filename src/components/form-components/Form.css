@@ -7,6 +7,18 @@
     align-self: center;
 }
 
+.checkContainer{
+
+}
+
+#checkMark{
+    size: 3px
+  }
+
+.imageContainer1{
+    text-align: -webkit-center;
+}
+
 .ChangeTime{
     background: #d8d8d8;
 }
@@ -20,7 +32,32 @@
     background: red;
   }
 
+.addonPlaceHolder ::placeholder {
+    color: red;
+    background: red;
+  }
+
 .ChangeTime ::placeholder {
+    color: red;
+    background: red;
+  }
+
+.intervalContainer ::placeholder {
+    color: red;
+    background: red;
+  }
+
+.servicePlaceHolder ::placeholder {
+    color: red;
+    background: red;
+  }
+
+  .servicePricePlacheHolde ::placeholder {
+    color: red;
+    background: red;
+  }
+
+.addonPricePlaceHolder ::placeholder {
     color: red;
     background: red;
   }
@@ -33,6 +70,7 @@
 .hoursDetails{
     background: white;
     font-weight: bold;
+    padding: 10px;
 }
 
 

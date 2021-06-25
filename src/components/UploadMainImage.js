@@ -23,7 +23,8 @@ export class UploadMainImage extends Component {
             image: null,
             uploadSuccess: "",
             file: null,
-            loading: false
+            loading: false,
+            imageFlag: false
         }
         this.uploadToS3 = this.uploadToS3.bind(this);
     }
@@ -112,13 +113,15 @@ export class UploadMainImage extends Component {
       // this method uploads the image to the aws s3 and gets back to me the image url
       uploadToS3(e) {
         this.setState({
-            loading: true
+            loading: true,
+            imageFlag: false
         });
         ReactS3.uploadFile(e.target.files[0], config)
         .then((response)=> {
             this.setState({
                 image: response.location,
-                loading: false
+                loading: false,
+                imageFlag: true
             })
           },
           )
@@ -134,6 +137,7 @@ render() {
                     <br/>
         {this.state.uploadSuccess}
         <br/>
+        <div className="imageContainer1">
         <label>בחר שירות</label>
             <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
                     <option value="nothing">לחץ לבחירה</option>
@@ -142,11 +146,23 @@ render() {
                     </select>
                     <br/>
                     <br/>
+            <label className="image_upload_input">העלה תמונה
+            <input hidden type="file" onChange={this.uploadToS3} />
+            </label>
+            {this.state.imageFlag? 
+            <>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <i className="fas fa-check fa-2x"></i>
+             </>
+            :
+            null
+            }
             {/* After the img will upload succesfully, we will se the image */}
-            <label>העלה קובץ</label>
-            <input type="file" onChange={this.uploadToS3} />
+            {/* <label>העלה קובץ</label> */}
+            {/* <input type="file" onChange={this.uploadToS3} /> */}
+            או
             <br/>
-            <label>כתובת של תמונה</label>
+            <label>הדבק כתובת של תמונה</label>
            {/* <input autoComplete="off"
            value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
@@ -159,6 +175,7 @@ render() {
             <img alt="" className="img-show_form" src={this.state.image} />
             <br/>
                     <br/>
+                    </div>
                     <div className="btnContainer">
                     <Loader
                     type="Audio"

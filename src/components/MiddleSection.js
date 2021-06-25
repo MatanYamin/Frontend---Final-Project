@@ -42,7 +42,7 @@ function MiddleSection() {
                     <iframe width="560" height="415" src="https://www.youtube.com/embed/IPMN-LqzB7Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
             </Popup>
-            <a href="/SOS" className="button1">צריכים שרות דחוף?</a>
+            <a href="/SOS" className="button1">צריכים שירות דחוף?</a>
         </div>
   </div>
 

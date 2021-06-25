@@ -22,7 +22,13 @@ export class UpdateService extends Component {
             updateServiceSuccess: "",
             deleteSuccess: "",
             description: "",
-            image: ""
+            image: "",
+            placeHolder: "",
+            serviceNameFlag: false,
+            servicePriceFlag: false,
+            serviceDescrFlag: false,
+            serviceImageFlag: false
+
         }
         this.uploadToS3 = this.uploadToS3.bind(this);
     }
@@ -63,18 +69,48 @@ export class UpdateService extends Component {
 
     // for typing new service
     handleService = (input) => {
+        if(input.target.value.length >= 2){
+            this.setState({
+                serviceNameFlag: true
+            })
+        }
+        else{
+            this.setState({
+                serviceNameFlag: false
+            })
+        }
         this.setState({
             service_name: input.target.value
         })
     }
     // for typing new price
     handlePrice = (input) => {
+        if(input.target.value.length >= 1){
+            this.setState({
+                servicePriceFlag: true
+            })
+        }
+        else{
+            this.setState({
+                servicePriceFlag: false
+            })
+        }
         this.setState({
             price: input.target.value
         })
     }
     // Adding description for the service
     handleDescription = (input) => {
+        if(input.target.value.length >= 2){
+            this.setState({
+                serviceDescrFlag: true
+            })
+        }
+        else{
+            this.setState({
+                serviceDescrFlag: false
+            })
+        }
         this.setState({
             description: input.target.value
         })
@@ -88,89 +124,103 @@ export class UpdateService extends Component {
     // this uploads the image to the S3 aws
     uploadToS3(e) {
         this.setState({
-            loading: true
+            loading: true,
+            serviceImageFlag: false
         });
         ReactS3.uploadFile(e.target.files[0], config)
         .then((response)=> {
             this.setState({
                 image: response.location,
-                loading: false
+                loading: false,
+                serviceImageFlag: true
             })
           },
           )
     }
     // this method adds new service the the db from admin panel
     addNewService = () => {
-        this.setState({
-            loading: true
-        });
-        try{
-            fetch(url + "post/service", {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                body: JSON.stringify({
-                    cat_name: this.state.cat_name,
-                    service_name: this.state.service_name,
-                    price: this.state.price,
-                    description: this.state.description,
-                    image: this.state.image
-                })
+        if(!this.state.cat_name || !this.state.service_name || !this.state.price || !this.state.description || !this.state.image){
+            this.setState({
+                placeHolder: "‎"
             })
-            .then(
-                (response) => {
-                    if(response.status === 200){
-                        this.setState({
-                            updateServiceSuccess: "השירות נוסף בהצלחה",
-                            loading: false,
-                            service_name: "",
-                            description: "",
-                            price: "",
-                            image: ""
-                        });
-                    }
-                    else{
-                        alert("קרתה תקלה. רענן ונסה שוב") 
-                    }
-                }
-            )
         }
-        catch(e) {
-            console.log(e)}
+        else{
+            this.setState({
+                loading: true
+            });
+            try{
+                fetch(url + "post/service", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                      },
+                    body: JSON.stringify({
+                        cat_name: this.state.cat_name,
+                        service_name: this.state.service_name,
+                        price: this.state.price,
+                        description: this.state.description,
+                        image: this.state.image
+                    })
+                })
+                .then(
+                    (response) => {
+                        if(response.status === 200){
+                            this.setState({
+                                updateServiceSuccess: "השירות נוסף בהצלחה",
+                                loading: false,
+                                service_name: "",
+                                description: "",
+                                price: "",
+                                image: ""
+                            });
+                        }
+                        else{
+                            alert("קרתה תקלה. רענן ונסה שוב") 
+                        }
+                    }
+                )
+            }
+            catch(e) {
+                console.log(e)}
+        }
         }
     
     // this method deletes service from db
     deleteService = () => 
     {
-        this.setState({
-            loading: true
-        });
-        try{
-            fetch(url + "delete/service", {
-                method: "DELETE",
-                body: JSON.stringify({
-                    service_name: this.state.service_name,
+        if(!this.state.service_name){
+            alert("אנא בחר שירות למחיקה")
+        }
+        else{
+            this.setState({
+                loading: true
+            });
+            try{
+                fetch(url + "delete/service", {
+                    method: "DELETE",
+                    body: JSON.stringify({
+                        service_name: this.state.service_name,
+                    })
                 })
-            })
-            .then(
-                (response) => {
-                    if(response.status === 200){
-                        this.setState({
-                            deleteSuccess: "השרות נמחק בהצלחה",
-                            loading: false,
-                            services_array: this.state.services_array.filter((_, i) => i !== this.state.services_array.indexOf(this.state.service_name))
-                        })
+                .then(
+                    (response) => {
+                        if(response.status === 200){
+                            this.setState({
+                                deleteSuccess: "השירות נמחק בהצלחה",
+                                loading: false,
+                                services_array: this.state.services_array.filter((_, i) => i !== this.state.services_array.indexOf(this.state.service_name))
+                            })
+                        }
+                        else{
+                            alert("קרתה תקלה. אנא רענן ונסה שוב")
+                        }
                     }
-                    else{
-                        alert("קרתה תקלה. אנא רענן ונסה שוב")
-                    }
+                )
                 }
-            )
+            catch(e) {
+                console.log(e)
             }
-        catch(e) {
-            console.log(e)
         }
         }
 
@@ -181,6 +231,8 @@ render() {
             <div className="adminComponentContainer">
                 <div className="border-card-top">
                     <br/>
+                    <div className="servicePlaceHolder">
+        
                 <h1>הוספת שירות חדש</h1>
            <label>בחר קטגוריה</label>
            {/* shows all cateogries */}
@@ -195,36 +247,70 @@ render() {
            onChange={(e) => {this.handleService(e)}}
             /> */}
             <TextField
-            placeholder="שם שירות"
+            // placeholder="שם שירות"
+            placeholder={this.state.placeHolder}
             value={this.state.service_name}
             onChange={(e) => {this.handleService(e)}} />
+            {this.state.serviceNameFlag? 
+            <>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <i className="fas fa-check fa-2x"></i>
+             </>
+            :
+            null
+            }
             <label>הוסף תיאור</label>
            {/* <input autoComplete="off"
            value={this.state.description}
            onChange={(e) => {this.handleDescription(e)}}
             /> */}
             <TextField 
-            placeholder="תיאור"
+            // placeholder="תיאור"
+            placeholder={this.state.placeHolder}
             value={this.state.description}
             onChange={(e) => {this.handleDescription(e)}}/>
+            {this.state.serviceDescrFlag? 
+            <>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+             <i className="fas fa-check fa-2x"></i>
+             </>
+            :
+            null
+            }
             <label>מחיר (בשקלים)</label>
             {/* <input 
             value={this.state.price}
             onChange={(e) => {this.handlePrice(e)}}
            /> */}
            <TextField 
-           placeholder="מחיר"
+        //    placeholder="מחיר"
+           placeholder={this.state.placeHolder}
            value={this.state.price}
            onChange={(e) => {this.handlePrice(e)}}/>
-           {/*  */}
+           {this.state.servicePriceFlag? 
+           <>
+           &nbsp;&nbsp;&nbsp;&nbsp;
+            <i className="fas fa-check fa-2x"></i>
+            </>
+            :
+            null
+            }
            <div>
             {/* After the img will upload succesfully, we will se the image */}
             <br/>
-            <label>העלה תמונה</label>
+            {/* <label>העלה תמונה</label>
             <br/>
-            <input type="file" onChange={this.uploadToS3} />
+            <input type="file" onChange={this.uploadToS3} /> */}
+            <label className="image_upload_input">העלה תמונה
+            <input hidden type="file" onChange={this.uploadToS3} />
+            </label>
+            {this.state.serviceImageFlag? 
+            <i className="fas fa-check fa-2x"></i>
+            :
+            null
+            }
           </div>
-                    <br/>
+                    {/* <br/> */}
                     <Loader
                     type="Audio"
                     color="black"
@@ -233,17 +319,20 @@ render() {
                     visible={this.state.loading}
                     />
            {/*  */}
+           או
            <label>כתובת של תמונה</label>
            {/* <input autoComplete="off"
            value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
-            /> */}
+        /> */}
             <TextField 
-            placeholder="כתובת תמונה"
+            // placeholder="כתובת תמונה"
+            placeholder={this.state.placeHolder}
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />
             <img alt="" className="img-show_form" src={this.state.image} />
+            </div>
             <div className="btnContainer">
                 <button className="step-btn-admin"
                 // Post request for adding service
@@ -265,7 +354,7 @@ render() {
             <br/>
            {/* shows in select list all the services there are */}
             <select className="del-drp-btn" onChange={(e) => this.setState({ service_name: e.target.value })}>
-                    <option value="nothing">בחר שרות</option>
+                    <option value="nothing">בחר שירות</option>
                     {this.state.services_array.map(service => (
                     <option value={service}>{service}</option>))}
                     </select>

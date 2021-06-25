@@ -158,7 +158,7 @@ table {
 	td:nth-of-type(2):before { content: "דוא''ל:"; background: rgb(22, 22, 22);; color: white;}
 	td:nth-of-type(3):before { content: "טלפון:"; background: rgb(22, 22, 22);; color: white;}
 	td:nth-of-type(4):before { content: "כתובת:"; background: rgb(22, 22, 22);; color: white;}
-	td:nth-of-type(5):before { content: "שרות:"; background: rgb(22, 22, 22);; color: white;}
+	td:nth-of-type(5):before { content: "שירות:"; background: rgb(22, 22, 22);; color: white;}
 	td:nth-of-type(6):before { content: "תאריך:"; background: rgb(22, 22, 22);; color: white;}
 	td:nth-of-type(7):before { content: "שעה:"; background: rgb(22, 22, 22);; color: white;}
 	td:nth-of-type(8):before { content: "מחיר:"; background: rgb(22, 22, 22);; color: white;}

@@ -19,6 +19,9 @@ export class UpdateAddon extends Component {
             price: "",
             loading: false,
             txt1: "",
+            placeHolder: "",
+            addonNameFlag: false,
+            addonPriceFlag: false,
             txt2: ""
         }
     }
@@ -61,50 +64,77 @@ export class UpdateAddon extends Component {
     }
     // insert changes into addon_name state
     handleAddon = (input) => {
+        if(input.target.value.length >= 2){
+            this.setState({
+                addonNameFlag: true
+            })
+        }
+        else{
+            this.setState({
+                addonNameFlag: false
+            })
+        }
         this.setState({
             addon_name: input.target.value
         })
     }
     // insert changes into price state
     handlePrice = (input) => {
+        if(input.target.value.length >= 1){
+            this.setState({
+                addonPriceFlag: true
+            })
+        }
+        else{
+            this.setState({
+                addonPriceFlag: false
+            })
+        }
         this.setState({
             price: input.target.value
         })
     }
     // this is a post request for adding an addon
     addNewAddon = () => {
-        this.setState({
-            loading: true
-        });
-        try{
-            fetch(url + "put/addon", {
-                method: "PUT",
-                body: JSON.stringify({
-                    service_name: this.state.service_name,
-                    addon_name: this.state.addon_name,
-                    price: this.state.price
-                })
+        if(!this.state.service_name || !this.state.addon_name || !this.state.price){
+            this.setState({
+                placeHolder: "‎"
             })
-            .then(
-                (response) => {
-                    if(response.status === 200){
-                        // changes when the status is ok and the function worked succesfully
-                        this.setState({
-                            txt1: "  התוסף "  + this.state.addon_name + " נוסף בהצלחה  ",
-                            loading: false,
-                            addon_name: "",
-                            price: ""
-                        })
-                    }
-                    else{
-                        // error
-                        alert("קרתה תקלה. רענן ונסה שוב")
-                    }
-                }
-            )
         }
-        catch(e) {
-            console.log(e)}
+        else{
+            this.setState({
+                loading: true
+            });
+            try{
+                fetch(url + "put/addon", {
+                    method: "PUT",
+                    body: JSON.stringify({
+                        service_name: this.state.service_name,
+                        addon_name: this.state.addon_name,
+                        price: this.state.price
+                    })
+                })
+                .then(
+                    (response) => {
+                        if(response.status === 200){
+                            // changes when the status is ok and the function worked succesfully
+                            this.setState({
+                                txt1: "  התוסף "  + this.state.addon_name + " נוסף בהצלחה  ",
+                                loading: false,
+                                addon_name: "",
+                                price: ""
+                            })
+                        }
+                        else{
+                            // error
+                            alert("קרתה תקלה. רענן ונסה שוב")
+                        }
+                    }
+                )
+            }
+            catch(e) {
+                console.log(e)}
+        }
         }
 
     // DELETE request for deleting an addon
@@ -147,11 +177,11 @@ render() {
         <br/>
         <section className="adminComponent">
             <div className="adminComponentContainer">
-                <label>בחר שרות להוסיף לו תוספת</label>
+                <label>בחר שירות להוסיף לו תוספת</label>
             <div className="border-card-top">
                 <br/>
                 <select className="select-srp-down" onChange={(e) => this.setState({ service_name: e.target.value })}>
-                    <option value="nothing">בחר שרות</option>
+                    <option value="nothing">בחר שירות</option>
                     {this.state.services_array.map(service => (
                     <option value={service}>{service}</option>))}
                     </select>
@@ -161,8 +191,18 @@ render() {
                 autoComplete="off"
                 onChange={(e) => {this.handleAddon(e)}}
                  /> */}
+                 <div className="addonPlaceHolder">
+                 {this.state.addonNameFlag? 
+                    <>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className="fas fa-check fa-1x"></i>
+                    </>
+                    :
+                    null
+                    }
+                    
                  <TextField 
-                 placeholder="שם תוסף"
+                 placeholder={this.state.placeHolder}
                  value={this.state.addon_name}
                  autoComplete="off"
                  onChange={(e) => {this.handleAddon(e)}}
@@ -172,11 +212,20 @@ render() {
                  value={this.state.price}
                  onChange={(e) => {this.handlePrice(e)}}
                 /> */}
+                {this.state.addonPriceFlag? 
+                    <>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className="fas fa-check fa-1x"></i>
+                    </>
+                    :
+                    null
+                    }
                 <TextField 
-                placeholder="מחיר"
+                placeholder={this.state.placeHolder}
                 value={this.state.price}
                 onChange={(e) => {this.handlePrice(e)}}
                 />
+                </div>
                  <div className="btnContainer">
                  <Loader
                 type="TailSpin"

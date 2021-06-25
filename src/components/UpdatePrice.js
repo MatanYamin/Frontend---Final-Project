@@ -27,7 +27,11 @@ export class UpdatePrice extends Component {
             first_addon_price: "",
             new_price: "",
             pickedService: "",
-            placeholder: "הקלד מחיר חדש"
+            placeholder: "הקלד מחיר חדש",
+            placeHolder: "",
+            placeHolder2: "",
+            servicePriceFlag: false,
+            addongPriceFlag: false
         }
     }
 
@@ -145,74 +149,98 @@ getAddonPrice = (e) => {
 }
 // will insert into new_price state
 handleNewPrice = (input) => {
+    if(input.target.value.length >= 1){
+        this.setState({
+            servicePriceFlag: true
+        })
+    }
+    else{
+        this.setState({
+            servicePriceFlag: false
+        })
+    }
     this.setState({
         new_price: input.target.value
     })
 }
 // this sends the new price and service to api and the backend changes the price
 updatePriceForService = () => {
-    this.setState({
-        loading: true
-    });
-    try{
-        fetch(url + "put/service_price", {
-            method: "PUT",
-            body: JSON.stringify({
-                service: this.state.service,
-                price: this.state.new_price
-            })
+    if(!this.state.service || !this.state.new_price){
+        this.setState({
+            placeHolder: "‎"
         })
-
-        .then(
-            (response) => {
-                if(response.status === 200){
-                    this.setState({
-                        first_service_price: "מחיר חדש: " + this.state.new_price + " ₪",
-                        loading: false,
-                        new_price: ""
-                    })
-                }
-                else{
-                    alert("קרתה תקלה. אנא רענן ונסה שוב")
-                }
-            }
-        )
-        
     }
-    catch(e) {
-        console.log(e)}
+    else{
+        this.setState({
+            loading: true
+        });
+        try{
+            fetch(url + "put/service_price", {
+                method: "PUT",
+                body: JSON.stringify({
+                    service: this.state.service,
+                    price: this.state.new_price
+                })
+            })
+    
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            first_service_price: "מחיר חדש: " + this.state.new_price + " ₪",
+                            loading: false,
+                            new_price: ""
+                        })
+                    }
+                    else{
+                        alert("קרתה תקלה. אנא רענן ונסה שוב")
+                    }
+                }
+            )
+            
+        }
+        catch(e) {
+            console.log(e)}
+    }
     }
 
 // this sends the new price and addon to api and the backend changes the price
 updatePriceForAddon = () => {
-    this.setState({
-        loading: true
-    });
-    try{
-        fetch(url + "put/addon_price", {
-            method: "PUT",
-            body: JSON.stringify({
-                addon: this.state.addon,
-                price: this.state.new_price
-            })
+    if(!this.state.addon || !this.state.new_price){
+        this.setState({
+            placeHolder2: "‎"
         })
-        .then(
-            (response) => {
-                if(response.status === 200){
-                    this.setState({
-                        first_addon_price: "מחיר חדש: " + this.state.new_price + " ₪",
-                        loading: false,
-                        new_price: ""
-                    })
-                }
-                else{
-                    alert("קרתה תקלה. אנא רענן ונסה שוב")  
-                }
-            }
-        )
     }
-    catch(e) {
-        console.log(e)}
+    else{
+        this.setState({
+            loading: true
+        });
+        try{
+            fetch(url + "put/addon_price", {
+                method: "PUT",
+                body: JSON.stringify({
+                    addon: this.state.addon,
+                    price: this.state.new_price
+                })
+            })
+            .then(
+                (response) => {
+                    if(response.status === 200){
+                        this.setState({
+                            first_addon_price: "מחיר חדש: " + this.state.new_price + " ₪",
+                            loading: false,
+                            new_price: ""
+                        })
+                    }
+                    else{
+                        alert("קרתה תקלה. אנא רענן ונסה שוב")  
+                    }
+                }
+            )
+        }
+        catch(e) {
+            console.log(e)}
+    }
     }
 
 render() {
@@ -230,7 +258,7 @@ render() {
                     onChange={(e) => this.setState({ service: e.target.value })}
                     onInput={(e) => {this.getServicePrice(e)}}>
                     <option
-                    value="">בחר שרות</option>
+                    value="">בחר שירות</option>
                     {this.state.services_array.map(ser => (
                     <option value={ser}>{ser}</option>))}
                 </select>
@@ -256,10 +284,21 @@ render() {
                 autoComplete="off"
                 onChange={(e) => {this.handleNewPrice(e)}}
                  /> */}
+                 <div className="servicePricePlacheHolde">
                  <TextField 
-                 placeholder={this.state.placeholder}
+                //  placeholder={this.state.placeholder}
+                 placeholder={this.state.placeHolder}
                  onChange={(e) => {this.handleNewPrice(e)}}
                  />
+                 {this.state.servicePriceFlag? 
+                    <>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className="fas fa-check fa-2x"></i>
+                    </>
+                    :
+                    null
+                    }
+                 </div>
                  <div className="btnContainer">
                      <button className="step-btn-admin"
                     //  put request for chaning pruce for service
@@ -279,7 +318,7 @@ render() {
                     onChange={(e) => this.setState({ service: e.target.value })}
                     onInput={(e) => {this.getAddonsForService(e)}}>
                     <option
-                    value="">בחר שרות</option>
+                    value="">בחר שירות</option>
                     {this.state.services_array.map(ser => (
                     <option value={ser}>{ser}</option>))}
                 </select>
@@ -315,11 +354,22 @@ render() {
             autoComplete="off"
             onChange={(e) => {this.handleNewPrice(e)}} */}
                  {/* /> */}
+        <div className="addonPricePlaceHolder">
             <TextField 
-            placeholder={this.state.placeholder}
+            // placeholder={this.state.placeholder}
+            placeholder={this.state.placeHolder2}
             autoComplete="off"
             onChange={(e) => {this.handleNewPrice(e)}}
             />
+            {this.state.addongPriceFlag? 
+                    <>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <i className="fas fa-check fa-2x"></i>
+                    </>
+                    :
+                    null
+                    }
+            </div>
                     <div className="btnContainer">
                   
                     <button 
