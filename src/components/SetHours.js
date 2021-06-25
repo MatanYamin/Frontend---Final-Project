@@ -41,7 +41,7 @@ export class SetHours extends Component {
         }
     }
 
-    // bring all cities allowed
+    // bring all hours
     async readHours() {
         let response = await fetch(url + 'get/now-hours');
         let data = await response.json(); // for string
@@ -76,24 +76,38 @@ export class SetHours extends Component {
             })
          }
          else{
-             if(input.getMinutes() < 10){
-                 this.setState({
-                     end_time: input.getHours() + ":0" + input.getMinutes(),
-                     endFlag: true
-                 })
-             }
-             else{
+            if(input.getMinutes() < 10 || input.getHours() < 10){
+                if(input.getMinutes() < 10 && input.getHours() < 10){
+                this.setState({
+                    end_time: "0" + input.getHours() + ":0" + input.getMinutes(),
+                    endFlag: true
+                })
+            }
+            if(input.getMinutes() < 10 && !(input.getHours() < 10)){
+                this.setState({
+                    end_time: input.getHours() + ":0" + input.getMinutes(),
+                    endFlag: true
+                })
+            }
+            if(!(input.getMinutes() < 10) && input.getHours() < 10){
+                this.setState({
+                    end_time: "0" + input.getHours() + ":" + input.getMinutes(),
+                    endFlag: true
+                })
+            }
+            }
+            else{
                 this.setState({
                     end_time: input.getHours() + ":" + input.getMinutes(),
                     endFlag: true
                 })
-             }
-         }
+            }
+    }
     }
 
-    handleStartTime = (input) => {
+handleStartTime = (input) => {
         var checkTime = this.state.end_time[0] + this.state.end_time[1];
-         checkTime = parseInt(checkTime)
+        checkTime = parseInt(checkTime)
          if(checkTime <= parseInt(input.getHours())){
             alert("אנא בחר שעת התחלה מוקדמת משעת הסיום")
             this.setState({
@@ -102,11 +116,25 @@ export class SetHours extends Component {
            })
         }
         else{
-            if(input.getMinutes() < 10){
+            if(input.getMinutes() < 10 || input.getHours() < 10){
+                if(input.getMinutes() < 10 && input.getHours() < 10){
+                this.setState({
+                    start_time: "0" + input.getHours() + ":0" + input.getMinutes(),
+                    startFlag: true
+                })
+            }
+            if(input.getMinutes() < 10 && !(input.getHours() < 10)){
                 this.setState({
                     start_time: input.getHours() + ":0" + input.getMinutes(),
                     startFlag: true
                 })
+            }
+            if(!(input.getMinutes() < 10) && input.getHours() < 10){
+                this.setState({
+                    start_time: "0" + input.getHours() + ":" + input.getMinutes(),
+                    startFlag: true
+                })
+            }
             }
             else{
                 this.setState({
@@ -226,13 +254,13 @@ utils={DateFnsUtils}>
       </div>‎
       </MuiPickersUtilsProvider>
                  <div className="btnContainer">
-                 {/* <Loader
+                 <Loader
                 type="TailSpin"
                 color="black"
                 height={100}
                 width={50}
                 visible={this.state.loading}
-                /> */}
+                />
                 {this.state.missingField} 
                 {/* <br/> */}
                      <button className="step-btn-admin"
