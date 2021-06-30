@@ -98,7 +98,7 @@ export class UpdateAddon extends Component {
     addNewAddon = () => {
         if(!this.state.service_name || !this.state.addon_name || !this.state.price){
             this.setState({
-                placeHolder: "‎"
+                placeHolder: "‎שדה ריק"
             })
         }
         else{

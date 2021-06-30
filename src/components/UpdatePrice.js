@@ -167,7 +167,7 @@ handleNewPrice = (input) => {
 updatePriceForService = () => {
     if(!this.state.service || !this.state.new_price){
         this.setState({
-            placeHolder: "‎"
+            placeHolder: "‎שדה ריק"
         })
     }
     else{
@@ -208,7 +208,7 @@ updatePriceForService = () => {
 updatePriceForAddon = () => {
     if(!this.state.addon || !this.state.new_price){
         this.setState({
-            placeHolder2: "‎"
+            placeHolder2: "‎שדה ריק"
         })
     }
     else{

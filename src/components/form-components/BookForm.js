@@ -28,7 +28,8 @@ export class BookForm extends Component {
             city: '',
             comments: '',
             hour: '',
-            image: ''
+            image: '',
+            value: 0
         }
     }
 
@@ -40,8 +41,6 @@ export class BookForm extends Component {
             step: step + 1
         });
     }
-
-    
 
     // decreases the step integer and that way we can know where we at
     //with switch case we will check at which step

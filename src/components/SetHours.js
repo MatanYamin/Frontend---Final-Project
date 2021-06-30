@@ -64,7 +64,6 @@ export class SetHours extends Component {
         })
     }
 
-    
      handleEndTime = (input) => {
          var checkTime = this.state.start_time[0] + this.state.start_time[1];
          checkTime = parseInt(checkTime)
@@ -187,7 +186,7 @@ handleStartTime = (input) => {
         else{
             this.setState({
                 missingField: "יש למלא את כל השדות",
-                placeHolder: "‎"
+                placeHolder: "‎שדה ריק"
             })
             if(!this.state.startFlag){
                 this.setState({

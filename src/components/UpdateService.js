@@ -141,7 +141,7 @@ export class UpdateService extends Component {
     addNewService = () => {
         if(!this.state.cat_name || !this.state.service_name || !this.state.price || !this.state.description || !this.state.image){
             this.setState({
-                placeHolder: "‎"
+                placeHolder: "‎שדה ריק"
             })
         }
         else{

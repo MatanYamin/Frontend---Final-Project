@@ -64,7 +64,7 @@ export class UpdateDescription extends Component {
     updateDercriptionForService = () => {
         if(!this.state.newDes || !this.state.service){
             this.setState({
-                placeHolder: "‎"
+                placeHolder: "‎שדה ריק"
             })
         }
         else{

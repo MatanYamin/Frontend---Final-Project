@@ -46,14 +46,15 @@ class Admin extends React.Component {
           changeTitle: false,
           page: "",
           secondTitle: "",
-          width: window.innerWidth
+          width: window.innerWidth,
+          clockTime: ""
         };
         this.pickAcomponent = this.pickAcomponent.bind(this);
       }
 
       componentDidMount() {
         // this function findout wheter its morning, noon or evening
-        this.whatTimeIsIt();    
+        this.whatTimeIsIt();
       }
 
       componentWillMount() {
@@ -214,6 +215,7 @@ class Admin extends React.Component {
             blessNumber: 3
           })
         }
+
       }
 
       render() {

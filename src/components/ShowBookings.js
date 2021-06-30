@@ -1,8 +1,11 @@
-import React from "react"
-import { Component } from "react"
-import "./ShowBooking.css"
-import ExportCSVpage from "./ExportCSVpage"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import React from "react";
+import { Component } from "react";
+import "./ShowBooking.css";
+import ExportCSVpage from "./ExportCSVpage";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Paper from "@material-ui/core/Paper";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
 import Loader from "react-loader-spinner";
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
@@ -14,24 +17,57 @@ export class ShowBookings extends Component {
         super(props)
         this.state = {
             customers: [],
+            showAllCustomers: false,
             loading: false,
-            numOfBook: 6
+            numOfBook: 6,
+            value: 0,
+            currentCommand: '',
+            buttonName: "",
+            csvTitle: ""
         }
     }
 
     // bring all customers from DB
-    async readCustomers() {
+    async readFutureCustomers() {
+        this.setState({
+            currentCommand: 'get/customers',
+            loading: true
+        });
         let response = await fetch(url + 'get/customers');
         let data = await response.json(); // for string
         return data
     }
+
+    async readAllCustomers() {
+        this.setState({
+            currentCommand: 'get/all_customers',
+            loading: true
+        });
+        let response = await fetch(url + 'get/all_customers');
+        let data = await response.json(); // for string
+        return data
+    }
+
+    async readPastCustomers() {
+        this.setState({
+            currentCommand: 'get/past_customers',
+            loading: true
+        });
+        let response = await fetch(url + 'get/past_customers');
+        let data = await response.json(); // for string
+        return data
+    }
+    
+    
     // when the component is open, do the following
     componentDidMount() {
         this.setState({
             loading: true
         });
-        this.readCustomers().then((data) => {
+        this.readFutureCustomers().then((data) => {
             this.setState({
+                buttonName: "הורד תורים עתידיים",
+                csvTitle: "תורים עתידיים",
                 customers: data,
                 loading: false
             })
@@ -52,21 +88,71 @@ export class ShowBookings extends Component {
         // alert(this.state.customers)
     }
 
+    handleAllCustomers = () => {
+        this.setState({
+            showAllCustomers: true,
+            loading: !this.state.loading
+        })
+    }
+
 render() {
     return(
         <>
+        <Paper square>
+        <Tabs
+        value={this.state.value}
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+          onChange={(event, newValue) => {
+            this.setState({
+                value: newValue
+            });
+          }}
+        >
+          <Tab onClick={() => this.readFutureCustomers().then((data) => {
+            this.setState({
+                showAllCustomers: false,
+                customers: data,
+                loading: false,
+                currentCommand: 'get/customers',
+                csvTitle: "תורים עתידיים",
+                buttonName: "הורד תורים עתידיים",
+            })
+        })} label="תורים עתידיים" />
+          <Tab onClick={() => this.readAllCustomers().then((data) => {
+                 this.setState({
+                     customers: data,
+                     loading: false,
+                     currentCommand: 'get/all_customers',
+                     csvTitle: "תורים מכל הזמנים",
+                     buttonName: "הורד תורים מכל הזמנים"
+                 })
+             })} label="כל התורים" />
+          <Tab onClick={() => this.readPastCustomers().then((data) => {
+            this.setState({
+                showAllCustomers: false,
+                customers: data,
+                loading: false,
+                currentCommand: 'get/past_customers',
+                csvTitle: "תורים מהעבר",
+                buttonName: "הורד תורים מהעבר"
+            })
+        })} label="תורים בעבר" />
+        </Tabs>
+      </Paper>
+        <section >
+         <div className="inside-table">
+         <ExportCSVpage csvTitle={this.state.csvTitle} customers={this.state.customers} buttonName={this.state.buttonName} />
+         <div className="search">
+             <div className="search_input">
         <Loader
-            type="Audio"
+            type="TailSpin"
             color="black"
             height={100}
             width={50}
             visible={this.state.loading}
             />
-        <section >
-         <div className="inside-table">
-         <ExportCSVpage />
-         <div className="search">
-             <div className="search_input">
              <label>חיפוש לקוח: </label>
          <input onInput={(e) => {this.searchTable(e)}} />
          </div>
@@ -200,13 +286,6 @@ render() {
                 </tbody>
              </table>
              </div>
-             <Loader
-                    type="Audio"
-                    color="black"
-                    height={100}
-                    width={60}
-                    visible={this.state.loading}
-                    />
         </section>
         </>
     )}

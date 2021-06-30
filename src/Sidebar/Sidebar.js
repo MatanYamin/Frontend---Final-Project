@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from "styled-components"
 import {Link} from "react-router-dom"
-import * as FaIcons from "react-icons/fa"
+// import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
 import {SidebarData} from "./SidebarData"
 import SubMenu from './SubMenu';
@@ -51,37 +51,44 @@ const SidebarWrap = styled.div`
 
 // render the sidebar along its logic
 const Sidebar = (props) => {
-    const [sidebar, setSidebar] = useState(false);
+    const [sidebar] = useState(false);
     // showSidbar will hide and show the sidebar after click on the icon
-    const showSidebar = () => {
+    // const showSidebar = () => {
         
-        setSidebar(!sidebar);
+    //     setSidebar(!sidebar);
+    // }
+    let time = new Date()
+    let hour = time.getHours()
+    let minutes = time.getMinutes()
+    if(hour.length === 1){
+        hour = "0" + time.getHours()
     }
-    
-
+    if(minutes.length === 1){
+        minutes = "0" + time.getMinutes() 
+    }
     return(
         <>
         <IconContext.Provider value={{color: '#fff'}}>
         <Nav>
             <NavIcon>
-                <FaIcons.FaBars onClick={showSidebar}/>
+                {/* <FaIcons.FaBars onClick={showSidebar}/> */}
             </NavIcon>
         <label className="date_sidebar">
             {props.blessing}
             <br/>
-            {props.fullDayAndDate}
-               
+            {props.fullDayAndDate} 
           </label>
             <div className="on-nav">
                 ברוכים הבאים למסך הניהול {props.secondTitle}
             </div>
+            <label className="timeOnNavBar">{time.getHours() + ":" + time.getMinutes()}</label>
             <a className="left_sidebar" href="/"><AiIcons.AiFillHome /></a>
         </Nav>
         <SidebarNav sidebar={sidebar}>
             <SidebarWrap>
-                <NavIcon>
-                    <AiIcons.AiOutlineClose onClick={showSidebar} />
-                </NavIcon>
+                {/* <NavIcon> */}
+                    {/* <AiIcons.AiOutlineClose onClick={showSidebar} /> */}
+                {/* </NavIcon> */}
                 {SidebarData.map((item, index) => {
                     return <SubMenu item={item} key={index} pickAcomponent={props.pickAcomponent} />;
                 })}

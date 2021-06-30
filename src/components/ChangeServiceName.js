@@ -63,7 +63,7 @@ export class ChangeServiceName extends Component {
     updateTitleForService = () => {
         if(!this.state.newTitle || !this.state.service){
             this.setState({
-                placeHolder: "‎"
+                placeHolder: "‎שדה ריק"
             })
         }
         else{
