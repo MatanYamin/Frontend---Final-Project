@@ -100,7 +100,7 @@ render() {
         <>
         <Paper square>
         <Tabs
-        value={this.state.value}
+          value={this.state.value}
           textColor="primary"
           indicatorColor="primary"
           centered

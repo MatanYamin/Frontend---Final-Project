@@ -7,6 +7,17 @@
     align-self: center;
 }
 
+.MuiTabs-flexContainer{
+    background: #f7f7f7;
+    display: flex;
+}
+
+/* .MuiPaper-root{
+    background: transparent !important;
+    color: rgba(0, 0, 0, 0.87);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+} */
+
 .allCustomersClick{
     /* position: absolute; */
     /* display: inline-block; */

@@ -4,7 +4,15 @@ import PersonalDetails from "./PersonalDetails"  // Step 3
 import Confirm from "./Confirm"  // Step 4 and final
 import Success from "./Success"  // Step 5 completed form
 import axios from "../../../node_modules/axios"
+import Paper from "@material-ui/core/Paper";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
 import PickDateAndConfirm from "./PickDateAndConfirm"
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import CreateIcon from '@material-ui/icons/Create';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -28,8 +36,7 @@ export class BookForm extends Component {
             city: '',
             comments: '',
             hour: '',
-            image: '',
-            value: 0
+            image: ''
         }
     }
 
@@ -127,6 +134,20 @@ export class BookForm extends Component {
             case 1:
                 return (
                     <>
+                    <Paper square>
+                        <Tabs
+                        value={0}
+                        centered
+                        backgroundColor="red"
+                        indicatorColor="primary"
+                        >
+                        <Tab icon={<EmojiPeopleIcon />} label="בחירת שירות"   />
+                        <Tab icon={<CreateIcon />} label="הזנת פרטי לקוח" />
+                        <Tab icon={<VisibilityIcon />} label="אימות" />
+                        <Tab icon={<ScheduleIcon />} label="בחירת יום ושעה" />
+                        <Tab icon={<CheckCircleOutlineIcon />} label="סיום" />
+                        </Tabs>
+                    </Paper>
                     <PickService
                     nextStep={this.nextStep}  //increase step by 1
                     handleChange={this.handleChange}  //passing my function inorder to be able insert value to the input name
@@ -141,6 +162,22 @@ export class BookForm extends Component {
                 )
             case 2:
                 return(
+                    <>
+                    <Paper square>
+                        <Tabs
+                        value={1}
+                        centered
+                        textColor="primary"
+                        indicatorColor="primary"
+                        >
+                        <Tab icon={<EmojiPeopleIcon />} label="בחירת שירות" disabled/>
+                        <Tab icon={<CreateIcon />} label="הזנת פרטי לקוח" />
+                        <Tab icon={<VisibilityIcon />} label="אימות" />
+                        <Tab icon={<ScheduleIcon />} label="בחירת יום ושעה" />
+                        <Tab icon={<CheckCircleOutlineIcon />} label="סיום" />
+                        </Tabs>
+                    </Paper>
+                    <br/>
                     <PersonalDetails
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
@@ -150,10 +187,26 @@ export class BookForm extends Component {
                     handlePhone={this.handlePhone}
                     handleImage={this.handleImage}
                     />
+                    </>
                 )
             //Fourth step
             case 3:
                 return(
+                    <>
+                    <Paper square>
+                        <Tabs
+                        value={2}
+                        centered
+                        textColor="primary"
+                        indicatorColor="primary"
+                        >
+                        <Tab icon={<EmojiPeopleIcon />} label="בחירת שירות" disabled/>
+                        <Tab icon={<CreateIcon />} label="הזנת פרטי לקוח" disabled/>
+                        <Tab icon={<VisibilityIcon />} label="אימות" />
+                        <Tab icon={<ScheduleIcon />} label="בחירת יום ושעה" />
+                        <Tab icon={<CheckCircleOutlineIcon />} label="סיום" />
+                        </Tabs>
+                    </Paper>
                     <Confirm
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
@@ -162,26 +215,59 @@ export class BookForm extends Component {
                     handlePhone={this.handlePhone}
                     handleCity={this.handleCity}
                     />
+                    </>
                 )
             //Fifth step (only will show that the submit worked)
             case 4:
                 return(
+                    <>
+                    <Paper square>
+                        <Tabs
+                        value={3}
+                        centered
+                        textColor="primary"
+                        indicatorColor="primary"
+                        >
+                        <Tab icon={<EmojiPeopleIcon />} label="בחירת שירות" disabled/>
+                        <Tab icon={<CreateIcon />} label="הזנת פרטי לקוח" disabled/>
+                        <Tab icon={<VisibilityIcon />} label="אימות" disabled/>
+                        <Tab icon={<ScheduleIcon />} label="בחירת יום ושעה" />
+                        <Tab icon={<CheckCircleOutlineIcon />} label="סיום" />
+                        </Tabs>
+                    </Paper>
                     <PickDateAndConfirm 
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
                         values={values}
                     />
+                    </>
                 )
             case 5:
             return(
+                <>
+                <Paper square>
+                        <Tabs
+                        value={4}
+                        centered
+                        textColor="primary"
+                        indicatorColor="primary"
+                        >
+                        <Tab icon={<EmojiPeopleIcon />} label="בחירת שירות" disabled/>
+                        <Tab icon={<CreateIcon />} label="הזנת פרטי לקוח" disabled/>
+                        <Tab icon={<VisibilityIcon />} label="אימות" disabled/>
+                        <Tab icon={<ScheduleIcon />} label="בחירת יום ושעה" disabled/>
+                        <Tab icon={<CheckCircleOutlineIcon />} label="סיום" />
+                        </Tabs>
+                    </Paper>
                 <Success
                  values={values}
                  />
+                 </>
             )
             default:
-            break;
-        }
+                break;
+            }
 }
 }
 export default BookForm
