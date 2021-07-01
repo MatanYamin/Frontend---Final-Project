@@ -7,6 +7,40 @@
     align-self: center;
 }
 
+.avoidDesktop{
+    display: none;
+}
+
+.previewServiceWhileBuild{
+    background: white;
+    top: 27vh;
+    width: 50%;
+    position: absolute;
+    left: 4.5vw;
+    height: 70vh;
+}
+
+.imageBuild img{
+    width: 50%;
+    text-align-last: center;
+}
+
+.imageBuild{
+    text-align-last: center;
+}
+
+.priceBuild{
+    font-weight: bolder;
+    font-size: 1.5vw;
+    text-align: -webkit-center;
+}
+
+.titleBuild{
+    font-weight: bolder;
+    font-size: 1.5vw;
+    text-align-last: center;
+}
+
 .pricePreview{
     position: absolute;
     bottom: 47vh;
@@ -1614,5 +1648,13 @@ input {
     .red-text-error{
         font-size: 4vw;
         color: red;
+    }
+
+    .previewServiceWhileBuild{
+        display: none;
+    }
+
+    .avoidPhone{
+        display: none;
     }
 }

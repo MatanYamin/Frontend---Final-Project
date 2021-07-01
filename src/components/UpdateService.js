@@ -31,6 +31,9 @@ export class UpdateService extends Component {
             description: "",
             image: "",
             placeHolder: "",
+            servicePlaceHolder: "כותרת",
+            pricePlaceHolder: "מחיר",
+            imageHolder: "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg",
             check: false,
             serviceNameFlag: false,
             servicePriceFlag: false,
@@ -87,9 +90,19 @@ export class UpdateService extends Component {
                 serviceNameFlag: false
             })
         }
-        this.setState({
-            service_name: input.target.value
-        })
+        if(input.target.value === ""){
+            this.setState({
+                servicePlaceHolder: "כותרת",
+                service_name: input.target.value
+            })
+        }
+        else{
+            this.setState({
+                service_name: input.target.value,
+                servicePlaceHolder: ""
+            })
+        }
+        
     }
     // for typing new price
     handlePrice = (input) => {
@@ -103,9 +116,18 @@ export class UpdateService extends Component {
                 servicePriceFlag: false
             })
         }
-        this.setState({
-            price: input.target.value
-        })
+        if(input.target.value === ""){
+            this.setState({
+                pricePlaceHolder: "מחיר",
+                price: input.target.value
+            })
+        }
+        else{
+            this.setState({
+                price: input.target.value,
+                pricePlaceHolder: ""
+            })
+        }
     }
     // Adding description for the service
     handleDescription = (input) => {
@@ -127,8 +149,14 @@ export class UpdateService extends Component {
     handleImageUrl = (input) => {
         this.setState({
             image: input.target.value,
-            serviceImageFlag: true
+            serviceImageFlag: true,
+            imageHolder: ""
         })
+        if(input.target.value === ""){
+            this.setState({
+                imageHolder: "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg"
+            })
+        }
     }
     // this uploads the image to the S3 aws
     uploadToS3(e) {
@@ -141,7 +169,8 @@ export class UpdateService extends Component {
             this.setState({
                 image: response.location,
                 loading: false,
-                serviceImageFlag: true
+                serviceImageFlag: true,
+                imageHolder: ""
             })
           },
           )
@@ -245,9 +274,29 @@ render() {
           textColor="primary"
           indicatorColor="primary"
           centered
-        >
+          >
           <Tab icon={<AddCircleOutlineIcon />} label="הוספת שירות חדש" />
             </Tabs>
+            <div className="previewServiceWhileBuild">
+                <div className="previceWords">
+                </div>
+                <div className="titleBuild">
+                    <br />
+                    {this.state.servicePlaceHolder}
+                    {this.state.service_name}
+                </div>
+                <br/>
+                <div className="imageBuild">
+                    <img alt="" src={this.state.imageHolder} />
+                    <img alt="" src={this.state.image} />
+                </div>
+                <br/>
+                <div className="priceBuild">
+                    {this.state.pricePlaceHolder}&nbsp;
+                    ₪{this.state.price}
+                </div>
+
+            </div>
             {/* <Preview textOnBubble={this.state.description} image={this.state.image} title={this.state.service_name} /> */}
            <label>בחר קטגוריה</label>
            {/* shows all cateogries */}
@@ -357,7 +406,7 @@ render() {
                 // Post request for adding service
                 onClick={this.addNewService}
                 >אישור</button>
-                
+                <div className="avoidPhone">
                 {(this.state.serviceNameFlag && this.state.servicePriceFlag && this.state.serviceDescrFlag && this.state.serviceImageFlag)? <><Popup
                 closeOnEscape
                 trigger={<button className="step-btn-admin"> תצוגה מקדימה</button>} >
@@ -366,6 +415,7 @@ render() {
                     </div>
 
             </Popup></> : null}
+                </div>
                 
                 <Loader
                 type="TailSpin"

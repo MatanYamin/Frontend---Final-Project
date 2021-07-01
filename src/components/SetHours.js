@@ -218,6 +218,7 @@ render() {
             <div className="adminComponentContainer">
             <div className="border-card-top">
                 <br/>
+        <div className="avoidPhone">
         <Paper square>
         <Tabs
           value={this.state.value}
@@ -230,6 +231,7 @@ render() {
           <Tab icon={<TimelapseIcon />} label={"מרווח: " + this.state.currentInterval + " דקות"} />
         </Tabs>
       </Paper>
+        </div>
                 <br/>
 <MuiPickersUtilsProvider
 utils={DateFnsUtils}>
