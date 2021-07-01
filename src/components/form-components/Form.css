@@ -7,6 +7,10 @@
     align-self: center;
 }
 
+input {
+    width: 14vw;
+  }
+
 .MuiTabs-flexContainer{
     background: #f7f7f7;
     display: flex;

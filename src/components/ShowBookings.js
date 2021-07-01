@@ -7,6 +7,9 @@ import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Loader from "react-loader-spinner";
+import UpdateIcon from '@material-ui/icons/Update';
+import RefreshIcon from '@material-ui/icons/Refresh';
+import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -17,6 +20,8 @@ export class ShowBookings extends Component {
         super(props)
         this.state = {
             customers: [],
+            copy_customers: [],
+            filterIndex: 1,
             showAllCustomers: false,
             loading: false,
             numOfBook: 6,
@@ -69,6 +74,7 @@ export class ShowBookings extends Component {
                 buttonName: "הורד תורים עתידיים",
                 csvTitle: "תורים עתידיים",
                 customers: data,
+                copy_customers: data,
                 loading: false
             })
         })
@@ -82,16 +88,41 @@ export class ShowBookings extends Component {
             });
           }
       }
-
+    // this function searches the table according to the chosen filter.
     searchTable = (e) => {
-        // alert(e.target.value)
-        // alert(this.state.customers)
+        // when the search box is empty, show all
+        if(e.target.value.length === 0){
+            this.setState({
+                customers: this.state.copy_customers
+            })
+        }
+        else{
+            var newArray = []
+            this.state.copy_customers.map(
+                (rowData) => {
+                    // check if the string is inside the array, if yes - put it inside the new one.
+                    if(rowData[this.state.filterIndex].includes(e.target.value)){
+                            newArray.push(rowData)
+                    }
+                }
+            )
+            // update the original array to the filtered one.
+            this.setState({
+                customers: newArray
+            })
+        }
     }
 
     handleAllCustomers = () => {
         this.setState({
             showAllCustomers: true,
             loading: !this.state.loading
+        })
+    }
+
+    handleFilter = (e) => {
+        this.setState({
+            filterIndex: e.target.value
         })
     }
 
@@ -110,7 +141,7 @@ render() {
             });
           }}
         >
-          <Tab onClick={() => this.readFutureCustomers().then((data) => {
+          <Tab icon={<UpdateIcon />} onClick={() => this.readFutureCustomers().then((data) => {
             this.setState({
                 showAllCustomers: false,
                 customers: data,
@@ -120,19 +151,21 @@ render() {
                 buttonName: "הורד תורים עתידיים",
             })
         })} label="תורים עתידיים" />
-          <Tab onClick={() => this.readAllCustomers().then((data) => {
+          <Tab icon={<AllInclusiveIcon />} onClick={() => this.readAllCustomers().then((data) => {
                  this.setState({
                      customers: data,
+                     copy_customers: data,
                      loading: false,
                      currentCommand: 'get/all_customers',
                      csvTitle: "תורים מכל הזמנים",
                      buttonName: "הורד תורים מכל הזמנים"
                  })
              })} label="כל התורים" />
-          <Tab onClick={() => this.readPastCustomers().then((data) => {
+          <Tab icon={<RefreshIcon />} onClick={() => this.readPastCustomers().then((data) => {
             this.setState({
                 showAllCustomers: false,
                 customers: data,
+                copy_customers: data,
                 loading: false,
                 currentCommand: 'get/past_customers',
                 csvTitle: "תורים מהעבר",
@@ -153,7 +186,16 @@ render() {
             width={50}
             visible={this.state.loading}
             />
-             <label>חיפוש לקוח: </label>
+         <label>חיפוש לפי </label>
+         <select onChange={(e) => this.handleFilter(e)}>
+            <option value={1}>שם</option>
+            <option value={2}>דוא"ל</option>
+            <option value={3}>טלפון</option>
+            <option value={4}>כתובת</option>
+            <option value={5}>שירות</option>
+            <option value={6}>תאריך</option>
+        </select>
+        &nbsp;
          <input onInput={(e) => {this.searchTable(e)}} />
          </div>
          </div>
