@@ -9,9 +9,14 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import Preview from './Preview'
-import Popup from 'reactjs-popup'
+import Preview from './Preview';
+import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import CreateIcon from '@material-ui/icons/Create';
+import SpellcheckIcon from '@material-ui/icons/Spellcheck';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import ImageSearchIcon from '@material-ui/icons/ImageSearch';
+import LinkIcon from '@material-ui/icons/Link';
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -31,8 +36,9 @@ export class UpdateService extends Component {
             description: "",
             image: "",
             placeHolder: "",
-            servicePlaceHolder: "כותרת",
-            pricePlaceHolder: "מחיר",
+            servicePlaceHolder: "כותרת...",
+            pricePlaceHolder: "מחיר...",
+            descriptionHolder: "תיאור...",
             imageHolder: "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg",
             check: false,
             serviceNameFlag: false,
@@ -92,7 +98,7 @@ export class UpdateService extends Component {
         }
         if(input.target.value === ""){
             this.setState({
-                servicePlaceHolder: "כותרת",
+                servicePlaceHolder: "כותרת...",
                 service_name: input.target.value
             })
         }
@@ -118,7 +124,7 @@ export class UpdateService extends Component {
         }
         if(input.target.value === ""){
             this.setState({
-                pricePlaceHolder: "מחיר",
+                pricePlaceHolder: "מחיר...",
                 price: input.target.value
             })
         }
@@ -141,10 +147,20 @@ export class UpdateService extends Component {
                 serviceDescrFlag: false
             })
         }
-        this.setState({
-            description: input.target.value
-        })
+        if(input.target.value === ""){
+            this.setState({
+                descriptionHolder: "תיאור...",
+                description: input.target.value
+            })
+        }
+        else{
+            this.setState({
+                description: input.target.value,
+                descriptionHolder: ""
+            })
+        }
     }
+
     // upload image by url
     handleImageUrl = (input) => {
         this.setState({
@@ -291,21 +307,28 @@ render() {
                     <img alt="" src={this.state.image} />
                 </div>
                 <br/>
+                <div className="descriptionBuild">
+                    {this.state.descriptionHolder}
+                    {this.state.description}
+                </div>
+                <br/>
                 <div className="priceBuild">
                     {this.state.pricePlaceHolder}&nbsp;
                     ₪{this.state.price}
                 </div>
-
+            <br/>
             </div>
             {/* <Preview textOnBubble={this.state.description} image={this.state.image} title={this.state.service_name} /> */}
-           <label>בחר קטגוריה</label>
            {/* shows all cateogries */}
+           <br/>
            <select className="select-srp-down" onChange={(e) => this.setState({ cat_name: e.target.value })}>
                <option value="nothing">בחר קטגוריה</option>
                {this.state.categories_array.map(cat => (
                <option value={cat}>{cat}</option>))}
                </select>
-           <label>הקלד שם שירות</label>
+               <br/>
+               <br/>
+           <p className="serviceLabelForm"><CreateIcon />&nbsp;הקלד שם שירות </p>
            {/* <input autoComplete="off"
            value={this.state.service_name}
            onChange={(e) => {this.handleService(e)}}
@@ -323,7 +346,11 @@ render() {
             :
             null
             }
-            <label>הוסף תיאור</label>
+             <br/>
+
+             <br/>
+            <p className="serviceLabelForm"><SpellcheckIcon />&nbsp;הוסף תיאור </p>
+            <br/>
            {/* <input autoComplete="off"
            value={this.state.description}
            onChange={(e) => {this.handleDescription(e)}}
@@ -333,6 +360,7 @@ render() {
             value={this.state.description}
             onChange={(e) => {this.handleDescription(e)}}
             />
+             
             {/* <TextField 
             placeholder={this.state.placeHolder}
             value={this.state.description}
@@ -345,7 +373,9 @@ render() {
             :
             null
             }
-            <label>מחיר (בשקלים)</label>
+            <br/>
+            <br/>
+            <p className="serviceLabelForm"><LocalOfferIcon />&nbsp;מחיר (בשקלים)</p>
             {/* <input 
             value={this.state.price}
             onChange={(e) => {this.handlePrice(e)}}
@@ -369,7 +399,8 @@ render() {
             {/* <label>העלה תמונה</label>
             <br/>
             <input type="file" onChange={this.uploadToS3} /> */}
-            <label className="image_upload_input">העלה תמונה
+            
+            <label className="image_upload_input">העלה תמונה <ImageSearchIcon />
             <input hidden type="file" onChange={this.uploadToS3} />
             </label>
             {this.state.serviceImageFlag? 
@@ -388,7 +419,7 @@ render() {
                     />
            {/*  */}
            או
-           <label>כתובת של תמונה</label>
+           <p className="serviceLabelForm"><LinkIcon />&nbsp;כתובת של תמונה</p>
            {/* <input autoComplete="off"
            value={this.state.image}
            onChange={(e) => {this.handleImageUrl(e)}}
