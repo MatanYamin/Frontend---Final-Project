@@ -33,7 +33,7 @@ export class PickService extends Component {
             Shekel: "",
             temp: "",
             imageService: "",
-            titleService: "בחרו את השירות המבוקש",
+            titleService: "",
             textOnBubble: "ברוכים הבאים לאזור קביעת הפגישה. לחצו על 'בחרו שירות' בשביל להמשיך. לחיצה על 'תרצו להוסיף' תפתח עבורכם עוד אפשרויות ניקוי שונות"
         }
         this.continue = this.continue.bind(this);

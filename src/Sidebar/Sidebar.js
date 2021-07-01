@@ -72,7 +72,7 @@ const Sidebar = (props) => {
         <IconContext.Provider value={{color: '#fff'}}>
         <Nav>
         &nbsp;&nbsp;&nbsp;
-            <img className="iconRight" src="https://i.ibb.co/JQZkh2n/favicon.png" />
+            <img alt="" className="iconRight" src="https://i.ibb.co/JQZkh2n/favicon.png" />
             <NavIcon>
                 {/* <FaIcons.FaBars onClick={showSidebar}/> */}
             </NavIcon>
@@ -82,10 +82,8 @@ const Sidebar = (props) => {
           </label>
             <div className="on-nav">
             </div>
-            <label className="blessingLeft">{props.blessing}.
-            
+            <label className="blessingLeft">{props.blessing}.&nbsp;
             {props.fullDayAndDate} </label>
-            
             <label className="timeOnNavBar">{hour + ":" + minutes}</label>
             <a className="left_sidebar" href="/"><AiIcons.AiFillHome /></a>
         </Nav>

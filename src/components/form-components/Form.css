@@ -6,6 +6,93 @@
 .nameInMiddle{
     align-self: center;
 }
+
+.pricePreview{
+    position: absolute;
+    bottom: 47vh;
+    right: 20vw;
+}
+
+.textPreviewLittleBox{
+    /* position: absolute; */
+    /* width: 20%; */
+    /* left: 3vw; */
+}
+
+.popUpPreview{
+    background: rgba(0, 0, 0, 0.8);
+    /* font-weight: bold; */
+    position:fixed;
+    left:0;
+    right:0;
+    margin: auto;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    /* width: 100px; */
+    /* height: auto; */
+    padding: 15px;  
+    /* background: transparent; */
+    text-align: center;
+    box-sizing: content-box;
+    /* border: 4px dashed black; */
+    color: white;
+    width: 70%;
+    height: 100%;
+}
+
+.textBoxPreview{
+    position: absolute;
+    left: 8vw;
+    top: 14vh;
+    width: 20vw;
+    font-size: 3vh;
+}
+
+.text-on-bubble-preview{
+    position: absolute;
+    /* left: 108px;
+    top: 192px;
+    width: 352px;
+    font-size: 17px; */
+    left: 15vw;
+    height: 20vh;
+    top: 14vh;
+    width: 5vw;
+    font-size: 3vh;
+}
+
+.titlePreview{
+    /* text-align: center; */
+    width: 50%;
+}
+
+.imageContainerPreview img{
+    width: 50%;
+    position: absolute;
+    right: 0;
+}
+
+.bubble-man-preview{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Speech_bubble.svg/1280px-Speech_bubble.svg.png);
+    background-repeat: no-repeat, repeat;
+    background-size: 65vh 34vw;
+    height: 90vh;
+    width: 65vw;
+    left: 0;
+    position: absolute;
+}
+
+.imagePreview{
+    width: 50%;
+}
+
+.check-me{
+    height: 1000vh;
+    position: fixed;
+}
+
 .iconRight{
     width: 2vw;
 }
@@ -17,7 +104,7 @@
 }
 
 .blessingLeft{
-    width: 45vw;
+    width: 32vw;
     color: white;
     font-size: 1.2vw;
 }
@@ -1006,7 +1093,6 @@ input {
     color: red;
     font-size: 1vw;
 }
-
 
 .img-show_form{
     width: 100%;

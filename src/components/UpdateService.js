@@ -9,6 +9,9 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import Preview from './Preview'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css';
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -28,6 +31,7 @@ export class UpdateService extends Component {
             description: "",
             image: "",
             placeHolder: "",
+            check: false,
             serviceNameFlag: false,
             servicePriceFlag: false,
             serviceDescrFlag: false,
@@ -122,7 +126,8 @@ export class UpdateService extends Component {
     // upload image by url
     handleImageUrl = (input) => {
         this.setState({
-            image: input.target.value
+            image: input.target.value,
+            serviceImageFlag: true
         })
     }
     // this uploads the image to the S3 aws
@@ -243,6 +248,7 @@ render() {
         >
           <Tab icon={<AddCircleOutlineIcon />} label="הוספת שירות חדש" />
             </Tabs>
+            {/* <Preview textOnBubble={this.state.description} image={this.state.image} title={this.state.service_name} /> */}
            <label>בחר קטגוריה</label>
            {/* shows all cateogries */}
            <select className="select-srp-down" onChange={(e) => this.setState({ cat_name: e.target.value })}>
@@ -263,7 +269,7 @@ render() {
             {this.state.serviceNameFlag? 
             <>
             &nbsp;&nbsp;&nbsp;&nbsp;
-             <i className="fas fa-check fa-2x"></i>
+             <i className="fas fa-check fa-1x"></i>
              </>
             :
             null
@@ -273,15 +279,19 @@ render() {
            value={this.state.description}
            onChange={(e) => {this.handleDescription(e)}}
             /> */}
-            <TextField 
-            // placeholder="תיאור"
+            <textarea
             placeholder={this.state.placeHolder}
             value={this.state.description}
-            onChange={(e) => {this.handleDescription(e)}}/>
+            onChange={(e) => {this.handleDescription(e)}}
+            />
+            {/* <TextField 
+            placeholder={this.state.placeHolder}
+            value={this.state.description}
+            onChange={(e) => {this.handleDescription(e)}}/> */}
             {this.state.serviceDescrFlag? 
             <>
             &nbsp;&nbsp;&nbsp;&nbsp;
-             <i className="fas fa-check fa-2x"></i>
+             <i className="fas fa-check fa-1x"></i>
              </>
             :
             null
@@ -299,7 +309,7 @@ render() {
            {this.state.servicePriceFlag? 
            <>
            &nbsp;&nbsp;&nbsp;&nbsp;
-            <i className="fas fa-check fa-2x"></i>
+            <i className="fas fa-check fa-1x"></i>
             </>
             :
             null
@@ -314,7 +324,7 @@ render() {
             <input hidden type="file" onChange={this.uploadToS3} />
             </label>
             {this.state.serviceImageFlag? 
-            <i className="fas fa-check fa-2x"></i>
+            <i className="fas fa-check fa-1x"></i>
             :
             null
             }
@@ -340,13 +350,23 @@ render() {
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />
-            <img alt="" className="img-show_form" src={this.state.image} />
+            {/* <img alt="" className="img-show_form" src={this.state.image} /> */}
             </div>
             <div className="btnContainer">
                 <button className="step-btn-admin"
                 // Post request for adding service
                 onClick={this.addNewService}
                 >אישור</button>
+                
+                {(this.state.serviceNameFlag && this.state.servicePriceFlag && this.state.serviceDescrFlag && this.state.serviceImageFlag)? <><Popup
+                closeOnEscape
+                trigger={<button className="step-btn-admin"> תצוגה מקדימה</button>} >
+                    <div className="popUpPreview">
+                            <Preview price={this.state.price} textOnBubble={this.state.description} image={this.state.image} title={this.state.service_name} />
+                    </div>
+
+            </Popup></> : null}
+                
                 <Loader
                 type="TailSpin"
                 color="black"
