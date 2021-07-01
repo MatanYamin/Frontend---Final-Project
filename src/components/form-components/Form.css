@@ -6,6 +6,24 @@
 .nameInMiddle{
     align-self: center;
 }
+.iconRight{
+    width: 2vw;
+}
+
+.brandNameAdmin{
+    color: white;
+    width: 28vw;
+    font-size: 1.2vw;
+}
+
+.blessingLeft{
+    width: 45vw;
+    color: white;
+    font-size: 1.2vw;
+}
+.cityContainer1{
+    text-align: center;
+}
 
 input {
     width: 14vw;
@@ -39,7 +57,7 @@ input {
 
 .timeOnNavBar{
     color: white;
-    font-size: 1.6vw;
+    font-size: 1.2vw;
 }
 
 #checkMark{
@@ -191,16 +209,16 @@ input {
 
 .date_sidebar{
     color: white;
-    width: 20vw;
-    font-size: 1.3vw;
-    padding: 1.2vw;
+    width: 23vw;
+    font-size: 1.1vw;
+    /* padding: 1.2vw; */
 }
 
 .left_sidebar{
     color: white;
     padding: 1vw;
-    font-size: 2.5vw;
-    padding-top: 4vh;
+    font-size: 1.2vw;
+    /* padding-top: 4vh; */
 }
 
 .success_action{
@@ -274,7 +292,7 @@ input {
     color: white;
     width: -webkit-fill-available;
     text-align: center;
-    font-size: 3vw;
+    font-size: 1.5vw;
 }
 
 .description-show{
@@ -312,26 +330,10 @@ input {
 }
 
 .inside-next{
-    /* height: 550px; */
-    /* width: 86vw; */
-    /* width: 100vw; */
-    width: 83.5vw;
-    /* padding: 2vh; */
-    /* height: -webkit-fill-available; */
+    width: 87vw;
     height: 100vh;
     position: fixed;
     overflow: auto;
-
-    /* background-color: blue; */
-  /* height: 100vh; */
-  /* position: absolute; */
-  /* left: 0; */
-  /* color: white; */
-    /* justify-content: center; */
-    /* position: relative; */
-    /* position: fixed; */
-    /* top: 0; */
-
 }
 
 .btn-on-image{
@@ -342,7 +344,6 @@ input {
     font-size: 1.5vw;
     border: none;
     font-weight: bold;
-    /* width: 240px; */
     width: 18vw;
     padding: 10px 18px;
 }
@@ -350,45 +351,27 @@ input {
 .text-on-image-pick-service{
     display: -webkit-inline-box;
     position: absolute;
-    /* padding-left: 20%; */
-    /* margin-left: 20px; */
-    /* position: fixed; */
-    /* margin-top: 1%;
-    font-weight: bold;
-    height: 10%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    padding: 10px 20px; */
 }
 
 .btn-on-image:hover{
     transition: all 0.6s linear;
-    /* width: 30%; */
     transform: scale(1.1);
 }
 
 .whole_pick_ser_containet{
-    /* position: fixed; */
     overflow: auto;
     height: 100vh;
-    /* background: #d7d0d0; */
 }
 
 .service-btn-container{
-  /* position: absolute; */
   width: 58vw;
   position: fixed;
   overflow: auto;
   height: 70vh;
   border: solid;
-  /* background: #d7d0d0; */
 }
 /* Make the image responsive */
 .service-btn-container img {
-    /* width: 32%; */
-    /* height: auto; */
-    /* width: 247px; */
-    /* height: 179px; */
     width: 18vw;
   }
 

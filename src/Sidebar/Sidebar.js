@@ -10,7 +10,8 @@ import { IconContext } from 'react-icons/lib';
 // style of the top navBar
 const Nav = styled.div`
     background: #15171c;
-    height: 12.176vh;
+    // height: 12.176vh;
+    height: 6.176vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -30,7 +31,7 @@ const NavIcon = styled(Link)`
 const SidebarNav = styled.nav`
     background: #15171c;
     // width: 250px;
-    width: 15vw;
+    width: 13vw;
     // width: fit-content;
     height: 100vh;
     overflow: auto;
@@ -60,28 +61,32 @@ const Sidebar = (props) => {
     let time = new Date()
     let hour = time.getHours()
     let minutes = time.getMinutes()
-    if(hour.length === 1){
+    if(hour < 10){
         hour = "0" + time.getHours()
     }
-    if(minutes.length === 1){
+    if(minutes < 10){
         minutes = "0" + time.getMinutes() 
     }
     return(
         <>
         <IconContext.Provider value={{color: '#fff'}}>
         <Nav>
+        &nbsp;&nbsp;&nbsp;
+            <img className="iconRight" src="https://i.ibb.co/JQZkh2n/favicon.png" />
             <NavIcon>
                 {/* <FaIcons.FaBars onClick={showSidebar}/> */}
             </NavIcon>
+            <label className="brandNameAdmin">סקיי קלינר {props.secondTitle}</label>
+            
         <label className="date_sidebar">
-            {props.blessing}
-            <br/>
-            {props.fullDayAndDate} 
           </label>
             <div className="on-nav">
-                ברוכים הבאים למסך הניהול {props.secondTitle}
             </div>
-            <label className="timeOnNavBar">{time.getHours() + ":" + time.getMinutes()}</label>
+            <label className="blessingLeft">{props.blessing}.
+            
+            {props.fullDayAndDate} </label>
+            
+            <label className="timeOnNavBar">{hour + ":" + minutes}</label>
             <a className="left_sidebar" href="/"><AiIcons.AiFillHome /></a>
         </Nav>
         <SidebarNav sidebar={sidebar}>
@@ -96,10 +101,9 @@ const Sidebar = (props) => {
         
         <div className="next-to-sidebar">
             <div className="inside-next">
-                {/* The shoing of the component: */}
-                <div className="back-home">
+                {/* <div className="back-home">
                 <a href="/">חזרה לעמוד הבית</a>
-                </div>
+                </div> */}
                 {props.comp === "" ? <> {props.defaultComponent} </> : null}
                 {props.comp}
                 <br/>

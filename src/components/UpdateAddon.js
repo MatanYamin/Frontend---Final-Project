@@ -1,8 +1,12 @@
-import React from "react"
-import { Component } from "react"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import React from "react";
+import { Component } from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import TextField from "@material-ui/core/TextField"
+import TextField from "@material-ui/core/TextField";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -170,13 +174,19 @@ export class UpdateAddon extends Component {
             console.log(e)}
         }
 
-
 render() {
     return(
         <>
         <br/>
         <section className="adminComponent">
             <div className="adminComponentContainer">
+        <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<AddCircleOutlineIcon />} label="תוספים" />
+            </Tabs>
                 <label>בחר שירות להוסיף לו תוספת</label>
             <div className="border-card-top">
                 <br/>
@@ -244,7 +254,14 @@ render() {
                  </div>
                  <div className="border-card-bottom">
                      <br/>
-           <label>מחיקת תוסף</label>
+                     <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<HighlightOffIcon />} label="מחיקת תוסף" />
+            </Tabs>
+            <br/>
             <select className="del-drp-btn" onChange={(e) => this.setState({ addon_name: e.target.value })}>
                     <option value="nothing">בחר תוסף למחיקה</option>
                     {this.state.addons_array.map(addon => (

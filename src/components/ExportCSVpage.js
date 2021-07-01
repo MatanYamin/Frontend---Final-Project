@@ -1,5 +1,5 @@
-import React from "react"
-import { Component } from "react"
+import React from "react";
+import { Component } from "react";
 import {ExportCSV} from './ExportCSV';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
@@ -52,7 +52,7 @@ render() {
         <>
         <div>
             <div className="loginContainer">
-            <ExportCSV buttonName={this.props.buttonName} csvData={book} fileName={this.props.csvTitle} /> 
+            <ExportCSV numClients={this.props.numClients} buttonName={this.props.buttonName} csvData={book} fileName={this.props.csvTitle} /> 
             </div>
         </div>
         {/* <div>

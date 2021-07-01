@@ -1,9 +1,12 @@
-import React from "react"
-import { Component } from "react"
-import axios from "axios"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import React from "react";
+import { Component } from "react";
+import axios from "axios";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import TextField from "@material-ui/core/TextField"
+import TextField from "@material-ui/core/TextField";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -251,7 +254,13 @@ render() {
         <div className="border-card">
         <div className="border-card-top">
             <br/>
-                <h1>שינוי מחיר לשירות</h1>
+        <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<AttachMoneyIcon />} label="שינוי מחיר לשירות" />
+            </Tabs>
                 <br/>
                 <select 
                     className="select-srp-down"
@@ -311,7 +320,13 @@ render() {
                  <div className="border-card">
                  <div className="border-card-top">
                      <br/>
-            <h1>שינוי מחיר לתוסף:</h1>
+        <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<AttachMoneyIcon />} label="שינוי מחיר לתוסף" />
+            </Tabs>
             <br/>
             <select 
                     className="select-srp-down"
@@ -340,6 +355,7 @@ render() {
                width={50}
                visible={this.state.addonLoading}
                />
+               
             <label>{this.state.first_addon_price}</label>
             <label>הקלד מחיר חדש</label>
             <Loader

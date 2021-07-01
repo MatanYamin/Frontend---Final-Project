@@ -3,6 +3,15 @@ import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
 import TextField from "@material-ui/core/TextField"
+import Paper from "@material-ui/core/Paper";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import AllOutIcon from '@material-ui/icons/AllOut';
+import CheckIcon from '@material-ui/icons/Check';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -59,7 +68,7 @@ addNewCity = () => {
 
         if(!this.state.new_city){
             this.setState({
-                placeHolder: "‎"
+                placeHolder: "שדה ריק‎"
             })
         }
         else{
@@ -137,12 +146,19 @@ render() {
             <div className="adminComponentContainer">
             <div className="border-card-top">
                 <br/>
-                <h1>הוספת עיר חדשה</h1>
-                <label>הקלד שם עיר</label>
+        <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<AddCircleOutlineIcon />} label="הוספת עיר חדשה" />
+            </Tabs>
                 {/* <input autoComplete="off"
                 value={this.state.new_city}
                 onChange={(e) => {this.handleCity(e)}}
-                 /> */}
+            /> */}
+                 <div className="cityContainer1">
+            <label>הקלד שם עיר</label>
                  <div className="addonPlaceHolder">
                  <TextField 
                  placeholder={this.state.placeHolder}
@@ -150,8 +166,41 @@ render() {
                  onChange={(e) => {this.handleCity(e)}}
                  />
                  </div>
-                 <label>לאיזה מחוז שייכת העיר?</label>
-                 <button className="pickRegion" onClick={() => this.setState({
+                 <br/>
+                 {/* <label>לאיזה מחוז שייכת העיר?</label> */}
+    <label>לאיזה מחוז שייכת העיר?</label>
+    </div>
+    <Paper square>
+        <Tabs
+          value={this.state.value}
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+          onChange={(event, newValue) => {
+            this.setState({
+                value: newValue
+            });
+          }}
+        >
+          <Tab icon={<ArrowUpwardIcon />} onClick={() => this.setState({
+                     region: "0",
+                     regionName: "צפון"
+                 })} label="צפון" />
+          <Tab icon={<AllOutIcon />} onClick={() => this.setState({
+                     region: "1",
+                     regionName: "מרכז"
+                 })} label="מרכז" />
+          <Tab icon={<ArrowDownwardIcon />} onClick={() => this.setState({
+                     region: "2",
+                     regionName: "דרום"
+                 })} label="דרום"  />
+          <Tab icon={<CheckIcon />} onClick={() => this.setState({
+                     region: "5",
+                     regionName: "(בלי))"
+                 })} label="אין השפעה"  />
+        </Tabs>
+      </Paper>
+                 {/* <button className="pickRegion" onClick={() => this.setState({
                      region: "0",
                      regionName: "צפון"
                  })}>צפון</button>
@@ -166,7 +215,7 @@ render() {
                  <button className="pickRegion" onClick={() => this.setState({
                      region: "5",
                      regionName: "(בלי))"
-                 })}>לא להשפיע על סדר היום</button>
+                 })}>לא להשפיע על סדר היום</button> */}
                  <div className="btnContainer">
                  <Loader
                 type="TailSpin"
@@ -185,7 +234,13 @@ render() {
                  </div>
                  <div className="border-card-bottom">
                  <br/>
-            <h1>מחיקת עיר מהרשימה</h1>
+                 <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<HighlightOffIcon />} label="מחיקת עיר מהרשימה" />
+            </Tabs>
             <br/>
            <select 
             className="del-drp-btn"

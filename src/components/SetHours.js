@@ -1,20 +1,24 @@
-import React from "react"
-import { Component } from "react"
+import React from "react";
+import { Component } from "react";
 import 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import TextField from "@material-ui/core/TextField"
 import Grid from '@material-ui/core/Grid';
 import * as AiIcons from "react-icons/ai"
+import Paper from "@material-ui/core/Paper";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import EventBusyIcon from '@material-ui/icons/EventBusy';
+import TimelapseIcon from '@material-ui/icons/Timelapse';
+
 
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
   } from '@material-ui/pickers';
-// import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-// import TimePicker from 'react-time-picker';
-// import {KeyboardTimePicker} from '@material-ui/pickers';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -25,8 +29,8 @@ export class SetHours extends Component {
         super(props)
         this.state = {
             hours: [],
-            start_time: "בחר שעה",
-            end_time: "בחר שעה",
+            start_time: "בחר שעה...",
+            end_time: "בחר שעה...",
             interval: "",
             deleting: false,
             loading: false,
@@ -214,17 +218,18 @@ render() {
             <div className="adminComponentContainer">
             <div className="border-card-top">
                 <br/>
-                <div className="hoursDetails">
-                שעת התחלה נוכחית: ‎ ‎
-                {this.state.currentStart}
-                <br/>
-                שעת סיום נוכחית: ‎ ‎
-                {this.state.currentEnd}
-                <br/>
-                המרווח הוא ‎ ‎
-                {this.state.currentInterval}דקות
-                <br/>
-                </div>
+        <Paper square>
+        <Tabs
+          value={this.state.value}
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<EventAvailableIcon />} label={"שעת התחלה נוכחית: " + this.state.currentStart} />
+          <Tab icon={<EventBusyIcon />} label={"שעת סיום נוכחית: " + this.state.currentEnd} />
+          <Tab icon={<TimelapseIcon />} label={"מרווח: " + this.state.currentInterval + " דקות"} />
+        </Tabs>
+      </Paper>
                 <br/>
 <MuiPickersUtilsProvider
 utils={DateFnsUtils}>

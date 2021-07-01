@@ -68,6 +68,7 @@ export class PersonalDetails extends Component {
 
     // when the component is open, do the following
     componentDidMount() {
+        window.scrollTo(0, 0)
         this.setState({
             loading: true
         });

@@ -66,6 +66,7 @@ export class PickDateAndConfirm extends Component {
 
     // when open this component, we will get all dates to be disabled
     componentDidMount() {
+        window.scrollTo(0, 0)
         this.get_disable()
         // this.read_disable_days().then((data) => {
         //     this.setState({

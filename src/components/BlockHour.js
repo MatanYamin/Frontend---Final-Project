@@ -1,11 +1,14 @@
-import React from "react"
-import { Component } from "react"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import React from "react";
+import { Component } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import he from "date-fns/locale/he"; // the locale you want
-import axios from "axios"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import axios from "axios";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 // const url = "http://127.0.0.1:5000/"
 // const url = "http://3.19.66.156/"
 const url = "https://skycleanerapi.xyz/"
@@ -73,6 +76,13 @@ render() {
             {hour_now}</button>)));
     return(
         <>
+        <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<HighlightOffIcon />} label="חסימת שעות" />
+            </Tabs>
         <section className="adminComponent">
         <div className="adminComponentContainer">
         <div className="admin-date-container">

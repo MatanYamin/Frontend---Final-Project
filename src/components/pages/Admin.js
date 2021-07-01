@@ -77,7 +77,7 @@ class Admin extends React.Component {
           case "ShowBookings":
             page = <ShowBookings />
             this.setState({
-              secondTitle: "- הצגת תורים עתידיים"
+              secondTitle: "- הצגת תורים"
             })
             break;
         
@@ -270,7 +270,7 @@ class Admin extends React.Component {
         <h1 className="admin-panel-title"> ברוכים הבאים למסך הניהול
          </h1>
          {/* Will show all future bookings and option to delete (delete will free the booking time to others) */}
-         <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים עתידיים <i className="fas fa-table"></i></button>
+         <button className="button-form2" onClick={() => this.setState({ showFuture: !showFuture })}>הצגת תורים <i className="fas fa-table"></i></button>
         {this.state.showFuture ?
            <ShowBookings
            />

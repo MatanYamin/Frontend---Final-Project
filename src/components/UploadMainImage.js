@@ -1,10 +1,13 @@
-import React from "react"
-import { Component } from "react"
-import ReactS3 from "react-s3"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Loader from "react-loader-spinner"
-import config from "../configur"
-import TextField from "@material-ui/core/TextField"
+import React from "react";
+import { Component } from "react";
+import ReactS3 from "react-s3";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+import config from "../configur";
+import TextField from "@material-ui/core/TextField";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import ImageIcon from '@material-ui/icons/Image';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -133,8 +136,15 @@ render() {
         <div className="adminComponentContainer">
         <div className="border-card-bottom-image">
             <br/>
-                    <h1>העלה תמונה ראשית לשירות באמצעות קובץ או קישור</h1>
+            <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<ImageIcon />} label="תמונה ראשית לשירות" />
+            </Tabs>
                     <br/>
+                    <h1>בחר מבין האופציות - קישור או קובץ</h1>
         {this.state.uploadSuccess}
         <br/>
         <div className="imageContainer1">
@@ -168,7 +178,7 @@ render() {
            onChange={(e) => {this.handleImageUrl(e)}}
             /> */}
             <TextField 
-            placeholder="כתובת תמונה"
+            placeholder="כתובת תמונה..."
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />

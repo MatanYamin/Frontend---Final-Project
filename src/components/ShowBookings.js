@@ -10,6 +10,7 @@ import Loader from "react-loader-spinner";
 import UpdateIcon from '@material-ui/icons/Update';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
+import SearchIcon from '@material-ui/icons/Search';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -98,7 +99,7 @@ export class ShowBookings extends Component {
         }
         else{
             var newArray = []
-            this.state.copy_customers.map(
+            this.state.copy_customers.forEach(
                 (rowData) => {
                     // check if the string is inside the array, if yes - put it inside the new one.
                     if(rowData[this.state.filterIndex].includes(e.target.value)){
@@ -176,7 +177,7 @@ render() {
       </Paper>
         <section >
          <div className="inside-table">
-         <ExportCSVpage csvTitle={this.state.csvTitle} customers={this.state.customers} buttonName={this.state.buttonName} />
+         <ExportCSVpage numClients={this.state.numOfBook} csvTitle={this.state.csvTitle} customers={this.state.customers} buttonName={this.state.buttonName} />
          <div className="search">
              <div className="search_input">
         <Loader
@@ -186,7 +187,6 @@ render() {
             width={50}
             visible={this.state.loading}
             />
-         <label>חיפוש לפי </label>
          <select onChange={(e) => this.handleFilter(e)}>
             <option value={1}>שם</option>
             <option value={2}>דוא"ל</option>
@@ -196,13 +196,17 @@ render() {
             <option value={6}>תאריך</option>
         </select>
         &nbsp;
-         <input onInput={(e) => {this.searchTable(e)}} />
+         <input
+         placeholder="הקלד..."
+         onInput={(e) => {this.searchTable(e)}} />
+         <label className="searchIcon"><SearchIcon /></label>
          </div>
          </div>
-         <p className="num_bookings">
+         {/* <p className="num_bookings">
          מספר לקוחות: &nbsp;
          {this.state.numOfBook}
-         </p>
+         </p> */}
+         {/* <br/> */}
             <table bordered>
                  <thead>
                  <tr>

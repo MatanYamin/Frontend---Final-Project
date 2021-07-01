@@ -1,9 +1,12 @@
-import React from "react"
-import { Component } from "react"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import React from "react";
+import { Component } from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import axios from "axios"
-import TextField from "@material-ui/core/TextField"
+import axios from "axios";
+import TextField from "@material-ui/core/TextField";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import DescriptionIcon from '@material-ui/icons/Description';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -101,7 +104,6 @@ export class UpdateDescription extends Component {
         }
         }
 
-
         getDescriptionForService(e) {
             this.setState({
                 loading: true
@@ -128,8 +130,15 @@ render() {
             <div className="adminComponentContainer">
             <div className="border-card-bottom-image">
                 <br/>
-                <h1>בחר שירות ולאחר מכן הקלד תיאור חדש עבורו</h1>
+        <Tabs
+            textColor="primary"
+            indicatorColor="primary"
+            centered
+        >
+          <Tab icon={<DescriptionIcon />} label="עדכון תיאור" />
+            </Tabs>
                 <br/>
+                <label>בחר שירות ולאחר מכן הקלד תיאור חדש עבורו</label>
                 <select 
                     className="select-srp-down"
                     onClick={(e) => this.setState({ service: e.target.value })}

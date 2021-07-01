@@ -1,10 +1,14 @@
-import React from "react"
-import { Component } from "react"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import React from "react";
+import { Component } from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import ReactS3 from "react-s3"
-import config from "../configur"
-import TextField from "@material-ui/core/TextField"
+import ReactS3 from "react-s3";
+import config from "../configur";
+import TextField from "@material-ui/core/TextField";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -232,8 +236,13 @@ render() {
                 <div className="border-card-top">
                     <br/>
                     <div className="servicePlaceHolder">
-        
-                <h1>הוספת שירות חדש</h1>
+                    <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<AddCircleOutlineIcon />} label="הוספת שירות חדש" />
+            </Tabs>
            <label>בחר קטגוריה</label>
            {/* shows all cateogries */}
            <select className="select-srp-down" onChange={(e) => this.setState({ cat_name: e.target.value })}>
@@ -350,7 +359,13 @@ render() {
             <h1>{this.state.updateServiceSuccess}</h1>
             <div className="border-card-bottom">
                 <br/>
-            <h1>מחיקת שירות:</h1>
+        <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<HighlightOffIcon />} label="מחיקת שירות" />
+            </Tabs>
             <br/>
            {/* shows in select list all the services there are */}
             <select className="del-drp-btn" onChange={(e) => this.setState({ service_name: e.target.value })}>

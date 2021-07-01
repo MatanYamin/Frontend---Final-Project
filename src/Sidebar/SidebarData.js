@@ -14,7 +14,7 @@ export const SidebarData = [
     },
 
     {
-        title: "תורים עתידיים",
+        title: "הצגת תורים",
         path: "ShowBookings",
         icon: <FaIcons.FaCalendar />
 

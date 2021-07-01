@@ -1,9 +1,11 @@
-import React from "react"
-import { Component } from "react"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import React from "react";
+import { Component } from "react";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-// import axios from "axios"
-import TextField from "@material-ui/core/TextField"
+import TextField from "@material-ui/core/TextField";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import CachedIcon from '@material-ui/icons/Cached';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -106,7 +108,13 @@ render() {
             <div className="adminComponentContainer">
             <div className="border-card-bottom-image">
                 <br/>
-                <h1>בחר שירות לו תרצה לשנות את הכותרת</h1>
+        <Tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<CachedIcon />} label="שינוי שם לשירות" />
+            </Tabs>
                 <br/>
                 <select 
                     className="select-srp-down"
