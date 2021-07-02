@@ -7,6 +7,12 @@
     align-self: center;
 }
 
+.buildService{
+    background: whitesmoke;
+    width: 29vw;
+    padding: 1vw;
+}
+
 textarea{
     margin: 0px;
     width: 228px;
@@ -26,19 +32,15 @@ textarea{
 }
 
 .previewServiceWhileBuild{
-    background: white;
-    top: 27vh;
+    background: whitesmoke;
+    /* top: 27vh; */
+    border-radius: 2.5vw;
     width: 50%;
     position: absolute;
     left: 4.5vw;
     height: 70vh;
 }
 
-.descriptionBuild{
-    font-weight: bolder;
-    font-size: 1.5vw;
-    text-align: -webkit-center;
-}
 
 .imageBuild img{
     width: 50%;
@@ -47,6 +49,12 @@ textarea{
 
 .imageBuild{
     text-align-last: center;
+}
+
+.descriptionBuild{
+    font-weight: bolder;
+    font-size: 1.5vw;
+    text-align: -webkit-center;
 }
 
 .priceBuild{
@@ -158,7 +166,7 @@ textarea{
 }
 
 .blessingLeft{
-    width: 32vw;
+    width: 45vw;
     color: white;
     font-size: 1.2vw;
 }
@@ -662,6 +670,19 @@ input {
       transform: rotate(360deg);
     }
   }
+
+.selectCatBuild{
+    background: whitesmoke;
+    border: none;
+    outline: none;
+    padding: 4px 0;
+    color: black;
+    font-size: 1.83vw;
+    letter-spacing: 2px;
+    cursor: pointer;
+    width: fit-content;
+}
+
 .select-srp-down{
     background: #15171c;;
     border: none;
@@ -1677,4 +1698,33 @@ input {
     .avoidPhone{
         display: none;
     }
+
+    .serviceLabelForm{
+        background: white;
+        width: fit-content;
+        padding: 8px;
+        font-size: 3.5vw;
+        border-radius: 17px;
+    }
+
+    .selectCatBuild{
+        background: whitesmoke;
+        border: none;
+        outline: none;
+        padding: 4px 0;
+        color: black;
+        font-size: 1.83vw;
+        letter-spacing: 2px;
+        cursor: pointer;
+        width: fit-content;
+        font-size: 4vw;
+    }
+
+    .buildService{
+        background: whitesmoke;
+        /* width: 29vw; */
+        padding: 1vw;
+        width: 70vw;
+    }
+
 }

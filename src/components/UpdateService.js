@@ -293,6 +293,7 @@ render() {
           >
           <Tab icon={<AddCircleOutlineIcon />} label="הוספת שירות חדש" />
             </Tabs>
+            <br/>
             <div className="previewServiceWhileBuild">
                 <div className="previceWords">
                 </div>
@@ -320,15 +321,15 @@ render() {
             </div>
             {/* <Preview textOnBubble={this.state.description} image={this.state.image} title={this.state.service_name} /> */}
            {/* shows all cateogries */}
-           <br/>
-           <select className="select-srp-down" onChange={(e) => this.setState({ cat_name: e.target.value })}>
+           <div className="buildService">
+           <select className="selectCatBuild" onChange={(e) => this.setState({ cat_name: e.target.value })}>
                <option value="nothing">בחר קטגוריה</option>
                {this.state.categories_array.map(cat => (
                <option value={cat}>{cat}</option>))}
                </select>
                <br/>
                <br/>
-           <p className="serviceLabelForm"><CreateIcon />&nbsp;הקלד שם שירות </p>
+           <p className="serviceLabelForm"><CreateIcon />&nbsp;שם השירות </p>
            {/* <input autoComplete="off"
            value={this.state.service_name}
            onChange={(e) => {this.handleService(e)}}
@@ -349,7 +350,7 @@ render() {
              <br/>
 
              <br/>
-            <p className="serviceLabelForm"><SpellcheckIcon />&nbsp;הוסף תיאור </p>
+            <p className="serviceLabelForm"><SpellcheckIcon />&nbsp;תיאור השירות </p>
             <br/>
            {/* <input autoComplete="off"
            value={this.state.description}
@@ -430,6 +431,7 @@ render() {
             value={this.state.image}
             onChange={(e) => {this.handleImageUrl(e)}}
             />
+            </div>
             {/* <img alt="" className="img-show_form" src={this.state.image} /> */}
             </div>
             <div className="btnContainer">

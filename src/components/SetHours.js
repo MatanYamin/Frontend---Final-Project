@@ -13,8 +13,6 @@ import Tabs from "@material-ui/core/Tabs";
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import EventBusyIcon from '@material-ui/icons/EventBusy';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
-
-
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,

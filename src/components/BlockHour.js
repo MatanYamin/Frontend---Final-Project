@@ -9,8 +9,8 @@ import Loader from "react-loader-spinner";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-// const url = "http://127.0.0.1:5000/"
 // const url = "http://3.19.66.156/"
+// const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
 

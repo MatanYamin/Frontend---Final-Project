@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import DescriptionIcon from '@material-ui/icons/Description';
+import CreateIcon from '@material-ui/icons/Create';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -156,7 +157,7 @@ render() {
                 {this.state.currentDescrition}
                 </div>
                 <div className="addonPlaceHolder">
-                <label>הקלד תיאור חדש</label>
+                <label><CreateIcon />&nbsp;הקלד תיאור חדש</label>
                 {/* <input 
                 value={this.state.newDes}
                 autoComplete="off"
