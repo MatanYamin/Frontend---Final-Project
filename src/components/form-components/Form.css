@@ -159,9 +159,14 @@ textarea{
     width: 2vw;
 }
 
+.iconRight2{
+    width: 3vw;
+    margin-left: 1vw;
+}
+
 .brandNameAdmin{
     color: white;
-    width: 28vw;
+    width: 31vw;
     font-size: 1.2vw;
 }
 
@@ -1727,4 +1732,8 @@ input {
         width: 70vw;
     }
 
+    .iconRight2{
+        width: 13vw;
+        margin-left: 7vw;
+    }
 }

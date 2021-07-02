@@ -17,6 +17,7 @@ import SpellcheckIcon from '@material-ui/icons/Spellcheck';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import LinkIcon from '@material-ui/icons/Link';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -341,8 +342,9 @@ render() {
             onChange={(e) => {this.handleService(e)}} />
             {this.state.serviceNameFlag? 
             <>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-             <i className="fas fa-check fa-1x"></i>
+            &nbsp;&nbsp;
+            <CheckCircleOutlineIcon />
+             {/* <i className="fas fa-check fa-1x"></i> */}
              </>
             :
             null
@@ -368,8 +370,8 @@ render() {
             onChange={(e) => {this.handleDescription(e)}}/> */}
             {this.state.serviceDescrFlag? 
             <>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-             <i className="fas fa-check fa-1x"></i>
+            &nbsp;&nbsp;
+            <CheckCircleOutlineIcon />
              </>
             :
             null
@@ -388,8 +390,8 @@ render() {
            onChange={(e) => {this.handlePrice(e)}}/>
            {this.state.servicePriceFlag? 
            <>
-           &nbsp;&nbsp;&nbsp;&nbsp;
-            <i className="fas fa-check fa-1x"></i>
+           &nbsp;&nbsp;
+           <CheckCircleOutlineIcon />
             </>
             :
             null
@@ -405,7 +407,7 @@ render() {
             <input hidden type="file" onChange={this.uploadToS3} />
             </label>
             {this.state.serviceImageFlag? 
-            <i className="fas fa-check fa-1x"></i>
+            <CheckCircleOutlineIcon />
             :
             null
             }

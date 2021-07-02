@@ -10,6 +10,7 @@ import * as AiIcons from "react-icons/ai"
 import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import EventBusyIcon from '@material-ui/icons/EventBusy';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
@@ -17,9 +18,8 @@ import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
   } from '@material-ui/pickers';
-// const url = "http://3.19.66.156/"
-// const url = "http://127.0.0.1:5000/"
-const url = "https://skycleanerapi.xyz/"
+const url = "http://127.0.0.1:5000/"
+// const url = "https://skycleanerapi.xyz/"
 
 
 export class SetHours extends Component {
@@ -67,53 +67,62 @@ export class SetHours extends Component {
     }
 
      handleEndTime = (input) => {
-         var checkTime = this.state.start_time[0] + this.state.start_time[1];
-         checkTime = parseInt(checkTime)
-         // check if the start time is after end time
-         if(checkTime >= parseInt(input.getHours())){
-             alert("אנא בחר שעת סיום מאוחרת משעת ההתחלה")
-             this.setState({
-                end_time: "בחר שוב",
-                endFlag: false
-            })
-         }
-         else{
-            if(input.getMinutes() < 10 || input.getHours() < 10){
-                if(input.getMinutes() < 10 && input.getHours() < 10){
+        if(!input){
+            alert("לא ניתן להקליד. אנא לחץ על השעון ובחר שעה.")
+        }
+        else{
+            var checkTime = this.state.start_time[0] + this.state.start_time[1];
+            checkTime = parseInt(checkTime)
+            // check if the start time is after end time
+            if(checkTime >= parseInt(input.getHours())){
+                alert("אנא בחר שעת סיום מאוחרת משעת ההתחלה")
                 this.setState({
-                    end_time: "0" + input.getHours() + ":0" + input.getMinutes(),
-                    endFlag: true
-                })
-            }
-            if(input.getMinutes() < 10 && !(input.getHours() < 10)){
-                this.setState({
-                    end_time: input.getHours() + ":0" + input.getMinutes(),
-                    endFlag: true
-                })
-            }
-            if(!(input.getMinutes() < 10) && input.getHours() < 10){
-                this.setState({
-                    end_time: "0" + input.getHours() + ":" + input.getMinutes(),
-                    endFlag: true
-                })
-            }
+                   end_time: "בחר שוב...",
+                   endFlag: false
+               })
             }
             else{
-                this.setState({
-                    end_time: input.getHours() + ":" + input.getMinutes(),
-                    endFlag: true
-                })
-            }
-    }
+               if(input.getMinutes() < 10 || input.getHours() < 10){
+                   if(input.getMinutes() < 10 && input.getHours() < 10){
+                   this.setState({
+                       end_time: "0" + input.getHours() + ":0" + input.getMinutes(),
+                       endFlag: true
+                   })
+               }
+               if(input.getMinutes() < 10 && !(input.getHours() < 10)){
+                   this.setState({
+                       end_time: input.getHours() + ":0" + input.getMinutes(),
+                       endFlag: true
+                   })
+               }
+               if(!(input.getMinutes() < 10) && input.getHours() < 10){
+                   this.setState({
+                       end_time: "0" + input.getHours() + ":" + input.getMinutes(),
+                       endFlag: true
+                   })
+               }
+               }
+               else{
+                   this.setState({
+                       end_time: input.getHours() + ":" + input.getMinutes(),
+                       endFlag: true
+                   })
+               }
+       }
+        }
     }
 
 handleStartTime = (input) => {
+    if(!input){
+        alert("לא ניתן להקליד. אנא לחץ על השעון ובחר שעה.")
+    }
+    else{
         var checkTime = this.state.end_time[0] + this.state.end_time[1];
         checkTime = parseInt(checkTime)
          if(checkTime <= parseInt(input.getHours())){
             alert("אנא בחר שעת התחלה מוקדמת משעת הסיום")
             this.setState({
-               start_time: "בחר שוב",
+               start_time: "בחר שוב...",
                startFlag: false
            })
         }
@@ -144,6 +153,7 @@ handleStartTime = (input) => {
                     startFlag: true
                 })
             }
+    }
     }
         }
 
@@ -249,6 +259,7 @@ utils={DateFnsUtils}>
         onChange={(e) => {this.handleStartTime(e)}}
         keyboardIcon={<AiIcons.AiFillClockCircle />}
         />
+        
         </Grid>
         <br/>
         <Grid

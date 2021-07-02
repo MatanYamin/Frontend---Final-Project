@@ -117,13 +117,6 @@ export const SidebarData = [
         iconOpened: <RiIcons.RiArrowUpSFill />,
     },
     {
-        title: "עדכון מחירים",
-        path: "UpdatePrice",
-        icon: <FaIcons.FaShekelSign />,
-        iconClosed: <RiIcons.RiArrowDownSFill />,
-        iconOpened: <RiIcons.RiArrowUpSFill />,
-    },
-    {
         title: "תמונות",
         path: "#",
         icon: <FaIcons.FaImages />,
@@ -141,13 +134,6 @@ export const SidebarData = [
                 icon: <FaIcons.FaPhotoVideo />
             }
         ]
-    },
-    {
-        title: "תיאור",
-        path: "UpdateDescription",
-        icon: <FaIcons.FaComment />,
-        iconClosed: <RiIcons.RiArrowDownSFill />,
-        iconOpened: <RiIcons.RiArrowUpSFill />,
     },
     {
         title: "ניהול מנהלים",

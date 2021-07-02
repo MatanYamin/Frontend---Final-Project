@@ -31,7 +31,7 @@ function Navbar() {
             <div className="navbar-container">
                 {/*  Main title, links to home page */}
                 <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> 
-                סקיי קלינר
+                <img alt="" className="iconRight2" src="https://i.ibb.co/JQZkh2n/favicon.png" /> סקיי קלינר 
                 {/* <img src="https://i.ibb.co/Fbs8KWk/Picture3.jpg" className='icon-img' /> */}
                 </Link>
                 {/*  when pressing the icon it will alter*/}
