@@ -1,17 +1,6 @@
 import React from "react"
 import { Component } from "react"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Loader from "react-loader-spinner";
-import TextField from "@material-ui/core/TextField"
-import Paper from "@material-ui/core/Paper";
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import AllOutIcon from '@material-ui/icons/AllOut';
-import CheckIcon from '@material-ui/icons/Check';
 
 
 export class Preview extends Component {

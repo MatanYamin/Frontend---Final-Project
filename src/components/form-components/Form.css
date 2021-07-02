@@ -5,6 +5,7 @@
 
 .nameInMiddle{
     align-self: center;
+    font-weight: bolder;
 }
 
 .buildService{
@@ -17,6 +18,10 @@ textarea{
     margin: 0px;
     width: 228px;
     height: 119px;
+}
+
+#okIcon{
+    vertical-align: middle;
 }
 
 .serviceLabelForm{
@@ -245,6 +250,11 @@ input {
     background: red;
   }
 
+.interval{
+    font-weight: bolder;
+    position: absolute;
+}
+
 .intervalContainer ::placeholder {
     color: red;
     background: red;
@@ -278,7 +288,7 @@ input {
 
 
 .intervalContainer{
-    text-align: center;
+    place-self: center;
 }
 
 .MuiPickersTimePickerToolbar-hourMinuteLabel{
@@ -1735,5 +1745,10 @@ input {
     .iconRight2{
         width: 13vw;
         margin-left: 7vw;
+    }
+
+    .interval{
+        font-weight: bolder;
+        position: relative;
     }
 }

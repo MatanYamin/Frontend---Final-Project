@@ -11,15 +11,18 @@ import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import EventBusyIcon from '@material-ui/icons/EventBusy';
 import TimelapseIcon from '@material-ui/icons/Timelapse';
+import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
   } from '@material-ui/pickers';
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class SetHours extends Component {
@@ -41,6 +44,8 @@ export class SetHours extends Component {
             intervalFlag: false,
             missingField: "",
             placeHolder: "",
+            goodOrNot: <PlayCircleOutlineIcon />,
+            goodOrNot2: <PauseCircleOutlineIcon />
         }
     }
 
@@ -78,7 +83,8 @@ export class SetHours extends Component {
                 alert("אנא בחר שעת סיום מאוחרת משעת ההתחלה")
                 this.setState({
                    end_time: "בחר שוב...",
-                   endFlag: false
+                   endFlag: false,
+                   goodOrNot2: <HighlightOffIcon />
                })
             }
             else{
@@ -86,26 +92,30 @@ export class SetHours extends Component {
                    if(input.getMinutes() < 10 && input.getHours() < 10){
                    this.setState({
                        end_time: "0" + input.getHours() + ":0" + input.getMinutes(),
-                       endFlag: true
+                       endFlag: true,
+                       goodOrNot2: <CheckCircleOutlineIcon />
                    })
                }
                if(input.getMinutes() < 10 && !(input.getHours() < 10)){
                    this.setState({
                        end_time: input.getHours() + ":0" + input.getMinutes(),
-                       endFlag: true
+                       endFlag: true,
+                       goodOrNot2: <CheckCircleOutlineIcon />
                    })
                }
                if(!(input.getMinutes() < 10) && input.getHours() < 10){
                    this.setState({
                        end_time: "0" + input.getHours() + ":" + input.getMinutes(),
-                       endFlag: true
+                       endFlag: true,
+                       goodOrNot2: <CheckCircleOutlineIcon />
                    })
                }
                }
                else{
                    this.setState({
                        end_time: input.getHours() + ":" + input.getMinutes(),
-                       endFlag: true
+                       endFlag: true,
+                       goodOrNot2: <CheckCircleOutlineIcon />
                    })
                }
        }
@@ -123,7 +133,8 @@ handleStartTime = (input) => {
             alert("אנא בחר שעת התחלה מוקדמת משעת הסיום")
             this.setState({
                start_time: "בחר שוב...",
-               startFlag: false
+               startFlag: false,
+               goodOrNot: <HighlightOffIcon />
            })
         }
         else{
@@ -131,26 +142,30 @@ handleStartTime = (input) => {
                 if(input.getMinutes() < 10 && input.getHours() < 10){
                 this.setState({
                     start_time: "0" + input.getHours() + ":0" + input.getMinutes(),
-                    startFlag: true
+                    startFlag: true,
+                    goodOrNot: <CheckCircleOutlineIcon />
                 })
             }
             if(input.getMinutes() < 10 && !(input.getHours() < 10)){
                 this.setState({
                     start_time: input.getHours() + ":0" + input.getMinutes(),
-                    startFlag: true
+                    startFlag: true,
+                    goodOrNot: <CheckCircleOutlineIcon />
                 })
             }
             if(!(input.getMinutes() < 10) && input.getHours() < 10){
                 this.setState({
                     start_time: "0" + input.getHours() + ":" + input.getMinutes(),
-                    startFlag: true
+                    startFlag: true,
+                    goodOrNot: <CheckCircleOutlineIcon />
                 })
             }
             }
             else{
                 this.setState({
                     start_time: input.getHours() + ":" + input.getMinutes(),
-                    startFlag: true
+                    startFlag: true,
+                    goodOrNot: <CheckCircleOutlineIcon />
                 })
             }
     }
@@ -246,7 +261,7 @@ utils={DateFnsUtils}>
       <Grid
       className="ChangeTime"
       container justify="space-evenly">
-          <div className="nameInMiddle">שעת התחלה:</div>
+          <div className="nameInMiddle"><i id="okIcon">{this.state.goodOrNot}</i>&nbsp;שעת התחלה:</div>
         <KeyboardTimePicker
         inputValue={this.state.start_time}
         placeholder={this.state.placeHolder}
@@ -265,7 +280,7 @@ utils={DateFnsUtils}>
         <Grid
         className="ChangeTime"
         container justify="space-evenly">
-            <div className="nameInMiddle">שעת סיום: ‎ ‎ ‎ ‎ ‎</div>
+            <div className="nameInMiddle"><i id="okIcon">{this.state.goodOrNot2}</i>&nbsp;שעת סיום: ‎ ‎ ‎ ‎ ‎</div>
         <KeyboardTimePicker
         inputValue={this.state.end_time}
         placeholder={this.state.placeHolder}
@@ -281,9 +296,10 @@ utils={DateFnsUtils}>
       </Grid>
       <br/>
     <div className="intervalContainer">
-    <label className="interval">      
+    <p className="interval">      
     ‎מרווח (דקות): 
-    </label> 
+    </p> 
+    <br/>
      <TextField
       placeholder={this.state.placeHolder}
       value={this.state.interval}
