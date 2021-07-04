@@ -64,7 +64,6 @@ export class ShowBookings extends Component {
         return data
     }
     
-    
     // when the component is open, do the following
     componentDidMount() {
         this.setState({

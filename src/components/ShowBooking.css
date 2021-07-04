@@ -7,7 +7,7 @@ table {
   }
 
 .searchIcon{
-  vertical-align: -webkit-baseline-middle;
+  vertical-align: top;
 }
 
   .num_bookings{
