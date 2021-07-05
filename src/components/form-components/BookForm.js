@@ -13,6 +13,8 @@ import CreateIcon from '@material-ui/icons/Create';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import RoomServiceIcon from '@material-ui/icons/RoomService';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -177,7 +179,6 @@ export class BookForm extends Component {
                         <Tab icon={<CheckCircleOutlineIcon />} label="סיום" />
                         </Tabs>
                     </Paper>
-                    <br/>
                     <PersonalDetails
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}

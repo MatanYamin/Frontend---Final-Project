@@ -9,6 +9,11 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
+import Paper from "@material-ui/core/Paper";
+import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import RoomServiceIcon from '@material-ui/icons/RoomService';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -25,6 +30,7 @@ export class PickService extends Component {
             loading: false,
             showDescription: false,
             openPopUp: false,
+            openPopU2: false,
             serviceOrAddon: true,
             first_price: '',
             ser: "",
@@ -159,6 +165,16 @@ export class PickService extends Component {
             
         return (
             <>
+            {/* <br/> */}
+        <Tabs
+          value=""
+          textColor="primary"
+          indicatorColor="primary"
+          centered
+        >
+          <Tab icon={<RoomServiceIcon />} label={"שירות שנבחר: " + this.props.values.service + " " + this.props.values.addons} />
+          <Tab icon={<LocalOfferIcon />} label={"המחיר: " + this.props.values.price} />
+        </Tabs>
             <div className="bubble-man">
             <div className="text-on-bubble">
                 <label>{this.state.textOnBubble}</label>
@@ -189,7 +205,7 @@ export class PickService extends Component {
             </> : <>
             <label>{values.service}</label>
             <br/>
-            <img alt="" width="50%"
+            <img className="thisImage" alt="" width="50%"
             src={this.state.imageService} />
              </>}
             <Loader
@@ -204,9 +220,10 @@ export class PickService extends Component {
             <>
             &nbsp;&nbsp;
             <br/>
+            <div className="newAddonCont">
             <Popup 
             className="check-me" 
-            trigger={<button className="details-btn">לצפייה בתמונות <i className="fas fa-images"></i></button>}
+            trigger={<button className="dit_btn_1">לצפייה בתמונות <i className="fas fa-images"></i></button>}
             on="click"
             open={openPopUp}
             onOpen={() => this.setState({ openPopUp: !openPopUp })}>
@@ -220,15 +237,52 @@ export class PickService extends Component {
                 <img alt="" className="imgs-to-customer" src={img} />))}
                     </div>
             </Popup>
-            <br/><br/>
+            {/* <br/><br/>
             <button className="addon-btn" onClick={() => this.setState({ 
                 showing: !showing
-                 })}>לחצו לצפייה בשירותים לסוג שבחרתם</button>
+                 })}>לחצו לצפייה בשירותים לסוג שבחרתם</button> */}
+            {/* <br/> */}
+
+
+
+            {/* ------------------------ */}
+
+
+            &nbsp;
+            <Popup 
+            // className="check-me" 
+            open={this.state.openPopUp2}
+            trigger={<button className="dit_btn_1">לצפייה בשירותים לסוג שנבחר <i className="fas fa-images"></i></button>}
+            on="click"
+            open={this.state.openPopUp2}
+            onOpen={() => this.setState({ openPopUp2: !this.state.openPopUp2 })}
+            >
+                <div className="pop-up-content5">
+                <Addon 
+            addons={this.props.addons}
+            service={values.service}
+            handleChange={this.props.handleChange}
+            firstPrice={this.state.first_price}
+            price={this.props.price}
+            handlePrice={this.props.handlePrice}
+            showing={this.state.showing}
+            handleShow={this.handleShow}
+            handleAddon={this.props.handleAddon}
+            />
             <br/>
+            <button 
+            className="addon-btn-cancel2"
+            onClick={() => this.setState({ 
+                openPopUp2: false
+                 })}>חזור</button>
+              
+                    </div>
+            </Popup>
+
+            {/* ------------------------ */}
             {/* <br/> */}
                  
-            {this.state.showing ?
-            // Addon is a compontnet that holds all Addons services and prices
+            {/* {this.state.showing ?
             <>
             <Addon 
             addons={this.props.addons}
@@ -246,22 +300,18 @@ export class PickService extends Component {
             onClick={() => this.setState({ 
                 showing: !showing
                  })}>חזור</button>
-            {/* <button className="addon-btn-cancel" onClick={() => this.setState({ 
-                serviceOrAddon: !serviceOrAddon,
-                showing: !showing,
-                titleService: "בחרו את השירות המבוקש"
-                 })}>ביטול</button> */}
             </>
             :<>
             {this.state.priceNow}
             <b>{this.state.first_price} </b>
             {this.state.Shekel}
             </>
-            }
+            } */}
             <br/>
-            {/* <br/> */}
+            <br/>
+            <br/>
             <button
-                 className="addon-btn-cancel"
+                 className="dit_btn_15"
                  onClick={() => this.setState({ 
                     serviceOrAddon: !serviceOrAddon,
                     showDescription: !this.state.showDescription,
@@ -269,6 +319,7 @@ export class PickService extends Component {
 
                      })}
                  >ביטול</button>
+                 </div>
                  <br/>
             </>
             :

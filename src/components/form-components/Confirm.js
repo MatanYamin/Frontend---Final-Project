@@ -1,9 +1,16 @@
 //By Matan Yamin
-import React from "react"
-import { Component } from "react"
-import "./Form.css"
-import "react-datepicker/dist/react-datepicker.css"
-import "./DropDown.css"
+import React from "react";
+import { Component } from "react";
+import "./Form.css";
+import "react-datepicker/dist/react-datepicker.css";
+import "./DropDown.css";
+import PersonIcon from '@material-ui/icons/Person';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
+import PhoneIcon from '@material-ui/icons/Phone';
+import MailIcon from '@material-ui/icons/Mail';
+import RoomServiceIcon from '@material-ui/icons/RoomService';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import CommentIcon from '@material-ui/icons/Comment';
 
 
 export class Confirm extends Component {
@@ -18,6 +25,10 @@ export class Confirm extends Component {
         this.state = {
           selectedDate: null
         };
+    }
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
     }
 
     setSelectedDate = date => {
@@ -99,29 +110,29 @@ export class Confirm extends Component {
         );
     }
     return (
-        <div>
+        <div className="lastConfirm">
             <br/>
             {/* <h2>אישור פרטי התור</h2> */}
             <div className="confirm-wrapper">
             {/* <img className="img-confirm" src={image} /> */}
                 {/* <br/> */}
-                שם:
-                &nbsp;
-                <h4>{firstName} {lastName}</h4>
-                &nbsp;
-                כתובת:
-                &nbsp;
-               <h4>{address}, {city}</h4>
-                מייל:
-                <h4>{email}</h4>
-                מספר טלפון:
-               <h4>{phone}</h4>
-                השירות:
-                <h4>{service}  {addons}</h4>
-                המחיר:
-                <label><h3>{price} ₪</h3></label>
-                  הערות:    
-                <h4>{comments} </h4>
+                <div className="thisTitle">
+                 שם:</div>
+                {/* &nbsp; */}
+                <div className="thisTitle2"><PersonIcon />{firstName} {lastName}</div>
+                <div className="thisTitle">
+                 כתובת:</div>
+                 <div className="thisTitle2"><ContactMailIcon /> {address}, {city}</div>
+               <div className="thisTitle"> מייל: </div>
+               <div className="thisTitle2"><MailIcon /> {email}</div> 
+                <div className="thisTitle"> מספר טלפון:</div>
+                <div className="thisTitle2"><PhoneIcon /> {phone}</div>
+               <div className="thisTitle"> השירות:</div>
+               <div className="thisTitle2"><RoomServiceIcon /> {service}  {addons}</div>
+                <div className="thisTitle"> המחיר:</div>
+                <div className="thisTitle2"> <LocalOfferIcon /> {price} ₪</div>
+                <div className="thisTitle"> הערות:</div>    
+                <div className="thisTitle2"><CommentIcon />  {comments} </div>
                 </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div className="step-btn-container">

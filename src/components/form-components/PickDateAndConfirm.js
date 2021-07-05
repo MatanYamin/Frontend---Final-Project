@@ -1,14 +1,16 @@
 //By Matan Yamin
-import React from "react"
-import { Component } from "react"
-import "./Form.css"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
-import "./DropDown.css"
+import React from "react";
+import { Component } from "react";
+import "./Form.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "./DropDown.css";
 import he from "date-fns/locale/he"; // the locale you want
-import axios from "axios"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
-import Loader from "react-loader-spinner"
+import axios from "axios";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -79,7 +81,7 @@ export class PickDateAndConfirm extends Component {
     setSelectedDate = date => {
         this.setState({
             selectedDate: date,
-            avail: "בחרו שעה מבין השעות שנותרו",
+            avail: "בחרו שעה מבין השעות שנותרו:",
             loading: true
         });
         this.get_hours(date)
@@ -94,6 +96,7 @@ export class PickDateAndConfirm extends Component {
     const {values: {service, addons, firstName, price, lastName, email, address, city, phone, comments, image}} = this.props;
     const {loading} = this.state
     const exclude_days_array = [];
+    const weakDays = ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "יום שבת"]
     // mapping disabled dates to an array
     this.state.disable_dates.map(day => (
         exclude_days_array.push(new Date(day))));
@@ -107,24 +110,37 @@ export class PickDateAndConfirm extends Component {
                 temp_hour: true
             })}
             >
-            {hour_now}</button>)));
+            {hour_now} <QueryBuilderIcon /></button>)));
     return (
         <>
-        <div className="bubble-man">
+        {/* <div className="bubble-man">
         <div className="text-on-bubble">
+            
                 <label>{this.state.textOnBubble}</label>
             </div>
-        </div>
+        </div> */}
         <div className="pickDateContainer">
             <br/>
-
-            <h3>בחרו יום</h3>
             {this.props.date}
             <div className="calendar_final">
                 <div className="hours_btns">
-                    {this.state.avail}
+                    {this.state.selectedDate ? <>
+                    <CalendarTodayIcon />
                     <br/>
-                    <br/>
+            בחרת ב
+            {weakDays[this.state.selectedDate.getDay()]}
+            <br/>
+            <br/>
+            בתאריך:
+            &nbsp;
+             {this.state.selectedDate.getDate()}
+             /
+             {this.state.selectedDate.getMonth()+1}
+             <br/>
+            </> :<> בחלק הזה יש לבחור יום מהלוח שנה <br/><br/>לאחר מכן שעה מבין השעות שנותרו <br/><br/>אם התאריך שרציתם אינו פנוי, אנא פנו אלינו </>}
+            <br/>
+            {this.state.avail}
+            <br/><br/>
             {hours_button_list}
             </div>
             <DatePicker 

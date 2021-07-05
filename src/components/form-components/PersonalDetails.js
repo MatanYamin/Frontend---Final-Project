@@ -90,7 +90,7 @@ export class PersonalDetails extends Component {
     continue = event => {
         if(!this.props.values.firstName || !this.props.values.lastName || !this.props.values.email || !this.props.values.phone || !this.props.values.address){
             this.setState({
-                missingField: "‎",
+                missingField: "‎שדה ריק",
                 missFieldText: "השדות אשר מוסמנים באדום הינם שדות חובה."
             })
         }
@@ -220,9 +220,9 @@ export class PersonalDetails extends Component {
                 <h1>שתיים</h1>
                 <h1>שלוש</h1>
             </div> */}
-            <h6 className="red-text">שדות שמסומנים ב * הינם חובה</h6> 
+            <h6 className="red-text3">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
-            <h6><label className="red-text">*</label>שם פרטי: </h6>
+            <h6><label className="red-text3">*</label>שם פרטי: </h6>
             <TextField 
             placeholder={this.state.missingField}
             onChange={this.props.handleChange('firstName')}
@@ -230,14 +230,14 @@ export class PersonalDetails extends Component {
             defaultValue={values.firstName}
             />
             
-            <h6><label className="red-text">*</label>שם משפחה:</h6>
+            <h6><label className="red-text3">*</label>שם משפחה:</h6>
             <TextField
             placeholder={this.state.missingField}
             onChange={this.props.handleChange('lastName')}
             onInput={(e) => {this.validLast(e)}}
             defaultValue={values.lastName}
             />
-            <h6><label className="red-text">*</label>דוא"ל: </h6>
+            <h6><label className="red-text3">*</label>דוא"ל: </h6>
             <TextField
             placeholder={this.state.missingField}
             type="email"
@@ -253,18 +253,18 @@ export class PersonalDetails extends Component {
                 width={50}
                 visible={this.state.loading}
                 />
-            <h6><label className="red-text">{this.state.wrongEmail}</label></h6>
+            <h6><label className="red-text3">{this.state.wrongEmail}</label></h6>
             <h6><label className="green-text">{this.state.goodEmail}</label></h6>
-            <h6><label className="red-text">*</label>טלפון:</h6>
+            <h6><label className="red-text3">*</label>טלפון:</h6>
             <TextField
             placeholder={this.state.missingField}
             onChange={this.props.handleChange("phone")}
             onInput={(e) => {this.validPhone(e)}}
             value={this.props.values.phone}
             />
-            <h6><label className="red-text">{this.state.badPhone}</label></h6>
+            <h6><label className="red-text3">{this.state.badPhone}</label></h6>
             <h6><label className="green-text">{this.state.goodPhone}</label></h6>
-            <h6><label className="red-text">*</label>עיר:</h6>
+            <h6><label className="red-text3">*</label>עיר:</h6>
             <select 
             className="city-drp-down"
             defaultValue={values.city}
@@ -274,8 +274,8 @@ export class PersonalDetails extends Component {
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
-            {/* <h6><label className="red-text">העיר שלכם לא ברשימה? <label href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</label> </label></h6> */}
-            <h6><label className="red-text">*</label>רחוב: </h6>
+            {/* <h6><label className="red-text3">העיר שלכם לא ברשימה? <label href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</label> </label></h6> */}
+            <h6><label className="red-text3">*</label>רחוב: </h6>
             <TextField
             placeholder={this.state.missingField}
             onChange={this.props.handleChange('address')}

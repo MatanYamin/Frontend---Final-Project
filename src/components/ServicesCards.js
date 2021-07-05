@@ -21,7 +21,9 @@ function ServicesCards() {
         
     return(
         <div className="cards">
-            <h1>הזמנת ניקוי עד הבית</h1>
+            <h1>הזמנת ניקוי עד הבית.</h1>
+            <br/>
+            <h1>אנא בחרו קטגוריה:</h1>
             {/* {text} */}
             <div className="cards__container">
                 <div className="cards__wrapper">
@@ -29,13 +31,13 @@ function ServicesCards() {
                         <SingleService 
                         imgurl="https://i.ibb.co/VChPMLY/eco-car-wash.jpg" 
                         name="רכב"
-                        text="טיפול במושבים/ספסלים/כסאות ועוד מגוון רחב של אפשרויות לניקוי. היכנסו לפרטים"
+                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Cars"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/bvFRLRg/sofa.jpg" 
                         name="ספות"
-                        text="אנו מנקים את כל סוגי הספות"
+                        text="‎‎⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Furniture"
                         />
                     </ul>
@@ -43,19 +45,19 @@ function ServicesCards() {
                         <SingleService 
                         imgurl="https://i.ibb.co/VJw3B5b/carpet.jpg" 
                         name="שטיחים"
-                        text="אנחנו מנקים את כל סוגי השטיחים. היכנסו לקבלת פרטים נוספים"
+                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Rugs"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/PGVYcd6/chair.jpg" 
                         name="כיסאות"
-                        text="ניקוי רחב של ספות. היכנסו לקבלת פרטים"
+                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Chairs"
                         />
                         <SingleService 
                         imgurl="https://www.fourstar.com.sg/wp-content/uploads/2019/12/how-to-clean-your-mattress-right-during-spring-cleaning.png" 
                         name="מזרנים"
-                        text="ניקוי רחב של מזרנים ומיטות שונות. היכנסו לקבלת פרטים."
+                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Mattress"
                         />
                         </ul>

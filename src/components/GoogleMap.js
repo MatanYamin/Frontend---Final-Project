@@ -15,8 +15,8 @@ import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 import PinDropIcon from '@material-ui/icons/PinDrop';
-const url = "http://127.0.0.1:5000/"
-// const url = "https://skycleanerapi.xyz/"
+// const url = "http://127.0.0.1:5000/"
+const url = "https://skycleanerapi.xyz/"
 
 
 export class MapContainer extends Component {
@@ -83,7 +83,8 @@ handleClose = (e) => {
     );
     this.setState({
       show: !this.state.show,
-      modalTitle: e.title
+      modalTitle: e.title,
+      showDirections: false
     })
   }
 }

@@ -34,6 +34,7 @@ const DropdownLink = styled(Link)`
     background: #414757;
     height: 60px;
     padding-right: 2rem;
+    padding-left: 1rem;
     display: flex;
     align-items: center;
     text-decoration: none;
