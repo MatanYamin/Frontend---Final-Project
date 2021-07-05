@@ -67,7 +67,8 @@ handleClose = (e) => {
       nextLat: e.position.lat,
       nextLng: e.position.lng
     })
-    this.getDistanceOneToOne();
+    this.getLocations();
+    // this.getDistanceOneToOne();
     this.state.details.forEach((data) => {
       if(data[4].includes(e.title)){
         this.setState({
@@ -94,6 +95,50 @@ handleOff = () => {
     show: !this.state.show
   })
 }
+
+
+
+getLocations = () => {
+  const Location1Str = this.state.currentLat + "," + this.state.currentLng;
+  const Location2Str = this.state.nextLat + "," + this.state.nextLng;
+  // var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+  // new window.google.setLanguage('iw')
+  var service = new window.google.maps.DistanceMatrixService();
+  service.getDistanceMatrix(
+    {
+      origins: [Location1Str],
+      destinations: [Location2Str],
+      travelMode: 'DRIVING',
+    }, this.callback);
+
+}
+
+ callback = (response, status) => {
+   console.log(response)
+  if (status === 'OK') {
+    Geocode.fromLatLng(this.state.currentLat, this.state.currentLng, myAPI, "iw").then(
+      (response) => {
+        // every city is added to the state and later is marking the map
+        this.setState({
+          currentLocationText: response.results[[0]].formatted_address
+        })
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  let hours = Math.floor(response.rows[[0]].elements[[0]].duration.value / 3600);
+  response.rows[[0]].elements[[0]].duration.value %= 3600;
+  let minutes = Math.floor(response.rows[[0]].elements[[0]].duration.value / 60);
+   this.setState({
+    directionTime: hours + " שעות ו " + minutes + " דקות",
+    directionDistance: (response.rows[[0]].elements[[0]].distance.value/1000).toFixed(1) + " ק''מ",
+    currentLocationText: Geocode.fromLatLng(this.state.currentLat, this.state.currentLng, myAPI, "iw")
+    })
+
+}
+ }
+
 
 handleDirections = () => {
   this.setState({
@@ -187,6 +232,7 @@ componentDidUpdate(prevProps, prevState){
   render() {
       return (
         <>
+        <button onClick={this.getLocations}>asdsadsad</button>
         <Modal show={this.state.show} onHide={this.handleOff}>
         <Modal.Header closeButton>
           <Modal.Title><HomeIcon style={{ verticalAlign: "sub" }} fontSize="large" /> {this.state.modalTitle}</Modal.Title>
