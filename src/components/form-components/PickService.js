@@ -9,7 +9,6 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from "react-loader-spinner";
-import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import RoomServiceIcon from '@material-ui/icons/RoomService';
@@ -125,7 +124,7 @@ export class PickService extends Component {
     }
     render() {
         const {values} = this.props; //values is all the props we passed to the component
-        const {showing} = this.state;
+        // const {showing} = this.state;
         const {openPopUp} = this.state;
         const {serviceOrAddon} = this.state;
         const services_button_list = [];
@@ -254,7 +253,6 @@ export class PickService extends Component {
             open={this.state.openPopUp2}
             trigger={<button className="dit_btn_1">לצפייה בשירותים לסוג שנבחר <i className="fas fa-images"></i></button>}
             on="click"
-            open={this.state.openPopUp2}
             onOpen={() => this.setState({ openPopUp2: !this.state.openPopUp2 })}
             >
                 <div className="pop-up-content5">
