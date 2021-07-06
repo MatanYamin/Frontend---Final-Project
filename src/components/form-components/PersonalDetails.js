@@ -8,10 +8,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import config from "../../../src/configur";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import PersonIcon from '@material-ui/icons/Person';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Grid from '@material-ui/core/Grid';
 
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
