@@ -1,12 +1,18 @@
 //By Matan Yamin
-import React from "react"
-import { Component } from "react"
-import TextField from "../../../node_modules/@material-ui/core/TextField"
-import "./Form.css"
-import ReactS3 from "react-s3"
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import React from "react";
+import { Component } from "react";
+import TextField from "../../../node_modules/@material-ui/core/TextField";
+import "./Form.css";
+import ReactS3 from "react-s3";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-import config from "../../../src/configur"
+import config from "../../../src/configur";
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import PersonIcon from '@material-ui/icons/Person';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Grid from '@material-ui/core/Grid';
+
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -31,6 +37,13 @@ export class PersonalDetails extends Component {
             temp: "",
             streetCheck: "",
             firstNameFlag: false,
+            checkEmail: false,
+            checkPhoneFlag: false,
+            flag1: false,
+            flag2: false,
+            flag3: false,
+            flag4: false,
+            flag5: false,
             missingField: "",
             missFieldText: ""
         };
@@ -79,7 +92,6 @@ export class PersonalDetails extends Component {
             })
         })
     }
-
     // componentDidUpdate(prevProps, prevState){
     //     if (prevState.cities !== this.state.cities) {
     //         // this.get_note(this.props.service);
@@ -135,27 +147,47 @@ export class PersonalDetails extends Component {
     //validate first name (if exists)
     validFirst(e){
         this.setState({firstNameValue: e.target.value});
+        if(e.target.value.length >= 2){
+            this.setState({
+                flag1: true
+            })
+        }
+        else{
+            this.setState({
+                flag1: false
+            })
+        }
     }
 
     //validate last name (if exists)
     validLast(e){
         this.setState({lastNameValue: e.target.value});
+        if(e.target.value.length >= 2){
+            this.setState({
+                flag2: true
+            })
+        }
+        else{
+            this.setState({
+                flag2: false
+            })
+        }
     }
 
     // validate the email address
     validEmail(e){
         this.setState({mailValue: e.target.value});
         if(e.target.value === ""){
-            this.setState({goodEmail: ""});
+            this.setState({goodEmail: "", checkEmail: false});
             this.setState({wrongEmail: ""});
         }
         // check if email is valid
         if(new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(this.state.mailValue) === true && e.target.value !== ""){
-                this.setState({wrongEmail: ""});
+                this.setState({wrongEmail: "", checkEmail: false, flag3: true});
                 this.setState({goodEmail: "כתובת תקינה"});
             }
         else{
-            this.setState({wrongEmail: "כתובת לא תקינה"});
+            this.setState({wrongEmail: "כתובת לא תקינה", checkEmail: true, flag3: false});
             this.setState({goodEmail: ""});
         }
     }
@@ -163,17 +195,17 @@ export class PersonalDetails extends Component {
     // check if the input is only digits
     validPhone(e){
         this.setState({checkPhone: e.target.value});
-        if(!/^\d+$/.test(e.target.value)){
+        if(!/^\d+$/.test(e.target.value) && e.target.value){
             alert("ניתן להקליד ספרות בלבד");
-            this.setState({checkPhone: ""});
+            this.setState({checkPhone: "", checkPhoneFlag: true, flag4: false});
         }
         if(e.target.value.length < 7){
             this.setState({badPhone: "מספר קצר מידי"});
-            this.setState({goodPhone: ""});
+            this.setState({goodPhone: "", checkPhoneFlag: true, flag4: false});
         }
         else{
             this.setState({badPhone: ""});
-            this.setState({goodPhone: "מספר תקין"});
+            this.setState({goodPhone: "מספר תקין", checkPhoneFlag: false, flag4: true});
         }
     }
 
@@ -222,23 +254,34 @@ export class PersonalDetails extends Component {
             </div> */}
             <h6 className="red-text3">שדות שמסומנים ב * הינם חובה</h6> 
             <div className="personal-wrapper">
+            <img alt="" className="img_on_form" src="https://i.ibb.co/9bS1Xfm/A11.jpg" />
             <h6><label className="red-text3">*</label>שם פרטי: </h6>
+            <div>
             <TextField 
             placeholder={this.state.missingField}
             onChange={this.props.handleChange('firstName')}
             onInput={(e) => {this.validFirst(e)}}
             defaultValue={values.firstName}
             />
+            &nbsp;&nbsp;
+            {this.state.flag1? <><CheckCircleOutlineIcon /></> : null}
             
+            </div>
             <h6><label className="red-text3">*</label>שם משפחה:</h6>
+            <div>
             <TextField
             placeholder={this.state.missingField}
             onChange={this.props.handleChange('lastName')}
             onInput={(e) => {this.validLast(e)}}
             defaultValue={values.lastName}
             />
+            &nbsp;&nbsp;
+            {this.state.flag2? <><CheckCircleOutlineIcon /></> : null}
+            </div>
             <h6><label className="red-text3">*</label>דוא"ל: </h6>
+            <div>
             <TextField
+            error={this.state.checkEmail}
             placeholder={this.state.missingField}
             type="email"
             onChange={this.props.handleChange('email')}
@@ -246,6 +289,9 @@ export class PersonalDetails extends Component {
             defaultValue={values.email}
             required={true}
             />
+            &nbsp;&nbsp;
+            {this.state.flag3? <><CheckCircleOutlineIcon /></> : null}
+            </div>
             <Loader
                 type="TailSpin"
                 color="black"
@@ -253,17 +299,22 @@ export class PersonalDetails extends Component {
                 width={50}
                 visible={this.state.loading}
                 />
-            <h6><label className="red-text3">{this.state.wrongEmail}</label></h6>
-            <h6><label className="green-text">{this.state.goodEmail}</label></h6>
+            <p className="red-text3">{this.state.wrongEmail}</p>
+           <p className="green-text">{this.state.goodEmail}</p>
             <h6><label className="red-text3">*</label>טלפון:</h6>
+            <div>
             <TextField
+            error={this.state.checkPhoneFlag}
             placeholder={this.state.missingField}
             onChange={this.props.handleChange("phone")}
             onInput={(e) => {this.validPhone(e)}}
             value={this.props.values.phone}
             />
-            <h6><label className="red-text3">{this.state.badPhone}</label></h6>
-            <h6><label className="green-text">{this.state.goodPhone}</label></h6>
+            &nbsp;&nbsp;
+            {this.state.flag4? <><CheckCircleOutlineIcon /></> : null}
+            </div>
+            <label className="red-text3">{this.state.badPhone}</label>
+           <label className="green-text">{this.state.goodPhone}</label>
             <h6><label className="red-text3">*</label>עיר:</h6>
             <select 
             className="city-drp-down"
@@ -274,18 +325,24 @@ export class PersonalDetails extends Component {
             {this.state.cities.map(city => (
             <option value={city}>{city}</option>))}
             </select>
+            <br/>
             {/* <h6><label className="red-text3">העיר שלכם לא ברשימה? <label href="https://skycleanerisrael.com/contact">צרו איתנו קשר!</label> </label></h6> */}
-            <h6><label className="red-text3">*</label>רחוב: </h6>
+            <h6><label className="red-text3">*</label>רחוב ומספר בית:  </h6>
+            <div>
             <TextField
             placeholder={this.state.missingField}
             onChange={this.props.handleChange('address')}
             defaultValue={values.address}
             onInput={(e) => {
                 this.setState({
-                    streetCheck: e.target.value
+                    streetCheck: e.target.value,
+                    flag5: true
                 })
             }}
             />
+            &nbsp;&nbsp;
+            {this.state.flag5? <><CheckCircleOutlineIcon /></> : null}
+            </div>
             <h6>הערות:</h6>
             <TextField
             onChange={this.props.handleChange('comments')}
@@ -293,10 +350,10 @@ export class PersonalDetails extends Component {
             />
             <h6>אנא העלו תמונה של הפריט כדי שניצור איתכם קשר במידת הצורך</h6>
             <label className="image_upload_input">העלה תמונה
-            <input hidden type="file" onChange={this.uploadToS3} />
+            <input className="thisInput" type="file" onChange={this.uploadToS3} />
             </label>
             <div className="show-image">
-            <img alt="" className="img-customer-upload" src={this.state.image} />
+            <img alt="" className="img-customer-upload" src={this.props.values.image} />
             </div>
                 <div className="red-text-error">
                     {this.state.missFieldText}

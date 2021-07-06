@@ -16,6 +16,7 @@
 .thisTitle2{
     background-color: rgba(255, 255, 255, 0.9);
     padding: 7px;
+    font-weight: bold;
 }
 
 .lastConfirm{
@@ -231,6 +232,13 @@
     border-top-right-radius: calc(.3rem - 1px);
 }
 
+.img_on_form{
+    width: 16vw;
+    position: absolute;
+    left: 32vw;
+    border-radius: 28px;
+}
+
 .modal-backdrop.show{
     opacity: .5;
 }
@@ -278,6 +286,9 @@ textarea{
     height: 70vh;
 }
 
+.thisInput{
+    visibility: hidden;
+}
 
 .imageBuild img{
     width: 50%;
@@ -536,7 +547,6 @@ input {
 
 .image_upload_input{
     width: fit-content;
-    justify-self: center;
     border: solid;
     padding: 0.5vw;
     margin-top: 0.7vh;
@@ -549,19 +559,22 @@ input {
 }
 
 .first{
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.65);
     cursor: pointer;
+    border-bottom-left-radius: 26px;
     width: 17vw;
+    font-weight: bold;
 }
 
 .second{
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.65);
     color: white;
     cursor: pointer;
+    border-bottom-left-radius: 26px;
     text-decoration: none;
     width: 17vw;
     position: absolute;
+    font-weight: bold;
     right: 0;
 }
 
@@ -569,9 +582,12 @@ input {
     position: fixed;
     right: 0;
     margin-left: 0vw;
+    font-weight: bold;
     margin-top: 3vh;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    /* background: rgba(0, 0, 0, 0.6); */
+    background-color: rgba(255, 255, 255, 0.4);
+    color: black;
+    border-radius: 38px;
     padding: 0.3vw;
     width: 17vw;
     transition: all 0.6s linear;
@@ -622,7 +638,8 @@ input {
 }
 
 .personal-wrapper h6{
-    font-size: 1.5vw;
+    font-size: 1vw;
+    padding: 6px;
 }
 
 .react-datepicker__week{
@@ -863,6 +880,7 @@ input {
 .pick-hour-btn{
     display:inline-block;
     padding:0.3em 1.2em;
+    border-radius: 18px;
     margin:0 0.6em 0.0em 0;
     /* border-radius:2em; */
     box-sizing: border-box;
@@ -1143,12 +1161,8 @@ input {
 
   .text-on-bubble{
     position: absolute;
-    /* left: 108px;
-    top: 192px;
-    width: 352px;
-    font-size: 17px; */
-    left: 8vw;
-    top: 14vh;
+    left: 6.5vw;
+    top: 16vh;
     width: 25vw;
     font-size: 3vh;
   }
@@ -1351,7 +1365,7 @@ input {
     color: black;
     cursor: pointer;
     text-align: center;
-    font-size: 1.3vw;
+    font-size: 1vw;
 }
 
 .del-city-drp-down{
@@ -1422,6 +1436,7 @@ input {
 
 .red-text3{
     color: red;
+    font-size: 1vw;
 }
 
 .img-show_form{
@@ -1434,6 +1449,7 @@ input {
 
 .green-text{
     color: green;
+    font-size: 1vw;
 }
 
 .pick-service-containet{
@@ -1450,10 +1466,34 @@ input {
     padding: 25px;
     border-radius: 20px;
     /* margin-top: 5px; */
-    /* width: 70%; */
+    /* width: 52%; */
     margin-top: 1vh;
-    width: 65vw;
+    /* width: 65vw; */
+    justify-items: baseline;
     text-align-last: center;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.personal-wrapper input{
+    width: 55vw;
+    font: inherit;
+    color: currentColor;
+    width: 100%;
+    border: 0;
+    background: #f7f7f7;
+    height: 1.1876em;
+    margin: 0px;
+    display: block;
+    padding: 2px 10px 3px;
+    min-width: 0;
+    text-align-last: right;
+    /* background: none; */
+    box-sizing: content-box;
+    animation-name: mui-auto-fill-cancel;
+    letter-spacing: inherit;
+    animation-duration: 10ms;
+    border-radius: 7px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -1467,8 +1507,21 @@ input {
     /* left: 50%; */
     /* right: 0; */
     /* left: 0; */
-    /* font-size: 1.8vw; */
+    font-size: 1.1vw;
     height: 100vh;
+}
+
+.confirm-wrapper .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    vertical-align: bottom;
+    /* float: left; */
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
 }
 
 .img-customer-upload{
@@ -2028,5 +2081,9 @@ input {
         margin-bottom: 20px;
         border-radius: 20px;
         background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .img_on_form{
+        display: none;
     }
 }

@@ -31,6 +31,7 @@ export class PickService extends Component {
             openPopUp: false,
             openPopU2: false,
             serviceOrAddon: true,
+            okToCklick: false,
             first_price: '',
             ser: "",
             service_description: "",
@@ -235,6 +236,7 @@ export class PickService extends Component {
               {this.state.imagesArray.map(img => (
                 <img alt="" className="imgs-to-customer" src={img} />))}
                     </div>
+
             </Popup>
             {/* <br/><br/>
             <button className="addon-btn" onClick={() => this.setState({ 
@@ -248,6 +250,7 @@ export class PickService extends Component {
 
 
             &nbsp;
+
             <Popup 
             // className="check-me" 
             open={this.state.openPopUp2}
@@ -270,13 +273,29 @@ export class PickService extends Component {
             <br/>
             <button 
             className="addon-btn-cancel2"
-            onClick={() => this.setState({ 
+            onClick={() => {this.setState({ 
                 openPopUp2: false
-                 })}>חזור</button>
-              
+                 })
+                  this.props.handleAddon("")}
+                  }>ביטול</button>
+                 &nbsp;
+            {this.props.values.addons ? <>
+             <button className="addon-btn-cancel2" 
+             onClick={() => this.setState({
+                 openPopUp2: false
+             })}
+             > אישור </button>
+             </> 
+                : 
+                <> 
+        <button className="addon-btn-cancel2" disabled
+             onClick={() => this.setState({
+                 openPopUp2: false
+             })}
+             > אישור </button>
+                 </>}
                     </div>
             </Popup>
-
             {/* ------------------------ */}
             {/* <br/> */}
                  
@@ -317,6 +336,9 @@ export class PickService extends Component {
 
                      })}
                  >ביטול</button>
+                 &nbsp;
+            <button className="dit_btn_15" onClick={this.continue}>המשך</button>
+
                  </div>
                  <br/>
             </>
@@ -329,7 +351,7 @@ export class PickService extends Component {
             <br/><br/>
             </div>
             <div className="step-btn-container">
-            <button className="step-btn" onClick={this.continue}>המשך</button>
+            {/* <button className="step-btn" onClick={this.continue}>המשך</button> */}
              </div>
              </div>
              {/* </div> */}
