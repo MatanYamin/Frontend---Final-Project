@@ -9,6 +9,7 @@ import Loader from "react-loader-spinner";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -73,7 +74,7 @@ render() {
                 hour: hour_now
                  })}
             >
-            {hour_now}</button>)));
+            {hour_now} <QueryBuilderIcon /></button>)));
     return(
         <>
         <Tabs

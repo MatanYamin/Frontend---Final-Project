@@ -11,6 +11,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -113,12 +114,7 @@ export class PickDateAndConfirm extends Component {
             {hour_now} <QueryBuilderIcon /></button>)));
     return (
         <>
-        {/* <div className="bubble-man">
-        <div className="text-on-bubble">
-            
-                <label>{this.state.textOnBubble}</label>
-            </div>
-        </div> */}
+        
         <div className="pickDateContainer">
             <br/>
             {this.props.date}
@@ -143,6 +139,20 @@ export class PickDateAndConfirm extends Component {
             <br/><br/>
             {hours_button_list}
             </div>
+            <div className="showDitsNextToCalendar">
+            <AttachFileIcon />
+            • {firstName + " " + lastName}
+            <br/>
+            • {city + ", " + address}
+            <br/>
+            • {service + ": " + addons}
+            <br/>
+            • {phone}
+            <br/>
+            • {email}
+            <br/>
+            • {price + " ש''ח"}
+        </div>
             <DatePicker 
             locale={he}
             // autoFocus
@@ -165,8 +175,10 @@ export class PickDateAndConfirm extends Component {
                     
                     />
             <br/>
+            
             {/* <div className="hours_to_display"> */}
             </div>
+            
             {/* </div> */}
                 {/* <select className="service-btn"
                 onChange={this.props.handleChange('hour')}

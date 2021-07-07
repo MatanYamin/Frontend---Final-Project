@@ -7,7 +7,7 @@ export class Success extends Component {
     render() {
         // const {values: {service, price, addons, date, hour, firstName, lastName, email, address, city, phone, comments, image}} = this.props;
     return (
-        <div>
+        <div className="successFinalPage">
             <br/>
             <h1>התור נקבע בהצלחה!</h1>
             <h2>מייל עם כל הפרטים בדרך אליכם...</h2>

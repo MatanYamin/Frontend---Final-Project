@@ -72,7 +72,7 @@ const Sidebar = (props) => {
         <IconContext.Provider value={{color: '#fff'}}>
         <Nav>
         &nbsp;&nbsp;&nbsp;
-            <img alt="" className="iconRight" src="https://i.ibb.co/JQZkh2n/favicon.png" />
+            <a href="/"><img  alt="" className="iconRight" src="https://i.ibb.co/JQZkh2n/favicon.png" /></a>
             <NavIcon>
                 {/* <FaIcons.FaBars onClick={showSidebar}/> */}
             </NavIcon>

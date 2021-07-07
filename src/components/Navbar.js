@@ -47,20 +47,20 @@ function Navbar() {
                         </Link>
                     </li>
                     <li className='nav-item'>
-                        <Link to='/SOS' className='nav-links' onClick={closeMobileMenu}>
-                            שירות SOS
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
                         <Link to='/About' className='nav-links' onClick={closeMobileMenu}>
-                            קצת עלינו
+                            אודות
                         </Link>
                     </li>
                     <li className='nav-item'>
+                        <Link to='/SOS' className='nav-links' onClick={closeMobileMenu}>
+                            שירות מהיר
+                        </Link>
+                    </li>
+                    {/* <li className='nav-item'>
                         <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
                             צרו קשר
                         </Link>
-                    </li>
+                    </li> */}
                     <li className='nav-item'>
                         <Link to='/adminLogin' className='nav-links' onClick={closeMobileMenu}>
                             עמוד ניהול

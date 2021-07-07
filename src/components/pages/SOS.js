@@ -6,9 +6,10 @@ import "../form-components/Form.css"
 export default function SOS() {
     // const page = window.location.pathname.substring(1);
     return(
-        <div className="about">
-            <h1>
-                צריכים שירות דחוף ואתם לא יכולים לחכות? צרו איתנו קשר באחד מהפורטלים:
+        <div className="sosService">
+                צריכים ניקיון דחוף?
+                <br/>
+                צרו איתנו קשר דרך אחד הפורטלים ונשתדל לספק לכם מענה מהיר.
                 <br/>
                 <div className="social-icons-sos">
                     <a href="https://www.facebook.com/SkyCleanerIsrael"><i className="fab fa-facebook-f"></i></a>
@@ -21,7 +22,6 @@ export default function SOS() {
                     &nbsp;&nbsp;
                     <a href="mailto:skycleanerisrael@gmail.com"><i className="fas fa-envelope"></i></a>
                     </div>
-            </h1>
-        </div>
+            </div>
     );
 }

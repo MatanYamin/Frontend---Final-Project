@@ -227,12 +227,9 @@ componentDidUpdate(prevProps, prevState){
     );
   }
 
-
-  
   render() {
       return (
         <>
-        <button onClick={this.getLocations}>asdsadsad</button>
         <Modal show={this.state.show} onHide={this.handleOff}>
         <Modal.Header closeButton>
           <Modal.Title><HomeIcon style={{ verticalAlign: "sub" }} fontSize="large" /> {this.state.modalTitle}</Modal.Title>

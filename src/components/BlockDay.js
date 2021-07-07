@@ -33,6 +33,7 @@ export class BlockDay extends Component {
 
 
 render() {
+    const weakDays = ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "יום שבת"]
     return(
         <>
             <Tabs
@@ -59,6 +60,25 @@ render() {
             filterDate={day => day.getDay() !== 6} // for weekends
             />
             <br/>
+            {this.state.selectedDate? 
+            <>
+            <div className="showBlocked">
+            בחרת לחסום את: 
+            &nbsp;
+            {weakDays[this.state.selectedDate.getDay()]}
+            <br/>
+            בתאריך:
+            &nbsp;
+             {this.state.selectedDate.getDate()}
+             /
+             {this.state.selectedDate.getMonth()+1}
+             </div>
+             </>
+                 :
+                  <>
+
+                   </>}
+            
             <lable>{this.state.text1}</lable>
             <div className="btnContainer">
             <Loader
