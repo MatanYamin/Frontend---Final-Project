@@ -175,11 +175,13 @@ export class PickService extends Component {
           <Tab icon={<RoomServiceIcon />} label={"שירות שנבחר: " + this.props.values.service + " " + this.props.values.addons} />
           <Tab icon={<LocalOfferIcon />} label={"המחיר: " + this.props.values.price} />
         </Tabs>
-            <div className="bubble-man">
+            {/* <div className="bubble-man">
             <div className="text-on-bubble">
                 <label>{this.state.textOnBubble}</label>
             </div>
-                </div>
+                </div> */}
+            <div className="conteinerMom">
+                
              <div className="pick-service-containet">
                 <div className="pick-service-headline">
                 </div>
@@ -187,18 +189,8 @@ export class PickService extends Component {
                 <h1>{this.state.titleService}</h1>
             <div className="whole_pick_ser_containet">
             <div className="pick-ser-select-btn">
-            {/* <select
-            defaultValue={this.props.service}
-            className="service-btn"
-            onChange={this.props.handleChange("service")}
-            onInput={(e) => {this.setPrice(e)}}
-            >
-            <div className="background-img"></div>
-            <option value="nothing">בחרו שירות </option>
-            {this.state.service_array.map(service => (
-                <option value={service}>{service}</option>))}
-            </select> */}
             {serviceOrAddon ? <>
+            <p className="pickTxt">אנא בחרו שירות</p>
             <div className="service-btn-container">
             {services_button_list}
             </div>
@@ -208,6 +200,7 @@ export class PickService extends Component {
             <img className="thisImage" alt="" width="50%"
             src={this.state.imageService} />
              </>}
+            </div>
             <Loader
             type="TailSpin"
             color="black"
@@ -218,6 +211,11 @@ export class PickService extends Component {
             </div>
             {this.state.showDescription ?
             <>
+            <div className="bubble-man">
+            <div className="text-on-bubble">
+                <label>{this.state.textOnBubble}</label>
+            </div>
+                </div>
             &nbsp;&nbsp;
             <br/>
             <div className="newAddonCont">
@@ -236,23 +234,9 @@ export class PickService extends Component {
               {this.state.imagesArray.map(img => (
                 <img alt="" className="imgs-to-customer" src={img} />))}
                     </div>
-
             </Popup>
-            {/* <br/><br/>
-            <button className="addon-btn" onClick={() => this.setState({ 
-                showing: !showing
-                 })}>לחצו לצפייה בשירותים לסוג שבחרתם</button> */}
-            {/* <br/> */}
-
-
-
-            {/* ------------------------ */}
-
-
             &nbsp;
-
             <Popup 
-            // className="check-me" 
             open={this.state.openPopUp2}
             trigger={<button className="dit_btn_1">לצפייה בשירותים לסוג שנבחר <i className="fas fa-images"></i></button>}
             on="click"

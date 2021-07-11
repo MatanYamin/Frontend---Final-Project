@@ -96,7 +96,6 @@ export class Addon extends Component {
             
         return(
             <div>
-                
             {/* <select 
             className="addon-btn"
             onChange={this.props.handleChange('addons')}

@@ -8,6 +8,57 @@
     text-decoration: none;
 }
 
+.pickTxt{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 37vh;
+    font-weight: bold;
+}
+
+.row1{
+    background: #e8e8e8;
+    display: block;
+    font-family: "Nunito", sans-serif;
+    padding: 5px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.row2{
+    background: whitesmoke;
+    display: block;
+    font-family: "Nunito", sans-serif;
+    padding: 5px;
+    
+}
+
+.deatailsOnMap{
+    top: 14vh;
+    position: absolute;
+    left: 1.15vw;
+    font-size: 1.2vw;
+    text-align: center;
+    background: white;
+    /* padding: 7px; */
+    border-radius: 7px;
+    font-weight: bold;
+    font-family: "Nunito", sans-serif;
+}
+
+.deatailsOnMap .MuiSvgIcon-root{
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
+    /* position: absolute; */
+    /* left: 0.5vw; */
+}
+
 .sosService{
     text-align: center;
     font-size: 2.5vw;
@@ -490,6 +541,9 @@ textarea{
 
 input {
     width: 14vw;
+    border-radius: 8.5px;
+    padding: 1.5px;
+    outline:none;
   }
 
 .MuiTabs-flexContainer{
@@ -603,6 +657,7 @@ input {
     border: none;
     background: none;
     height: 20px;
+    cursor: pointer;
 }
 
 .pickRegion:focus{
@@ -841,7 +896,8 @@ input {
 
 
 .service-btn-container{
-  width: 58vw;
+  /* width: 58vw; */
+  width: 95vw;
   /* position: fixed; */
   /* overflow: auto; */
   /* height: 70vh; */
@@ -1216,14 +1272,22 @@ input {
   .bubble-man{
     /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Speech_bubble.svg/1280px-Speech_bubble.svg.png);
     background-repeat: no-repeat, repeat;
-    background-size: 80vh 34vw; */
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Speech_bubble.svg/1280px-Speech_bubble.svg.png);
-    background-repeat: no-repeat, repeat;
     background-size: 80vh 34vw;
     height: 100vh;
     width: 40vw;
     left: 0;
-    position: fixed;
+    position: fixed; */
+
+
+
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Speech_bubble.svg/1280px-Speech_bubble.svg.png);
+    background-repeat: no-repeat, repeat;
+    background-size: 80vh 28vw;
+    height: 100vh;
+    width: 63vw;
+    position: absolute;
+    top: 38.5vh;
+    left: 0;
 }
 
   .text-on-bubble{
@@ -2157,4 +2221,5 @@ input {
     .showDitsNextToCalendar{
         display: none;
     }
+
 }

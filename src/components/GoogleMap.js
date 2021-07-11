@@ -15,6 +15,7 @@ import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
 import PinDropIcon from '@material-ui/icons/PinDrop';
+import WatchLaterIcon from '@material-ui/icons/WatchLater';
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
 
@@ -46,7 +47,9 @@ export class MapContainer extends Component {
       modalTitle: "",
       modalBody: "",
       directionsButton: "זמני הגעה",
-      currentLocationText: ""
+      currentLocationText: "",
+      totalCount: 0,
+      nextBooking: ""
     };
     this.getCoordinateFromLocation = this.getCoordinateFromLocation.bind(this);
 }
@@ -96,8 +99,6 @@ handleOff = () => {
   })
 }
 
-
-
 getLocations = () => {
   const Location1Str = this.state.currentLat + "," + this.state.currentLng;
   const Location2Str = this.state.nextLat + "," + this.state.nextLng;
@@ -139,7 +140,6 @@ getLocations = () => {
 }
  }
 
-
 handleDirections = () => {
   this.setState({
     showDirections: !this.state.showDirections
@@ -180,7 +180,9 @@ componentDidMount() {
   this.readAddresses().then((data) => {
     this.setState({
         cities: data[0],
-        details: data[1]
+        details: data[1],
+        nextBooking: data[1],
+        totalCount: data[0].length
     });
     this.state.cities.map((address) => (
       this.getCoordinateFromLocation(address)
@@ -230,6 +232,7 @@ componentDidUpdate(prevProps, prevState){
   render() {
       return (
         <>
+        
         <Modal show={this.state.show} onHide={this.handleOff}>
         <Modal.Header closeButton>
           <Modal.Title><HomeIcon style={{ verticalAlign: "sub" }} fontSize="large" /> {this.state.modalTitle}</Modal.Title>
@@ -271,6 +274,27 @@ componentDidUpdate(prevProps, prevState){
         </Modal.Footer>
       </Modal>
     <Map google={this.props.google} zoom={9} centerAroundCurrentLocation>
+        <div className="deatailsOnMap">
+          <WatchLaterIcon />
+          <br/>
+          {this.state.nextBooking[this.state.totalCount-1] ? <>
+            <p className="row2">
+          סה"כ: {this.state.totalCount}
+          </p>
+            <p className="row1">
+          תור קרוב:
+          <br/>
+          {this.state.nextBooking[this.state.totalCount-1][4]}
+          <br/>
+          {this.state.nextBooking[this.state.totalCount-1][7]}
+          <br/>
+          {this.state.nextBooking[this.state.totalCount-1][6]}
+          </p>
+           </>
+           :
+          null}
+          
+        </div>
      {this.state.markers}
           <InfoWindow onClose={this.onInfoWindowClose} visible={true}>
           </InfoWindow>

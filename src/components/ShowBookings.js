@@ -11,6 +11,8 @@ import UpdateIcon from '@material-ui/icons/Update';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import AllInclusiveIcon from '@material-ui/icons/AllInclusive';
 import SearchIcon from '@material-ui/icons/Search';
+import CancelIcon from '@material-ui/icons/Cancel';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 // const url = "http://3.19.66.156/"
 // const url = "http://127.0.0.1:5000/"
 const url = "https://skycleanerapi.xyz/"
@@ -186,6 +188,7 @@ render() {
             width={50}
             visible={this.state.loading}
             />
+        <i className="filterSearchAlone">
          <select onChange={(e) => this.handleFilter(e)}>
             <option value={1}>שם</option>
             <option value={2}>דוא"ל</option>
@@ -194,9 +197,10 @@ render() {
             <option value={5}>שירות</option>
             <option value={6}>תאריך</option>
         </select>
+        </i>
         &nbsp;
          <input
-         placeholder="הקלד..."
+         placeholder="הקלד ערך..."
          onInput={(e) => {this.searchTable(e)}} />
          <label className="searchIcon"><SearchIcon /></label>
          </div>
@@ -255,75 +259,85 @@ render() {
                     className="delet-btn-show-booking"
                     onClick={() => 
                         {
-                            this.setState({
-                                loading: true
-                            });
-                            try{
-                                fetch(url + "delete/booking", {
-                                    method: "DELETE",
-                                    body: JSON.stringify({
-                                        id: rowData[0],
-                                        day: rowData[6],
-                                        hour: rowData[7]
-
+                            let confirm = window.confirm(
+                                "אתה בטוח שברצונך למחוק את התור?"
+                              )
+                            if(confirm){
+                                this.setState({
+                                    loading: true
+                                });
+                                try{
+                                    fetch(url + "delete/booking", {
+                                        method: "DELETE",
+                                        body: JSON.stringify({
+                                            id: rowData[0],
+                                            day: rowData[6],
+                                            hour: rowData[7]
+    
+                                        })
                                     })
-                                })
-                                .then(
-                                    (response) => {
-                                        if(response.status === 200){
-                                            this.setState({
-                                                // changes when the status is ok and the function worked succesfully
-                                                loading: false,
-                                                customers: this.state.customers.filter((_, i) => i !== this.state.customers.indexOf(rowData))
-                                            })
+                                    .then(
+                                        (response) => {
+                                            if(response.status === 200){
+                                                this.setState({
+                                                    // changes when the status is ok and the function worked succesfully
+                                                    loading: false,
+                                                    customers: this.state.customers.filter((_, i) => i !== this.state.customers.indexOf(rowData))
+                                                })
+                                            }
+                                            else{
+                                                alert("קרתה תקלה. אנא רענן ונסה שוב")
+                                            }
                                         }
-                                        else{
-                                            alert("קרתה תקלה. אנא רענן ונסה שוב")
-                                        }
-                                    }
-                                )
-                            }
-                            catch(e) {
-                                console.log(e)}
+                                    )
+                                }
+                                catch(e) {
+                                    console.log(e)}
                             }
                             }
-                    > <i className="fas fa-trash-alt"></i></button>
+                            }
+                    ><i className="cancelRed"><CancelIcon /></i></button>
                     </td>
                     <td>
                      <button 
                      className="confirm-show-booking"
                      onClick={() => 
                         {
-                            this.setState({
-                                loading: true
-                            });
-                            try{
-                                fetch(url + "post/feedback", {
-                                    method: "POST",
-                                    body: JSON.stringify({
-                                        fullName: rowData[1],
-                                        email: rowData[2],
-                                        id: rowData[0]
+                            let confirm2 = window.confirm(
+                                "אתה בטוח שאתה רוצה לאשר את התור?"
+                              )
+                            if(confirm2){
+                                this.setState({
+                                    loading: true
+                                });
+                                try{
+                                    fetch(url + "post/feedback", {
+                                        method: "POST",
+                                        body: JSON.stringify({
+                                            fullName: rowData[1],
+                                            email: rowData[2],
+                                            id: rowData[0]
+                                        })
                                     })
-                                })
-                                .then(
-                                    (response) => {
-                                        if(response.status === 200){
-                                            this.setState({
-                                                loading: false
-                                            })
-                                            this.state.customers.splice(this.state.customers.indexOf(rowData), 1)                                        }
-                                        else{
-                                            alert("קרתה תקלה. אנא רענן ונסה שוב")
+                                    .then(
+                                        (response) => {
+                                            if(response.status === 200){
+                                                this.setState({
+                                                    loading: false
+                                                })
+                                                this.state.customers.splice(this.state.customers.indexOf(rowData), 1)                                        }
+                                            else{
+                                                alert("קרתה תקלה. אנא רענן ונסה שוב")
+                                            }
                                         }
-                                    }
-                                )
+                                    )
+                                }
+                                catch(e) {
+                                    console.log(e)}
                             }
-                            catch(e) {
-                                console.log(e)}
                             }
                             }
-                     ><i className="fas fa-check-circle"></i></button>
+                     ><i className="checkGreen"><CheckCircleOutlineIcon /></i></button>
                      
                      </td>
                  </tr>
