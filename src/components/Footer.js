@@ -60,7 +60,7 @@ function Footer(){
                            סקיי קלינר
                        </Link>
                     </div>
-                    <small className="website-rights"><br/><i className="fas fa-code"></i> <a className="credit-MY" href="https://www.linkedin.com/in/matan-yamin-40283b199/"> Client & Server side: Matan Yamin </a><i className="fas fa-code"></i></small>
+                    <small className="website-rights"><br/><i className="fas fa-code"></i> <a className="credit-MY" href="https://www.linkedin.com/in/matan-yamin-40283b199/">Client & Server side: Matan Yamin</a><i className="fas fa-code"></i></small>
                     <div className="social-icons">
                         <a className="social-icon-link facebook"
                         target="_blank"
@@ -68,7 +68,6 @@ function Footer(){
                         href="https://www.facebook.com/SkyCleanerIsrael"
                         aria-label="Facebook">
                             <FacebookIcon />
-                            <i className="fab fa-facebook-f"></i>
                         </a>
                         <a className="social-icon-link instagram"
                         target="_blank"
@@ -76,7 +75,6 @@ function Footer(){
                         href="https://www.instagram.com/skycleaner1/"
                         aria-label="Instagram">
                             <InstagramIcon />
-                            <i className="fab fa-instagram"></i>
                         </a>
                         <a className="social-icon-link phone"
                         target="_blank"
@@ -84,14 +82,12 @@ function Footer(){
                         href="tel:054-220-1042"
                         aria-label="Phone">
                             <CallIcon />
-                            <i className="fas fa-phone"></i>
                         </a>
                         <a className="social-icon-link whatsapp"
                         // target="_blank"
                         href="https://api.whatsapp.com/send?phone=972542201042&lang=he"
                         aria-label="Whatsapp">
                             <WhatsAppIcon />
-                            <i className="fab fa-whatsapp"></i>
                         </a>
                         <a className="social-icon-link email"
                         target="_blank"
@@ -99,7 +95,6 @@ function Footer(){
                         href="mailto:skycleanerisrael@gmail.com"
                         aria-label="Email">
                             <MailOutlineIcon />
-                            <i className="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
