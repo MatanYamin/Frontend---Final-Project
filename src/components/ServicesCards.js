@@ -31,13 +31,13 @@ function ServicesCards() {
                         <SingleService 
                         imgurl="https://i.ibb.co/VChPMLY/eco-car-wash.jpg" 
                         name="רכב"
-                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                        text="⠀ ⠀⠀⠀"
                         path="/Cars"
                         />
                         <SingleService 
                         imgurl="https://i.ibb.co/bvFRLRg/sofa.jpg" 
                         name="ספות"
-                        text="‎‎⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                        text="‎‎⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Furniture"
                         />
                     </ul>
@@ -45,19 +45,19 @@ function ServicesCards() {
                         <SingleService 
                         imgurl="https://www.cleanipedia.com/images/v2/93ea1df7133bbe3e644ab9be308a6a35-1800w-1200h.jpg" 
                         name="שטיחים"
-                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Rugs"
                         />
                         <SingleService 
                         imgurl="https://www.furniture-work.co.uk/blog/wp-content/uploads/2020/10/image.png" 
                         name="כיסאות"
-                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Chairs"
                         />
                         <SingleService 
                         imgurl="https://hgtvhome.sndimg.com/content/dam/images/hgtv/stock/2020/4/1/GettyImages-1206150640.jpg.rend.hgtvcom.1280.853.suffix/1589402879117.jpeg" 
                         name="מזרנים"
-                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                        text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Mattress"
                         />
                         </ul>

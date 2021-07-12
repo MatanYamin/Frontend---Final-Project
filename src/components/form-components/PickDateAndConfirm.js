@@ -124,6 +124,7 @@ export class PickDateAndConfirm extends Component {
                     {this.state.selectedDate ? <>
                     <CalendarTodayIcon />
                     <br/>
+                    <div className="part1">
             בחרת ב
             {weekDays[this.state.selectedDate.getDay()]}
             <br/>
@@ -134,11 +135,16 @@ export class PickDateAndConfirm extends Component {
              /
              {this.state.selectedDate.getMonth()+1}
              <br/>
-             {this.state.clickedHour? <> בשעה: {this.state.clickedHour} </> : <> <p className="red-text3">לא נבחרה שעה</p> </>}
+             
+             </div>
+             {this.state.clickedHour? <><div className="part1"> בשעה: {this.state.clickedHour} </div></> : <><div className="part1"> <p className="red-text3">לא נבחרה שעה</p></div> </>}
 
-            </> :<>   יש לבחור יום מלוח השנה, <br/><br/>ולאחר מכן שעה מבין השעות שנותרו. <br/><br/>אם התאריך שרציתם אינו פנוי, אנא פנו אלינו </>}
+             
+            </> :<><div className="part1">   יש לבחור יום מלוח השנה, <br/><br/>ולאחר מכן שעה מבין השעות שנותרו. <br/><br/>אם התאריך שרציתם אינו פנוי, אנא פנו אלינו </div></>}
             <br/>
+            <div className="part1">
             {this.state.avail}
+            </div>
             <br/><br/>
             {hours_button_list}
             </div>

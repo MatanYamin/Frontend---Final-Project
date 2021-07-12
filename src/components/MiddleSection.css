@@ -14,6 +14,18 @@
     text-align: -webkit-center;
 }
 
+.aboutContent2{
+  background-color: rgba(255, 255, 255, 0.4);
+  height: auto;
+  padding: 23px;
+  height: 100vh;
+  text-align: center;
+  font-size: 1.5vw;
+  font-weight: bold;
+  background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover
+  no-repeat;
+}
+
 .aboutContent{
   background-color: rgba(255, 255, 255, 0.4);
   height: auto;
@@ -99,7 +111,7 @@
     background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover
     no-repeat;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100%;
     /* font-size: large; */
     font-size: 2.196vw;
@@ -175,10 +187,22 @@
         margin-top: -100px;
     }
 
-    .aboutContent{
+    .about{
+      font-size: 5vw;
+    }
+
+    .sosService{
+      text-align: center;
+      font-size: 10.5vw;
+      font-weight: bold;
+      height: 50vh;
+    }
+
+    .aboutContent2{
       background-color: rgba(255, 255, 255, 0.4);
       height: auto;
       padding: 23px;
+      height: 100vh;
       font-size: 4.5vw;
       font-weight: bold;
       background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover

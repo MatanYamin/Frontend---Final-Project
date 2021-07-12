@@ -70,7 +70,7 @@
     /* left: 0.5vw; */
 }
 
-.sosService{
+/* .sosService{
     text-align: center;
     font-size: 2.5vw;
     position: absolute;
@@ -79,7 +79,7 @@
     top: 10vw;
     font-weight: bold;
     height: 50vh;
-}
+} */
 
 .social-icons-sos{
     position: absolute;
@@ -2073,7 +2073,7 @@ input {
         text-decoration:none;
         font-family:'Roboto',sans-serif;
         font-weight:300;
-        font-size: 7.5vw;
+        font-size: 4vw;
         text-align:center;
         transition: all 0.2s;
     }
@@ -2098,7 +2098,7 @@ input {
     }
 
     .pick-addon-btn{
-        width: 28vw;
+        width: 40vw;
         font-size: 5vw;
     }
 
@@ -2108,13 +2108,17 @@ input {
     }
 
     .addon-btn-cancel{
-        font-size: 6vw;
+        font-size: 8vw;
+        margin: 1vh;
         width: 28vw;
+        border-radius: 10px;
     }
 
     .addon-btn-cancel2{
-        font-size: 6vw;
+        font-size: 8vw;
+        margin: 1vh;
         width: 28vw;
+        border-radius: 10px;
     }
     .addon-btn{
         background: #2d2929;
@@ -2150,7 +2154,8 @@ input {
         text-decoration:none;
         font-family:'Roboto',sans-serif;
         font-size: 6vw;
-        background: white;
+        color:#FFFFFF;
+        background-color:black;
         text-align:center;
         transition: all 0.2s;
         cursor: pointer;
@@ -2298,31 +2303,41 @@ input {
     }
 
     .dit_btn_1{
-        background: #e9e9e9;
-        background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
-        background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-        color: black;
-        font-size: 4.5vw;
-        padding: 5px;
-        border: solid black 1px;
-        text-decoration: none;
         display: inline-block;
         cursor: pointer;
+        padding: 0.35em 5em;
+        border: 0.1em solid black;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.12em;
+        font-size: 6vw;
+        box-sizing: border-box;
+        text-decoration: none;
+        font-family: 'Roboto',sans-serif;
+        font-weight: bold;
         text-align: center;
+        transition: all 0.2s;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.7);
     }
     
     .dit_btn_15{
-        background: #e9e9e9;
-        background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
-        background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-        color: black;
-        font-size: 4.5vw;
-        padding: 5px;
-        border: solid black 1px;
-        text-decoration: none;
-        /* display: inline-block; */
+        display: inline-block;
         cursor: pointer;
+        padding: 0.35em 5em;
+        border: 0.1em solid #FFFFFF;
+        margin: 0 0.3em 0.3em 0;
+        border-radius: 0.12em;
+        font-size: 7vw;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto',sans-serif;
+        font-weight: bold;
         text-align: center;
+        transition: all 0.2s;
+        width: 90vw;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.78);
     }
 
     .lastConfirm{
@@ -2345,6 +2360,14 @@ input {
     .red-text3{
         color: red;
         font-size: 4vw;
+    }
+
+    .pickTxt{
+        display: none;
+    }
+
+    .part1{
+        font-size: 5vw;
     }
 
 }
