@@ -88,15 +88,8 @@
     bottom: 0;
 }
 
-.amongClients img{
-    width: 20vw;
-}
 
-.aboutContent{
-    background-color: rgba(255, 255, 255, 0.4);
-    height: auto;
-    padding: 23px;
-}
+
 
 .successFinalPage{
     height: 76.5vh;
@@ -186,6 +179,12 @@
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+.dit_btn_1:hover{
+    background-color:#000000;
+    color:#FFFFFF;
+    transition: all 0.8s ease-out;
+}
+
 .dit_btn_15{
     display: inline-block;
     cursor: pointer;
@@ -203,6 +202,12 @@
     transition: all 0.2s;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.78);
+}
+
+.dit_btn_15:hover{
+    background-color:#FFFFFF;
+    transition: all 0.8s ease-out;
+    color:#000000;
 }
 
 .pop-up-content5{
@@ -813,6 +818,7 @@ input {
     position: absolute;
     /* display: flex; */
     /* width: 43vw; */
+    font-size: 1.2vw;
     width: 38vw;
     right: 10px;
     border-radius: 27px;

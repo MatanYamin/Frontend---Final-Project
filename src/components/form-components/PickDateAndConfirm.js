@@ -134,7 +134,7 @@ export class PickDateAndConfirm extends Component {
              /
              {this.state.selectedDate.getMonth()+1}
              <br/>
-             {this.state.clickedHour? <> בשעה: {this.state.clickedHour} </> : <> לא נבחרה שעה </>}
+             {this.state.clickedHour? <> בשעה: {this.state.clickedHour} </> : <> <p className="red-text3">לא נבחרה שעה</p> </>}
 
             </> :<>   יש לבחור יום מלוח השנה, <br/><br/>ולאחר מכן שעה מבין השעות שנותרו. <br/><br/>אם התאריך שרציתם אינו פנוי, אנא פנו אלינו </>}
             <br/>
@@ -256,7 +256,7 @@ export class PickDateAndConfirm extends Component {
             :
             <>
             <br/>
-            לא נבחרה שעה
+            
             <div className="step-btn-container">
             <button className="step-btn"
             onClick={this.backward}>חזור

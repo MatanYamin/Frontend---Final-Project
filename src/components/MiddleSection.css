@@ -14,6 +14,16 @@
     text-align: -webkit-center;
 }
 
+.aboutContent{
+  background-color: rgba(255, 255, 255, 0.4);
+  height: auto;
+  padding: 23px;
+  font-size: 1.5vw;
+  font-weight: bold;
+  background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover
+  no-repeat;
+}
+
 .video-intro{
     font-size: 25px;
 }
@@ -47,6 +57,43 @@
     width: 55%;
 }
 
+.row9 {
+  content: "";
+  clear: both;
+  display: table;
+  display: flow-root;
+  text-align: -webkit-center;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.amongClients img{
+  width: 20vw;
+  height: 35vh;
+}
+
+.row9 img{
+  border: solid;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+/* .column1{
+  float: right;
+  width: 33.33%;
+  padding: 5px;
+}
+.column2{
+  width: 33.33%;
+  padding: 5px;
+}
+
+.column img{
+  width: 80%;
+  border: solid;
+  border-color: white;
+  border-radius: 7px;
+} */
 
 .about{
     background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover
@@ -101,6 +148,21 @@
         margin-top: -150px;
     }
 
+    .amongClients img {
+      width: 35vw;
+      height: 19vh;
+  }
+
+    .aboutContent{
+      background-color: rgba(255, 255, 255, 0.4);
+      height: auto;
+      padding: 23px;
+      font-size: 4.5vw;
+      font-weight: bold;
+      background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover
+      no-repeat;
+    }
+
     .first-img-logo{
         width: 100%;
     }
@@ -112,6 +174,25 @@
         font-size: 50px;
         margin-top: -100px;
     }
+
+    .aboutContent{
+      background-color: rgba(255, 255, 255, 0.4);
+      height: auto;
+      padding: 23px;
+      font-size: 4.5vw;
+      font-weight: bold;
+      background: url("https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg") center center/cover
+      no-repeat;
+    }
+
+    .amongClients img {
+      width: 35vw;
+      height: 19vh;
+  }
+
+  .thisImgFb img{
+    height: 40vh;
+  }
 }
 
 
@@ -193,6 +274,9 @@ label.button1{
         box-sizing: content-box;
         color: white;
         width: 100%;
+    }
+    .thisImgFb img{
+      height: 40vh;
     }
 }
 
