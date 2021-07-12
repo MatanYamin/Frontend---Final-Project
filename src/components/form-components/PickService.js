@@ -195,7 +195,8 @@ export class PickService extends Component {
             {services_button_list}
             </div>
             </> : <>
-            <label>{values.service}</label>
+            <label className="titleAddonSmall">{values.service}</label>
+            <br/>
             <br/>
             <img className="thisImage" alt="" width="50%"
             src={this.state.imageService} />
@@ -238,7 +239,7 @@ export class PickService extends Component {
             &nbsp;
             <Popup 
             open={this.state.openPopUp2}
-            trigger={<button className="dit_btn_1">לצפייה בשירותים לסוג שנבחר <i className="fas fa-images"></i></button>}
+            trigger={<button className="dit_btn_1">לבחירת שירות לסוג שנבחר</button>}
             on="click"
             onOpen={() => this.setState({ openPopUp2: !this.state.openPopUp2 })}
             >
@@ -320,10 +321,9 @@ export class PickService extends Component {
 
                      })}
                  >ביטול</button>
-                 &nbsp;
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button className="dit_btn_15" onClick={this.continue}>המשך</button>
-
-                 </div>
+            </div>
                  <br/>
             </>
             :

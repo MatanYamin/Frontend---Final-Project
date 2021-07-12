@@ -193,7 +193,11 @@ export class PersonalDetails extends Component {
         this.setState({checkPhone: e.target.value});
         if(!/^\d+$/.test(e.target.value) && e.target.value){
             alert("ניתן להקליד ספרות בלבד");
-            this.setState({checkPhone: "", checkPhoneFlag: true, flag4: false});
+            e.target.value = ""
+            this.setState({checkPhone: "",
+                           checkPhoneFlag: true,
+                           flag4: false
+                        });
         }
         if(e.target.value.length < 7){
             this.setState({badPhone: "מספר קצר מידי"});
@@ -259,7 +263,6 @@ export class PersonalDetails extends Component {
             onInput={(e) => {this.validFirst(e)}}
             defaultValue={values.firstName}
             />
-            &nbsp;&nbsp;
             {this.state.flag1? <><CheckCircleOutlineIcon /></> : null}
             
             </div>
@@ -271,7 +274,6 @@ export class PersonalDetails extends Component {
             onInput={(e) => {this.validLast(e)}}
             defaultValue={values.lastName}
             />
-            &nbsp;&nbsp;
             {this.state.flag2? <><CheckCircleOutlineIcon /></> : null}
             </div>
             <h6><label className="red-text3">*</label>דוא"ל: </h6>
@@ -285,7 +287,6 @@ export class PersonalDetails extends Component {
             defaultValue={values.email}
             required={true}
             />
-            &nbsp;&nbsp;
             {this.state.flag3? <><CheckCircleOutlineIcon /></> : null}
             </div>
             <Loader
@@ -306,7 +307,6 @@ export class PersonalDetails extends Component {
             onInput={(e) => {this.validPhone(e)}}
             value={this.props.values.phone}
             />
-            &nbsp;&nbsp;
             {this.state.flag4? <><CheckCircleOutlineIcon /></> : null}
             </div>
             <label className="red-text3">{this.state.badPhone}</label>
@@ -336,7 +336,6 @@ export class PersonalDetails extends Component {
                 })
             }}
             />
-            &nbsp;&nbsp;
             {this.state.flag5? <><CheckCircleOutlineIcon /></> : null}
             </div>
             <h6>הערות:</h6>

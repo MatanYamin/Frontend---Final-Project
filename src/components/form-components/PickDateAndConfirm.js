@@ -30,7 +30,7 @@ export class PickDateAndConfirm extends Component {
           loading: false,
           clickedHour: "",
           avail: "",
-          textOnBubble: "בחלק הזה יש לבחור יום מהלוח שנה ולאחר מכן שעה מבין השעות שנותרו. אם התאריך שרציתם אינו פנוי, אנא פנו אלינו"
+          textOnBubble: "  יש לבחור יום מהלוח שנה ולאחר מכן שעה מבין השעות שנותרו. אם התאריך שרציתם אינו פנוי, אנא פנו אלינו"
         };
     }
 
@@ -82,6 +82,7 @@ export class PickDateAndConfirm extends Component {
     setSelectedDate = date => {
         this.setState({
             selectedDate: date,
+            clickedHour: "",
             avail: "בחרו שעה מבין השעות שנותרו:",
             loading: true
         });
@@ -97,7 +98,7 @@ export class PickDateAndConfirm extends Component {
     const {values: {service, addons, firstName, price, lastName, email, address, city, phone, comments, image}} = this.props;
     const {loading} = this.state
     const exclude_days_array = [];
-    const weakDays = ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "יום שבת"]
+    const weekDays = ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "יום שבת"]
     // mapping disabled dates to an array
     this.state.disable_dates.map(day => (
         exclude_days_array.push(new Date(day))));
@@ -124,7 +125,7 @@ export class PickDateAndConfirm extends Component {
                     <CalendarTodayIcon />
                     <br/>
             בחרת ב
-            {weakDays[this.state.selectedDate.getDay()]}
+            {weekDays[this.state.selectedDate.getDay()]}
             <br/>
             <br/>
             בתאריך:
@@ -133,7 +134,9 @@ export class PickDateAndConfirm extends Component {
              /
              {this.state.selectedDate.getMonth()+1}
              <br/>
-            </> :<> בחלק הזה יש לבחור יום מהלוח שנה <br/><br/>לאחר מכן שעה מבין השעות שנותרו <br/><br/>אם התאריך שרציתם אינו פנוי, אנא פנו אלינו </>}
+             {this.state.clickedHour? <> בשעה: {this.state.clickedHour} </> : <> לא נבחרה שעה </>}
+
+            </> :<>   יש לבחור יום מלוח השנה, <br/><br/>ולאחר מכן שעה מבין השעות שנותרו. <br/><br/>אם התאריך שרציתם אינו פנוי, אנא פנו אלינו </>}
             <br/>
             {this.state.avail}
             <br/><br/>
@@ -191,7 +194,7 @@ export class PickDateAndConfirm extends Component {
                     </select> */}
             </div>
            
-            {this.state.temp_hour ? 
+            {this.state.clickedHour ? 
             <>
             {/* <div> */}
             <div className="step-btn-container">

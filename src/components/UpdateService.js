@@ -403,7 +403,7 @@ render() {
             <br/>
             <input type="file" onChange={this.uploadToS3} /> */}
             
-            <label className="image_upload_input">העלה תמונה <ImageSearchIcon />
+            <label className="image_upload_input2">העלה תמונה <ImageSearchIcon />
             <input hidden type="file" onChange={this.uploadToS3} />
             </label>
             {this.state.serviceImageFlag? 

@@ -33,7 +33,7 @@ export class BlockDay extends Component {
 
 
 render() {
-    const weakDays = ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "יום שבת"]
+    const weekDays = ["יום ראשון", "יום שני", "יום שלישי", "יום רביעי", "יום חמישי", "יום שישי", "יום שבת"]
     return(
         <>
             <Tabs
@@ -63,9 +63,9 @@ render() {
             {this.state.selectedDate? 
             <>
             <div className="showBlocked">
-            בחרת לחסום את: 
+            בחרת את: 
             &nbsp;
-            {weakDays[this.state.selectedDate.getDay()]}
+            {weekDays[this.state.selectedDate.getDay()]}
             <br/>
             בתאריך:
             &nbsp;

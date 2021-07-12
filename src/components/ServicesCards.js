@@ -37,25 +37,25 @@ function ServicesCards() {
                         <SingleService 
                         imgurl="https://i.ibb.co/bvFRLRg/sofa.jpg" 
                         name="ספות"
-                        text="‎‎⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+                        text="‎‎⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Furniture"
                         />
                     </ul>
                         <ul className="cards__items">
                         <SingleService 
-                        imgurl="https://i.ibb.co/VJw3B5b/carpet.jpg" 
+                        imgurl="https://www.cleanipedia.com/images/v2/93ea1df7133bbe3e644ab9be308a6a35-1800w-1200h.jpg" 
                         name="שטיחים"
                         text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Rugs"
                         />
                         <SingleService 
-                        imgurl="https://i.ibb.co/PGVYcd6/chair.jpg" 
+                        imgurl="https://www.furniture-work.co.uk/blog/wp-content/uploads/2020/10/image.png" 
                         name="כיסאות"
                         text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Chairs"
                         />
                         <SingleService 
-                        imgurl="https://www.fourstar.com.sg/wp-content/uploads/2019/12/how-to-clean-your-mattress-right-during-spring-cleaning.png" 
+                        imgurl="https://hgtvhome.sndimg.com/content/dam/images/hgtv/stock/2020/4/1/GettyImages-1206150640.jpg.rend.hgtvcom.1280.853.suffix/1589402879117.jpeg" 
                         name="מזרנים"
                         text="⠀ ⠀ ⠀ ⠀ ⠀ ⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
                         path="/Mattress"

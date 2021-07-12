@@ -117,22 +117,22 @@ export class Confirm extends Component {
             {/* <img className="img-confirm" src={image} /> */}
                 {/* <br/> */}
                 <div className="thisTitle">
-                 שם:</div>
+                 <PersonIcon />שם:</div>
                 {/* &nbsp; */}
-                <div className="thisTitle2"><PersonIcon />{firstName} {lastName}</div>
+                <div className="thisTitle2">{firstName} {lastName}</div>
                 <div className="thisTitle">
-                 כתובת:</div>
-                 <div className="thisTitle2"><ContactMailIcon /> {address}, {city}</div>
-               <div className="thisTitle"> מייל: </div>
-               <div className="thisTitle2"><MailIcon /> {email}</div> 
-                <div className="thisTitle"> מספר טלפון:</div>
-                <div className="thisTitle2"><PhoneIcon /> {phone}</div>
-               <div className="thisTitle"> השירות:</div>
-               <div className="thisTitle2"><RoomServiceIcon /> {service}  {addons}</div>
-                <div className="thisTitle"> המחיר:</div>
-                <div className="thisTitle2"> <LocalOfferIcon /> {price} ₪</div>
-                <div className="thisTitle"> הערות:</div>    
-                <div className="thisTitle2"><CommentIcon />  {comments} </div>
+                 <ContactMailIcon /> כתובת: </div>
+                 <div className="thisTitle2"> {address}, {city}</div>
+               <div className="thisTitle"><MailIcon /> מייל: </div>
+               <div className="thisTitle2"> {email}</div> 
+                <div className="thisTitle"><PhoneIcon /> מספר טלפון:</div>
+                <div className="thisTitle2"> {phone}</div>
+               <div className="thisTitle"><RoomServiceIcon /> השירות:</div>
+               <div className="thisTitle2"> {service}  {addons}</div>
+                <div className="thisTitle"><LocalOfferIcon /> המחיר:</div>
+                <div className="thisTitle2">  {price} ₪</div>
+                <div className="thisTitle"><CommentIcon /> הערות:</div>    
+                <div className="thisTitle2">  {comments} </div>
                 </div>
             {/* Continue button - calls "continue" that increase step state by 1 */}
             <div className="step-btn-container">
